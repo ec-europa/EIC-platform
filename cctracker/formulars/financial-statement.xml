@@ -1,0 +1,84 @@
+<Form Tag="FundingRequest" StartLevel="2"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  >
+  <Title>Demande de financement</Title>
+  
+  <Verbatim>
+    <!-- Updated financial planning table -->
+    <xt:component name="t_activity_summary">
+      <tr>
+        <td><i>Current</i></td>
+        <td><Field Key="cell" Tag="CompanyName"/></td>
+        <td><Field Key="cell" Tag="Phase"/></td>
+        <td><Field Key="cell" Tag="Hours"/></td>
+        <td><Field Key="cell" Tag="Fee"/></td>
+        <td><Field Key="cell" Tag="Travel"/></td>
+        <td><Field Key="cell" Tag="Allowance"/></td>
+        <td><Field Key="cell" Tag="TotalCost"/></td>
+      </tr>
+    </xt:component>
+    <xt:component name="t_current_activity">
+      <tr>
+        <td><i>Updated</i></td>            
+        <td><Field Key="cell" Tag="CompanyName"/></td>
+        <td><Field Key="cell" Tag="Phase"/></td>
+        <td><Field Key="cell" Tag="Hours"/></td>
+        <td><Field Key="cell" Tag="Fee"/></td>
+        <td><Field Key="cell" Tag="Travel"/></td>
+        <td><Field Key="cell" Tag="Allowance"/></td>
+        <td><Field Key="cell" Tag="TotalCost"/></td>
+      </tr>
+    </xt:component>    
+  </Verbatim>
+    
+  <Row>
+    <Cell Tag="Budget" Id="x-freq-Budget">
+      <Title Level="1">Update activity financial planing</Title>
+      
+      <p class="hint">Fill the latest data into the <i>Updated</i> row then save the form to update your financial planing for the coaching activity.</p>
+      
+      <Cell Id="cplan-financial-statement" Tag="FinancialStatement">
+        <table class="table table-bordered spreadsheet">
+          <tr>
+            <th></th>
+            <th>Name of client SME</th>
+            <th>Phase</th>
+            <th>Hours</th>
+            <th>Fee</th>
+            <th>Travel</th>
+            <th>Allowance</th>
+            <th>Total cost</th>
+          </tr>
+          <xt:use types="t_activity_summary" label="Activity"/>
+          <xt:use types="t_current_activity" label="CurrentActivity"/>
+        </table>
+      </Cell>
+    </Cell>
+  </Row>
+  
+  <Commands>
+  </Commands>
+
+  <Bindings>
+    <Require Keys="coach type role"/>
+    <!-- for partner directly edit form.xql -->
+    <Enforce>
+      <RegExp Keys="amount-oe amount-fs task-nb-of-hours" Message-loc="validation.integer" Message="Entrez uniquement des chiffres" Pattern="[0-9]*">^\s*\d*\s*$</RegExp>
+    </Enforce>
+  </Bindings>
+
+  <Plugins>
+    <Plain Keys="cell"/>
+    <Plain Keys="computed" Constant="yes"/>
+    <Input Keys="constant1"/>
+    <Input Keys="amount-oe amount-fs" Class="text-right"/>
+    <Input Keys="title name task-nb-of-hours"/>
+    <Text Keys="comments task-description funding-comment"/>
+    <Constant Keys="total-tasks total-other-expenses total-budget total-funding-src" Append="EU" Class="text-right"/>
+    <Constant Keys="budget-balance" Param="constant_colorize=balance" Append="EU" Class="text-right"/>
+    <!-- <RichText Keys="objectives" Menu="inside"/> -->
+    <MultiText Keys="objectives" Menu="inside"/>
+    <!-- NB: Enterprise is only editable through modal dialog boxes-->
+  </Plugins>
+</Form>

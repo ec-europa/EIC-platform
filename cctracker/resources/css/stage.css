@@ -1,0 +1,128 @@
+/* Module level CSS for stage (hand-written XTiger XML template) */
+
+form.c-search {
+  background: #9EC0D9;  /* rgb(142,176,201); #8EB0C9 */
+  border: 1px solid #dddddd;
+  position: relative;   /* trick because of border */
+  left: -5px;
+  width: 942px;
+  padding: 4px 4px 10px 4px;
+}
+
+form, #form-table td {
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+input.c-input-nb { /* same as select below */
+  width: 136px;
+}
+
+legend {
+  color: rgb(0,69,99);
+}
+
+span.c-legacy:after {
+  opacity: 0.5;
+  content: " (L)";
+  color: red;
+}
+
+#form-table {
+  width: 100%;
+  border-spacing: 5px 0;
+  border-collapse: separate;
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 10px;
+}
+
+#form-table td {
+  padding: 0 4px;
+  vertical-align: top;
+  border: solid 1px #DDDDDD;
+}
+
+input.date {
+  width: 6em;
+}
+
+input.date[disabled] {
+  color: lightgray;
+  font-style: italic;
+}
+
+span.date { /* FIXME: replace with 'input' plugin */
+  border: 1px solid #CCCCCC;
+  border-radius: 4px 4px 4px 4px;
+  color: #555555;
+  font-size: 14px;
+  padding: 4px 6px;
+  width: 8em !important;
+  background: white;
+  margin-left: 5px;
+}
+
+#xt-date-datepicker {
+ width: 8em;
+}
+
+/* Bootstrap customization (customization of grid metrics to use table to draw borders) */
+
+.control-label {
+  width: 60px !important;
+}
+.controls {
+  margin-left: 70px !important;
+}
+select {
+  max-width: 150px;
+  width: 150px;
+}
+legend {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+fieldset.subset {
+  margin-bottom: 0;
+  padding:0;
+}
+fieldset.subset legend {
+ font-size: 14px;
+}
+label, input, button, select, textarea, span.date {
+  font-size: 12px !important;
+  line-height: 18px !important;
+}
+fieldset.subset label, fieldset.subset select {
+  font-size: 10px;
+}
+.form-horizontal .control-label {
+  padding-top: 0;
+}
+legend + .control-group {
+  margin-top: 10px;
+}
+legend.subset {
+  font-size: 14px;
+  line-height: 30px;
+  /*margin-bottom: 8px;*/
+}
+legend.subset + .control-group {
+  margin-top: 10px;
+}
+.form-horizontal fieldset.subset .control-group {
+    margin-bottom: 10px;
+}
+
+/* Duplicated from forms.css */
+
+div.select2-drop-auto-width { /* overwrite select2 */
+	border-top: 1px solid #5897FB !important;
+}
+
+span.town { /* Enterprise drop down complement */
+  color: gray;
+  font-style: italic;
+}

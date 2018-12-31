@@ -1,0 +1,19 @@
+<collection xmlns="http://exist-db.org/collection-config/1.0">
+  <index>
+    <!-- Range indexes -->
+    <create qname="Id" type="xs:string"/>
+    <create qname="FormerCaseNo" type="xs:string"/>
+    <create qname="No" type="xs:string"/>
+    <create type="xs:string" qname="Acronym"/>
+    <create type="xs:string" qname="ProjectOfficerRef"/>
+    <create type="xs:string" qname="PIC"/>
+    <create type="xs:string" qname="Date"/>
+    <create type="xs:string" qname="FundingProgramRef"/>
+    <create type="xs:string" qname="FETActionRef"/>
+    <create type="xs:string" qname="SMEiFundingRef"/>
+    <create type="xs:string" qname="SMEiCallRef"/>
+    <create type="xs:string" qname="TopicRef"/>
+    <create type="xs:string" qname="EICPanelRef"/>
+    <create type="xs:string" qname="FETTopicRef"/>
+  </index>
+</collection>

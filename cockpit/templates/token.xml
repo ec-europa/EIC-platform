@@ -1,0 +1,379 @@
+<Templates>
+  <Template Name="token" Mode="bootstrap" Subject="Enterprise" >
+<![CDATA[
+  <XAL>
+    <XALAction Type="insert">
+      <Tokens>
+        <TokenHistory For="ScaleupEU" CreationDate="{ $date }" LastIndex="1">
+          <TokenRequest CreationDate="{ $date }">
+            <Order>1</Order>
+            <TokenStatusRef>{ $form/TokenStatusRef/text() }</TokenStatusRef>
+            <PersonKey>{ $creator-ref }</PersonKey>
+            { $form/Email }
+          </TokenRequest>
+        </TokenHistory>
+      </Tokens>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="token" Mode="create" Assert="exists($subject//TokenHistory[@For eq 'ScaleupEU'])" Fallback="bootstrap" Subject="Enterprise" >
+<![CDATA[
+  <XAL>
+    <XALAction Type="insert" Pivot="$subject//TokenHistory[@For eq 'ScaleupEU']">
+      <TokenRequest CreationDate="{ $date }">
+        <Order>{{ xal:auto-increment($subject, 'LastIndex') }}</Order>
+        <TokenStatusRef>{ $form/TokenStatusRef/text() }</TokenStatusRef>
+        <PersonKey>{ $creator-ref }</PersonKey>
+        { $form/Email }
+      </TokenRequest>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="token" Mode="update" Subject="TokenRequest">
+<![CDATA[
+  <XAL>
+  </XALAction>
+    <XALAction Type="align">
+      { $form/Email }
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="token-reject" Mode="update" Subject="TokenRequest">
+<![CDATA[
+  <XAL>
+    <XALAction Type="attribute" Name="LastModification">
+      <Value>{ current-dateTime() }</Value>
+    </XALAction>
+    <XALAction Type="update" Update="value" >
+      <TokenStatusRef>2</TokenStatusRef>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="token-allocate" Mode="update" Subject="TokenRequest">
+<![CDATA[
+  <XAL>
+    <XALAction Type="attribute" Name="DecisionDate">
+      <Value>{ current-dateTime() }</Value>
+    </XALAction>
+    <XALAction Type="update" Update="value">
+      <TokenStatusRef>3</TokenStatusRef>
+    </XALAction>
+    <XALAction Type="replace">
+      { $form/Email }
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="token-withdraw" Mode="update" Subject="TokenRequest" Object="Email">
+<![CDATA[
+  <XAL>
+    <XALAction Type="attribute" Name="LastModification">
+      <Value>{ current-dateTime() }</Value>
+    </XALAction>
+    <XALAction Type="update" Update="value" >
+      <TokenStatusRef>4</TokenStatusRef>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="token-transfer" Mode="update" Subject="TokenRequest">
+<![CDATA[
+  <XAL>
+    <XALAction Type="attribute" Name="LastModification">
+      <Value>{ current-dateTime() }</Value>
+    </XALAction>
+    <XALAction Type="update" Update="value">
+      <TokenStatusRef>5</TokenStatusRef>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="token-delete" Mode="update" Subject="TokenRequest">
+<![CDATA[
+  <XAL>
+    <XALAction Type="attribute" Name="LastModification">
+      <Value>{ current-dateTime() }</Value>
+    </XALAction>
+    <XALAction Type="update" Update="value">
+      <TokenStatusRef>6</TokenStatusRef>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- Create TokenRequest to archive user e-mail in ScaleupEU individual 
+       token allocated to Facilitator or Monitor 
+       The token is created Allocated -->
+  <Template Name="individual-token" Mode="create" Subject="Person" >
+<![CDATA[
+  <XAL>
+    <XALAction Type="insert">
+      <Tokens>
+        <TokenHistory For="ScaleupEU" CreationDate="{ $date }">
+          <TokenRequest DecisionDate="{ $date }">
+            <TokenStatusRef>3</TokenStatusRef>
+            { $form/Email }
+          </TokenRequest>
+        </TokenHistory>
+      </Tokens>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- Generate ScaleupEU payload to allocate or suspend an individual account
+       Take Operation and Category from submitted Form
+       Take datas from $data in $form - this template is used by user roles formular during assertion step, it implies to get datas from the formular since the account is not updated yet
+    -->
+  <!-- Deprecated -->
+  <Template Name="scaleup-individual-wstoken-from-forms" Mode="update" Subject="Person" Object="LastRequest">
+    <![CDATA[
+      let $functionRef := if ($form/Category/text() eq 'facilitator')  then '10' else '11'
+        return
+        <Individual _Prune="none">
+          <Operation>{ $form/Operation/text() }</Operation>
+          <Category>{ $form/Category/text() }</Category>
+          <Contact>
+            { 
+            $subject/Information/Name,
+            $subject/Information/Contacts/Email,
+            <EULogin>{ $subject/UserProfile/Remote[@Name eq 'ECAS']/text() }</EULogin>
+            }
+          </Contact>
+          {
+            if (string($object/Email) ne $subject/Information/Contacts/Email) then
+              <LastEmail>{ $object/Email/text() }</LastEmail>
+            else
+              ()
+            ,  
+            <TargetGroup>
+              <TargetGroupCompanies> 
+                <Location>
+              		<Countries>
+              		{
+              		  if ($form/Category/text() eq 'facilitator') then
+                		  for $cr in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationFacilitator/TargetGroupsFacilitator/TargetGroupFacilitatorCompanies[TargetGroupFacilitatorCompaniesSelector eq 'on']//CountryRef/text())
+                		    return
+                		      <CountryRef>{ $cr }</CountryRef>
+                		else
+                		  for $cr in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationMonitor/TargetGroupsMonitor/TargetGroupMonitorCompanies[TargetGroupMonitorCompaniesSelector eq 'on']//CountryRef/text())
+                		    return
+                		      <CountryRef>{ $cr }</CountryRef>
+              		}  
+              		</Countries>
+              		<Regions>
+              		{
+              		  if ($form/Category/text() eq 'facilitator') then
+                   	  for $rr in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationFacilitator/TargetGroupsFacilitator/TargetGroupFacilitatorCompanies[TargetGroupFacilitatorCompaniesSelector eq 'on']//RegionRef/text())
+                   	    return
+                   	      <RegionRef>{ $rr }</RegionRef>
+                   	else
+                   	  for $rr in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationMonitor/TargetGroupsMonitor/TargetGroupMonitorCompanies[TargetGroupMonitorCompaniesSelector eq 'on']//RegionRef/text())
+                   	    return
+                   	      <RegionRef>{ $rr }</RegionRef>
+              		}  
+              		</Regions>
+              	</Location>
+                <BusinessActivities>
+              		<IndustrialSectors>
+              		{
+              		  if ($form/Category/text() eq 'facilitator') then
+                		  for $dar in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationFacilitator/TargetGroupsFacilitator/TargetGroupFacilitatorCompanies[TargetGroupFacilitatorCompaniesSelector eq 'on']//DomainActivityRef/text())
+                		    return
+                		      <IndustrialSectorRef>{ $dar }</IndustrialSectorRef>
+                		else
+                		  for $dar in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationMonitor/TargetGroupsMonitor/TargetGroupMonitorCompanies[TargetGroupMonitorCompaniesSelector eq 'on']//DomainActivityRef/text())
+                		    return
+                		      <IndustrialSectorRef>{ $dar }</IndustrialSectorRef>
+              		}
+              		</IndustrialSectors>
+              		
+              		<TargetMarkets>
+              		{
+              		  if ($form/Category/text() eq 'facilitator') then
+                		  for $tmr in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationFacilitator/TargetGroupsFacilitator/TargetGroupFacilitatorCompanies[TargetGroupFacilitatorCompaniesSelector eq 'on']//TargetedMarketRef/text())
+                		    return
+                		      <TargetMarketRef>{ $tmr }</TargetMarketRef>
+                		else
+                		  for $tmr in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationMonitor/TargetGroupsMonitor/TargetGroupMonitorCompanies[TargetGroupMonitorCompaniesSelector eq 'on']//TargetedMarketRef/text())
+                		    return
+                		      <TargetMarketRef>{ $tmr }</TargetMarketRef>
+              		}      						
+              		</TargetMarkets>
+              	</BusinessActivities>                        
+              </TargetGroupCompanies>
+              <TargetGroupInvestors> 
+                <Location>
+              		<Countries>
+              		{
+              		  if ($form/Category/text() eq 'facilitator') then
+                		  for $cr in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationFacilitator/TargetGroupsFacilitator/TargetGroupFacilitatorInvestors[TargetGroupFacilitatorInvestorsSelector eq 'on']//CountryRef/text())
+                		    return
+                		      <CountryRef>{ $cr }</CountryRef>
+                		else
+                		  for $cr in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationMonitor/TargetGroupsMonitor/TargetGroupMonitorInvestors[TargetGroupMonitorInvestorsSelector eq 'on']//CountryRef/text())
+                		    return
+                		      <CountryRef>{ $cr }</CountryRef>
+              		}  
+              		</Countries>
+              		<Regions>
+              		{
+              		  if ($form/Category/text() eq 'facilitator') then
+                   	  for $rr in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationFacilitator/TargetGroupsFacilitator/TargetGroupFacilitatorInvestors[TargetGroupFacilitatorInvestorsSelector eq 'on']//RegionRef/text())
+                   	    return
+                   	      <RegionRef>{ $rr }</RegionRef>
+                   	else
+                   	  for $rr in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationMonitor/TargetGroupsMonitor/TargetGroupMonitorInvestors[TargetGroupMonitorInvestorsSelector eq 'on']//RegionRef/text())
+                   	    return
+                   	      <RegionRef>{ $rr }</RegionRef>
+              		}  
+              		</Regions>
+              	</Location>
+                <BusinessActivities>
+              		<IndustrialSectors>
+              		{
+              		  if ($form/Category/text() eq 'facilitator') then
+                		  for $dar in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationFacilitator/TargetGroupsFacilitator/TargetGroupFacilitatorInvestors[TargetGroupFacilitatorInvestorsSelector eq 'on']//DomainActivityRef/text())
+                		    return
+                		      <IndustrialSectorRef>{ $dar }</IndustrialSectorRef>
+                		else
+                		  for $dar in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationMonitor/TargetGroupsMonitor/TargetGroupMonitorInvestors[TargetGroupMonitorInvestorsSelector eq 'on']//DomainActivityRef/text())
+                		    return
+                		      <IndustrialSectorRef>{ $dar }</IndustrialSectorRef>
+              		}
+              		</IndustrialSectors>
+              		
+              		<TargetMarkets>
+              		{
+              		  if ($form/Category/text() eq 'facilitator') then
+                		  for $tmr in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationFacilitator/TargetGroupsFacilitator/TargetGroupFacilitatorInvestors[TargetGroupFacilitatorInvestorsSelector eq 'on']//TargetedMarketRef/text())
+                		    return
+                		      <TargetMarketRef>{ $tmr }</TargetMarketRef>
+                		else
+                		  for $tmr in distinct-values($form/UserProfile/BusinessSegmentation/BusinessSegmentationMonitor/TargetGroupsMonitor/TargetGroupMonitorInvestors[TargetGroupMonitorInvestorsSelector eq 'on']//TargetedMarketRef/text())
+                		    return
+                		      <TargetMarketRef>{ $tmr }</TargetMarketRef>
+              		}      						
+              		</TargetMarkets>
+              	</BusinessActivities>                        
+              </TargetGroupInvestors>                  
+            </TargetGroup>
+          }
+        </Individual>
+  ]]>
+  </Template>
+  <!-- Generate ScaleupEU payload to allocate or suspend an individual account
+       Take Operation and Category from submitted Form -->
+  <!-- Deprecated -->
+  <Template Name="scaleup-individual-wstoken" Mode="update" Subject="Person" Object="LastRequest">
+    <![CDATA[
+      let $functionRef := if ($form/Category/text() eq 'facilitator')  then '10' else '11'
+        return
+        <Individual _Prune="none">
+          <Operation>{ $form/Operation/text() }</Operation>
+          <Category>{ $form/Category/text() }</Category>
+          <Contact>
+            { 
+            $subject/Information/Name,
+            $subject/Information/Contacts/Email,
+            <EULogin>{ $subject/UserProfile/Remote[@Name eq 'ECAS']/text() }</EULogin>
+            }
+          </Contact>
+          {
+            if (string($object/Email) ne $subject/Information/Contacts/Email) then
+              <LastEmail>{ $object/Email/text() }</LastEmail>
+            else
+              ()
+            ,  
+            <TargetGroup>
+              <TargetGroupCompanies> 
+                <Location>
+              		<Countries>
+              		{
+              		  for $cr in distinct-values($subject/BusinessSegmentation[FunctionRef eq $functionRef]/TargetGroups/CompaniesTargetGroup//CountryRef/text())
+              		    return
+              		      <CountryRef>{ $cr }</CountryRef>
+              		}  
+              		</Countries>
+              		<Regions>
+              		{
+              	  for $rr in distinct-values($subject/BusinessSegmentation[FunctionRef eq $functionRef]/TargetGroups/CompaniesTargetGroup//RegionRef/text())
+              	    return
+              	      <RegionRef>{ $rr }</RegionRef>
+              		}  
+              		</Regions>
+              	</Location>
+                <BusinessActivities>
+              		<IndustrialSectors>
+              		{
+              		  for $dar in distinct-values($subject/BusinessSegmentation[FunctionRef eq $functionRef]/TargetGroups/CompaniesTargetGroup//DomainActivityRef/text())
+              		    return
+              		      <IndustrialSectorRef>{ $dar }</IndustrialSectorRef>
+              		}
+              		</IndustrialSectors>
+              		
+              		<TargetMarkets>
+              		{
+              		  for $tmr in distinct-values($subject/BusinessSegmentation[FunctionRef eq $functionRef]/TargetGroups/CompaniesTargetGroup//TargetedMarketRef/text())
+              		    return
+              		      <TargetMarketRef>{ $tmr }</TargetMarketRef>
+              		}      						
+              		</TargetMarkets>
+              	</BusinessActivities>                        
+              </TargetGroupCompanies>
+              <TargetGroupInvestors>                
+                <Location>
+              		<Countries>
+              		{
+              		  for $cr in distinct-values($subject/BusinessSegmentation[FunctionRef eq $functionRef]/TargetGroups/InvestorsTargetGroup//CountryRef/text())
+              		    return
+              		       <CountryRef>{ $cr }</CountryRef>
+              		}  
+              		</Countries>
+              		<Regions>
+              		{
+              	  for $rr in distinct-values($subject/BusinessSegmentation[FunctionRef eq $functionRef]/TargetGroups/InvestorsTargetGroup//RegionRef/text())
+              	    return
+              	      <RegionRef>{ $rr }</RegionRef>
+              		}  
+              		</Regions>
+              	</Location>
+                <BusinessActivities>
+              		<IndustrialSectors>
+              		{
+              		  for $dar in distinct-values($subject/BusinessSegmentation[FunctionRef eq $functionRef]/TargetGroups/InvestorsTargetGroup//DomainActivityRef/text())
+              		    return
+              		      <IndustrialSectorRef>{ $dar }</IndustrialSectorRef>
+              		}
+              		</IndustrialSectors>
+              		<TargetMarkets>
+              		{
+              		  for $tmr in distinct-values($subject/BusinessSegmentation[FunctionRef eq $functionRef]/TargetGroups/InvestorsTargetGroup//TargetedMarketRef/text())
+              		    return
+              		      <TargetMarketRef>{ $tmr }</TargetMarketRef>
+              		}      						
+              		</TargetMarkets>
+              	</BusinessActivities>                        
+              </TargetGroupInvestors>
+            </TargetGroup>
+          }
+        </Individual>
+  ]]>
+  </Template>  
+  <!-- Generate ScaleupEU payload to delete an individual account
+       Take Category and Email from submitted Form -->
+  <!-- Deprecated -->
+  <Template Name="scaleup-individual-wstoken" Mode="delete" Subject="Person">
+<![CDATA[
+<Individual>
+  <Operation>delete</Operation>
+  <Category>{ $form/Category/text() }</Category>
+  <Contact>
+    { $form/Email }
+  </Contact>
+</Individual>
+]]>
+  </Template>
+</Templates>

@@ -1,0 +1,18 @@
+<Form Tag="KPIFilter" StartLevel="2" Wrapper="none"
+      xmlns:xt="http://ns.inria.org/xtiger" xmlns:site="http://oppidoc.com/oppidum/site">
+  <Title Render="h2" style="text-align:center">KPI related selection criteria</Title>
+  <Row>
+    <SearchMask FirstColumnWidth="15%" ThirdColumnWidth="40%">
+      <Include src="stats.xml" Name="activity-in-kpi"/>
+      <Include src="stats.xml" Name="kpi"/>
+      <Include src="stats.xml" Name="factors"/>
+      <Include src="stats.xml" Name="questions"/>
+      <Include src="stats.xml" Name="priorities"/>
+      <Include src="stats.xml" Name="progress"/>
+      <Include src="stats.xml" Name="project"/>
+      <Include src="stats.xml" Name="sme"/>
+      <Include src="stats.xml" Name="een"/>
+      <Include src="stats.xml" Name="needs"/>
+    </SearchMask>
+  </Row>
+</Form>

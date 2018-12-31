@@ -1,0 +1,150 @@
+<Form Tag="Information" Layout="fluid" StartLevel="1" Width="800px"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Title>Case Initiation Formulare (Information)</Title>
+
+  <Verbatim>
+    <xt:component name="t_person_name">
+      <Field Key="firstname" Tag="FirstName" W="6" Gap="1" L="0">Name</Field>
+      <Field Key="lastname" Tag="LastName" W="6" Gap="1">Surname</Field>
+    </xt:component>
+    <xt:component name="t_contacts">
+      <Field Key="phone" Tag="Phone" Gap="1" W="6" L="0">Phone</Field>
+      <Field Key="mobile" Tag="Mobile" Gap="1" W="6">Mobile</Field>
+      <Field Key="email" Tag="Email" Gap="1" W="12" L="0">Email</Field>
+    </xt:component>
+    <xt:component name="t_address">
+      <Cell W="7" Gap="1.1">
+        <Title>Address</Title>
+        <Field Key="street" Tag="StreetNameAndNo" W="12" Gap="1">Street &amp; no</Field>
+        <Field Key="box" Tag="PO-Box" Gap="1">Box number</Field>
+        <Field Key="careof" Tag="Co" Gap="1">c/o</Field>
+        <Field Key="npa" Tag="PostalCode" Gap="1">Postcode</Field>
+        <Field Key="town" Tag="Town" Gap="1">City</Field>
+        <Field Key="nuts" Tag="Nuts" Gap="1">Nutscode</Field>
+        <Field Key="country" Tag="Country" Gap="1">Country</Field>
+        <site:conditional force="true" meet="read">
+          <xhtml:p class="span12 text-right"><button class="btn-primary btn-small" onclick="$.get($axel.resolveUrl('~/nuts'),undefined,function(text){alert('Suggested nutscodes : ' + text);})">nuts</button></xhtml:p>
+        </site:conditional>
+      </Cell>
+    </xt:component>
+    <xt:component name="t_sme_notification">
+      <Field Key="alert" Tag="Date" Gap="1.75" W="4" L="0">SME notification</Field>
+      <Field Key="alert" Tag="SentByRef" Gap="1" W="6">Sent by</Field>
+    </xt:component>
+    <xt:component name="t_kam_notification">
+      <Field Key="alert" Tag="Date" Gap="1.75" W="4" L="0">KAM notification</Field>
+      <Field Key="alert" Tag="SentByRef" Gap="1" W="6">Sent by</Field>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <Cell W="12" Gap="1.25">
+      <Title>Project</Title>
+      <Field Key="title" Tag="Title" Gap="1" >Title</Field>
+      <Field Key="acronym" Tag="Acronym" Gap="1" W="6" L="0">Acronym</Field>
+      <Field Key="project-id" Tag="ProjectId" Gap="1.05" W="3" >Project ID</Field>
+      <Field Key="summary" Tag="Summary" L="0" Gap="1" W="12" >Abstract</Field>
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row>
+    <Cell W="12" Gap="1.25" Tag="Call">
+      <Title>Call</Title>
+      <Field Key="program" Tag="FundingProgramRef" Gap="2" W="8">Funding Program</Field>
+      <Field Key="phase" Tag="FundingRef" Gap="1" W="4">Type</Field>
+      <Field Key="mastercall" Tag="MasterCall" Gap="2" W="8" L="0">Sub Call</Field>
+      <Field Key="cut-off" Tag="CallRef" Gap="1" W="4">Cut-off</Field>
+      <Field Key="topics" Tag="CallTopics" Gap="1">Topics</Field>
+      <Field Key="eicpanels" Tag="EICPanels" Gap="1">EIC Panels</Field>
+      <Field Key="eicpanels" Tag="FETTopics" Gap="1">FET Topics</Field>
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row>
+    <Cell W="12" Gap="2.75">
+      <Title>EC Project Officer</Title>
+      <Field Key="project-officer" Tag="ProjectOfficerRef" Gap="1" W="9">Officer Name</Field>
+      <Field Key="backup-project-officer" Tag="BackupProjectOfficerRef" Gap="1" W="9" L="0">Backup Name</Field>
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row>
+    <Cell W="12" Gap="1.5" Tag="Contract">
+      <Title>Grant agreement signed by EASME</Title>
+        <Field Key="signature" Tag="Date" Gap="1.75" W="4">Signing date</Field>
+        <Field Key="start-date" Tag="Start" Gap="1.75" W="4">Grant starting date</Field>
+        <Field Key="duration" Tag="Duration" Gap="2.75" W="4">Grant duration (months)</Field>
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row Class="x-ClientEnterprise">
+    <Repeat Tag="Participants" Min="1" HideMarker="1">
+      <Cell W="12" Gap="1.25" Tag="Participant">
+        <Title>Beneficiary</Title>
+        <Row>
+          <Cell W="12">
+            <Title>Status</Title>
+	    <Field Key="role" Tag="Role" Gap="1" W="5" L="0">Role</Field>
+            <Cell Tag="Status"  Gap="1" W="5"><Cell Tag="isConformSME"><Field Key="conf" Tag="YesNoScaleRef" Gap="1">Is an SME?</Field></Cell></Cell>
+          </Cell>
+          <Cell W="5" L="0" TypeName="enterprise_data">
+            <Title>Information</Title>
+            <Field Key="sme-full-name" Tag="Name" Gap="1">Name</Field>
+            <Field Key="abbrev" Tag="ShortName" Gap="1">Short name</Field>
+            <Field Key="creation" Tag="CreationYear" Gap="2">Year of establishment</Field>
+            <Field Key="size" Tag="SizeRef" Gap="1">Company size</Field>
+            <Field Key="domain-activity" Tag="DomainActivityRef" Gap="1">Nace</Field>
+            <Field Key="website" Tag="WebSite" Gap="1">Website</Field>
+            <Field Key="activities" Tag="MainActivities" Gap="1">Main activities</Field>
+            <Field Key="targeted-markets" Tag="TargetedMarkets" Gap="1">Markets</Field>
+          </Cell>
+          <Use Tag="Address" TypeName="address"/>
+        </Row>
+        <Separator/>
+        <Cell Gap="1.25" Class="x-ContactPerson" Tag="ContactPerson">
+          <Title>Contact Person</Title>
+          <Row>
+            <Field Key="sex" Tag="Sex" Gap="1" W="3" L="0">Sex</Field>
+            <Field Key="civility" Tag="Civility" Gap="1" W="6" Offset="3">Title</Field>
+            <Use Tag="Name" TypeName="person_name"/>
+            <Use Tag="Contacts" TypeName="contacts"/>
+            <Field Key="function" Tag="Function" Gap="1" W="12" L="0">Function</Field>
+          </Row>
+        </Cell>
+      </Cell>
+      <Menu Hide="1"/>
+    </Repeat>
+  </Row>
+  <Modals>
+  </Modals>
+  <Commands>
+  </Commands>
+  <Bindings>
+    <!-- <Condition Keys="signature" Variable="sig1" DisableClass="hide"/> -->
+    <Require Keys="title phase year enterprise firstname lastname email sme-full-name town"/>
+    <Enforce>
+      <RegExp Keys="duration" 
+        Message="Enter the number of months as a number"
+        >^\s*$|^\d+$</RegExp>
+      <RegExp Keys="email" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <RegExp Keys="creation" Message-loc="validation.year"
+        Message="Enter a year as a number with 4 digits"
+        >^\s*$|^\d{4}$</RegExp>
+      <!-- <RegExp Keys="phone mobile" Message-loc="validation.phone"
+        Message="Vous devez saisir un numéro de téléphone composé de chiffres uniquement séparés par des espaces"
+        >^\+?\s*[\d ]{2,}$</RegExp> -->
+    </Enforce>
+  </Bindings>
+  <Plugins>
+    <Input Keys="nuts"/>
+  </Plugins>
+  <Hints>
+    <Hint Keys="targeted-markets">Thomson Reuters Business Classification</Hint>
+  </Hints>
+</Form>

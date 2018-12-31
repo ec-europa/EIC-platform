@@ -1,0 +1,59 @@
+<Form Tag="SearchCoachesRequest" Layout="fluid" StartLevel="4"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <Title>Coach Search Criteria</Title>
+
+  <Verbatim>
+    <xt:component name="t_analytics">
+      <xhtml:div style="display:none"><Field Key="uuid" Tag="UUID" Gap="3">UUID</Field></xhtml:div>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <Cell Gap="2.75">
+      <Title Level="1">Business innovation</Title>
+      <Field Key="vectors" Tag="Vectors" Gap="3">Business innovation vectors</Field>
+      <Field Key="ideas" Tag="Ideas" Gap="3">Sources of business innovation</Field>
+      <Field Key="resources" Tag="Resources" Gap="3">SME internal resources</Field>
+      <Field Key="partners" Tag="Partners" Gap="3">Partnerships</Field>
+    </Cell>
+  </Row>
+
+  <Row>
+    <Cell Gap="2.75">
+      <Title Level="1">SME Context</Title>
+      <Field Key="domain-activities" Tag="DomainActivities" Gap="3">Industry sector</Field>
+      <Field Key="targeted-markets" Tag="TargetedMarkets" Gap="3">Target market</Field>
+      <Field Key="life-cycle-stages" Tag="InitialContexts" Gap="3">Current life cycle stage</Field>
+      <Field Key="life-cycle-stages" Tag="TargetedContexts" Gap="3">Planned life cycle stage</Field>
+      <Field Key="kw" Tag="Keywords" Gap="3">Keyword Search</Field>
+    </Cell>
+  </Row>
+
+  <Row>
+    <Cell Gap="2.75">
+      <Title Level="1">Coaching service</Title>
+      <Field Key="service" Tag="Services" Gap="3">Service name</Field>
+    </Cell>
+  </Row>
+  
+  <Row>
+    <Cell Gap="2.75">
+      <Title Level="1">Coach</Title>
+      <Field Key="coaches" Tag="Coaches" Gap="3">Coach name</Field>
+      <Field Key="languages" Tag="SpokenLanguages" Gap="3">Language</Field>
+      <Field Key="countries" Tag="Countries" loc="term.residence" Gap="3">Coach location</Field>
+      <!-- <Field Key="coaches" Tag="Coaches" Gap="3">Coach name</Field> Issue #156 -->
+      <site:conditional force="true" noflag="tun">
+        <Field Key="expertise" Tag="Expertise" Gap="3">Expertise level</Field>
+      </site:conditional>
+      <Use TypeName="analytics"/>
+    </Cell>
+  </Row>
+  <Plugins>
+    <Input Keys="kw"/>
+  </Plugins>
+</Form>
+

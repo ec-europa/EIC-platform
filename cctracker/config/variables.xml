@@ -1,0 +1,122 @@
+<Variables>
+  <Variable>
+    <Name>Project_Acronym</Name>
+    <Expression>$project/Information/Acronym/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>Project_Title</Name>
+    <Expression>$project/Information/Title/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>Beneficiary</Name>
+    <Expression>$project/Information/Beneficiaries/(Coordinator|Partner)[PIC eq $case/PIC]/Name/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>SME_Contact</Name>
+    <Expression>$project/Information/Beneficiaries/(Coordinator|Partner)[PIC eq $case/PIC]/ContactPerson/Contacts/Email/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>Contact_First_Name</Name>
+    <Expression>$project/Information/Beneficiaries/(Coordinator|Partner)[PIC eq $case/PIC]/ContactPerson/Name/FirstName/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>Contact_Last_Name</Name>
+    <Expression>$project/Information/Beneficiaries/(Coordinator|Partner)[PIC eq $case/PIC]/ContactPerson/Name/LastName/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>NA_Contact_First_Name</Name>
+    <Expression>$case/NeedsAnalysis/ContactPerson/Name/FirstName/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>NA_Contact_Last_Name</Name>
+    <Expression>$case/NeedsAnalysis/ContactPerson/Name/LastName/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>NA_Contact_Email</Name>
+    <Expression>$case/NeedsAnalysis/ContactPerson/Contacts/Email/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>Nb_Of_Hours</Name>
+    <Expression>$activity/FundingRequest/Budget/Tasks/TotalNbOfHours/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>Coordinator_First_Name</Name>
+    <Name>Coordinator_Last_Name</Name>
+    <Expression>alert:gen-user-name-for('Coordinator', workflow:get-persons-for-role('r:region-manager', $project, $case, $activity))</Expression>
+  </Variable>
+  <Variable>
+    <Name>KAM_First_Name</Name>
+    <Name>KAM_Last_Name</Name>
+    <Expression>alert:gen-user-name-for('KAM', $case/Management/AccountManagerRef)</Expression>
+  </Variable>
+  <Variable>
+    <Name>Coach_First_Name</Name>
+    <Name>Coach_Last_Name</Name>
+    <Expression>alert:gen-user-name-for('Coach', $activity/Assignment/ResponsibleCoachRef)</Expression>
+  </Variable>
+  <Variable>
+    <Name>EEN_Entity</Name>
+    <Expression>display:gen-name-for-regional-entities( $case/Information/ManagingEntity/RegionalEntityRef, 'en')</Expression>
+  </Variable>
+  <Variable>
+    <Name>Needs_Analysis_Date</Name>
+    <Expression>$case/NeedsAnalysis/Analysis/Date/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>User_First_Name</Name>
+    <Name>User_Last_Name</Name>
+    <Expression>alert:gen-current-user-name()</Expression>
+  </Variable>
+  <Variable>
+    <Name>Link_To_Project</Name>
+    <Expression>concat("https://casetracker-smei.easme-web.eu/projects/", $project/Id/text())</Expression>
+  </Variable>
+  <Variable>
+    <Name>Link_To_Case</Name>
+    <Expression>concat("https://casetracker-smei.easme-web.eu/projects/", $project/Id/text(), "/cases/", $case/No/text())</Expression>
+  </Variable>
+  <Variable>
+    <Name>Link_To_Activity</Name>
+    <Expression>concat("https://casetracker-smei.easme-web.eu/projects/", $project/Id/text(), "/cases/", $case/No/text(), "/activities/", $activity/No/text())</Expression>
+  </Variable>
+  <Variable>
+    <Name>Activity_Title</Name>
+    <Expression>concat($project/Information/Beneficiaries/*[PIC = $case/PIC]/Name,' (', $project/Information/Acronym, ') - ', if ($activity/Assignment/ServiceRef) then display:gen-name-for('Services', $activity/Assignment/ServiceRef, 'en') else '...', ' - ', substring($activity/CreationDate/text(), 1, 4))</Expression>
+  </Variable>
+  <Variable>
+    <Name>Signature_Date</Name>
+    <Expression>$case/Information/Contract/Date/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>Login_Request_Contact</Name>
+    <Expression>EASME-SME-COACHING@ec.europa.eu</Expression>
+  </Variable>
+  <Variable>
+    <Name>Link_To_SME_Form</Name>
+    <Expression>services:get-hook-address('cctracker.questionnaires', 'poll.form.link', $activity/Evaluation/Order[Questionnaire eq 'cctracker-sme-feedback']/Id)</Expression>
+  </Variable>
+  <Variable>
+    <Name>Link_To_KAM_Form</Name>
+    <Expression>services:get-hook-address('cctracker.questionnaires', 'poll.form.link', $activity/Evaluation/Order[Questionnaire eq 'cctracker-kam-feedback']/Id)</Expression>
+  </Variable>
+  <Variable>
+    <Name>NA_Contact_Name</Name>
+    <Expression>concat($case/NeedsAnalysis/ContactPerson/Name/FirstName,' ',$case/NeedsAnalysis/ContactPerson/Name/LastName)</Expression>
+  </Variable>
+  <Variable>
+    <Name>KAM_Email</Name>
+    <Expression>display:gen-person-email($case/Management/AccountManagerRef/text(), 'en')</Expression>
+  </Variable>
+  <Variable>
+    <Name>KAM_Name</Name>
+    <Expression>display:gen-person-name($case/Management/AccountManagerRef/text(), 'en')</Expression>
+  </Variable>
+  <Variable>
+    <Name>Coach_Email</Name>
+    <Expression>display:gen-person-email($activity/Assignment/ResponsibleCoachRef, 'en')</Expression>
+  </Variable>
+  <Variable>
+    <Name>Coach_Name</Name>
+    <Expression>display:gen-person-name($activity/Assignment/ResponsibleCoachRef/text(), 'en')</Expression>
+  </Variable>
+</Variables>

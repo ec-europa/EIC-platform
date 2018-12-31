@@ -1,0 +1,241 @@
+<Alerts>
+  <Check No="1">
+    <When Case="*"/>
+    <Title>EEN Consortium not assigned</Title>
+    <Eval>fn:collection('/db/sites/cctracker/projects')//Case[empty(ManagingEntity/RegionalEntityRef)]</Eval>
+    <Responsible>
+      <Meet>g:coaching-assistant</Meet>
+    </Responsible>
+  </Check>
+  <Check No="2">
+    <When Project="*"/>
+    <Title>Grant signature date missing</Title>
+    <Eval>fn:collection('/db/sites/cctracker/projects')//Project[Information/Contract[not(Date)]]</Eval>
+    <Responsible>
+      <Meet>g:coaching-assistant</Meet>
+    </Responsible>
+  </Check>
+  <Check No="3" Threshold="5">
+    <Title>KAM not assigned</Title>
+    <When Case="KAM assignment">2</When>
+    <Start>enter</Start>
+    <Stop>leave</Stop>
+    <Responsible>
+      <Meet>r:region-manager</Meet>
+    </Responsible>
+    <Email Elapsed="3">
+      <Description>reminds EEN KAM Coordinator to assign KAM</Description>
+      <Template>een-coordinator-kam-reminder</Template>
+      <Recipients Max="1" Key="kamco-1 reminder" CC="g:coaching-manager">r:region-manager</Recipients>
+    </Email>
+    <Email Elapsed="5">
+      <Description>notifies SME without waiting for KAM assignment</Description>
+      <Template>sme-anonymous-notification</Template>
+      <Recipients Max="1" Key="sme-1 reminder" CC="g:coaching-manager r:region-manager"/>
+    </Email>
+  </Check>
+  <Check No="4" Threshold="5">
+    <Title>First SME contact not made</Title>
+    <When Case="Needs Analaysis">3</When>
+    <Start>enter</Start>
+    <Stop>$base/NeedsAnalysis/Contact/Date</Stop>
+    <Responsible>
+      <Meet>r:kam</Meet>
+    </Responsible>
+    <Supervisor>
+      <Meet>r:region-manager</Meet>
+    </Supervisor>
+  </Check>
+  <Check No="5" Threshold="10">
+    <Title>Needs Analysis not finished</Title>
+    <When Case="Needs Analaysis">3</When>
+    <Start>$base/NeedsAnalysis/Contact/Date</Start>
+    <Stop>$base/NeedsAnalysis/Analysis/Date</Stop>
+    <Responsible>
+      <Meet>r:kam</Meet>
+    </Responsible>
+    <Supervisor>
+      <Meet>r:region-manager</Meet>
+    </Supervisor>
+  </Check>
+  <Check No="6" Threshold="10">
+    <!-- special because start with Case condition and stop with Activity condition (!) -->
+    <Title>Coach not assigned</Title>
+    <When Case="Needs Analaysis">3</When>
+    <Start>$base/NeedsAnalysis/Analysis/Date</Start>
+    <Stop>$base//Activity[Assignment[ResponsibleCoachRef ne '']/Date or .//CurrentStatusRef = ('9','10','11')]</Stop>
+    <Responsible>
+      <Meet>r:kam</Meet>
+    </Responsible>
+    <Supervisor>
+      <Meet>r:region-manager</Meet>
+    </Supervisor>
+  </Check>
+  <Check No="7" Threshold="3">
+    <Title>Coaching assignment not advanced to plan</Title>
+    <When Activity="Coach Assignment">1</When>
+    <Start>enter</Start>
+    <Stop>leave</Stop>
+    <Responsible>
+      <Meet>r:kam</Meet>
+    </Responsible>
+    <Supervisor>
+      <Meet>r:region-manager</Meet>
+    </Supervisor>
+  </Check>
+  <Supervisor>
+    <Meet>r:region-manager</Meet>
+  </Supervisor>
+  <Check No="8" Threshold="10">
+    <Title>Coaching plan not finished</Title>
+    <When Activity="Coaching plan">2</When>
+    <Start>enter</Start>
+    <Stop>leave</Stop>
+    <Responsible>
+      <Meet>r:coach</Meet>
+    </Responsible>
+    <Email Elapsed="8">
+      <Description>reminds coach to write coaching plan</Description>
+      <Template>coach-assignment-reminder</Template>
+      <Recipients Max="1" Key="coach-1 reminder">r:coach</Recipients>
+      <Cancel>exists($activity/FundingRequest//TotalNbOfHours[. ne '0'])</Cancel>
+    </Email>
+  </Check>
+  <Check No="9" Threshold="5">
+    <Title>Coaching plan not validated by KAM</Title>
+    <When Activity="Consultation">3</When>
+    <Start>enter</Start>
+    <Stop>$base/Opinions/KAM-Opinion[YesNoScaleRef[. ne '']]/Date</Stop>
+    <Responsible>
+      <Meet>r:kam</Meet>
+    </Responsible>
+    <Supervisor>
+      <Meet>r:region-manager</Meet>
+    </Supervisor>
+  </Check>
+  <Check No="10" Threshold="5">
+    <Title>Coaching plan not validated by the Head of Coaching Service</Title>
+    <When Activity="Consultation">3</When>
+    <Start>$base/Opinions/KAM-Opinion[YesNoScaleRef[. ne '']]/Date</Start>
+    <Stop>leave</Stop>
+    <Responsible>
+      <Meet>r:service-head</Meet>
+    </Responsible>
+  </Check>
+  <Check No="11" Threshold="5">
+    <Title>Coaching plan not approved</Title>
+    <When Activity="Approval">4</When>
+    <Start>enter</Start>
+    <Stop>$base/FundingDecision[DecisionRef[. ne '']]/Date</Stop>
+    <Responsible>
+      <Meet>g:coaching-manager</Meet>
+    </Responsible>
+  </Check>
+  <Check No="12" Threshold="15">
+    <Title>Coaching contract not signed</Title>
+    <When Activity="Approval">4</When>
+    <Start>$base/FundingDecision[DecisionRef[. ne '']]/Date</Start>
+    <Stop>$base/FundingDecision/CoachContract//Date</Stop>
+    <Responsible>
+      <Meet>g:coaching-assistant</Meet>
+    </Responsible>
+  </Check>
+  <Check No="13" Threshold="1">
+    <Title>Coaching contract not advanced to report</Title>
+    <When Activity="Approval">4</When>
+    <Start>$base/FundingDecision/CoachContract//Date</Start>
+    <Stop>leave</Stop>
+    <Responsible>
+      <Meet>g:coaching-assistant</Meet>
+    </Responsible>
+  </Check>
+  <Check No="14" Threshold="90">
+    <Title>Coaching report not finished</Title>
+    <When Activity="Coaching report">5</When>
+    <Start>enter</Start>
+    <Stop>leave</Stop>
+    <Responsible>
+      <Meet>r:coach</Meet>
+    </Responsible>
+  </Check>
+  <!--<Check No="15" Threshold="5">
+    <Title>Status Closing not initiated by KAM</Title>
+    <When Activity="KAM Report">6</When>
+    <Start>enter</Start>
+    <Stop>leave</Stop>
+    <Responsible>
+      <Meet>r:kam</Meet>
+    </Responsible>
+  </Check>-->
+  <Check No="16" Threshold="2">
+    <Title>Information check not finished</Title>
+    <When Activity="Report Approval">7</When>
+    <Start>enter</Start>
+    <Stop>$base/FinalReportApproval/CoachingAssistantVisa[PositionRef[. ne '']]/Date</Stop>
+    <Responsible>
+      <Meet>g:coaching-assistant</Meet>
+    </Responsible>
+  </Check>
+  <Check No="17" Threshold="5">
+    <Title>Coaching report not approved</Title>
+    <When Activity="Report Approval">7</When>
+    <Start>$base/FinalReportApproval/CoachingAssistantVisa[PositionRef[. ne '']]/Date</Start>
+    <Stop>$base/FinalReportApproval/CoachingManagerVisa[DecisionRef[. ne '']]/Date</Stop>
+    <Responsible>
+      <Meet>g:coaching-manager</Meet>
+    </Responsible>
+  </Check>
+  <Check No="18" Threshold="0">
+    <Title>Feedbacks not initiated</Title>
+    <When Activity="Report Approval">7</When>
+    <Start>$base/FinalReportApproval/CoachingManagerVisa[DecisionRef[. ne '']]/Date</Start>
+    <Stop>leave</Stop>
+    <Responsible>
+      <Meet>g:coaching-manager</Meet>
+    </Responsible>
+  </Check>
+  <Check>
+    <Title>Remind evaluation feedback from SME</Title>
+    <When Activity="Evaluation">8</When>
+    <Start>enter</Start>
+    <Stop>leave</Stop>
+    <Email Elapsed="7" Mode="robust" Until="12">
+      <Description>reminds SME to complete feedback formular</Description>
+      <Template>sme-feedback-reminder</Template>
+      <Recipients Max="1" Key="sme-2 reminder"/>
+      <Cancel>exists($activity[Evaluation/Order[Answers]/Questionnaire[. eq 'cctracker-sme-feedback']])</Cancel>
+    </Email>
+    <Status Elapsed="21" Mode="robust">
+      <Id>no-feedback</Id>
+      <To>
+        <When Test="exists($activity[Evaluation/Order[Answers]/Questionnaire[. eq 'cctracker-sme-feedback']])">11</When>
+        <Otherwise>10</Otherwise>
+      </To>
+      <Description>automatic closing of activity with incomplete feedbacks after 21 days</Description>
+    </Status>
+  </Check>
+  <Check>
+    <Title>Remind evaluation feedback from KAM</Title>
+    <When Activity="Evaluation">8</When>
+    <Start>enter</Start>
+    <Stop>leave</Stop>
+    <Email Elapsed="7" Mode="robust" Until="12">
+      <Description>reminds KAM to complete feedback formular</Description>
+      <Template>kam-feedback-reminder</Template>
+      <Recipients Max="1" Key="kam-3 reminder"/>
+      <Cancel>exists($activity[Evaluation/Order[Answers]/Questionnaire[. eq 'cctracker-kam-feedback']])</Cancel>
+    </Email>
+  </Check>
+  <Check>
+    <!-- FIXME: EASME asked When not moved to "Coach assignment" AND 20 days after KAM assignment -->
+    <Title>Remind KAM about needs analysis</Title>
+    <When Case="Needs Analysis">3</When>
+    <Start>enter</Start>
+    <Stop>$base/NeedsAnalysis/Analysis/Date</Stop>
+    <Email Elapsed="20">
+      <Description>reminds KAM to enter needs analysis</Description>
+      <Template>kam-notification-reminder</Template>
+      <Recipients Max="1" Key="kam-2 reminder" CC="g:coaching-manager">r:kam</Recipients>
+    </Email>
+  </Check>
+</Alerts>

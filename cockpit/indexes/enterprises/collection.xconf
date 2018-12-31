@@ -1,0 +1,9 @@
+<collection xmlns="http://exist-db.org/collection-config/1.0">
+  <index>
+    <!-- Range indexes -->
+    <create qname="@EnterpriseId" type="xs:string"/>
+    <create qname="PersonRef" type="xs:string"/>
+    <create qname="Id" type="xs:string"/>
+    <create qname="ProjectId" type="xs:string"/>
+  </index>
+</collection>

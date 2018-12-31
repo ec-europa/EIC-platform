@@ -1,0 +1,15 @@
+<Person>
+  <Id>3</Id>
+  <UserProfile>
+    <Email Name='ECAS'>yassen.todorov@ec.europa.eu</Email>
+    <Roles>
+      <Role>
+        <FunctionRef>1</FunctionRef>
+      </Role>
+      <Role>
+        <FunctionRef>3</FunctionRef>
+        <EnterpriseRef>1</EnterpriseRef>
+      </Role>
+    </Roles>
+  </UserProfile>
+</Person>

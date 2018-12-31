@@ -1,0 +1,34 @@
+<Settings>
+  <SMTPServer>!localhost</SMTPServer>
+  <DefaultEmailSender>coach-match-DEV-no-reply@coachcom2020.eu</DefaultEmailSender>
+  <Sudoer>
+      <User>zboss</User>
+      <Password>PASSWORD</Password>
+  </Sudoer>
+  <Media>
+    <Allow/>
+    <Debug>
+      <Category>account</Category>
+      <Category>registration</Category>
+      <Category>workflow</Category>
+      <Category>action</Category>
+    </Debug>
+  </Media>
+  <Hold>
+     <Allow>admin</Allow>
+  </Hold>
+  <Module>
+    <Name>login</Name>
+    <Property>
+      <Key>ecas</Key>
+      <Value>on</Value>
+    </Property>
+  </Module>
+  <Module>
+    <Name>nonce</Name>
+    <Property>
+      <Key>log</Key>
+      <Value>on</Value>
+    </Property>
+  </Module>  
+</Settings>

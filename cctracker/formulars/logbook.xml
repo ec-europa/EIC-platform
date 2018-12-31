@@ -1,0 +1,40 @@
+<Form Tag="Logbook" StartLevel="2" xmlns:xt="http://ns.inria.org/xtiger" xmlns:site="http://oppidoc.com/oppidum/site">
+  <!-- DEPRECATED FORM : no more used in Workflow (?) -->
+  <Title>Journal de l'activité</Title>
+
+  <Row>
+
+    <Repeat Tag="LogbookItems" Min="1" Key="logbook-items" Id="x-LogbookItems">
+      <Cell Tag="LogbookItem">
+        <Field Key="date" Tag="Date" W="2" Gap="0">Date</Field>
+        <Field Key="author-ref" Tag="AuthorRef" W="3" Gap="0">Auteur</Field>
+        <Field Key="item-content" Tag="ItemContent" W="7" Gap="0">Commentaire</Field>
+      </Cell>
+      <div xmlns="http://www.w3.org/1999/xhtml" style="float:right">
+        <span class="text-info">Cliquez sur plus (resp.moins) pour ajouter (resp. enlever) une entrée dans le journal<Menu/></span>
+      </div>
+    </Repeat>
+    
+    <site:field Key="opinion" force="true" meet="read">Ajouter une entrée dans le journal</site:field>
+    <!-- <Cell Offset="4" W="4" Meet="read">
+      <Button Avoid="update" Key="btn.add-opinion" Class="btn-small btn-primary" W="12" loc="action.edit.opinion">Ajouter une opinion</Button>
+    </Cell> -->
+  </Row>
+
+  <Modals>
+    <Modal Id="c-opinion" Width="620px" Template="^/templates/opinion?goal=create" EventTarget="c-editor-opinions">
+      <!-- CV-FIXME: internationalize -->
+      <Title>Ajouter une entrée dans le journal</Title>
+    </Modal>
+  </Modals>
+
+  <!-- <Commands>
+    <Add Key="btn.add-opinion" TargetEditor="c-opinion" Controller="~/opinions/opinion"/>
+  </Commands> -->
+
+  <!--
+  <Plugins>
+    <Text Keys="rs-comment ac-comment oo-comment"/>
+  </Plugins>
+  -->
+</Form>

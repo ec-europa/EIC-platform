@@ -1,0 +1,33 @@
+<Templates>
+  <!-- Validates an investor event feedback -->
+  <Template Name="investor-event-feedback" Mode="validate">
+<![CDATA[
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-ARE-MANDATORY">
+        { 
+        count($form/Contact/*[. ne '']) = 7 and
+        $form/CounterParts/FairSatisfactionLevelRef and
+        $form/FollowUp/Total and
+        $form/Recommendation/RecommendationLevelRef
+        }
+      </True>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>  
+  <!-- Creates an investor event feedback -->
+  <Template Name="investor-event-feedback" Mode="create">
+<![CDATA[
+<XAL Debug="on">
+  <XALAction Type="create" Entity="feedback" Bucket="{ $form/EventBucket }" Key="{ $form/EventKey }">
+    <Feedback Creation="{ $date }">
+      <Category>{ $form/Category/text() }</Category>
+      <EventKey>{ $form/EventKey/text() }</EventKey>
+      { $form/Answers }
+    </Feedback>
+  </XALAction>
+</XAL>
+]]>
+  </Template>
+</Templates>

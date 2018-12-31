@@ -1,0 +1,779 @@
+<!-- ======================================================================
+                Cockpit - EIC SME Dashboard Application mapping
+     ====================================================================== -->
+<site db="/db/sites/cockpit" confbase="/db/www/cockpit" startref="login" supported="login logout welcome" key="cockpit" mode="dev" languages="en" default="en">
+  <collection name="files">
+    <item resource="file:///untracked/docs/$2.pdf"></item>
+    <item name="privacy-statement-calls-EASME" resource="file:///untracked/docs/$2.pdf">
+      <access>
+        <rule action="GET" role="all"/>
+      </access>
+    </item>
+  </collection>
+  <!-- ************ -->
+  <!-- ** person ** -->
+  <!-- ************ -->
+  <item epilogue="home">
+    <model src="modules/persons/home.xql"/>
+    <view src="modules/persons/home.xsl"/>
+  </item>
+  <item name="switch" epilogue="home">
+    <model src="modules/enterprises/switch.xql"/>
+    <view src="modules/enterprises/switch.xsl"/>
+  </item>
+  <collection name="persons" epilogue="home">
+    <item method="POST">
+      <model src="modules/persons/account.xql"/>
+      <action name="POST">
+        <model src="modules/persons/account.xql"/>
+      </action>
+    </item>
+  </collection>
+  <collection name="profiles" epilogue="home">
+    <item method="POST">
+      <model src="modules/persons/roles.xql"/>
+      <action name="POST">
+        <model src="modules/persons/roles.xql"/>
+      </action>
+    </item>
+  </collection>
+  <!-- ***************** -->
+  <!-- ** enterprises ** -->
+  <!-- ***************** -->
+  <collection name="enterprises" method="POST" supported="create message" epilogue="home">
+    <model src="modules/enterprises/search-ui.xql"/>
+    <view src="modules/enterprises/search-ui.xsl"/>
+    <action name="POST">
+      <model src="modules/enterprises/search.xql"/>
+    </action>
+    <action name="message">
+      <model src="modules/enterprises/message.xql"/>
+    </action>
+    <action name="create">
+      <model src="modules/enterprises/create.xql"/>
+    </action>
+    <item name="import" method="POST" epilogue="home">
+      <model src="modules/enterprises/import-ui.xql"/>
+      <view src="modules/enterprises/import-ui.xsl"/>
+      <action name="POST">
+        <model src="modules/enterprises/import.xql"/>
+      </action>
+    </item>
+    <item epilogue="home">
+      <model src="modules/enterprises/enterprise.xql"/>
+      <view src="modules/enterprises/enterprise.xsl"/>
+      <!-- Address facet -->
+      <item name="address" method="POST">
+        <import module="facet" param="facet=cie-address"/>
+      </item>
+      <!-- Statistics facet -->
+      <item name="statistics" method="POST">
+        <import module="facet" param="facet=cie-statistics"/>
+      </item>
+      <!-- Status facet -->
+      <item name="status" method="POST">
+        <import module="facet" param="facet=cie-status"/>
+        <variant name="GET" format="blend">
+          <view src="views/blend.xsl"/>
+        </variant>
+      </item>
+      <collection name="binaries">
+        <model src="oppidum:models/forbidden.xql"/>
+        <item resource="$3">
+          <access>
+            <rule action="GET" role="all"/>
+          </access>
+          <model src="modules/enterprises/photo.xql"/>
+          <variant name="GET" format="jpeg"/>
+          <variant name="GET" format="png"/>
+          <item name="list">
+            <model src="modules/enterprises/photo.xql"/>
+          </item>
+          <item name="delete">
+            <model src="modules/enterprises/photo.xql"/>
+          </item>
+          <item method="POST">
+            <action name="POST">
+              <model src="modules/enterprises/photo.xql">
+                <param name="max-size" value="unset"/>
+                <param name="thumb-size" value="250x250"/>
+              </model>
+            </action>
+          </item>
+        </item>
+      </collection>
+    </item>
+  </collection>
+  <!-- ********************* -->
+  <!-- ** fake form coll. ** -->
+  <!-- ********************* -->
+  <collection name="form">
+    <item epilogue="home">
+      <model src="modules/events/formular.xql"/>
+      <item name="apply">
+        <model src="modules/events/data.xql"/>
+        <variant name="GET" epilogue="excel" format="xlsx">
+          <view/>
+        </variant>
+      </item>
+      <item name="evaluation">
+        <model src="modules/events/data.xql"/>
+        <variant name="GET" epilogue="excel" format="xlsx">
+          <view/>
+        </variant>
+      </item>
+      <item name="confirmation">
+        <model src="modules/events/data.xql"/>
+        <variant name="GET" epilogue="excel" format="xlsx">
+          <view/>
+        </variant>
+      </item>
+      <item name="satisfaction">
+        <model src="modules/events/data.xql"/>
+        <variant name="GET" epilogue="excel" format="xlsx">
+          <view/>
+        </variant>
+      </item>
+      <item name="impact">
+        <model src="modules/events/data.xql"/>
+        <variant name="GET" epilogue="excel" format="xlsx">
+          <view/>
+        </variant>
+      </item>
+      <item name="edit" method="POST">
+        <model src="modules/events/metadata.xql"/>
+        <action name="POST">
+          <model src="modules/events/metadata.xql"/>
+        </action>
+        <variant name="GET" format="template">
+          <view/>
+        </variant>
+      </item>
+      <item name="inspect">
+        <access>
+          <rule action="GET" role="g:developer g:admin-system" message="developer or application administrator"/>
+        </access>
+        <model src="modules/events/inspect.xql"/>
+      </item>
+      <item name="ranking" method="POST" epilogue="home">
+        <model src="modules/events/ranking.xql"/>
+        <view src="modules/events/ranking.xsl"/>
+        <action name="POST">
+          <model src="modules/events/ranking.xql"/>
+        </action>
+      </item>
+      <item name="resources" method="POST">
+        <action name="POST" epilogue="resources">
+          <model src="modules/events/download.xql"/>
+        </action>
+      </item>
+    </item>
+  </collection>
+  <!-- ************ -->
+  <!-- ** events ** -->
+  <!-- ************ -->
+  <collection name="events" method="POST" supported="service duplicate" epilogue="home">
+    <model src="modules/events/search-ui.xql"/>
+    <view src="modules/events/search-ui.xsl"/>
+    <action name="POST">
+      <model src="modules/events/search.xql"/>
+    </action>
+    <action name="service">
+      <model src="modules/events/export.xql"/>
+    </action>
+    <action name="duplicate">
+      <model src="modules/events/duplicate.xql"/>
+    </action>
+    <item name="import" method="POST" epilogue="home">
+      <access>
+        <rule action="GET POST" role="u:admin g:admin-system g:developer" message="system administrator"/>
+      </access>
+      <model src="modules/events/import-events.xql"/>
+      <view src="modules/events/import-ui.xsl"/>
+      <action name="POST">
+        <model src="modules/events/import-events.xql"/>
+      </action>
+    </item>
+    <item epilogue="home">
+      <model src="modules/events/list.xql"/>
+      <view src="modules/events/event.xsl"/>
+      <collection name="form">
+        <item epilogue="home" method="POST">
+          <model src="modules/events/formular.xql"/>
+          <view src="modules/events/formular.xsl"/>
+          <action name="POST">
+            <model src="modules/events/formular.xql"/>
+          </action>
+          <item name="comments" method="POST">
+            <model src="modules/events/comments.xql"/>
+            <action name="POST">
+              <model src="modules/events/comments.xql"/>
+            </action>
+            <variant name="GET" format="template">
+              <view/>
+            </variant>
+          </item>
+          <item name="apply" method="POST">
+            <model src="modules/events/data.xql"/>
+            <variant name="GET" format="blend">
+              <view src="views/blend.xsl"/>
+            </variant>
+            <action name="POST">
+              <model src="modules/events/data.xql"/>
+            </action>
+          </item>
+          <item name="evaluation">
+            <model src="modules/events/data.xql"/>
+            <variant name="GET" format="blend">
+              <view src="views/blend.xsl"/>
+            </variant>
+          </item>
+          <item name="finalization">
+            <model src="modules/events/data.xql"/>
+            <variant name="GET" format="blend">
+              <view src="views/blend.xsl"/>
+            </variant>
+          </item>
+          <item name="confirmation" method="POST">
+            <import module="document" param="document=confirmation"/>
+            <variant name="GET" format="blend">
+              <view src="xcm:views/blend.xsl"/>
+            </variant>
+          </item>
+          <item name="satisfaction" method="POST">
+            <import module="document" param="document=satisfaction"/>
+            <variant name="GET" format="blend">
+              <view src="xcm:views/blend.xsl"/>
+            </variant>
+          </item>
+          <item name="closing">
+            <import module="document" param="document=closing"/>
+            <variant name="GET" format="blend">
+              <view src="xcm:views/blend.xsl"/>
+            </variant>
+          </item>
+          <item name="impact" method="POST">
+            <import module="document" param="document=impact"/>
+            <variant name="GET" format="blend">
+              <view src="xcm:views/blend.xsl"/>
+            </variant>
+          </item>
+          <item name="closed">
+            <import module="document" param="document=closed"/>
+            <variant name="GET" format="blend">
+              <view src="xcm:views/blend.xsl"/>
+            </variant>
+          </item>
+          <!-- status change controller -->
+          <item name="status" method="POST">
+            <action name="POST">
+              <model src="modules/events/status.xql"/>
+            </action>
+          </item>
+        </item>
+      </collection>
+    </item>
+  </collection>
+  <!-- ************** -->
+  <!-- ** coaching ** -->
+  <!-- ************** -->
+  <collection name="coaching">
+    <item epilogue="home">
+      <model src="modules/coaching/coaching.xql"/>
+      <view src="modules/coaching/coaching.xsl"/>
+    </item>
+  </collection>
+  <!-- *********** -->
+  <!-- ** teams ** -->
+  <!-- *********** -->
+  <collection name="teams" method="POST" epilogue="home">
+    <model src="modules/teams/search-ui.xql"/>
+    <view src="modules/teams/search-ui.xsl"/>
+    <action name="POST">
+      <model src="modules/teams/search.xql"/>
+    </action>
+    <item name="import" method="POST" epilogue="home">
+      <model src="modules/teams/import-lear.xql"/>
+      <view src="modules/teams/import-ui.xsl"/>
+      <action name="POST">
+        <model src="modules/teams/import-lear.xql"/>
+      </action>
+    </item>
+    <item epilogue="home">
+      <model src="modules/teams/team.xql"/>
+      <view src="modules/teams/team.xsl"/>
+      <collection name="members" method="POST">
+        <action name="POST">
+          <model src="modules/teams/member.xql"/>
+        </action>
+        <item epilogue="home" method="POST" supported="delete accredit">
+          <model src="modules/teams/member.xql"/>
+          <action name="POST">
+            <model src="modules/teams/member.xql"/>
+          </action>
+          <action name="delete">
+            <model src="modules/teams/delete.xql"/>
+          </action>
+          <action name="accredit" supported="POST">
+            <model src="modules/teams/accredit.xql"/>
+          </action>
+        </item>
+      </collection>
+      <collection name="token" method="POST">
+        <item method="POST">
+          <action name="POST">
+            <model src="modules/scaleup/token.xql"/>
+          </action>
+        </item>
+      </collection>
+      <item name="LEAR" method="POST">
+        <action name="POST">
+          <model src="modules/teams/member.xql"/>
+        </action>
+      </item>
+      <item name="DG" method="POST">
+        <action name="POST">
+          <model src="modules/teams/member.xql"/>
+        </action>
+      </item>
+      <item name="investor" method="POST">
+        <action name="POST">
+          <model src="modules/teams/member.xql"/>
+        </action>
+      </item>
+    </item>
+    <item name="unaffiliated" method="POST">
+      <action name="POST">
+        <model src="modules/teams/member.xql"/>
+      </action>
+    </item>
+  </collection>
+  <!-- *************** -->
+  <!-- ** feedbacks ** -->
+  <!-- *************** -->
+  <collection name="feedbacks">
+    <item name="events">
+      <item epilogue="home">
+        <model src="modules/feedbacks/list.xql"/>
+        <view src="modules/feedbacks/feedback.xsl"/>
+        <item name="investors" supported="done" method="POST" epilogue="home">
+          <access>
+            <rule action="GET POST done" role="all"/>
+          </access>
+          <model src="modules/feedbacks/formular.xql"/>
+          <view src="modules/feedbacks/formular.xsl"/>
+          <action name="POST">
+            <model src="modules/feedbacks/data.xql"/>
+          </action>
+          <action name="done" epilogue="home">
+            <model src="modules/feedbacks/done.xql"/>
+            <view src="modules/feedbacks/formular.xsl"/>
+          </action>
+          <item epilogue="home">
+            <model src="modules/feedbacks/formular.xql"/>
+            <view src="modules/feedbacks/formular.xsl"/>
+            <variant name="GET" format="data" epilogue="">
+              <model src="modules/feedbacks/data.xql"/>
+              <view/>
+            </variant>
+          </item>
+        </item>
+      </item>
+    </item>
+  </collection>
+  <!-- ******************************* -->
+  <!-- ** project officers (import) ** -->
+  <!-- ******************************* -->
+  <collection name="officers" method="POST">
+    <action name="POST">
+      <model src="modules/teams/import-po.xql"/>
+    </action>
+  </collection>
+  <!-- *************** -->
+  <!-- ** templates ** -->
+  <!-- *************** -->
+  <item name="templates" collection="templates">
+    <model src="oppidum:models/templates.xql"/>
+    <item name="account" epilogue="account.xhtml">
+      <model src="modules/persons/form.xql"/>
+    </item>
+    <item name="roles" epilogue="roles.xhtml">
+      <model src="modules/management/form.xql"/>
+    </item>
+    <item name="enterprise">
+      <item name="address" epilogue="cie-address.xhtml">
+        <model src="modules/enterprises/form.xql"/>
+      </item>
+      <item name="statistics" epilogue="cie-statistics.xhtml">
+        <model src="modules/enterprises/form.xql"/>
+      </item>
+      <item name="status" epilogue="cie-status.xhtml">
+        <model src="modules/enterprises/form.xql"/>
+      </item>
+      <item name="search" epilogue="cie-search.xhtml">
+        <model src="modules/enterprises/form.xql"/>
+      </item>
+      <item name="import" epilogue="cie-import.xhtml">
+        <model src="modules/enterprises/form.xql"/>
+      </item>
+    </item>
+    <item name="team">
+      <item name="member" epilogue="team-member.xhtml">
+        <model src="modules/teams/form.xql"/>
+      </item>
+      <item name="search" epilogue="team-search.xhtml">
+        <model src="modules/teams/form.xql"/>
+      </item>
+    </item>
+    <item name="event">
+      <item name="search" epilogue="event-search.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="details" epilogue="event-details.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+    </item>
+    <item name="overseas-trade-fairs" epilogue="overseas-trade-fairs.xhtml">
+      <model src="modules/events/form.xql"/>
+    </item>
+    <item name="otf">
+      <item name="fidae" epilogue="otf-fidae.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="asia-water" epilogue="otf-asia-water.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="african-utility" epilogue="otf-african-utility.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="electronica-productronica" epilogue="otf-electronica-productronica.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="metalex" epilogue="otf-metalex.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="china-industry" epilogue="otf-china-industry.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="arab-health" epilogue="otf-arab-health.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="ces-international" epilogue="otf-ces-international.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="evaluation" epilogue="otf-evaluation.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="confirmation" epilogue="otf-confirmation.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="finalization" epilogue="otf-finalization.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="satisfaction" epilogue="otf-satisfaction.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="impact" epilogue="otf-impact.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+    </item>
+    <item name="academy">
+      <item name="academy" epilogue="academy.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="satisfaction" epilogue="academy-satisfaction.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="satisfaction-v2" epilogue="academy-satisfaction-v2.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+    </item>
+    <item name="investors">
+      <item name="sme" epilogue="investors-sme.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="medica-smart-city" epilogue="investors-medica-smart-city.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="corporate-abb" epilogue="investors-corporate-abb.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+    </item>
+    <item name="easme">
+      <item name="coordinator-day" epilogue="coordinator-day.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="berlin-beneficiary-registration" epilogue="berlin-beneficiary-registration.xhtml">
+        <model src="modules/admissions/form.xql"/>
+      </item>
+      <item name="berlin-investor-registration" epilogue="berlin-investor-registration.xhtml">
+        <model src="modules/admissions/form.xql"/>
+      </item>
+    </item>
+    <item name="pitching">
+      <item name="satisfaction" epilogue="pitching-satisfaction.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="satisfaction-v2" epilogue="pitching-satisfaction-v2.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+      <item name="impact" epilogue="pitching-impact.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+    </item>
+    <item name="feedback">
+      <item name="investor" epilogue="feedback-investor.xhtml">
+        <access>
+          <rule action="GET" role="all"/>
+        </access>
+        <model src="modules/feedbacks/form.xql"/>
+      </item>
+    </item>
+    <item name="admissions">
+      <item name="investors-self-registration" epilogue="investors-self-registration.xhtml">
+        <access>
+          <rule action="GET" role="g:admissible g:users"/>
+        </access>
+        <model src="modules/admissions/form.xql"/>
+      </item>
+      <item name="users-self-registration" epilogue="users-self-registration.xhtml">
+        <access>
+          <rule action="GET" role="g:admissible g:users"/>
+        </access>
+        <model src="modules/admissions/form.xql"/>
+      </item>
+    </item>
+    <collection name="dyn">
+      <item epilogue="$3.xhtml">
+        <model src="modules/events/form.xql"/>
+      </item>
+    </collection>
+  </item>
+  <!-- ****************************** -->
+  <!-- ** users self-registration  ** -->
+  <!-- ****************************** -->
+  <collection name="admissions">
+    <!-- admission form viewing, editing and submission -->
+    <item epilogue="admission">
+      <access>
+        <rule action="GET" role="g:admissible g:users"/>
+      </access>
+      <model src="modules/admissions/formular.xql"/>
+      <view src="modules/admissions/formular.xsl"/>
+      <item name="submitted">
+        <access>
+          <rule action="GET" role="g:admissible g:users"/>
+        </access>
+        <model src="modules/admissions/read.xql"/>
+        <variant name="GET" format="blend">
+          <view src="views/blend.xsl"/>
+        </variant>
+      </item>
+      <item name="edit" method="POST" epilogue="admission">
+        <access>
+          <rule action="GET" role="all"/>
+          <rule action="POST" role="g:admissible g:users"/>
+        </access>
+        <model src="modules/admissions/formular.xql"/>
+        <view src="modules/admissions/formular.xsl"/>
+        <action name="POST">
+          <model src="modules/admissions/create.xql"/>
+        </action>
+      </item>
+    </item>
+    <item name="waitingcommunity" epilogue="home">
+        <model src="models/community.xql"/>
+        <view src="views/page.xsl"/>
+    </item>
+    <!-- generic user self-registration creation and accreditation -->
+    <collection name="entry" method="POST" epilogue="admission">
+      <access>
+        <rule action="GET" role="all"/>
+        <rule action="POST" role="g:admissible g:users"/>
+      </access>
+      <model src="modules/admissions/formular.xql"/>
+      <view src="modules/admissions/formular.xsl"/>
+      <action name="POST">
+        <model src="modules/admissions/create.xql"/>
+      </action>
+      <item supported="accredit">
+        <action name="accredit">
+          <model src="modules/admissions/accredit.xql"/>
+        </action>
+      </item>
+    </collection>
+    <!-- (DEPRECATED) investor self-registration creation and accreditation -->
+    <collection name="investors" method="POST" epilogue="admission">
+      <access>
+        <rule action="GET" role="all"/>
+        <rule action="POST" role="g:admissible g:users"/>
+      </access>
+      <model src="modules/admissions/formular.xql"/>
+      <view src="modules/admissions/formular.xsl"/>
+      <action name="POST">
+        <model src="modules/admissions/create.xql"/>
+      </action>
+      <item supported="accredit">
+        <action name="accredit">
+          <model src="modules/admissions/accredit.xql"/>
+        </action>
+      </item>
+    </collection>
+    <!-- acknowledgement page -->
+    <item name="submitted" epilogue="admission">
+      <model src="modules/admissions/submitted.xql"/>
+      <view src="modules/admissions/submitted.xsl"/>
+      <access>
+        <rule action="GET" role="g:admissible g:users"/>
+      </access>
+    </item>
+  </collection>
+  <!-- ***************** -->
+  <!-- ** management  ** -->
+  <!-- ***************** -->
+  <item name="management" epilogue="home">
+    <access>
+      <rule action="GET" role="u:admin g:admin-system" message="system administrator"/>
+    </access>
+    <model src="modules/management/management.xql"/>
+    <view src="modules/management/management.xsl"/>
+    <item name="login">
+      <access>
+        <rule action="GET" role="u:admin g:admin-system" message="system administrator"/>
+      </access>
+      <model src="modules/management/login.xql"/>
+      <view src="modules/management/login.xsl"/>
+    </item>
+    <item name="users">
+      <access>
+        <rule action="GET" role="u:admin g:admin-system" message="system administrator"/>
+      </access>
+      <model src="modules/management/user.xql"/>
+      <view src="modules/management/user.xsl"/>
+    </item>
+    <item name="logs">
+      <access>
+        <rule action="GET" role="g:admin-system g:developer" message="system administrator"/>
+      </access>
+      <model src="modules/management/logs.xql"/>
+    </item>
+  </item>
+  <!-- ************ -->
+  <!-- ** admin  ** -->
+  <!-- ************ -->
+  <item name="admin" method="POST">
+    <access>
+      <rule action="GET POST" role="u:admin" message="admin"/>
+    </access>
+    <item name="deploy">
+      <access>
+        <rule action="GET" role="all"/>
+      </access>
+      <model src="scripts/deploy.xql"/>
+    </item>
+    <item name="hold">
+      <model src="models/hold.xql"/>
+    </item>
+  </item>
+  <!-- ************ -->
+  <!-- ** Community  ** -->
+  <!-- ************ -->
+  <collection name="community">
+    <item name="console" method="POST">
+      <access>
+        <rule action="GET POST" role="g:admin-system g:developer" message="system administrator"/>
+      </access>
+      <model src="modules/community/console.xql"/>
+      <action name="POST">
+        <model src="modules/community/console.xql"/>
+      </action>
+    </item>
+  </collection>
+  <!-- ************ -->
+  <!-- ** Tasks  ** -->
+  <!-- ************ -->
+  <collection name="tasks">
+    <item name="console" method="POST">
+      <access>
+        <rule action="GET POST" role="g:admin-system g:developer" message="system administrator"/>
+      </access>
+      <model src="modules/tasks/console.xql"/>
+      <action name="POST">
+        <model src="modules/tasks/console.xql"/>
+      </action>
+    </item>
+  </collection>  
+  <!-- ************ -->
+  <!-- ** forms  ** -->
+  <!-- ************ -->
+  <item name="forms" resource="file:///formulars/_register.xml" supported="install" epilogue="home">
+    <access>
+      <rule action="GET" role="u:admin g:users" message="member"/>
+    </access>
+    <view src="xcm:modules/formulars/simulator.xsl"/>
+    <item resource="file:///formulars/$2.xml"/>
+    <action name="install" resource="">
+      <model src="xcm:modules/formulars/install.xql">
+        <param name="sg-folder" value="eval:globals:app-name()"/>
+      </model>
+    </action>
+  </item>
+  <!-- *************** -->
+  <!-- ** health  ** -->
+  <!-- *************** -->
+  <item name="health">
+    <item name="check">
+      <access>
+        <rule action="GET" role="u:admin g:admin-system g:developer" message="system administrator"/>
+      </access>
+      <model src="scripts/validate.xql"/>
+    </item>
+  </item>
+  <!-- *************** -->
+  <!-- ** services  ** -->
+  <!-- *************** -->
+  <item name="services">
+    <item name="scaleupeu">
+      <item name="console">
+        <access>
+          <rule action="GET" role="g:admin-system g:developer" message="system administrator"/>
+        </access>
+        <model src="modules/scaleup/console.xql"/>
+      </item>
+    </item>
+  </item>  
+  <!-- ********************** -->
+  <!-- **  test (optional) ** -->
+  <!-- ********************** -->
+  <collection name="test">
+    <collection name="units">
+      <item name="1" epilogue="home">
+        <access>
+          <rule action="GET" role="g:developer" message="developer"/>
+        </access>
+        <model src="xcm:test/units.xql"/>
+      </item>
+      <item name="2" epilogue="home">
+        <access>
+          <rule action="GET" role="g:developer" message="developer"/>
+        </access>
+        <model src="test/units.xql"/>
+      </item>
+    </collection>
+    <item name="notifications" epilogue="home">
+      <access>
+        <rule action="GET" role="g:developer g:admin-system g:event-manager" message="developer or admin system"/>
+      </access>
+      <model src="test/email.xql"/>
+    </item>
+    <item name="selectors" epilogue="home">
+      <access>
+        <rule action="GET" role="g:developer g:admin-system" message="developer or admin system"/>
+      </access>
+      <model src="xcm:test/selectors.xql"/>
+    </item>
+    <item name="status">
+      <model src="xcm:test/status.xql"/>
+    </item>
+  </collection>
+</site>

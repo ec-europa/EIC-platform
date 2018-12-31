@@ -1,0 +1,60 @@
+<Form Tag="Opinions" StartLevel="2" xmlns:xt="http://ns.inria.org/xtiger" xmlns:site="http://oppidoc.com/oppidum/site">
+  <Title>Avis et prise de position</Title>
+
+  <Verbatim>
+  </Verbatim>
+
+  <Row>
+    <!-- Avis -->
+    <Cell>
+        <Title Level="1" loc="position.legend.responsibleCoach">Coach</Title>
+
+        <Row>
+          <Field Key="comments-1" Tag="Comments" Gap="0" W="9">Coach comment to EASME</Field>
+          <Field Key="constant-3" Tag="ResponsibleCoach" Gap="0" W="3">Author</Field>
+        </Row>
+
+        <Row>
+        <Title Level="1">Key account manager</Title>
+        <Cell Tag="KAM-Opinion">
+          <Field Key="constant-4" Tag="YesNoScaleRef" Gap="0" W="2">Validation</Field>
+          <Field Key="constant-2" Tag="Date" Gap="0" W="2">Date</Field>
+          <Field Key="constant-10" Tag="Author" Gap="0" W="5">Author</Field>
+          <site:conditional force="true" flag="kamop"><Button Key="btn.key-account-manager" Class="btn-small btn-primary" W="2" style="margin:36px 0 0 20px">Edit</Button></site:conditional>
+          <Field Key="comments-2" Tag="Comment" W="12" Gap="0" L="0">Comment on quality of match and SME acceptance of coaching plan</Field>
+        </Cell>
+        </Row>
+
+        <Row>
+        <Title Level="1">EASME Head of coaching service</Title>
+        <Cell Tag="ServiceHeadOpinion">
+          <Field Key="constant-8" Tag="PositionRef" W="2" Gap="0">Opinion</Field>
+          <Field Key="constant-6" Tag="Date" Gap="0" W="2">Date</Field>
+          <Field Key="constant-7" Tag="Author" Gap="0" W="5">Author</Field>
+          <site:conditional force="true" flag="cmop"><Button Key="btn.service-head" Class="btn-small btn-primary" W="2" style="margin:36px 0 0 20px">Edit</Button></site:conditional>
+          <Field Key="comments-3" Tag="Comment" W="12" Gap="0" L="0">Comment</Field>
+        </Cell>
+        </Row>
+    </Cell>
+  </Row>
+
+  <Modals>
+    <Modal Id="c-opinions" Width="620px" EventTarget="c-editor-opinions">
+      <Title Key="kam">Key account manager validation</Title>
+      <Title Key="head">EASME Head of coaching service opinion</Title>
+      <Title>Title</Title>
+    </Modal>
+  </Modals>
+
+  <Commands>
+    <Add Key="btn.key-account-manager" TargetEditor="c-opinions" TargetTitle="c-opinions-modal" TitleKey="kam"
+         Template="^/templates/position?goal=update&amp;context=KAM-Opinion&amp;yesno=1" Resource="~/opinions/KAM-Opinion"/>
+    <Add Key="btn.service-head" TargetEditor="c-opinions" TargetTitle="c-opinions-modal" TitleKey="head"
+         Template="^/templates/position?goal=update&amp;context=ServiceHeadOpinion&amp;position=1" Resource="~/opinions/ServiceHeadOpinion"/>
+  </Commands>
+
+  <Plugins>
+    <Constant Prefix="constant"/>
+    <Constant Prefix="comments" Media="html"/>
+  </Plugins>
+</Form>

@@ -1,0 +1,199 @@
+<Form Tag="Application" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <Verbatim>
+    <xt:component name="t_q1">
+      <Row>
+        <Field Key="companyName" Tag="Name" W="6" Gap="1">Company name</Field>
+        <Field Key="acronym" Tag="Acronym" W="6" Gap="1">Project acronym</Field>
+      </Row>
+      <Field Key="website" Tag="WebSite" W="6" Gap="1" L="0">Website</Field>
+      <Field Key="clients" Tag="Clients" Gap="1" W="6">Client</Field>
+      <Field Key="targetedMarkets" Tag="TargetedMarkets" Gap="2" W="12" L="0">Target markets</Field>
+      <Field Key="geonomenclature" Tag="GeographicalMarkets" Gap="2" W="12" L="0">Geographical target markets</Field>
+      <Field Key="companyDescription" Tag="CompanyDescription" W="12" Gap="2" L="0">Description </Field>
+    </xt:component>
+
+    <xt:component name="t_q2">
+      <Field Key="gender" Tag="Gender" W="3" Gap="1" L="0">Gender</Field>
+      <Field Key="firstname" Tag="FirstName" W="4" Gap="1.5">First Name</Field>
+      <Field Key="lastname" Tag="LastName" W="5" Gap="1.5" loc="term.surname">Last Name</Field>
+      <Row>
+        <Field Key="corporate" Tag="CorporateFunctions" Gap="1" W="12">Function</Field>
+      </Row>
+      <!-- Condition on "Other" -->
+      <xhtml:div data-avoid-corporate="~10" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="function" Tag="Function" Gap="2" W="12" L="0">Please specify</Field>
+      </xhtml:div>
+      <Row>
+        <Field Key="phone" Tag="Phone" Gap="1" W="5">Phone</Field>
+        <Field Key="email" Tag="Email" Gap="1" W="7">Email</Field>
+      </Row>
+      <Field Key="linkedIn" Tag="LinkedIn" W="12" Gap="1" L="0">LinkedIn</Field>
+    </xt:component>
+
+    <xt:component name="t_business_partners">
+      <Row>
+        <Field Key="yesno_01" Tag="YesNoScaleRef" Gap="2" W="6">Business partners</Field>
+      </Row>
+      <!-- conditional on "If" yes -->
+      <xhtml:div data-avoid-yn01="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="businessPartners" Tag="BusinessPartners" Gap="2" W="12">Types</Field>
+      </xhtml:div>
+    </xt:component>
+
+    <xt:component name="t_investment">
+      <Row>
+        <Field Key="yesno_02" Tag="YesNoScaleRef" Gap="2" W="6">Financial partners</Field>
+      </Row>
+        <!-- conditional on "If" yes -->
+      <xhtml:div data-avoid-yn02="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="targetInvestments" Tag="InvestmentInvestors" Gap="2" W="5" L="0">Target investment</Field>
+        <Field Key="targetInvestmentsTickets" Tag="InvestmentInvestorTickets" Gap="3" W="7">Target investment ticket</Field>
+        <Field Key="investorTypes" Tag="InvestorTypes" Gap="2" W="12" L="0">Investor type</Field>
+      </xhtml:div>
+    </xt:component>
+
+    <xt:component name="t_q3">
+      <xhtml:p style="font-style:italic; margin-bottom:20px;">Business networking is at the core of the event and will be ensured through a matchmaking app active before and through the event. You will be
+        able to download this app once your registration is confirmed. Participants will be able to search and be searchable.</xhtml:p>
+      <Cell>
+        <Use Tag="Business" TypeName="business_partners"/>
+        <Use Tag="Investment" TypeName="investment"/>
+      </Cell>
+    </xt:component>
+
+    <xt:component name="t_q4">
+      <Field Key="questionWorkshop11s" Tag="QuestionWorkshop11Ref" Gap="0">Day 1 - Afternoon session I (14:30-16:00)</Field>
+      <Field Key="questionWorkshop21s" Tag="QuestionWorkshop21Ref" Gap="0">Day 1 - Afternoon session II (16:30-18:00)</Field>
+      <Field Key="questionWorkshop31s" Tag="QuestionWorkshop31Ref" Gap="0">Day 2 - Morning session I (9:30-11:00)</Field>
+      <Field Key="questionWorkshop41s" Tag="QuestionWorkshop41Ref" Gap="0">Day 2 - Morning session II (11:30-13:00)</Field>
+    </xt:component>
+
+    <xt:component name="t_q5">
+      <xhtml:p style="font-style:italic; margin-bottom:20px;color:red">The registration to the pitching sessions are now closed.</xhtml:p>
+      <p style="font-style:italic; margin-bottom:20px;">We offer the possibility to pitch your project to investors. You will share the session with 5 companies and you will have 5 minutes to present your company and 5 minutes for questions and answers. The name of the jury members will be released later on. (The provided information will only be communicated to the Jury members )</p>
+      <Cell>
+        
+          <Field Key="pitching" Tag="PitchingSessionRef" Gap="0" W="7" L="2">I want to apply to one of the following pitching sessions </Field>
+        <!-- IF anything but "Not interested" selected previously -->
+        <xhtml:div data-avoid-p01="9" data-off-class="hide" class="hide feedback-sub">
+          <Field Key="targetInvestments" Tag="InvestmentInvestors" Gap="2" W="4" L="0">Target investment</Field>
+          <Field Key="targetInvestmentsTickets" Tag="InvestmentInvestorTickets" Gap="3" W="8">Target investment ticket</Field>
+          <Field Key="investorTypes" Tag="InvestorTypes" Gap="2" W="12" L="0">Investor type</Field>
+          <Row>
+            <Field Key="ebitda" Tag="EBITDA" Gap="0" W="6" L="1" >For the last year my company had an EBITDA (in Euros) of:</Field>
+            <Field Key="revenue" Tag="Revenue" Gap="0" W="6" L="1">In 3 Years from now my company expects a revenue (in euros) of:</Field>
+          </Row>
+          <Field Key="freetext_01" Tag="ShareholderStructure" Gap="0">The shareholder structure of my company is the following (names, number and/or type):</Field>
+          <Field Key="freetext_02" Tag="BusinessConcept" Gap="0">The business concept of my company can be summarised in the following sentence:</Field>
+          <Field Key="freetext_03" Tag="SellingPoints" Gap="0">The unique selling points of my product are the following:</Field>
+          <Field Key="freetext_04" Tag="IPInformation" Gap="0">The IP information about my company are the following:</Field>
+          <Field Key="freetext_05" Tag="MarketCompetitors" Gap="0">The market(s) and competitors for my company are the following:</Field>
+          <Field Key="freetext_06" Tag="Customers" Gap="0">The customers of my company can be described as follow:</Field>
+          <Field Key="freetext_07" Tag="TeamStructure" Gap="0">The team structure (management, employer structure) in my company is the following:</Field>
+        </xhtml:div>
+      </Cell>
+    </xt:component>
+
+    <xt:component name="t_hotbooths">
+      <xhtml:p style="font-style:italic;color:red;">The registration to the "hot booths" are now closed and all slots allocated</xhtml:p>
+      <xhtml:p style="font-style:italic;">Do you want to showcase your product but also participate in several activities during the event? Are you unable to stay full two days in an stand? Click here to
+        have a place in one of our two HOT BOOTHS: full stand available for your company, complete with display equipment in the main hall guaranteeing high visibility among visitors. The stand will
+        be shared together with other companies during limited time slots (2h per project). Periods will be raffled among the companies interested. Please note that in this case your product should be
+        easily transported.</xhtml:p>
+      <Row>
+        <Field Key="hot-booth-slot" Tag="HotBoothSlotRef" Gap="0" W="5" L="2">I want to apply for a slot at the "hot booths"</Field>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_transfer">
+      <Row>
+        <xhtml:p>
+          <xhtml:label style="display:inline;margin-right:10px;">I allow the transfer of my data to the app for the time before and during the Event <xhtml:span class="sg-mandatory" rel="tooltip" data-title="The transfer is mandatory to get the ticket for the event">*</xhtml:span></xhtml:label>
+            <!-- <span data-binding="required" data-variable="terms"> -->
+            <site:conditional avoid="read" force="true">
+              <xt:use param="type=checkbox;filter=event;value=on" types="input"/>
+            </site:conditional>
+            <site:conditional meet="read" force="true">
+              <xt:use param="type=checkbox;filter=event;value=on;name=term;noedit=true" types="input"/>
+            </site:conditional>
+            <!-- </span> -->
+        </xhtml:p>
+      </Row>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <Title style="margin: 10px 0 10px;">Company profile</Title>
+    <Use Tag="CompanyProfile" TypeName="q1"/>
+  </Row>
+  <Separator/>
+  <Row>
+    <Title style="margin: 10px 0 10px;">Participant to the event</Title>
+    <Use Tag="ParticipantInformation" TypeName="q2"/>
+  </Row>
+
+  <Separator/>
+  <Row>
+    <Title style="margin: 10px 0 10px;">For the networking activities, I am interested to meet</Title>
+    <Use TypeName="q3"/>
+  </Row>
+  <Row>
+    <Title style="text-align:left; margin: 10px 0 10px;">I would like to attend the following workshops</Title>
+    <Use Tag="Workshop" TypeName="q4"/>
+  </Row>
+
+  <Separator/>
+  <Row>
+    <Title style="text-align:left; margin: 10px 0 10px;">Pitching</Title>
+    <Use Tag="Pitching" TypeName="q5"/>
+  </Row>
+
+  <Separator/>
+  <Row>
+    <Title style="text-align:left; margin: 10px 0 10px;">HOT BOOTHS:</Title>
+    <Use TypeName="hotbooths"/>
+  </Row>
+
+  <Row>
+    <Field Key="acceleration" Tag="AccelerationServices" Gap="0" W="10" L="1 ">I want to benefit from the following Business acceleration services and allow the re-use of my above provided data there:</Field>
+  </Row>
+
+  <Row>
+    <Use Tag="DataTransfer" TypeName="transfer"/>
+  </Row>
+
+  <Include src="consent.xml" TypeName="footer"/>
+
+  <Bindings>
+    <Condition Keys="corporate" Variable="corporate"/>
+    <Condition Keys="pitching" Variable="p01"/>
+    <Condition Keys="yesno_01" Variable="yn01"/>
+    <Condition Keys="yesno_02" Variable="yn02"/>
+    <Enforce>
+      <RegExp Keys="email eulogin" Message-loc="validation.email" Message="The EMail adress must be well formed (name@server.domain)">^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>--> <!-- <RegExp Keys="phone mobile" Message-loc="validation.phone" Message="digits only"
+        >^\+?\s*[\d ]{2,}$</RegExp> -->
+      <RegExp Keys="companyDescription" Message="Description must be up to 500 characters">^(.?){1,500}$</RegExp>
+      <RegExp Keys="ebitda revenue"
+        Message="A valid number is expected"
+        >^\s*$|^-?\d+$</RegExp>
+    </Enforce>
+  </Bindings>
+
+  <Hints>
+    <Hint Keys="companyDescription" data-placement="right">A short description about my company. be aware it will be visible to other event participants (up to 500 characters).</Hint>
+    <Mandatory Feedback="border" Keys="acronym companyDescription targetedMarkets geonomenclature gender firstname lastname corporate email phone yesno_01 yesno_02 businessPartners questionWorkshop11s questionWorkshop21s questionWorkshop31s questionWorkshop41s ebitda revenue freetext_01 freetext_02 freetext_03 freetext_04 freetext_05 freetext_06 freetext_07">This field must be filled to be able to submit</Mandatory>
+    <Mandatory Feedback="border" Tags="InvestmentInvestors InvestmentInvestorTickets InvestorTypes">This field must be filled to be able to submit</Mandatory>
+  </Hints>
+
+  <Plugins>
+    <Input Keys="lastname firstname phone linkedIn function ebitda revenue"/>
+    <Input Keys="email" Media="email"/>
+    <Input Keys="website" Media="url"/>
+    <MultiText Keys="companyDescription"/>
+    <MultiText Prefix="freetext"/>
+  </Plugins>
+</Form>

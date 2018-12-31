@@ -1,0 +1,57 @@
+<Form Tag="Member" Layout="fluid" Orientation="horizontal"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Verbatim>
+    <xt:component name="t_person_name">
+      <Field Key="firstname" Tag="FirstName" W="6" Gap="1.5" L="0">First Name</Field>
+      <Field Key="lastname" Tag="LastName" W="6" Gap="1.5" loc="term.surname">Last Name</Field>
+    </xt:component>
+    <xt:component name="t_contacts">
+      <Field Key="phone" Tag="Phone" Gap="1.5" W="6" L="0">Phone</Field>
+      <Field Key="mobile" Tag="Mobile" Gap="1.5" W="6">Mobile</Field>
+      <Field Key="email" Tag="Email" Gap="1.5" W="12" L="0">E-mail</Field>
+    </xt:component>
+    <xt:component name="t_person_data">
+    </xt:component>
+
+  </Verbatim>
+
+  <Row class="x-Person">
+    <Row>
+      <Field Key="sex" Tag="Sex" Gap="1.5" W="3">Gender</Field>
+      <Field Key="civility" Tag="Civility" Gap="1" W="3">Title</Field>
+    </Row>
+    <Use Tag="Name" TypeName="person_name"/>
+    <Use Tag="Contacts" TypeName="contacts"/>
+    <Field Key="corporate" Tag="CorporateFunctions" Gap="1.5" W="12" L="0">Functions</Field>
+    <xhtml:div data-avoid-corporate="~10" data-on-class="hide" class="hide feedback-sub">
+      <Field Key="function" Tag="Function" Gap="1.5" W="12" L="0">Please specify</Field>
+    </xhtml:div>
+    <Field Key="spokenlanguages" Tag="SpokenLanguages" Gap="2">Spoken Languages</Field>
+
+  </Row>
+
+  <Bindings>
+    <Condition Keys="corporate" Variable="corporate"/>
+    <Require Keys="firstname lastname email"/>
+    <Enforce>
+      <RegExp Keys="email eulogin" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <!-- <RegExp Keys="phone mobile" Message-loc="validation.phone" Message="digits only"
+        >^\+?\s*[\d ]{2,}$</RegExp> -->
+    </Enforce>
+  </Bindings>
+
+  <Hints>
+    <Hint Keys="email" data-placement="right">this must be the e-mail address the member uses to authenticate with EU login otherwise s/he will not be able to access this application</Hint>
+  </Hints>
+
+  <Plugins>
+    <Input Keys="civility lastname firstname phone mobile function"/>
+    <Input Keys="email" Media="email"/>
+  </Plugins>
+</Form>

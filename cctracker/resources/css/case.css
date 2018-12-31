@@ -1,0 +1,5 @@
+/* Module level CSS for case */
+button.top-action, a.top-action {
+  float: right;
+  margin: 5px;
+}

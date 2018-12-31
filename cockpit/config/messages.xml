@@ -1,0 +1,151 @@
+<messages>
+  <info type="INFO" timeout="-1">
+    <message>%s</message>
+  </info>
+  <info type="ANNOUNCEMENT" timeout="-1" at="!login">
+    <!-- remove ! prefix to enable login message -->
+    <message>Announcement</message>
+  </info>
+  <info type="ASK-LOGOUT" timeout="-1">
+    <message lang="en">The case tracker will be put into maintenance. You are kindly requested to finish your operations and to log out from the application as soon as possible. In any case you will be logged out in %s from now.</message>
+  </info>
+  <info type="ACTION-LOGIN-SUCCESS">
+    <message lang="fr">Vous avez été identifié en tant que "%s"</message>
+    <message lang="de">Sie wurden identifiziert als "%s"</message>
+    <message lang="en">You are registered as: "%s"</message>
+  </info>
+  <info type="ACTION-LOGIN-SUCCESS-INFO" timeout="-1">
+    <message lang="en">Welcome, you are logged in as "%s"; the case tracker currently holds a total of %s coaching hours for the SME Instrument</message>
+  </info>
+  <info type="ACTION-LOGOUT-SUCCESS">
+    <message lang="fr">Vous avez été déconnecté avec succès</message>
+    <message lang="de">Sie wurden erfolgreich ausgeloggt</message>
+    <message lang="en">You have been logged out successfully</message>
+  </info>
+  <info type="ACTION-UPDATE-SUCCESS">
+    <message lang="fr">La ressource vient d'être mise à jour avec succès</message>
+    <message lang="de">Die Daten wurden erfolgreich aktualisiert</message>
+    <message lang="en">The resource has just been updated</message>
+  </info>
+  <info type="ACTION-UPDATE-SAME-SUCCESS">
+    <message lang="fr">La ressource vient d'être sauvegardée avec succès</message>
+    <message lang="en">The resource has just been saved</message>
+  </info>
+  <info type="ACTION-CREATE-SUCCESS" code="201">
+    <message lang="fr">La nouvelle ressource vient d'être créée avec succès</message>
+    <message lang="de">Die neuen Daten wurden erfolgreich eingegeben</message>
+    <message lang="en">The new resource has been entered successfully</message>
+  </info>
+  <info type="CREATE-UNAFFILIATED-SUCCESS" code="201">
+    <message lang="en">Unaffiliated user %s created, please go to the users management page to assign roles to that user</message>
+  </info>
+  <info type="UPDATE-UNAFFILIATED-SUCCESS">
+    <message lang="en">The user %s can still access the application as unaffiliated user</message>
+  </info>
+  <info type="DELETE-USER-SUCCESS">
+    <message lang="en">The user account of %s has been deleted, the user can no longer access the application</message>
+  </info>
+  <info type="ACTION-UPDATE-NOCHANGE">
+    <message lang="fr">You didn't change anything, nothing to update</message>
+  </info>
+  <info type="DELETE-MEMBER-CONFIRM" code="202">
+    <message lang="en">You can remove team member %s. Are you sure you want to proceed ? This action is irreversible</message>
+  </info>
+  <info type="DELETE-MEMBER-SUCCESS" timeout="-1">
+    <message lang="en">The member %s has been removed successfully</message>
+  </info>
+  <info type="DELETE-ENTERPRISE-CONFIRM" code="202">
+    <message lang="en">You can remove the company "%s" because it is not linked to any case, any activity and is not represented by any person of the data base. Are you sure you want to delete it? This action is irreversible</message>
+  </info>
+  <info type="DELETE-REGION-CONFIRM" code="202">
+    <message lang="en">You can remove the EEN entity "%s" since it is not linked to any case. As a side effect any member bearing the KAM coordinator role or the KAM role for this entity will be updated to remove the corresponding role. Are you sure you want to delete it? This action is irreversible.</message>
+  </info>
+  <info type="DELETE-ENTERPRISE-SUCCESS">
+    <message lang="fr">L'entreprise "%s" a été effacée avec succès</message>
+    <message lang="de">Das Unternehmen "%s" wurde erfolgreich gelöscht</message>
+    <message lang="en">The company "%s" has been removed successfully</message>
+  </info>
+  <info type="COMMAND-TERMINATED" timeout="-1">
+    <message lang="en">The command has been run on the server</message>
+  </info>
+  <info type="ACTION-DELETE-SUCCESS">
+    <message lang="en">The resource has been deleted</message>
+  </info>
+  <info type="MODE-WARNING-TEST">
+    <message lang="en">This is a TEST SERVER only ! If your intent is to use the real Case Tracker application, then check the URL you are using. Information on this platform may not be accurate and can be lost at any time...</message>
+  </info>
+  <info type="MODE-WARNING-DEV">
+    <message lang="en">This is a DEVELOPMENT SERVER only ! If your intent is to use the real Case Tracker application, then check the URL you are using. Information on this platform may not be accurate and can be lost at any time...</message>
+  </info>
+  <info type="REPLACE-LEAR-CONFIRM" code="202" envelope="confirm">
+    <message lang="en">You are about to replace "%s" by "%s" as LEAR. %s will remain in the list of team members as a delegate. Do you confirm that action ?</message>
+  </info>
+  <!-- ******************************************** -->
+  <!-- *************  Account Messages ************ -->
+  <!-- ******************************************** -->
+  <info type="ACCOUNT-LOGIN-CREATED" code="201">
+    <message lang="fr">Le compte a été créé et un message a été envoyé à "%s"</message>
+    <message lang="de">traduire [ Le compte a été créé et un message a été envoyé à "%s" ]</message>
+    <message lang="en">The account has been created and a message has been sent to "%s"</message>
+  </info>
+  <info type="ACCOUNT-LOGIN-UPDATED">
+    <message lang="fr">Le nouveau compte a été créé et un message a été envoyé à "%s"</message>
+    <message lang="de">traduire [ Le nouveau compte a été créé et un message a été envoyé à "%s" ]</message>
+    <message lang="en">The new account has been created and a message has been sent to "%s"</message>
+  </info>
+  <info type="ACCOUNT-LOGIN-DELETED">
+    <message lang="fr">L'identifiant "%s" a été supprimé et n'a donc plus accès à la base de données</message>
+    <message lang="de">traduire [ L'identifiant "%s" a été supprimé et n'a donc plus accès à la base de données ]</message>
+    <message lang="en">The user "%s" has been removed and therefore has no longer access to the data base</message>
+  </info>
+  <info type="ACCOUNT-PWD-CHANGED-MAIL">
+    <message lang="fr">Le mot de passe a été modifié et un message de notification envoyé à %s</message>
+    <message lang="de">traduire [ Le mot de passe a été modifié et un message de notification envoyé à %s ]</message>
+    <message lang="en">The password has been changed and a notification message has been sent to %s</message>
+  </info>
+  <info type="ACCOUNT-PWD-CHANGED-NOMAIL">
+    <message lang="fr">Le mot de passe a été modifié par contre le message de notification n'a pas pu ête envoyé à %s. Prévenez-le par un autre canal !</message>
+    <message lang="de">traduire [ Le mot de passe a été modifié par contre le message de notification n'a pas pu ête envoyé à %s. Prévenez-le par un autre canal ! ]</message>
+    <message lang="en">The password has been changed but the notification message couldn't be sent to %s. Try to get it through another canal</message>
+  </info>
+  <info type="PROFILE-UPDATED-WOACCESS">
+    <message lang="fr">Le profil de "%s" a été mis à jour, n'oubliez pas de lui créer un login ou de lui générer un mot de passe si vous souhaitez lui donner accès à l'application</message>
+    <message lang="de">traduire [ Le profil de "%s" a été mis à jour, n'oubliez pas de lui créer un login ou de lui générer un mot de passe si vous souhaitez lui donner accès à l'application ]</message>
+    <message lang="en">The profil of "%s" has been updated, do not forget to create him a login or to generate a password if you want him to have an access to the application</message>
+  </info>
+  <info type="PROFILE-UPDATED">
+    <message lang="fr">Le profil de l'utilisateur "%s" a été mis à jour</message>
+    <message lang="de">traduire [ Le profil de l'utilisateur "%s" a été mis à jour ]</message>
+    <message lang="en">The profile of the user "%s" has been updated</message>
+  </info>
+  <!-- ****************************************** -->
+  <!-- ************* Workflow messages ********** -->
+  <!-- ****************************************** -->
+  <info type="WFSTATUS-UPDATED">
+    <message lang="en">The status has been changed with success</message>
+  </info>
+  <info type="WFS-APPLICATION-SUBMITTED">
+    <message lang="en">Your answers have been correctly submitted</message>
+  </info>
+  <info type="WFS-RANKINGS-SUBMITTED">
+    <message lang="en">The rankings have been correctly submitted</message>
+  </info>
+  <info type="NOTIFY-TRANSITION-REPORT" timeout="-1">
+    <message lang="en">A notification e-mail has been sent to %s</message>
+  </info>
+  <!-- ****************************************** -->
+  <!-- ************** Token messages ************ -->
+  <!-- ****************************************** -->
+  <info type="TOKEN-REQUEST-CONFIRM" code="202">
+    <message lang="en">Currently there is no investor contact person for your company. As such no one has access to ScaleupEU. Do you wish to become the investor contact person for your company and get access to ScaleupEU ?</message>
+  </info>
+  <info type="TOKEN-TAKEN-REQUEST-CONFIRM" code="202">
+    <message lang="en">Currently %s is the investor contact person for your company. As such he/she is the only one with access to ScaleupEU. Do you wish to replace him/her in this role ?</message>
+  </info>
+  <info type="TOKEN-REQUEST-CONFIRMED" timeout="-1">
+    <message lang="en">Your request to become investor contact person for %s has been recorded.</message>
+  </info>
+  <info type="TOKEN-REJECT-CONFIRM" code="202">
+    <message lang="en">Are you sure you want to reject token request from %s ?</message>
+  </info>
+</messages>

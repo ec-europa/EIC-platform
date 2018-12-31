@@ -1,0 +1,126 @@
+<Form Tag="FinalReportApproval" StartLevel="2" xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:site="http://oppidoc.com/oppidum/site">
+  <Title>KAM report</Title>
+
+  <Row>
+    <Cell>
+      <Title Level="1">Evaluation</Title>
+
+      <Cell Tag="Recognition" Class="c-v-spacer">
+        <Field Key="likert-scale" Tag="RatingScaleRef" Gap="3" W="12">The top management understands the value of the coaching.</Field>
+        <Field Key="comments" Tag="Comment" Gap="0">Describe your experiences.</Field>
+      </Cell>
+
+      <Cell Tag="Tools" Class="c-v-spacer">
+        <Field Key="likert-scale" Tag="RatingScaleRef" Gap="3" W="12">I felt confident using the needs analysis tool.</Field>
+        <Field Key="comments" Tag="Comment" Gap="0">Describe your experiences.</Field>
+      </Cell>
+
+      <Cell Tag="Profiles" Class="c-v-spacer">
+        <Field Key="likert-scale" Tag="RatingScaleRef" Gap="3" W="12">I could find suitably profiled coaches in the coach database.</Field>
+        <Field Key="comments" Tag="Comment" Gap="0">Describe your experiences.</Field>
+      </Cell>
+
+      <Cell Tag="Dialogue">
+        <Field Key="likert-scale" Tag="RatingScaleRef" Gap="3" W="12">I appreciate the interaction with the coach (dialogue, responsiveness).</Field>
+        <Field Key="comments" Tag="Comment" Gap="0">Describe your experiences.</Field>
+      </Cell>
+
+      <!-- <site:conditional force="true" avoid="update">
+              <Cell Gap="3">
+                <Field Key="date" Tag="Date" W="3" Gap="0">Date</Field>
+                <Field Key="author" Tag="Author" W="9" Gap="0">Author</Field>
+              </Cell>
+            </site:conditional> -->
+    </Cell>
+  </Row>
+
+  <Row>
+    <Cell>
+      <Title Level="1">Additional support to the SME beneficiary</Title>
+      <Cell Tag="PastRegionalInvolvement">
+        <Title Level="4">Was the company working with regional support ecosystem prior to the SME Instrument project ?</Title>
+        <Row>
+          <Field Key="support" Tag="SupportScaleRef" W="2"/>
+          <Field Key="comment-4" Tag="Comment" W="10"/>
+        </Row>
+      </Cell>
+
+      <Cell Tag="RegionalInvolvement">
+        <Title Level="4">Did the regional support ecosystem work with the company during the SME Instrument project ?</Title>
+        <Row>
+          <Field Key="support" Tag="SupportScaleRef" W="2"/>
+          <Field Key="comment-5" Tag="Comment" W="10"/>
+        </Row>
+      </Cell>
+
+      <Cell Tag="FutureRegionalInvolvement">
+        <Title Level="4">Will the regional support ecosystem be involved in the future ?</Title>
+        <Row>
+          <Field Key="support" Tag="SupportScaleRef" W="2"/>
+          <Field Key="comment-6" Tag="Comment" W="10"/>
+        </Row>
+      </Cell>
+
+      <Cell Tag="FutureSupport">
+        <Title Level="4">Need for further SME support (SME instrument, coaching, financing, etc.)</Title>
+        <Row>
+          <Field Key="support" Tag="SupportScaleRef" W="2"/>
+          <Field Key="comment-7" Tag="Comment" W="10"/>
+        </Row>
+      </Cell>
+    </Cell>
+  </Row>
+
+  <Row>
+    <Title Level="1">Success story</Title>
+    <Cell Tag="Dissemination">
+      <Field Key="to-appear-in-news" Tag="CommunicationAdviceRef" Gap="0">Would you recommend this case as a success story for EASME communication ?</Field>
+      <Field Key="motivation" Tag="Comment" Gap="0">Describe the attractiveness as a success story</Field>
+    </Cell>
+  </Row>
+
+  <!-- <Row>
+      <Cell Tag="KAM-Report">
+        <Title Level="1">KAM internal report</Title>
+
+        <Cell Gap="3">
+            <Title Level="4">Number of hours spent by KAM</Title>
+            <Field Key="nb-of-hours" Tag="NbOfHours" Gap="0" W="2"/>
+        </Cell>
+
+        <Cell Gap="3">
+          <Title Level="4">KAM Report</Title>
+          <Field Key="report-1" Tag="Comment" Gap="0" W="12"/>
+        </Cell>
+      </Cell>
+    </Row> -->
+
+  <!-- <site:conditional force="true" avoid="update">
+    <Row>
+      <Cell Gap="3">
+        <Field Key="date" Tag="Date" W="3" Gap="0">Date</Field>
+        <Field Key="author" Tag="Author" W="9" Gap="0">Author</Field>
+      </Cell>
+    </Row>
+  </site:conditional> -->
+
+  <Modals>
+  </Modals>
+
+  <Commands>
+  </Commands>
+
+  <Bindings>
+    <Enforce>
+      <!-- <RegExp Keys="nb-of-hours" Message-loc="validation.decimal" Message="Digits only" Pattern="[0-9]+(\.|,)?[0-9]{0,2}">^\s*$|^\s*(\d+)(\.|,)?(\d){0,2}\s*$</RegExp> -->
+    </Enforce>
+  </Bindings>
+
+  <Plugins>
+    <MultiText Prefix="report"/>
+    <MultiText Prefix="comment"/>
+    <Text Keys="motivation"/>
+    <!-- <Input Keys="nb-of-hours" Type="number" Class="text-right"/> -->
+  </Plugins>
+</Form>

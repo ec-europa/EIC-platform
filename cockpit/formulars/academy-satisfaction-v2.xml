@@ -1,0 +1,130 @@
+<Form Tag="Event" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Title>Satisfaction</Title>
+
+  <Verbatim>
+    <xt:component name="t_contact_person">
+      <Field Key="firstname" Tag="FirstName" Gap="1.75" W="4" L="0">First Name</Field>
+      <Field Key="lastname" Tag="LastName" Gap="1.5" W="4">Last Name</Field>
+      <Field Key="civility" Tag="Civility" Gap="1" W="2">Title</Field>
+      <Field Key="phone" Tag="Phone" Gap="1.75" W="4" L="0">Direct phone</Field>
+      <Field Key="email_contact" Tag="Email" Gap="1.5" W="6">Email</Field>
+    </xt:component>
+
+    <xt:component name="t_q1_1">
+      <Row>
+        <Field Key="one-to-five" Tag="OneToFiveScaleRef" Gap="2.8" W="6">Structure and content</Field>
+        <Field Key="comments" Tag="Comments" W="6"/>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_q1_2">
+      <Row>
+        <Field Key="one-to-five" Tag="OneToFiveScaleRef" Gap="2.8" W="6">Duration</Field>
+        <Field Key="comments" Tag="Comments" W="6"/>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_q1_3">
+      <Row>
+        <Field Key="one-to-five" Tag="OneToFiveScaleRef" Gap="2.8" W="6">Teaching style</Field>
+        <Field Key="comments" Tag="Comments" W="6"/>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_q1_4">
+      <Row>
+        <Field Key="one-to-five" Tag="OneToFiveScaleRef" Gap="2.8" W="6">Trainer's knowledge of the subject</Field>
+        <Field Key="comments" Tag="Comments" W="6"/>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_q1_5">
+      <Row>
+        <Field Key="one-to-five" Tag="OneToFiveScaleRef" Gap="2.8" W="6">Relevance to your needs</Field>
+        <Field Key="comments" Tag="Comments" W="6"/>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_q1_6">
+      <Row>
+        <Field Key="one-to-five" Tag="OneToFiveScaleRef" Gap="2.8" W="6">Networking with peers and coaches</Field>
+        <Field Key="comments" Tag="Comments" W="6"/>
+      </Row>
+    </xt:component>
+    
+    <xt:component name="t_oneTofive">
+      <xhtml:label class="control-label a-gap0">1. Please rate on a scale from 1 to 5</xhtml:label>
+      <xhtml:p style="margin-left: 110px">1 = Poor,  2 = Fair,  3 = Average,  4 = Good,  5 = Excellent</xhtml:p>
+      <xhtml:div style="margin-left: 51%"><xhtml:label class="control-label a-gap0">Comments</xhtml:label></xhtml:div>
+      <Use Tag="Content" TypeName="q1_1"/>
+      <Use Tag="Duration" TypeName="q1_2"/>
+      <Use Tag="Teaching" TypeName="q1_3"/>
+      <Use Tag="Knowledge" TypeName="q1_4"/>
+      <Use Tag="Relevance" TypeName="q1_5"/>
+      <Use Tag="Networking" TypeName="q1_6"/>
+    </xt:component>
+
+    <xt:component name="t_q5">
+      <Field Key="rating_04" Tag="RatingScaleRef" Gap="0">2. You would recommend this event to other companies :</Field>
+      <Field Key="comments_05" Tag="Comments" W="12" L="0">Please explain</Field>
+    </xt:component>
+
+    <xt:component name="t_q6">
+      <Field Key="comments_06" Tag="Improvements" Gap="0">3. What can we do better next time ?</Field>
+    </xt:component>
+
+    <xt:component name="t_q7">
+      <Field Key="comments_07" Tag="Suggestions" Gap="0">4. What are your suggestions for future Business Acceleration Services ?</Field>
+    </xt:component>
+  </Verbatim>
+
+  <site:conditional avoid="update" force="true">
+    <Row Class="no-export">
+      <Cell Gap="2.75" Tag="Initiated">
+        <Title Level="3">Feedback form sent to:</Title>
+        <Field Key="email_addressee" Tag="Email" Gap="1.8" W="7">To SME Contact</Field>
+        <Field Key="date" Tag="Date" Gap="1.8" W="4">Date </Field>
+      </Cell>
+    </Row>
+    <Separator/>
+  </site:conditional>
+
+  <Row>
+    <Cell Gap="2.75">
+      <Title Level="3">Answered by:</Title>
+      <Use Tag="Contact" TypeName="contact_person"/>
+    </Cell>
+  </Row>
+  
+  <Row>
+    <Use TypeName="oneTofive"/>
+    <Use Tag="Recommendation" TypeName="q5"/>
+    <Use TypeName="q6"/>
+    <Use TypeName="q7"/>
+  </Row>
+
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="email_contact" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <!-- FIXME: actually it is not possible to validate in a repetition because the feedback warning applies to all lines !-->
+    </Enforce>
+    <Condition Keys="yesnonop_04" Variable="yn04"/>
+  </Bindings>
+
+  <Hints>
+    <Mandatory Feedback="border" Tags="FirstName LastName Civility Phone">This field must be filled to be able to proceed to the next step</Mandatory>
+    <Mandatory Feedback="border" Keys="email_contact one-to-five rating_04">This field must be filled to be able to proceed to the next step</Mandatory>
+  </Hints>
+
+  <Plugins>
+    <Input Keys="firstname lastname function civility phone email_contact email_addressee"/>
+    <MultiText Prefix="comments"/>
+  </Plugins>
+</Form>

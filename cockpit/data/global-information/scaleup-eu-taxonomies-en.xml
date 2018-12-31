@@ -1,0 +1,1299 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GlobalInformation>
+	<Description Lang="en">
+		<Selector Name="ScaleUP-EU-Regions">
+			<Version>20181011-0</Version>
+			<Title>Regions - Nuts code used by ScaleUP Web Service</Title>
+			<Note>Regions - Nuts code used by ScaleUP Web Service</Note>
+			<Option>
+				<Value>CH01</Value>
+				<Name>Région Lémanique (CH01)</Name>
+			</Option>
+			<Option>
+				<Value>CH02</Value>
+				<Name>Espace Mittelland (CH02)</Name>
+			</Option>
+			<Option>
+				<Value>CH03</Value>
+				<Name>Nordwestschweiz (CH03)</Name>
+			</Option>
+			<Option>
+				<Value>CH04</Value>
+				<Name>Zürich (CH04)</Name>
+			</Option>
+			<Option>
+				<Value>CH05</Value>
+				<Name>Ostschweiz (CH05)</Name>
+			</Option>
+			<Option>
+				<Value>CH06</Value>
+				<Name>Zentralschweiz (CH06)</Name>
+			</Option>
+			<Option>
+				<Value>CH07</Value>
+				<Name>Ticino (CH07)</Name>
+			</Option>
+			<Option>
+				<Value>SI03</Value>
+				<Name>Vzhodna Slovenija (SI03)</Name>
+			</Option>
+			<Option>
+				<Value>SI04</Value>
+				<Name>Zahodna Slovenija (SI04)</Name>
+			</Option>
+			<Option>
+				<Value>PT11</Value>
+				<Name>Norte (PT11)</Name>
+			</Option>
+			<Option>
+				<Value>PT15</Value>
+				<Name>Algarve (PT15)</Name>
+			</Option>
+			<Option>
+				<Value>PT16</Value>
+				<Name>Centro (PT) (PT16)</Name>
+			</Option>
+			<Option>
+				<Value>PT17</Value>
+				<Name>Área Metropolitana de Lisboa (PT17)</Name>
+			</Option>
+			<Option>
+				<Value>PT18</Value>
+				<Name>Alentejo (PT18)</Name>
+			</Option>
+			<Option>
+				<Value>PT30</Value>
+				<Name>Região Autónoma da Madeira (PT30)</Name>
+			</Option>
+			<Option>
+				<Value>DE11</Value>
+				<Name>Stuttgart (DE11)</Name>
+			</Option>
+			<Option>
+				<Value>DE12</Value>
+				<Name>Karlsruhe (DE12)</Name>
+			</Option>
+			<Option>
+				<Value>DE13</Value>
+				<Name>Freiburg (DE13)</Name>
+			</Option>
+			<Option>
+				<Value>DE14</Value>
+				<Name>Tübingen (DE14)</Name>
+			</Option>
+			<Option>
+				<Value>DE21</Value>
+				<Name>Oberbayern (DE21)</Name>
+			</Option>
+			<Option>
+				<Value>DE22</Value>
+				<Name>Niederbayern (DE22)</Name>
+			</Option>
+			<Option>
+				<Value>DE23</Value>
+				<Name>Oberpfalz (DE23)</Name>
+			</Option>
+			<Option>
+				<Value>DE24</Value>
+				<Name>Oberfranken (DE24)</Name>
+			</Option>
+			<Option>
+				<Value>DE25</Value>
+				<Name>Mittelfranken (DE25)</Name>
+			</Option>
+			<Option>
+				<Value>DE26</Value>
+				<Name>Unterfranken (DE26)</Name>
+			</Option>
+			<Option>
+				<Value>DE27</Value>
+				<Name>Schwaben (DE27)</Name>
+			</Option>
+			<Option>
+				<Value>DE30</Value>
+				<Name>Berlin (DE30)</Name>
+			</Option>
+			<Option>
+				<Value>DE40</Value>
+				<Name>Brandenburg (DE40)</Name>
+			</Option>
+			<Option>
+				<Value>DE50</Value>
+				<Name>Bremen (DE50)</Name>
+			</Option>
+			<Option>
+				<Value>DE60</Value>
+				<Name>Hamburg (DE60)</Name>
+			</Option>
+			<Option>
+				<Value>DE71</Value>
+				<Name>Darmstadt (DE71)</Name>
+			</Option>
+			<Option>
+				<Value>DE72</Value>
+				<Name>Gießen (DE72)</Name>
+			</Option>
+			<Option>
+				<Value>DE73</Value>
+				<Name>Kassel (DE73)</Name>
+			</Option>
+			<Option>
+				<Value>DE80</Value>
+				<Name>Mecklenburg-Vorpommern (DE80)</Name>
+			</Option>
+			<Option>
+				<Value>DE91</Value>
+				<Name>Braunschweig (DE91)</Name>
+			</Option>
+			<Option>
+				<Value>DE92</Value>
+				<Name>Hannover (DE92)</Name>
+			</Option>
+			<Option>
+				<Value>DE93</Value>
+				<Name>Lüneburg (DE93)</Name>
+			</Option>
+			<Option>
+				<Value>DE94</Value>
+				<Name>Weser-Ems (DE94)</Name>
+			</Option>
+			<Option>
+				<Value>DEA1</Value>
+				<Name>Düsseldorf (DEA1)</Name>
+			</Option>
+			<Option>
+				<Value>DEA2</Value>
+				<Name>Köln (DEA2)</Name>
+			</Option>
+			<Option>
+				<Value>DEA3</Value>
+				<Name>Münster (DEA3)</Name>
+			</Option>
+			<Option>
+				<Value>DEA4</Value>
+				<Name>Detmold (DEA4)</Name>
+			</Option>
+			<Option>
+				<Value>DEA5</Value>
+				<Name>Arnsberg (DEA5)</Name>
+			</Option>
+			<Option>
+				<Value>DEB1</Value>
+				<Name>Koblenz (DEB1)</Name>
+			</Option>
+			<Option>
+				<Value>DEB2</Value>
+				<Name>Trier (DEB2)</Name>
+			</Option>
+			<Option>
+				<Value>DEB3</Value>
+				<Name>Rheinhessen-Pfalz (DEB3)</Name>
+			</Option>
+			<Option>
+				<Value>DEC0</Value>
+				<Name>Saarland (DEC0)</Name>
+			</Option>
+			<Option>
+				<Value>DED2</Value>
+				<Name>Dresden (DED2)</Name>
+			</Option>
+			<Option>
+				<Value>DED4</Value>
+				<Name>Chemnitz (DED4)</Name>
+			</Option>
+			<Option>
+				<Value>DED5</Value>
+				<Name>Leipzig (DED5)</Name>
+			</Option>
+			<Option>
+				<Value>DEE0</Value>
+				<Name>Sachsen-Anhalt (DEE0)</Name>
+			</Option>
+			<Option>
+				<Value>DEF0</Value>
+				<Name>Schleswig-Holstein (DEF0)</Name>
+			</Option>
+			<Option>
+				<Value>DEG0</Value>
+				<Name>Thüringen (DEG0)</Name>
+			</Option>
+			<Option>
+				<Value>AT11</Value>
+				<Name>Burgenland (AT) (AT11)</Name>
+			</Option>
+			<Option>
+				<Value>AT12</Value>
+				<Name>Niederösterreich (AT12)</Name>
+			</Option>
+			<Option>
+				<Value>AT13</Value>
+				<Name>Wien (AT13)</Name>
+			</Option>
+			<Option>
+				<Value>AT21</Value>
+				<Name>Kärnten (AT21)</Name>
+			</Option>
+			<Option>
+				<Value>AT22</Value>
+				<Name>Steiermark (AT22)</Name>
+			</Option>
+			<Option>
+				<Value>AT31</Value>
+				<Name>Oberösterreich (AT31)</Name>
+			</Option>
+			<Option>
+				<Value>AT32</Value>
+				<Name>Salzburg (AT32)</Name>
+			</Option>
+			<Option>
+				<Value>AT33</Value>
+				<Name>Tirol (AT33)</Name>
+			</Option>
+			<Option>
+				<Value>AT34</Value>
+				<Name>Vorarlberg (AT34)</Name>
+			</Option>
+			<Option>
+				<Value>BE10</Value>
+				<Name>Région de Bruxelles-Capitale (BE10)</Name>
+			</Option>
+			<Option>
+				<Value>BE21</Value>
+				<Name>Prov. Antwerpen (BE21)</Name>
+			</Option>
+			<Option>
+				<Value>BE22</Value>
+				<Name>Prov. Limburg (BE) (BE22)</Name>
+			</Option>
+			<Option>
+				<Value>BE23</Value>
+				<Name>Prov. Oost-Vlaanderen (BE23)</Name>
+			</Option>
+			<Option>
+				<Value>BE24</Value>
+				<Name>Prov. Vlaams-Brabant (BE24)</Name>
+			</Option>
+			<Option>
+				<Value>BE25</Value>
+				<Name>Prov. West-Vlaanderen (BE25)</Name>
+			</Option>
+			<Option>
+				<Value>BE31</Value>
+				<Name>Prov. Brabant Wallon (BE31)</Name>
+			</Option>
+			<Option>
+				<Value>BE32</Value>
+				<Name>Prov. Hainaut (BE32)</Name>
+			</Option>
+			<Option>
+				<Value>BE33</Value>
+				<Name>Prov. Liège (BE33)</Name>
+			</Option>
+			<Option>
+				<Value>BE34</Value>
+				<Name>Prov. Luxembourg (BE) (BE34)</Name>
+			</Option>
+			<Option>
+				<Value>BE35</Value>
+				<Name>Prov. Namur (BE35)</Name>
+			</Option>
+			<Option>
+				<Value>HR03</Value>
+				<Name>Jadranska Hrvatska (HR03)</Name>
+			</Option>
+			<Option>
+				<Value>HR04</Value>
+				<Name>Kontinentalna Hrvatska (HR04)</Name>
+			</Option>
+			<Option>
+				<Value>CZ01</Value>
+				<Name>Praha (CZ01)</Name>
+			</Option>
+			<Option>
+				<Value>CZ02</Value>
+				<Name>Strední Cechy (CZ02)</Name>
+			</Option>
+			<Option>
+				<Value>CZ03</Value>
+				<Name>Jihozápad (CZ03)</Name>
+			</Option>
+			<Option>
+				<Value>CZ04</Value>
+				<Name>Severozápad (CZ04)</Name>
+			</Option>
+			<Option>
+				<Value>CZ05</Value>
+				<Name>Severovýchod (CZ05)</Name>
+			</Option>
+			<Option>
+				<Value>CZ06</Value>
+				<Name>Jihovýchod (CZ06)</Name>
+			</Option>
+			<Option>
+				<Value>CZ07</Value>
+				<Name>Strední Morava (CZ07)</Name>
+			</Option>
+			<Option>
+				<Value>CZ08</Value>
+				<Name>Moravskoslezsko (CZ08)</Name>
+			</Option>
+			<Option>
+				<Value>DK01</Value>
+				<Name>Hovedstaden (DK01)</Name>
+			</Option>
+			<Option>
+				<Value>DK02</Value>
+				<Name>Sjælland (DK02)</Name>
+			</Option>
+			<Option>
+				<Value>DK03</Value>
+				<Name>Syddanmark (DK03)</Name>
+			</Option>
+			<Option>
+				<Value>DK04</Value>
+				<Name>Midtjylland (DK04)</Name>
+			</Option>
+			<Option>
+				<Value>DK05</Value>
+				<Name>Nordjylland (DK05)</Name>
+			</Option>
+			<Option>
+				<Value>EE00</Value>
+				<Name>Eesti (EE00)</Name>
+			</Option>
+			<Option>
+				<Value>FI19</Value>
+				<Name>Länsi-Suomi (FI19)</Name>
+			</Option>
+			<Option>
+				<Value>FI1B</Value>
+				<Name>Helsinki-Uusimaa (FI1B)</Name>
+			</Option>
+			<Option>
+				<Value>FI1C</Value>
+				<Name>Etelä-Suomi (FI1C)</Name>
+			</Option>
+			<Option>
+				<Value>FI1D</Value>
+				<Name>Pohjois- ja Itä-Suomi (FI1D)</Name>
+			</Option>
+			<Option>
+				<Value>FI20</Value>
+				<Name>Åland (FI20)</Name>
+			</Option>
+			<Option>
+				<Value>FR10</Value>
+				<Name>Île de France (FR10)</Name>
+			</Option>
+			<Option>
+				<Value>FR21</Value>
+				<Name>Champagne-Ardenne (FR21)</Name>
+			</Option>
+			<Option>
+				<Value>FR22</Value>
+				<Name>Picardie (FR22)</Name>
+			</Option>
+			<Option>
+				<Value>FR23</Value>
+				<Name>Haute-Normandie (FR23)</Name>
+			</Option>
+			<Option>
+				<Value>FR24</Value>
+				<Name>Centre (FR24)</Name>
+			</Option>
+			<Option>
+				<Value>FR25</Value>
+				<Name>Basse-Normandie (FR25)</Name>
+			</Option>
+			<Option>
+				<Value>FR26</Value>
+				<Name>Bourgogne (FR26)</Name>
+			</Option>
+			<Option>
+				<Value>FR30</Value>
+				<Name>Nord - Pas-de-Calais (FR30)</Name>
+			</Option>
+			<Option>
+				<Value>FR41</Value>
+				<Name>Lorraine (FR41)</Name>
+			</Option>
+			<Option>
+				<Value>FR42</Value>
+				<Name>Alsace (FR42)</Name>
+			</Option>
+			<Option>
+				<Value>FR43</Value>
+				<Name>Franche-Comté (FR43)</Name>
+			</Option>
+			<Option>
+				<Value>FR51</Value>
+				<Name>Pays de la Loire (FR51)</Name>
+			</Option>
+			<Option>
+				<Value>FR52</Value>
+				<Name>Bretagne (FR52)</Name>
+			</Option>
+			<Option>
+				<Value>FR53</Value>
+				<Name>Poitou-Charentes (FR53)</Name>
+			</Option>
+			<Option>
+				<Value>FR61</Value>
+				<Name>Aquitaine (FR61)</Name>
+			</Option>
+			<Option>
+				<Value>FR62</Value>
+				<Name>Midi-Pyrénées (FR62)</Name>
+			</Option>
+			<Option>
+				<Value>FR63</Value>
+				<Name>Limousin (FR63)</Name>
+			</Option>
+			<Option>
+				<Value>FR71</Value>
+				<Name>Rhône-Alpes (FR71)</Name>
+			</Option>
+			<Option>
+				<Value>FR72</Value>
+				<Name>Auvergne (FR72)</Name>
+			</Option>
+			<Option>
+				<Value>FR81</Value>
+				<Name>Languedoc-Roussillon (FR81)</Name>
+			</Option>
+			<Option>
+				<Value>FR82</Value>
+				<Name>Provence-Alpes-Côte d'Azur (FR82)</Name>
+			</Option>
+			<Option>
+				<Value>FR83</Value>
+				<Name>Corse (FR83)</Name>
+			</Option>
+			<Option>
+				<Value>FRA1</Value>
+				<Name>Guadeloupe (FRA1)</Name>
+			</Option>
+			<Option>
+				<Value>FRA3</Value>
+				<Name>Guyane (FRA3)</Name>
+			</Option>
+			<Option>
+				<Value>HU10</Value>
+				<Name>Közép-Magyarország (HU10)</Name>
+			</Option>
+			<Option>
+				<Value>HU21</Value>
+				<Name>Közép-Dunántúl (HU21)</Name>
+			</Option>
+			<Option>
+				<Value>HU22</Value>
+				<Name>Nyugat-Dunántúl (HU22)</Name>
+			</Option>
+			<Option>
+				<Value>HU23</Value>
+				<Name>Dél-Dunántúl (HU23)</Name>
+			</Option>
+			<Option>
+				<Value>HU31</Value>
+				<Name>Észak-Magyarország (HU31)</Name>
+			</Option>
+			<Option>
+				<Value>HU32</Value>
+				<Name>Észak-Alföld (HU32)</Name>
+			</Option>
+			<Option>
+				<Value>HU33</Value>
+				<Name>Dél-Alföld (HU33)</Name>
+			</Option>
+			<Option>
+				<Value>IS00</Value>
+				<Name>Ísland (IS00)</Name>
+			</Option>
+			<Option>
+				<Value>IE01</Value>
+				<Name>Border, Midland and Western (IE01)</Name>
+			</Option>
+			<Option>
+				<Value>IE02</Value>
+				<Name>Southern and Eastern (IE02)</Name>
+			</Option>
+			<Option>
+				<Value>ITC1</Value>
+				<Name>Piemonte (ITC1)</Name>
+			</Option>
+			<Option>
+				<Value>ITC2</Value>
+				<Name>Valle d'Aosta/Vallée d'Aoste (ITC2)</Name>
+			</Option>
+			<Option>
+				<Value>ITC3</Value>
+				<Name>Liguria (ITC3)</Name>
+			</Option>
+			<Option>
+				<Value>ITC4</Value>
+				<Name>Lombardia (ITC4)</Name>
+			</Option>
+			<Option>
+				<Value>ITF1</Value>
+				<Name>Abruzzo (ITF1)</Name>
+			</Option>
+			<Option>
+				<Value>ITF2</Value>
+				<Name>Molise (ITF2)</Name>
+			</Option>
+			<Option>
+				<Value>ITF3</Value>
+				<Name>Campania (ITF3)</Name>
+			</Option>
+			<Option>
+				<Value>ITF4</Value>
+				<Name>Puglia (ITF4)</Name>
+			</Option>
+			<Option>
+				<Value>ITF5</Value>
+				<Name>Basilicata (ITF5)</Name>
+			</Option>
+			<Option>
+				<Value>ITF6</Value>
+				<Name>Calabria (ITF6)</Name>
+			</Option>
+			<Option>
+				<Value>ITG1</Value>
+				<Name>Sicilia (ITG1)</Name>
+			</Option>
+			<Option>
+				<Value>ITG2</Value>
+				<Name>Sardegna (ITG2)</Name>
+			</Option>
+			<Option>
+				<Value>ITH1</Value>
+				<Name>Provincia Autonoma di Bolzano/Bozen (ITH1)</Name>
+			</Option>
+			<Option>
+				<Value>ITH2</Value>
+				<Name>Provincia Autonoma di Trento (ITH2)</Name>
+			</Option>
+			<Option>
+				<Value>ITH3</Value>
+				<Name>Veneto (ITH3)</Name>
+			</Option>
+			<Option>
+				<Value>ITH4</Value>
+				<Name>Friuli-Venezia Giulia (ITH4)</Name>
+			</Option>
+			<Option>
+				<Value>ITH5</Value>
+				<Name>Emilia-Romagna (ITH5)</Name>
+			</Option>
+			<Option>
+				<Value>ITI1</Value>
+				<Name>Toscana (ITI1)</Name>
+			</Option>
+			<Option>
+				<Value>ITI2</Value>
+				<Name>Umbria (ITI2)</Name>
+			</Option>
+			<Option>
+				<Value>ITI3</Value>
+				<Name>Marche (ITI3)</Name>
+			</Option>
+			<Option>
+				<Value>ITI4</Value>
+				<Name>Lazio (ITI4)</Name>
+			</Option>
+			<Option>
+				<Value>LV00</Value>
+				<Name>Latvija (LV00)</Name>
+			</Option>
+			<Option>
+				<Value>LI00</Value>
+				<Name>Liechtenstein (LI00)</Name>
+			</Option>
+			<Option>
+				<Value>LT00</Value>
+				<Name>Lietuva (LT00)</Name>
+			</Option>
+			<Option>
+				<Value>LU00</Value>
+				<Name>Luxembourg (LU00)</Name>
+			</Option>
+			<Option>
+				<Value>MT00</Value>
+				<Name>Malta (MT00)</Name>
+			</Option>
+			<Option>
+				<Value>NL11</Value>
+				<Name>Groningen (NL11)</Name>
+			</Option>
+			<Option>
+				<Value>NL12</Value>
+				<Name>Friesland (NL) (NL12)</Name>
+			</Option>
+			<Option>
+				<Value>NL13</Value>
+				<Name>Drenthe (NL13)</Name>
+			</Option>
+			<Option>
+				<Value>NL21</Value>
+				<Name>Overijssel (NL21)</Name>
+			</Option>
+			<Option>
+				<Value>NL22</Value>
+				<Name>Gelderland (NL22)</Name>
+			</Option>
+			<Option>
+				<Value>NL23</Value>
+				<Name>Flevoland (NL23)</Name>
+			</Option>
+			<Option>
+				<Value>NL31</Value>
+				<Name>Utrecht (NL31)</Name>
+			</Option>
+			<Option>
+				<Value>NL32</Value>
+				<Name>Noord-Holland (NL32)</Name>
+			</Option>
+			<Option>
+				<Value>NL33</Value>
+				<Name>Zuid-Holland (NL33)</Name>
+			</Option>
+			<Option>
+				<Value>NL34</Value>
+				<Name>Zeeland (NL34)</Name>
+			</Option>
+			<Option>
+				<Value>NL41</Value>
+				<Name>Noord-Brabant (NL41)</Name>
+			</Option>
+			<Option>
+				<Value>NL42</Value>
+				<Name>Limburg (NL) (NL42)</Name>
+			</Option>
+			<Option>
+				<Value>NO01</Value>
+				<Name>Oslo Og Akershus (NO01)</Name>
+			</Option>
+			<Option>
+				<Value>NO02</Value>
+				<Name>Hedmark Og Oppland (NO02)</Name>
+			</Option>
+			<Option>
+				<Value>NO03</Value>
+				<Name>Sør-Østlandet (NO03)</Name>
+			</Option>
+			<Option>
+				<Value>NO04</Value>
+				<Name>Agder Og Rogaland (NO04)</Name>
+			</Option>
+			<Option>
+				<Value>NO05</Value>
+				<Name>Vestlandet (NO05)</Name>
+			</Option>
+			<Option>
+				<Value>NO06</Value>
+				<Name>Trøndelag (NO06)</Name>
+			</Option>
+			<Option>
+				<Value>NO07</Value>
+				<Name>Nord-Norge (NO07)</Name>
+			</Option>
+			<Option>
+				<Value>PL11</Value>
+				<Name>Lódzkie (PL11)</Name>
+			</Option>
+			<Option>
+				<Value>PL12</Value>
+				<Name>Mazowieckie (PL12)</Name>
+			</Option>
+			<Option>
+				<Value>PL21</Value>
+				<Name>Malopolskie (PL21)</Name>
+			</Option>
+			<Option>
+				<Value>PL22</Value>
+				<Name>Slaskie (PL22)</Name>
+			</Option>
+			<Option>
+				<Value>PL31</Value>
+				<Name>Lubelskie (PL31)</Name>
+			</Option>
+			<Option>
+				<Value>PL32</Value>
+				<Name>Podkarpackie (PL32)</Name>
+			</Option>
+			<Option>
+				<Value>PL33</Value>
+				<Name>Swietokrzyskie (PL33)</Name>
+			</Option>
+			<Option>
+				<Value>PL34</Value>
+				<Name>Podlaskie (PL34)</Name>
+			</Option>
+			<Option>
+				<Value>PL41</Value>
+				<Name>Wielkopolskie (PL41)</Name>
+			</Option>
+			<Option>
+				<Value>PL42</Value>
+				<Name>Zachodniopomorskie (PL42)</Name>
+			</Option>
+			<Option>
+				<Value>PL43</Value>
+				<Name>Lubuskie (PL43)</Name>
+			</Option>
+			<Option>
+				<Value>PL51</Value>
+				<Name>Dolnoslaskie (PL51)</Name>
+			</Option>
+			<Option>
+				<Value>PL52</Value>
+				<Name>Opolskie (PL52)</Name>
+			</Option>
+			<Option>
+				<Value>PL61</Value>
+				<Name>Kujawsko-Pomorskie (PL61)</Name>
+			</Option>
+			<Option>
+				<Value>PL62</Value>
+				<Name>Warminsko-Mazurskie (PL62)</Name>
+			</Option>
+			<Option>
+				<Value>PL63</Value>
+				<Name>Pomorskie (PL63)</Name>
+			</Option>
+			<Option>
+				<Value>RO11</Value>
+				<Name>Nord-Vest (RO11)</Name>
+			</Option>
+			<Option>
+				<Value>RO12</Value>
+				<Name>Centru (RO12)</Name>
+			</Option>
+			<Option>
+				<Value>RO21</Value>
+				<Name>Nord-Est (RO21)</Name>
+			</Option>
+			<Option>
+				<Value>RO22</Value>
+				<Name>Sud-Est (RO22)</Name>
+			</Option>
+			<Option>
+				<Value>RO31</Value>
+				<Name>Sud - Muntenia (RO31)</Name>
+			</Option>
+			<Option>
+				<Value>RO32</Value>
+				<Name>Bucuresti - Ilfov (RO32)</Name>
+			</Option>
+			<Option>
+				<Value>RO41</Value>
+				<Name>Sud-Vest Oltenia (RO41)</Name>
+			</Option>
+			<Option>
+				<Value>RO42</Value>
+				<Name>Vest (RO42)</Name>
+			</Option>
+			<Option>
+				<Value>SK01</Value>
+				<Name>Bratislavský kraj (SK01)</Name>
+			</Option>
+			<Option>
+				<Value>SK02</Value>
+				<Name>Západné Slovensko (SK02)</Name>
+			</Option>
+			<Option>
+				<Value>SK03</Value>
+				<Name>Stredné Slovensko (SK03)</Name>
+			</Option>
+			<Option>
+				<Value>SK04</Value>
+				<Name>Východné Slovensko (SK04)</Name>
+			</Option>
+			<Option>
+				<Value>ES11</Value>
+				<Name>Galicia (ES11)</Name>
+			</Option>
+			<Option>
+				<Value>ES12</Value>
+				<Name>Principado de Asturias (ES12)</Name>
+			</Option>
+			<Option>
+				<Value>ES13</Value>
+				<Name>Cantabria (ES13)</Name>
+			</Option>
+			<Option>
+				<Value>ES21</Value>
+				<Name>País Vasco (ES21)</Name>
+			</Option>
+			<Option>
+				<Value>ES22</Value>
+				<Name>Comunidad Foral de Navarra (ES22)</Name>
+			</Option>
+			<Option>
+				<Value>ES23</Value>
+				<Name>La Rioja (ES23)</Name>
+			</Option>
+			<Option>
+				<Value>ES24</Value>
+				<Name>Aragón (ES24)</Name>
+			</Option>
+			<Option>
+				<Value>ES30</Value>
+				<Name>Comunidad de Madrid (ES30)</Name>
+			</Option>
+			<Option>
+				<Value>ES41</Value>
+				<Name>Castilla y León (ES41)</Name>
+			</Option>
+			<Option>
+				<Value>ES42</Value>
+				<Name>Castilla-La Mancha (ES42)</Name>
+			</Option>
+			<Option>
+				<Value>ES43</Value>
+				<Name>Extremadura (ES43)</Name>
+			</Option>
+			<Option>
+				<Value>ES51</Value>
+				<Name>Cataluña (ES51)</Name>
+			</Option>
+			<Option>
+				<Value>ES52</Value>
+				<Name>Comunidad Valenciana (ES52)</Name>
+			</Option>
+			<Option>
+				<Value>ES53</Value>
+				<Name>Illes Balears (ES53)</Name>
+			</Option>
+			<Option>
+				<Value>ES61</Value>
+				<Name>Andalucía (ES61)</Name>
+			</Option>
+			<Option>
+				<Value>ES62</Value>
+				<Name>Región de Murcia (ES62)</Name>
+			</Option>
+			<Option>
+				<Value>ES63</Value>
+				<Name>Ciudad Autónoma de Ceuta (ES63)</Name>
+			</Option>
+			<Option>
+				<Value>ES64</Value>
+				<Name>Ciudad Autónoma de Melilla (ES64)</Name>
+			</Option>
+			<Option>
+				<Value>ES70</Value>
+				<Name>Canarias (ES70)</Name>
+			</Option>
+			<Option>
+				<Value>SE11</Value>
+				<Name>Stockholm (SE11)</Name>
+			</Option>
+			<Option>
+				<Value>SE12</Value>
+				<Name>Östra Mellansverige (SE12)</Name>
+			</Option>
+			<Option>
+				<Value>SE21</Value>
+				<Name>Småland med öarna (SE21)</Name>
+			</Option>
+			<Option>
+				<Value>SE22</Value>
+				<Name>Sydsverige (SE22)</Name>
+			</Option>
+			<Option>
+				<Value>SE23</Value>
+				<Name>Västsverige (SE23)</Name>
+			</Option>
+			<Option>
+				<Value>SE31</Value>
+				<Name>Norra Mellansverige (SE31)</Name>
+			</Option>
+			<Option>
+				<Value>SE32</Value>
+				<Name>Mellersta Norrland (SE32)</Name>
+			</Option>
+			<Option>
+				<Value>SE33</Value>
+				<Name>Övre Norrland (SE33)</Name>
+			</Option>
+			<Option>
+				<Value>TR10</Value>
+				<Name>Istanbul (TR10)</Name>
+			</Option>
+			<Option>
+				<Value>TR21</Value>
+				<Name>Tekirdag, Edirne, Kirklareli (TR21)</Name>
+			</Option>
+			<Option>
+				<Value>TR22</Value>
+				<Name>Balikesir, Çanakkale (TR22)</Name>
+			</Option>
+			<Option>
+				<Value>TR31</Value>
+				<Name>Izmir (TR31)</Name>
+			</Option>
+			<Option>
+				<Value>TR32</Value>
+				<Name>Aydin, Denizli, Mugla (TR32)</Name>
+			</Option>
+			<Option>
+				<Value>TR33</Value>
+				<Name>Manisa, Afyonkarahisar, Kütahya, Usak (TR33)</Name>
+			</Option>
+			<Option>
+				<Value>TR41</Value>
+				<Name>Bursa, Eskisehir, Bilecik (TR41)</Name>
+			</Option>
+			<Option>
+				<Value>TR42</Value>
+				<Name>Kocaeli, Sakarya, Düzce, Bolu, Yalova (TR42)</Name>
+			</Option>
+			<Option>
+				<Value>TR51</Value>
+				<Name>Ankara (TR51)</Name>
+			</Option>
+			<Option>
+				<Value>TR52</Value>
+				<Name>Konya, Karaman (TR52)</Name>
+			</Option>
+			<Option>
+				<Value>TR61</Value>
+				<Name>Antalya, Isparta, Burdur (TR61)</Name>
+			</Option>
+			<Option>
+				<Value>TR62</Value>
+				<Name>Adana, Mersin (TR62)</Name>
+			</Option>
+			<Option>
+				<Value>TR63</Value>
+				<Name>Hatay, Kahramanmaras, Osmaniye (TR63)</Name>
+			</Option>
+			<Option>
+				<Value>TR71</Value>
+				<Name>Kirikkale, Aksaray, Nigde, Nevsehir... (TR71)</Name>
+			</Option>
+			<Option>
+				<Value>TR72</Value>
+				<Name>Kayseri, Sivas, Yozgat (TR72)</Name>
+			</Option>
+			<Option>
+				<Value>TR81</Value>
+				<Name>Zonguldak, Karabük, Bartin (TR81)</Name>
+			</Option>
+			<Option>
+				<Value>TR82</Value>
+				<Name>Kastamonu, Çankiri, Sinop (TR82)</Name>
+			</Option>
+			<Option>
+				<Value>TR83</Value>
+				<Name>Samsun, Tokat, Çorum, Amasya (TR83)</Name>
+			</Option>
+			<Option>
+				<Value>TR90</Value>
+				<Name>Trabzon (TR90)</Name>
+			</Option>
+			<Option>
+				<Value>TRA1</Value>
+				<Name>Erzurum, Erzincan, Bayburt (TRA1)</Name>
+			</Option>
+			<Option>
+				<Value>TRA2</Value>
+				<Name>Agri, Kars, Igdir, Ardahan (TRA2)</Name>
+			</Option>
+			<Option>
+				<Value>TRB1</Value>
+				<Name>Malatya, Elazig, Bingöl, Tunceli (TRB1)</Name>
+			</Option>
+			<Option>
+				<Value>TRB2</Value>
+				<Name>Van, Mus, Bitlis, Hakkari (TRB2)</Name>
+			</Option>
+			<Option>
+				<Value>TRC1</Value>
+				<Name>Gaziantep, Adiyaman, Kilis (TRC1)</Name>
+			</Option>
+			<Option>
+				<Value>TRC2</Value>
+				<Name>Sanliurfa, Diyarbakir (TRC2)</Name>
+			</Option>
+			<Option>
+				<Value>TRC3</Value>
+				<Name>Mardin, Batman, Sirnak, Siirt (TRC3)</Name>
+			</Option>
+			<Option>
+				<Value>UKC1</Value>
+				<Name>Tees Valley and Durham (UKC1)</Name>
+			</Option>
+			<Option>
+				<Value>UKC2</Value>
+				<Name>Northumberland and Tyne and Wear (UKC2)</Name>
+			</Option>
+			<Option>
+				<Value>UKD1</Value>
+				<Name>Cumbria (UKD1)</Name>
+			</Option>
+			<Option>
+				<Value>UKD3</Value>
+				<Name>Greater Manchester (UKD3)</Name>
+			</Option>
+			<Option>
+				<Value>UKD4</Value>
+				<Name>Lancashire (UKD4)</Name>
+			</Option>
+			<Option>
+				<Value>UKD6</Value>
+				<Name>Cheshire (UKD6)</Name>
+			</Option>
+			<Option>
+				<Value>UKD7</Value>
+				<Name>Merseyside (UKD7)</Name>
+			</Option>
+			<Option>
+				<Value>UKE1</Value>
+				<Name>East Yorkshire and Northern Lincolnshire (UKE1)</Name>
+			</Option>
+			<Option>
+				<Value>UKE2</Value>
+				<Name>North Yorkshire (UKE2)</Name>
+			</Option>
+			<Option>
+				<Value>UKE3</Value>
+				<Name>South Yorkshire (UKE3)</Name>
+			</Option>
+			<Option>
+				<Value>UKE4</Value>
+				<Name>West Yorkshire (UKE4)</Name>
+			</Option>
+			<Option>
+				<Value>UKF1</Value>
+				<Name>Derbyshire and Nottinghamshire (UKF1)</Name>
+			</Option>
+			<Option>
+				<Value>UKF2</Value>
+				<Name>Leicestershire, Rutland and Northamptonsh. (UKF2)</Name>
+			</Option>
+			<Option>
+				<Value>UKF3</Value>
+				<Name>Lincolnshire (UKF3)</Name>
+			</Option>
+			<Option>
+				<Value>UKG1</Value>
+				<Name>Herefordshire, Worcestershire and Warwick. (UKG1)</Name>
+			</Option>
+			<Option>
+				<Value>UKG2</Value>
+				<Name>Shropshire and Staffordshire (UKG2)</Name>
+			</Option>
+			<Option>
+				<Value>UKG3</Value>
+				<Name>West Midlands (UKG3)</Name>
+			</Option>
+			<Option>
+				<Value>UKH1</Value>
+				<Name>East Anglia (UKH1)</Name>
+			</Option>
+			<Option>
+				<Value>UKH2</Value>
+				<Name>Bedfordshire and Hertfordshire (UKH2)</Name>
+			</Option>
+			<Option>
+				<Value>UKH3</Value>
+				<Name>Essex (UKH3)</Name>
+			</Option>
+			<Option>
+				<Value>UKI3</Value>
+				<Name>Inner London - West (UKI3)</Name>
+			</Option>
+			<Option>
+				<Value>UKI4</Value>
+				<Name>Inner London - East (UKI4)</Name>
+			</Option>
+			<Option>
+				<Value>UKI5</Value>
+				<Name>Outer London - East and North East (UKI5)</Name>
+			</Option>
+			<Option>
+				<Value>UKI6</Value>
+				<Name>Outer London - South (UKI6)</Name>
+			</Option>
+			<Option>
+				<Value>UKI7</Value>
+				<Name>Outer London - West and North West (UKI7)</Name>
+			</Option>
+			<Option>
+				<Value>UKJ1</Value>
+				<Name>Berkshire, Buckinghamshire and Oxfordshire (UKJ1)</Name>
+			</Option>
+			<Option>
+				<Value>UKJ2</Value>
+				<Name>Surrey, East and West Sussex (UKJ2)</Name>
+			</Option>
+			<Option>
+				<Value>UKJ3</Value>
+				<Name>Hampshire and Isle of Wight (UKJ3)</Name>
+			</Option>
+			<Option>
+				<Value>UKJ4</Value>
+				<Name>Kent (UKJ4)</Name>
+			</Option>
+			<Option>
+				<Value>UKK1</Value>
+				<Name>Gloucestershire, Wiltshire &amp; Bristol area (UKK1)</Name>
+			</Option>
+			<Option>
+				<Value>UKK2</Value>
+				<Name>Dorset and Somerset (UKK2)</Name>
+			</Option>
+			<Option>
+				<Value>UKK3</Value>
+				<Name>Cornwall and Isles of Scilly (UKK3)</Name>
+			</Option>
+			<Option>
+				<Value>UKK4</Value>
+				<Name>Devon (UKK4)</Name>
+			</Option>
+			<Option>
+				<Value>UKL1</Value>
+				<Name>West Wales and The Valleys (UKL1)</Name>
+			</Option>
+			<Option>
+				<Value>UKL2</Value>
+				<Name>East Wales (UKL2)</Name>
+			</Option>
+			<Option>
+				<Value>UKM2</Value>
+				<Name>Eastern Scotland (UKM2)</Name>
+			</Option>
+			<Option>
+				<Value>UKM3</Value>
+				<Name>South Western Scotland (UKM3)</Name>
+			</Option>
+			<Option>
+				<Value>UKM5</Value>
+				<Name>North Eastern Scotland (UKM5)</Name>
+			</Option>
+			<Option>
+				<Value>UKM6</Value>
+				<Name>Highlands and Islands (UKM6)</Name>
+			</Option>
+			<Option>
+				<Value>IL01</Value>
+				<Name>Jerusalem (IL01)</Name>
+			</Option>
+			<Option>
+				<Value>IL02</Value>
+				<Name>Northern (IL02)</Name>
+			</Option>
+			<Option>
+				<Value>IL03</Value>
+				<Name>Haifa (IL03)</Name>
+			</Option>
+			<Option>
+				<Value>IL04</Value>
+				<Name>Central (IL04)</Name>
+			</Option>
+			<Option>
+				<Value>IL05</Value>
+				<Name>Tel Aviv (IL05)</Name>
+			</Option>
+			<Option>
+				<Value>IL06</Value>
+				<Name>South (IL06)</Name>
+			</Option>
+			<Option>
+				<Value>IL07</Value>
+				<Name>Judea and Samaria (IL07)</Name>
+			</Option>
+			<Option>
+				<Value>BG31</Value>
+				<Name>Severozapaden (BG31)</Name>
+			</Option>
+			<Option>
+				<Value>BG32</Value>
+				<Name>Severen tsentralen (BG32)</Name>
+			</Option>
+			<Option>
+				<Value>BG33</Value>
+				<Name>Severoiztochen (BG33)</Name>
+			</Option>
+			<Option>
+				<Value>BG34</Value>
+				<Name>Yugoiztochen (BG34)</Name>
+			</Option>
+			<Option>
+				<Value>BG41</Value>
+				<Name>Yugozapaden (BG41)</Name>
+			</Option>
+			<Option>
+				<Value>BG42</Value>
+				<Name>Yuzhen tsentralen (BG42)</Name>
+			</Option>
+			<Option>
+				<Value>EL30</Value>
+				<Name>Attiki (EL30)</Name>
+			</Option>
+			<Option>
+				<Value>EL41</Value>
+				<Name>Voreio Aigaio (EL41)</Name>
+			</Option>
+			<Option>
+				<Value>EL42</Value>
+				<Name>Notio Aigaio (EL42)</Name>
+			</Option>
+			<Option>
+				<Value>EL43</Value>
+				<Name>Kriti (EL43)</Name>
+			</Option>
+			<Option>
+				<Value>EL51</Value>
+				<Name>Anatoliki Makedonia, Thraki (EL51)</Name>
+			</Option>
+			<Option>
+				<Value>EL52</Value>
+				<Name>Kentriki Makedonia (EL52)</Name>
+			</Option>
+			<Option>
+				<Value>EL53</Value>
+				<Name>Dytiki Makedonia (EL53)</Name>
+			</Option>
+			<Option>
+				<Value>EL54</Value>
+				<Name>Ipeiros (EL54)</Name>
+			</Option>
+			<Option>
+				<Value>EL61</Value>
+				<Name>Thessalia (EL61)</Name>
+			</Option>
+			<Option>
+				<Value>EL62</Value>
+				<Name>Ionia Nisia (EL62)</Name>
+			</Option>
+			<Option>
+				<Value>EL63</Value>
+				<Name>Dytiki Ellada (EL63)</Name>
+			</Option>
+			<Option>
+				<Value>EL64</Value>
+				<Name>Sterea Ellada (EL64)</Name>
+			</Option>
+			<Option>
+				<Value>EL65</Value>
+				<Name>Peloponnisos (EL65)</Name>
+			</Option>
+		</Selector>
+		<Selector Name="ScaleUP-EU-Scope">
+			<Version>20181011-0</Version>
+			<Title>Scope of the target group</Title>
+			<Note>used by ScaleUP Web Service</Note>
+			<Option>
+				<Value>1</Value>
+				<Name>Companies</Name>
+			</Option>
+			<Option>
+				<Value>2</Value>
+				<Name>Investors</Name>
+			</Option>
+		</Selector>
+	</Description>
+</GlobalInformation>

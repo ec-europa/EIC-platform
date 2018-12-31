@@ -1,0 +1,11 @@
+<Person>
+    <Id>1</Id>
+    <UserProfile>
+        <Remote Name="ECAS">demo</Remote>
+        <Roles>
+            <Role>
+                <FunctionRef>1</FunctionRef>
+            </Role>
+        </Roles>
+    </UserProfile>
+  </Person>

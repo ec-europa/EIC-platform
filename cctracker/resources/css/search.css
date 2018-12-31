@@ -1,0 +1,27 @@
+/* CSS rules for pages with a search form (stage, enterprise, persons) */
+
+p.af-error {
+  color: #FF0000;
+  display: none;
+  margin-bottom: 0;
+}
+
+/* search result list */
+#results h2 {
+  text-align: left;
+  font-weight: normal;
+  margin-bottom: 1em;
+  text-decoration: underline;
+}
+
+table {
+  margin-bottom: 2em;
+}
+
+table.table th {
+  background: #9EC0D9;
+}
+
+span[data-src]:hover {
+  font-weight: bold;
+}

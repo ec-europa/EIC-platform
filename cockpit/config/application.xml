@@ -1,0 +1,609 @@
+<Application>
+  <Workflows>
+    <!-- ***************************************
+                      OTF
+         *************************************** -->
+    <Workflow Id="OTF">
+      <Documents TemplateBaseURL="../../../templates/">
+        <Document Tab="apply" PreOpenAtStatus="1" AtStatus="1 2 3 4 5 6 7 8" class="otf" data-autoscroll-shift="140" Blender="yes">
+          <Resource>apply</Resource>
+          <Action Type="update" AtStatus="1" Forward="submit" To="2"/>
+          <Action Type="status" AtStatus="1"/>
+        </Document>
+        <Document Tab="evaluation" DimAtStatus="1" AtStatus="2 3 4 5 6 7 8" class="otf">
+          <Resource>evaluation</Resource>
+          <Template>otf/evaluation</Template>
+          <Action Type="status" AtStatus="2"/>
+        </Document>
+        <Document Tab="confirmation" DimAtStatus="1 2" PreOpenAtStatus="3" AtStatus="3 4 5 6 7 8" class="otf" loc="workflow.title.confirmation">
+          <Resource>confirmation</Resource>
+          <Template>otf/confirmation</Template>
+          <Action Type="update" AtStatus="3" Forward="submit" To="4"/>
+          <Action Type="status" AtStatus="3"/>
+        </Document>
+        <Document Tab="finalization" DimAtStatus="1 2 3" AtStatus="4 5 6 7 8" class="otf" loc="workflow.title.finalization">
+          <Resource>finalization</Resource>
+          <Template>otf/finalization</Template>
+          <Action Type="update" AtStatus="4"/>
+          <Action Type="status" AtStatus="4"/>
+        </Document>
+        <Document Tab="satisfaction" PreOpenAtStatus="5" DimAtStatus="1 2 3 4" AtStatus="5 6 7 8" class="otf" loc="workflow.title.satisfaction">
+          <Resource>satisfaction</Resource>
+          <Template>otf/satisfaction</Template>
+          <Action Type="update" AtStatus="5" Forward="submit" To="6"/>
+          <Action Type="status" AtStatus="5"/>
+        </Document>
+        <Document Tab="closing" AtStatus="6" class="otf" loc="workflow.title.closing">
+          <Resource>closing</Resource>
+          <Template>event/details</Template>
+          <Action Type="status" AtStatus="6"/>
+        </Document>
+        <Document Tab="impact" PreOpenAtStatus="7" DimAtStatus="1 2 3 4 5 6" AtStatus="7 8" class="otf" loc="workflow.title.impact">
+          <Resource>impact</Resource>
+          <Template>otf/impact</Template>
+          <Action Type="update" AtStatus="7" Forward="submit" To="8"/>
+          <Action Type="status" AtStatus="7"/>
+        </Document>
+        <Document Tab="closed" AtStatus="8" class="otf" loc="workflow.title.closed">
+          <Resource>closed</Resource>
+          <Template>event/details</Template>
+          <Action Type="status" AtStatus="8"/>
+        </Document>
+      </Documents>
+      <Transitions>
+        <Transition From="1" To="2" Label="Submit" data-confirm-loc="confirm.application.submit" Message="WFS-APPLICATION-SUBMITTED">
+          <Meet>r:delegate r:lear</Meet>
+          <Assert Pivot="$subject/Data/Application" Template="otf-application"/>
+        </Transition>
+        <Transition From="2" To="1">
+        </Transition>
+        <Transition From="2" To="3" Label="Advance to Confirmation form (acceptation)" TriggerBy="_Ranking">
+          <Meet>r:events-supervisor</Meet>
+          <Email Template="ask-for-confirmation">
+            <Recipients Key="event-acceptation" CC="r:carbon-copy">r:application-contact</Recipients>
+          </Email>
+        </Transition>
+        <Transition From="2" To="3" Label="Advance to Confirmation form (waiting-list)" TriggerBy="_Ranking">
+          <Meet>r:events-supervisor</Meet>
+          <Email Template="notification-waiting-list">
+            <Recipients Key="event-waiting" CC="r:carbon-copy">r:application-contact</Recipients>
+          </Email>
+        </Transition>
+        <Transition From="2" To="2" Label="_No" TriggerBy="_Ranking">
+          <Meet>r:events-supervisor</Meet>
+          <Email Template="notification-rejected-list">
+            <Recipients Key="event-rejected" CC="r:carbon-copy">r:application-contact</Recipients>
+          </Email>
+        </Transition>
+        <Transition From="3" To="4" Label="Submit confirmation">
+          <Meet Policy="strict">r:main-list</Meet>
+          <Email Template="acknowledgment-receipt-main-list">
+            <Recipients Key="event-confirmation">r:confirmation-contact</Recipients>
+          </Email>
+          <Assert Pivot="$subject/Data/Confirmation" Template="otf-confirmation"/>
+        </Transition>
+        <Transition From="3" To="4" Label="Submit intent">
+          <Meet Policy="strict">r:waiting-list</Meet>
+          <Email Template="acknowledgment-receipt-waiting-list">
+            <Recipients Key="event-intent">r:confirmation-contact</Recipients>
+          </Email>
+          <Assert Pivot="$subject/Data/Confirmation" Template="otf-confirmation"/>
+        </Transition>
+        <Transition From="3" To="4" Label="_No" TriggerBy="_Finalizing">
+          <Meet>r:events-manager r:events-supervisor</Meet>
+        </Transition>
+        <Transition From="4" To="3" Label="Back to confirmation (debug)">
+        </Transition>
+        <Transition From="4" To="5" Label="Advance to Satisfaction survey">
+          <Meet Policy="strict">r:confirmed-main-list</Meet>
+          <!-- no email template (should be "ask-for-otf-satisfaction" see below) -->
+        </Transition>
+        <Transition From="2" To="5" Label="Advance to Satisfaction survey">
+          <Meet>r:events-manager</Meet>
+          <!-- <Email Template="ask-for-otf-satisfaction">
+            <Recipients Key="event-satisfaction">r:application-contact</Recipients>
+          </Email> -->
+        </Transition>
+        <Transition From="2" To="7" Label="Advance to Impact survey">
+          <Meet>r:events-manager</Meet>
+          <Email Template="ask-for-otf-impact">
+            <Recipients Key="event-impact">r:application-contact</Recipients>
+          </Email>
+        </Transition>
+        <Transition From="5" To="4" Label="Back to evaluation (debug)">
+        </Transition>
+        <Transition From="5" To="6" Label="Submit" data-confirm-loc="confirm.feedback.submit" Message="WFS-APPLICATION-SUBMITTED">
+          <Meet>r:delegate r:lear</Meet>
+          <Assert Pivot="$subject/Data/Satisfaction" Template="otf-satisfaction"/>
+        </Transition>
+        <Transition From="6" To="7" Label="Advance to Impact survey">
+          <Meet>r:events-manager</Meet>
+          <Email Template="ask-for-otf-impact">
+            <Recipients Key="event-impact">r:application-contact</Recipients>
+          </Email>
+        </Transition>
+        <Transition From="7" To="8" Label="Submit" data-confirm-loc="confirm.feedback.submit" Message="WFS-APPLICATION-SUBMITTED">
+          <Meet>r:delegate r:lear</Meet>
+          <Assert Pivot="$subject/Data/Impact" Template="otf-impact"/>
+        </Transition>
+        <Transition From="7" To="2" Label="Return to Evaluation (debug)">
+        </Transition>
+        <Transition From="8" To="7" Label="Back to Impact survey (debug)">
+        </Transition>
+        <Transition From="8" To="5" Label="Back to Satisfaction survey (debug)">
+        </Transition>
+      </Transitions>
+    </Workflow>
+    <!-- ***************************************
+                      Academy
+         *************************************** -->
+    <Workflow Id="Academy">
+      <Documents TemplateBaseURL="../../../templates/">
+        <Document Tab="apply" PreOpenAtStatus="1" AtStatus="1 2 3 4 5 6 7 8" class="otf" data-autoscroll-shift="140" Blender="yes">
+          <Resource>apply</Resource>
+          <Action Type="update" AtStatus="1" Forward="submit" To="2"/>
+          <Action Type="status" AtStatus="1"/>
+        </Document>
+        <Document Tab="evaluation" DimAtStatus="1" AtStatus="2 3 4 5 6 7 8" class="otf">
+          <Resource>evaluation</Resource>
+          <Template>otf/evaluation</Template>
+          <Action Type="status" AtStatus="2"/>
+        </Document>
+        <Document Tab="satisfaction" PreOpenAtStatus="5" DimAtStatus="1 2 3 4" AtStatus="5 6 7 8" class="otf" loc="workflow.title.satisfaction">
+          <Resource>satisfaction</Resource>
+          <Template>academy/satisfaction-v2</Template>
+          <Action Type="update" AtStatus="5" Forward="submit" To="6"/>
+          <Action Type="status" AtStatus="5"/>
+        </Document>
+        <Document Tab="closing" AtStatus="6" class="otf" loc="workflow.title.closing">
+          <Resource>closing</Resource>
+          <Template>event/details</Template>
+          <Action Type="status" AtStatus="6"/>
+        </Document>
+        <Document Tab="impact" PreOpenAtStatus="7" DimAtStatus="1 2 3 4 5 6" AtStatus="7 8" class="otf" loc="workflow.title.impact">
+          <Resource>impact</Resource>
+          <Template>pitching/impact</Template>
+          <Action Type="update" AtStatus="7" Forward="submit"/>
+          <Action Type="status" AtStatus="7"/>
+        </Document>
+        <Document Tab="closed" AtStatus="8" class="otf" loc="workflow.title.closed">
+          <Resource>closed</Resource>
+          <Template>event/details</Template>
+          <Action Type="status" AtStatus="8"/>
+        </Document>
+      </Documents>
+      <Transitions>
+        <Transition From="1" To="2" Label="Submit" data-confirm-loc="confirm.application.submit">
+          <Meet>r:delegate r:lear</Meet>
+          <Assert Base="$subject/Data/Application" Error="ALL-FIELDS-MANDATORY">
+            <true>count($base/Company/*[. ne '']) = 2</true>
+            <true>count($base/Contact/*[. ne '']) = 5</true>
+            <true>count($base/*[not(local-name(.) = ('Contact', 'Company')) and ./node()[. ne '']])  = 5</true> <!-- 3 Questions + 2 confirms -->
+          </Assert>
+        </Transition>
+        <Transition From="2" To="1" Label="Return to Application">
+        </Transition>
+        <Transition From="2" To="5" Label="Advance to Satisfaction survey">
+          <Meet>r:events-manager</Meet>
+          <Email Template="ask-for-satisfaction">
+            <Recipients Key="event-satisfaction">r:application-contact</Recipients>
+          </Email>
+        </Transition>
+        <Transition From="2" To="7" Label="Advance to Impact survey">
+          <Meet>r:events-manager</Meet>
+          <Email Template="ask-for-pitching-impact">
+            <Recipients Key="event-impact">r:application-contact</Recipients>
+          </Email>
+        </Transition>
+        <Transition From="5" To="2" Label="Back (debug)">
+        </Transition>
+        <Transition From="5" To="6" Label="Submit" data-confirm-loc="confirm.feedback.submit" Message="WFS-APPLICATION-SUBMITTED">
+          <Meet>r:delegate r:lear</Meet>
+          <Assert Pivot="$subject/Data/Satisfaction" Tab="satisfaction" Template="academy-satisfaction-v2"/>
+        </Transition>
+        <Transition From="6" To="7" Label="Advance to Impact survey">
+          <Meet>r:events-manager</Meet>
+          <Email Template="ask-for-pitching-impact">
+            <Recipients Key="event-impact">r:application-contact</Recipients>
+          </Email>
+        </Transition>
+        <Transition From="7" To="8" Label="Submit" data-confirm-loc="confirm.feedback.submit" Message="WFS-APPLICATION-SUBMITTED">
+          <Meet>r:delegate r:lear</Meet>
+          <Assert Pivot="$subject/Data/Impact" Template="pitching-impact"/>
+        </Transition>
+        <Transition From="8" To="7" Label="Back to Impact survey (debug)">
+        </Transition>
+        <Transition From="7" To="5" Label="Back to Satisfaction survey (debug)">
+        </Transition>
+      </Transitions>
+    </Workflow>
+    <!-- ***************************************
+                      Matchinvest
+         *************************************** -->
+    <Workflow Id="Invest">
+      <Documents TemplateBaseURL="../../../templates/">
+        <Document Tab="apply" PreOpenAtStatus="1" AtStatus="1 2 3 4 5 6 7 8" class="otf" data-autoscroll-shift="140" Blender="yes">
+          <Resource>apply</Resource>
+          <Action Type="update" AtStatus="1" Forward="submit" To="2"/>
+          <Action Type="status" AtStatus="1"/>
+        </Document>
+        <Document Tab="evaluation" DimAtStatus="1" AtStatus="2 3 4 5 6 7 8" class="otf">
+          <Resource>evaluation</Resource>
+          <Template>otf/evaluation</Template>
+          <Action Type="status" AtStatus="2"/>
+        </Document>
+        <Document Tab="satisfaction" PreOpenAtStatus="5" DimAtStatus="1 2 3 4" AtStatus="5 6 7 8" class="otf" loc="workflow.title.satisfaction">
+          <Resource>satisfaction</Resource>
+          <Action Type="update" AtStatus="5" Forward="submit" To="6"/>
+          <Action Type="status" AtStatus="5"/>
+        </Document>
+        <Document Tab="closing" AtStatus="6" class="otf" loc="workflow.title.closing">
+          <Resource>closing</Resource>
+          <Template>event/details</Template>
+          <Action Type="status" AtStatus="6"/>
+        </Document>
+        <Document Tab="impact" PreOpenAtStatus="7" DimAtStatus="1 2 3 4 5 6" AtStatus="7 8" class="otf" loc="workflow.title.impact">
+          <Resource>impact</Resource>
+          <Template>pitching/impact</Template>
+          <Action Type="update" AtStatus="7" Forward="submit"/>
+          <Action Type="status" AtStatus="7"/>
+        </Document>
+        <Document Tab="closed" AtStatus="8" class="otf" loc="workflow.title.closed">
+          <Resource>closed</Resource>
+          <Template>event/details</Template>
+          <Action Type="status" AtStatus="8"/>
+        </Document>
+      </Documents>
+      <Transitions>
+        <Transition From="1" To="2" Label="Submit" data-confirm-loc="confirm.application.submit" Message="WFS-APPLICATION-SUBMITTED">
+          <Meet>r:delegate r:lear</Meet>
+          <Assert Pivot="$subject/Data/Application" Tab="apply"/>
+        </Transition>
+        <Transition From="2" To="1" Label="Return to Application">
+        </Transition>
+        <Transition From="2" To="5" Label="Advance to Satisfaction survey">
+          <Meet>r:events-manager</Meet>
+          <Email Template="ask-for-satisfaction">
+            <Recipients Key="event-satisfaction">r:application-contact</Recipients>
+          </Email>
+        </Transition>
+        <Transition From="2" To="7" Label="Advance to Impact survey">
+          <Meet>r:events-manager</Meet>
+          <Email Template="ask-for-pitching-impact">
+            <Recipients Key="event-impact">r:application-contact</Recipients>
+          </Email>
+        </Transition>
+        <Transition From="7" To="2" Label="Back (debug)">
+        </Transition>
+        <Transition From="5" To="6" Label="Submit" data-confirm-loc="confirm.feedback.submit" Message="WFS-APPLICATION-SUBMITTED">
+          <Meet>r:delegate r:lear</Meet>
+          <Assert Tab="satisfaction" Pivot="$subject/Data/Satisfaction"/>
+        </Transition>
+        <Transition From="6" To="7" Label="Advance to Impact survey">
+          <Meet>r:events-manager</Meet>
+          <Email Template="ask-for-pitching-impact">
+            <Recipients Key="event-impact">r:application-contact</Recipients>
+          </Email>
+        </Transition>
+        <Transition From="7" To="2" Label="Return to Evaluation (debug)">
+        </Transition>
+        <Transition From="7" To="8" Label="Submit" data-confirm-loc="confirm.feedback.submit" Message="WFS-APPLICATION-SUBMITTED">
+          <Meet>r:delegate r:lear</Meet>
+          <Assert Pivot="$subject/Data/Impact" Template="pitching-impact"/>
+        </Transition>
+        <Transition From="8" To="7" Label="Back to Impact survey (debug)">
+        </Transition>
+        <Transition From="7" To="5" Label="Back to Satisfaction survey (debug)">
+        </Transition>
+      </Transitions>
+    </Workflow>
+    <!-- ***************************************
+                      EASME
+         *************************************** -->
+    <Workflow Id="EASME">
+      <Documents TemplateBaseURL="../../../templates/">
+        <Document Tab="apply" PreOpenAtStatus="1" AtStatus="1 2 3 4 5 6 7 8" class="otf" data-autoscroll-shift="140" Blender="yes">
+          <Resource>apply</Resource>
+          <Action Type="update" AtStatus="1" Forward="submit" To="2"/>
+          <Action Type="status" AtStatus="1"/>
+        </Document>
+        <Document Tab="evaluation" DimAtStatus="1" AtStatus="2 3 4 5 6 7 8" class="otf">
+          <Resource>evaluation</Resource>
+          <Template>otf/evaluation</Template>
+          <Action Type="status" AtStatus="2"/>
+        </Document>
+      </Documents>
+      <Transitions>
+        <Transition From="1" To="2" Label="Submit" data-confirm-loc="confirm.application.submit" Message="WFS-APPLICATION-SUBMITTED">
+          <Meet>r:delegate r:lear r:investor</Meet>
+          <Assert Pivot="$subject/Data/Application" Tab="apply"/>
+        </Transition>
+        <Transition From="2" To="1" Label="Return to Application">
+        </Transition>
+      </Transitions>
+    </Workflow>
+  </Workflows>
+  <Security>
+    <Documents>
+      <Document TabRef="apply" Root="Application">
+        <Action Type="update">
+          <Meet>r:delegate r:lear r:investor</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="evaluation" Root="Evaluation">
+      </Document>
+      <Document TabRef="cie-address">
+        <Action Type="read">
+          <Meet>g:project-officer r:lear r:delegate r:investor g:dg</Meet>
+        </Action>
+        <Action Type="update">
+          <Meet>g:project-officer r:lear r:delegate r:investor</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="cie-statistics">
+        <Action Type="read">
+          <Meet>g:project-officer r:lear r:delegate r:investor g:dg</Meet>
+        </Action>
+        <Action Type="update">
+          <Meet>g:project-officer r:lear r:delegate r:investor</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="team-member">
+        <Action Type="view">
+          <Meet>g:project-officer r:lear r:delegate r:investor g:dg</Meet>
+        </Action>
+        <Action Type="update">
+          <Meet>g:project-officer r:lear r:delegate r:investor r:self-member</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="cie-status">
+        <Action Type="read">
+          <Meet>g:project-officer</Meet>
+        </Action>
+        <Action Type="update">
+          <Meet>g:project-officer</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="confirmation">
+        <Action Type="read">
+          <Meet>g:project-officer r:lear r:delegate r:events-manager</Meet>
+        </Action>
+        <Action Type="update">
+          <Meet>r:lear r:delegate</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="satisfaction">
+        <Action Type="read">
+          <Meet>g:project-officer r:lear r:delegate r:events-manager g:dg</Meet>
+        </Action>
+        <Action Type="update">
+          <Meet>r:lear r:delegate</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="closing">
+        <Action Type="read">
+          <Meet>g:project-officer r:lear r:delegate r:events-manager g:dg</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="impact">
+        <Action Type="read">
+          <Meet>g:project-officer r:lear r:delegate r:events-manager g:dg</Meet>
+        </Action>
+        <Action Type="update">
+          <Meet>r:lear r:delegate</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="closed">
+        <Action Type="read">
+          <Meet>g:project-officer r:lear r:delegate r:events-manager g:dg</Meet>
+        </Action>
+      </Document>
+    </Documents>
+    <Resources>
+      <Resource Name="Enterprise">
+        <Action Type="view">
+          <Meet>g:project-officer r:lear r:delegate r:investor g:dg</Meet>
+        </Action>
+        <Action Type="import">
+          <Meet/>
+        </Action>
+      </Resource>
+      <Resource Name="Events">
+        <Action Type="view">
+          <Meet>g:project-officer r:lear r:delegate r:investor g:events-manager g:dg</Meet>
+        </Action>
+        <Action Type="export">
+          <Meet>g:project-officer g:events-manager</Meet>
+        </Action>
+        <Action Type="manage">
+          <Meet>g:project-officer g:events-manager</Meet>
+        </Action>
+        <Action Type="rank">
+          <Meet>r:events-manager r:events-supervisor</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="Event">
+        <Action Type="view">
+          <Meet>g:project-officer r:lear r:delegate r:events-manager g:dg r:investor</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="Feedbacks">
+        <Action Type="export">
+          <Meet>g:project-officer r:events-manager</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="Member">
+        <Action Type="edit">
+          <Meet>g:project-officer r:lear r:delegate r:investor</Meet>
+        </Action>
+        <Action Type="add">
+          <Meet>g:project-officer r:lear r:investor</Meet>
+        </Action>
+        <Action Type="delete">
+          <Meet>g:project-officer r:lear r:investor</Meet>
+          <Avoid Format="eval">if ($object/PersonRef) then user:get-current-person-id() eq $object/PersonRef else false() </Avoid>
+        </Action>
+        <Action Type="accredit">
+          <Meet>g:project-officer</Meet>
+        </Action>
+        <Action Type="reject">
+          <Meet>g:project-officer</Meet>
+        </Action>
+        <Action Type="block">
+          <Meet>g:project-officer</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="LEAR">
+        <Action Type="add">
+          <Meet>g:project-officer</Meet>
+        </Action>
+        <Action Type="import">
+          <Meet>g:project-officer</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="PO">
+        <Action Type="import">
+          <Meet>g:project-officer</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="DG">
+        <Action Type="add">
+          <Meet>g:project-officer</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="Unaffiliated">
+        <Action Type="add">
+          <Meet>g:project-officer</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="Investor">
+        <Action Type="add">
+          <Meet>g:project-officer</Meet>
+          <Meet>r:investor</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="Admission">
+        <Action Type="add">
+          <Meet Format="eval">true()</Meet>
+        </Action> 
+        <Action Type="read">
+          <Meet>g:project-officer r:pending-investor</Meet>
+        </Action>
+        <Action Type="update">
+          <Meet>r:pending-investor</Meet>
+        </Action>
+        <Action Type="accredit">
+          <Meet>g:project-officer</Meet>
+        </Action>
+        <Action Type="reject">
+          <Meet>g:project-officer</Meet>
+        </Action>
+        <Action Type="accredit-all">
+          <Meet>g:project-officer</Meet>
+        </Action>
+        <Action Type="reject-all">
+          <Meet>g:project-officer</Meet>
+        </Action>
+        <Action Type="block">
+          <Meet>g:project-officer</Meet>
+        </Action>
+        <Action Type="unreject">
+          <Meet>g:project-officer</Meet>
+        </Action>
+        <Action Type="unreject-all">
+          <Meet>g:project-officer</Meet>
+        </Action>        
+        <Action Type="unblock">
+          <Meet>g:project-officer</Meet>
+        </Action>        
+      </Resource>
+      <Resource Name="Team">
+        <Action Type="view">
+          <Meet>g:project-officer r:lear r:delegate r:investor g:dg</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="ScaleupEU">
+        <Action Type="open">
+          <Meet Policy="strict">r:mi-token r:unaffiliated</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="Community">
+        <Action Type="open">
+          <Meet Policy="strict">r:community-org</Meet>
+        </Action>
+      </Resource>
+    </Resources>
+    <Roles>
+      <Role Name="self-member">
+        <Meet Format="eval">let $ref := user:get-current-person-id() return exists($ref) and $ref eq $object/PersonRef</Meet>
+      </Role>
+      <Role Name="delegate">
+        <Meet Format="eval">let $ref := user:get-user-profile()//Role[FunctionRef eq '4']/EnterpriseRef return $ref and $ref = $subject/Id and (empty($subject/Status/StatusFlagRef) or ($subject/Status/StatusFlagRef eq '2')) and (some $p in $subject/Projects//Project satisfies (empty($p/TerminationFlagRef) or ($p/TerminationFlagRef eq '')))</Meet>
+      </Role>
+      <Role Name="lear">
+        <Meet Format="eval">let $ref := user:get-user-profile()//Role[FunctionRef eq '3']/EnterpriseRef return $ref and $ref = $subject/Id and (empty($subject/Status/StatusFlagRef) or ($subject/Status/StatusFlagRef eq '2')) and (some $p in $subject/Projects//Project satisfies (empty($p/TerminationFlagRef) or ($p/TerminationFlagRef eq '')))</Meet>
+      </Role>
+      <Role Name="events-manager" Subject="Enterprise" Object="Event(enterprise) or Event(meta)">
+        <Meet Format="eval">user:get-user-profile()//Role[FunctionRef eq '5']/ProgramId = globals:collection('events-uri')/Event[Id eq $object/Id]/Programme/@WorkflowId</Meet>
+      </Role>
+      <Role Name="main-list" Subject="Enterprise" Object="Event(enterprise)">
+        <Meet Format="eval">globals:collection('events-uri')/Event[Id eq $object/Id]/Rankings[@Iteration eq 'cur']//MainList/Applicant/EnterpriseRef = $subject/Id</Meet>
+      </Role>
+      <Role Name="waiting-list" Subject="Enterprise" Object="Event(enterprise)">
+        <Meet Format="eval">globals:collection('events-uri')/Event[Id eq $object/Id]/Rankings[@Iteration eq 'cur']//ReserveList/Applicant/EnterpriseRef = $subject/Id</Meet>
+      </Role>
+      <Role Name="confirmed-main-list" Subject="Enterprise" Object="Event(enterprise)">
+        <Meet Format="eval">let $profile := user:get-user-profile()
+let $event := globals:collection('events-uri')/Event[Id eq $object/Id]
+return
+  ($profile//FunctionRef = '1' or $profile//Role[FunctionRef eq '5']/ProgramId = $event/Programme/@WorkflowId)
+  and
+  $event/FinalRankings[@Iteration eq 'cur'][Confirmed]//MainList/Applicant/EnterpriseRef = $subject/Id</Meet>
+      </Role>
+      <Role Name="investor">
+        <Meet Format="eval">let $ref := user:get-user-profile()//Role[FunctionRef eq '7']/EnterpriseRef return $ref and $ref = $subject/Id and (empty($subject/Status/StatusFlagRef) or ($subject/Status/StatusFlagRef eq '2'))</Meet>
+      </Role>
+      <Role Name="pending-investor"  Subject="Admission">
+        <Meet Format="eval">let $profile := user:get-user-profile()
+          return exists($profile//Role[FunctionRef eq '9' and AdmissionKey eq $subject/Id])
+        </Meet>
+      </Role>
+      <Role Name="mi-token">
+        <Meet Format="eval">let $ref := user:get-user-profile()//Role[FunctionRef eq '8']/EnterpriseRef return $ref and $ref = $subject/Id and (empty($subject/Status/StatusFlagRef) or ($subject/Status/StatusFlagRef eq '2'))</Meet>
+      </Role>
+      <Role Name="community-org">
+        <Meet Format="eval">
+          let $isEnterpriseBootstraped := (exists($subject/EICCommunity/Bootstrap) and ($subject/EICCommunity/Bootstrap[@status eq 'success']))
+          return $isEnterpriseBootstraped
+        </Meet>
+      </Role>
+      <Role Name="unaffiliated">
+        <Meet Format="eval">local-name($subject) eq 'Unaffiliated'</Meet>
+      </Role>
+    </Roles>
+    <Groups Subject="Enterprise">
+      <Group Name="lear">
+        <Meet Format="eval">globals:collection('persons-uri')//Person[UserProfile/Roles/Role[EnterpriseRef eq $subject/Id and FunctionRef eq '3']]/Id</Meet>
+      </Group>
+      <Group Name="delegate">
+        <Meet Format="eval">globals:collection('persons-uri')//Person[UserProfile/Roles/Role[EnterpriseRef eq $subject/Id and FunctionRef eq '4']]/Id</Meet>
+      </Group>
+      <Group Name="application-contact" Subject="X" Object="Event(application)">
+        <Meet Format="eval">if ($object/Data/Application/Emailaddress) then $object/Data/Application/Emailaddress else $object/Data/Application/Contact/Email</Meet>
+      </Group>
+      <Group Name="confirmation-contact" Subject="X" Object="Event(application)">
+        <Meet Format="eval">$object/Data/Confirmation/Preparation/Contact/Email</Meet>
+      </Group>
+      <Group Name="carbon-copy" Subject="Enterprise(+CCEmail)" Object="X">
+        <Meet Format="eval">$subject/CCEmail</Meet>
+      </Group>
+    </Groups>
+    <Omnipotent>
+      <Meet>u:admin g:admin-system</Meet>
+    </Omnipotent>
+  </Security>
+  <Persons>
+    <Property Name="email" Subject="Enterprise">$subject/Team//Member[PersonRef eq $uid]/Information/Contacts/Email/text()</Property>
+    <Property Name="fullname" Subject="Enterprise">let $info := $subject/Team//Member[PersonRef eq $uid]/Information/Name return if ($info) then concat($info/FirstName, ' ', $info/LastName) else ()</Property>
+  </Persons>
+</Application>

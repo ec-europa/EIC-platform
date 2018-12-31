@@ -1,0 +1,136 @@
+<Form Tag="Event" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+  <Verbatim>
+    <xt:component name="t_enterprise">
+      <Field Key="entname" Tag="Name" Gap="1.5">Enterprise name</Field>
+      <Field Key="acronym" Tag="Acronym" Gap="1.5">Project acronym</Field>
+    </xt:component>
+    <xt:component name="t_contact_person">
+      <Field Key="firstname" Tag="FirstName" Gap="1.75" W="4" L="0">First Name</Field>
+      <Field Key="lastname" Tag="LastName" Gap="1.5" W="4">Last Name</Field>
+      <Field Key="civility" Tag="Civility" Gap="1" W="2">Title</Field>
+      <Field Key="phone" Tag="Phone" Gap="1.75" W="4" L="0">Direct phone</Field>
+      <Field Key="email" Tag="Email" Gap="1.5" W="6">Email</Field>
+    </xt:component>
+    <xt:component name="t_questions_1to4">
+      <Field Key="comments01" Tag="BusinessConcept">1. Please provide company's business concept in one sentence.</Field>
+      <Field Key="comments02" Tag="ProductAndBenefits">2. Please provide company's product &amp; customer benefits (USPs).</Field>
+      <Field Key="partners" Tag="MSCIEPartners" Gap="3" W="12" L="0">3. Please specify the strategic partnership  you are looking for :</Field>
+      <!-- conditional on "Other" in partners  -->
+      <xhtml:div data-avoid-par="~7" data-on-class="hide" class="hide">
+        <Field Key="commentsXX" Tag="OtherPartnership">4. If other, please specify</Field>
+      </xhtml:div>
+    </xt:component>
+    <xt:component name="t_term">
+      <blockquote xmlns="http://www.w3.org/1999/xhtml">
+        <p style="font-size:15px;margin-bottom:0.5em">
+          I declare that the information included in this application is true and accurate and agree to answer to the follow-up questions related to the event.
+        </p>
+        <p style="font-size:15px;margin-bottom:0.5em">
+          The information supplied to the SME Instrument Programme will be treated in accordance with the European Union (Council Regulation 45/2001) data protection and privacy regulations. The information will only be used for the internal purposes of the SME Instrument Programme.
+        </p>
+      </blockquote>
+      <p xmlns="http://www.w3.org/1999/xhtml">
+        <label style="display:inline;vertical-align:middle;margin-right:10px;">
+          Click here if you agree to the above declaration
+        </label>
+        <span data-binding="required" data-variable="terms">
+          <site:conditional avoid="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on" types="input"/>
+          </site:conditional>
+          <site:conditional meet="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on;name=term;noedit=true" types="input"/>
+          </site:conditional>
+        </span>
+      </p>
+    </xt:component>
+    <xt:component name="t_cancellation">
+      <blockquote xmlns="http://www.w3.org/1999/xhtml">
+        <p style="font-size:15px;margin-bottom:0.5em">
+          Should you be selected to this programme, you will be notified. We expect you to follow up on this within 7 days of the notification.
+        </p>
+        <p style="font-size:15px;margin-bottom:0.5em">
+          Cancellations will only be considered in duly documented cases of "force majeure". In any other case, you will be excluded from participating to the SME Instrument Business Support Services.
+        </p>
+        <p style="font-size:15px;margin-bottom:0.5em">
+          In case of doubts, please contact our helpdesk.
+        </p>
+      </blockquote>
+      <p xmlns="http://www.w3.org/1999/xhtml">
+        <label style="display:inline;vertical-align:middle;margin-right:10px">
+          Click here if you agree to the above cancellation policy
+        </label>
+        <span data-binding="required" data-variable="terms">
+          <site:conditional avoid="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on" types="input"/>
+          </site:conditional>
+          <site:conditional meet="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on;name=cancellation;noedit=true" types="input"/>
+          </site:conditional>
+        </span>
+      </p>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <site:conditional avoid="read" force="true">
+      <xhtml:p style="color:red">All the fields must be filled to be able to proceed to the next step</xhtml:p>
+    </site:conditional>
+    <Title>Company Information</Title>
+    <Use Tag="Company" TypeName="enterprise"/>
+  </Row>
+  <Row>
+    <Title>Contact Person for the Trade Fair</Title>
+    <Use Tag="Contact" TypeName="contact_person"/>
+  </Row>
+  <Row>
+    <Title>Introduction to the SME</Title>
+    <Use TypeName="questions_1to4"/>
+    <xhtml:p>If you have any further questions, please contact our helpdesk: <xhtml:a href="mailto:contact@phase3-services.eu">contact@phase3-services.eu</xhtml:a></xhtml:p>
+  </Row>
+  <Row>
+    <Cell W="12">
+      <Title>Declaration</Title>
+      <Row>
+        <Use Tag="Term" TypeName="term"/>
+      </Row>
+    </Cell>
+  </Row>
+  <br/>
+  <Row>
+    <Cell W="12">
+      <Title>Cancellation Policy</Title>
+      <Row>
+        <Use Tag="Cancellation" TypeName="cancellation"/>
+      </Row>
+    </Cell>
+  </Row>
+  <Include src="consent.xml" TypeName="footer"/>
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="email" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <RegExp Keys="val-ebitda1 val-ebitda2 val-ebitda3 val-revenue1 val-revenue2 val-revenue3"
+        Message="A valid number is expected"
+        >^\s*$|^-?\d+$</RegExp>
+    </Enforce>
+    <Condition Keys="partners" Variable="par"/>
+    <Condition Keys="program" Variable="pro"/>
+    <Condition Keys="ebitda-app" Variable="ebi"/>
+    <Condition Keys="revenue-app" Variable="rev"/>
+  </Bindings>
+
+  <Hints>
+    <!-- <Mandatory Tags="Name Acronym SMEiGrantAgreementNumber FirstName LastName Civility Phone Email InvestmentKinds InvestmentSizes SellingShares InvestorKinds Value ShareholderStructure BusinessConcept ProductAndBenefits IntellectualProperty MarketIntelligence Customers Competitors TeamStructure">This field must be filled to be able to proceed to the next step</Mandatory> -->
+  </Hints>
+  <Plugins>
+    <Input Keys="ganumber firstname lastname civility phone email val-ebitda1 val-ebitda2 val-ebitda3 val-revenue1 val-revenue2 val-revenue3"/>
+    <MultiText Prefix="comments"/>
+    <Constant Keys="entname"/>
+  </Plugins>
+
+</Form>

@@ -1,0 +1,70 @@
+<Form Tag="Information" Layout="fluid" StartLevel="1" Width="800px"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Title>Case Initiation Formulare (Information)</Title>
+
+  <Row Class="x-ClientEnterprise">
+    <Cell W="12" Gap="1.25">
+      <Title>Beneficiary</Title>
+      <Field Key="pic" Tag="PIC" Gap="2">Name</Field>
+    </Cell>
+  </Row>
+  <site:conditional meet="read" force="true">
+    <Separator/>
+    <Row>
+      <Cell W="12" Gap="1.25" Tag="ManagingEntity">
+        <Title>EEN</Title>
+        <Field Key="assigned-eentity" Tag="RegionalEntityRef" Gap="2" W="10" L="0">Assigned Entity</Field>
+        <site:conditional force="true" flag="ment"><Button Key="btn.entity-assignment" Class="btn-small btn-primary" W="2">Edit</Button></site:conditional>
+        <Field Key="eentity-contacts" Tag="ContactPerson" Gap="2" W="12" L="0">EEN KAM Coordinator</Field>
+        <Field Key="authority" Tag="AssignedByRef" W="8" Gap="2" L="0">Assigned by</Field>
+        <Field Key="date" Tag="Date" W="4" Gap="0.75">Date</Field>
+      </Cell>
+    </Row>
+  </site:conditional>
+  <Modals>
+    <Modal Id="c-entity-assignment" Width="700px" EventTarget="c-editor-case-init">
+      <Title>EEN Managing Entity Assignment</Title>
+    </Modal>
+    <Modal Id="c-sme-grant-email" Width="800px" EventTarget="c-editor-case-init" SaveLabel="action.email" PrependerId="c-case-alerts-list">
+      <Title loc="sme.grant.notify.title">Grant notification</Title>
+    </Modal>
+    <Modal Id="c-kam-grant-email" Width="800px" EventTarget="c-editor-case-init" SaveLabel="action.email" PrependerId="c-case-alerts-list">
+      <Title loc="kam.grant.notify.title" >Grant notification</Title>
+    </Modal>
+  </Modals>
+  <Commands>
+    <Add Key="btn.entity-assignment" TargetEditor="c-entity-assignment" Template="^/templates/managing-entity?goal=update&amp;case=$^" Resource="~/information/ManagingEntity"/>
+    <!-- <Add Key="btn.sme-grant" Id="sme-notification" TargetEditor="c-sme-grant-email" Template="templates/email?goal=create&amp;smegrant=1" Resource="~/alerts?goal=init&amp;from=SME-Notification"/>
+    <Add Key="btn.kam-grant" Id="kam-notification" TargetEditor="c-kam-grant-email" Template="templates/email?goal=create" Resource="~/alerts?goal=init&amp;from=KAM-Notification"/> -->
+  </Commands>
+  <Bindings>
+    <!-- <Condition Keys="signature" Variable="sig1" DisableClass="hide"/> -->
+    <Require Keys="title phase year enterprise firstname lastname email sme-full-name town"/>
+    <Enforce>
+      <RegExp Keys="duration" 
+        Message="Enter the number of months as a number"
+        >^\s*$|^\d+$</RegExp>
+      <RegExp Keys="email" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <RegExp Keys="creation" Message-loc="validation.year"
+        Message="Enter a year as a number with 4 digits"
+        >^\s*$|^\d{4}$</RegExp>
+      <!-- <RegExp Keys="phone mobile" Message-loc="validation.phone"
+        Message="Vous devez saisir un numéro de téléphone composé de chiffres uniquement séparés par des espaces"
+        >^\+?\s*[\d ]{2,}$</RegExp> -->
+    </Enforce>
+  </Bindings>
+  <Plugins>
+    <Text Keys="sme-full-name"/>
+    <RichText Keys="ctx-description" Menu="static"/>
+    <MultiText Keys="summary"/>
+  </Plugins>
+  <Hints>
+    <Hint Keys="targeted-markets">Thomson Reuters Business Classification</Hint>
+  </Hints>
+</Form>

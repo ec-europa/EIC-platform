@@ -1,0 +1,447 @@
+<Form Tag="Admission" Layout="fluid" StartLevel="1"
+  xmlns:site="http://oppidoc.com/oppidum/site" xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <Verbatim>
+    <xt:component name="t_member_profile">
+      <Row>
+        <Field Key="gender" Tag="Gender" Gap="2.2" W="4">Gender</Field>
+      </Row>
+      <Row>
+        <Field Key="firstname" Tag="FirstName" Gap="2.2" W="6">First name</Field>
+        <Field Key="lastname" Tag="LastName" Gap="2.2" W="6">Last name</Field>
+      </Row>
+      <Row>
+        <Field Key="phone" Tag="Phone" Gap="2.2" W="6">Direct phone</Field>
+        <Field Key="member-email" Tag="Email" Gap="2.2" W="6" >Work email</Field>
+      </Row>
+      <Row>
+        <Use Tag="Expert" TypeName="expert"/>
+      </Row>
+      <Row>
+        <Use Tag="Interest" TypeName="interest"/>
+      </Row>
+      <Row>
+        <Field Key="linkedIn" Tag="LinkedIn" Gap="2.2" W="6">LinkedIn profile</Field>
+        <Field Key="twitter" Tag="Twitter" Gap="2.2" W="6">Twitter account</Field>
+      </Row>
+      <Row>
+          <Field Key="spokenlanguages" Tag="SpokenLanguages" Gap="2.2" W="12">Spoken languages</Field>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_expert">
+      <Field Key="topics_expert" Tag="ThematicsTopics" Gap="2.2" W="6" L="0">Topics of expertise<xhtml:span data-avoid-varecasdomain="yes" data-on-class="hide" class="hide"><Hint Appearance="mandatory">You must complete this field before you submit</Hint></xhtml:span></Field>
+    </xt:component>
+
+    <xt:component name="t_interest">
+      <Field Key="topics_interest" Tag="ThematicsTopics" Gap="2.2" W="6" L="0">Topics of interest<xhtml:span data-avoid-varecasdomain="yes" data-on-class="hide" class="hide"><Hint Appearance="mandatory">You must complete this field before you submit</Hint></xhtml:span></Field>
+    </xt:component>
+
+    <xt:component name="t_organisation_details">
+        <Cell Tag='MyOrganisationProfile' style="margin-bottom:20px">
+        <Title Level="3">Fill in the details of the organisation(s) you are working for.<!-- If you are not working for a company / organisation, please select "Unaffiliated" below.--></Title> 
+        <Field Key="myorganisationtypes" Tag="MyOrganisationsTypes" Gap="3.1" W="12" L="0">My Organisation is:</Field>
+        <xhtml:div data-avoid-myorganisationtypes="67" data-on-class="hide" class="hide">
+          <Row>
+            <Field Key="othertypeoforganisation" Tag="OtherOrganisationType" Gap="3.1" >Other type of Organisation</Field>
+          </Row>
+        </xhtml:div>
+      </Cell>
+      <xhtml:div data-avoid-myorganisationtypes="| 60 61" data-on-class="hide" class="hide">
+        <Row>
+          <Title Level="2">Organisation I work for <!--<Hint data-placement="right">Select an organisation name if it is available in the list. Click on + on the right if you are member in more than one organisation.</Hint>--></Title>
+          <p style="font-style:italic;">Start typing the name of organisation in the"Organisation name" field.<br/>
+            You can select more than one organisation.<br/>
+          If not in the list, add a new organisation below.</p>
+        </Row>
+        <xhtml:table class="table table-bordered" style="margin-bottom:0">
+          <xhtml:tr>
+            <xhtml:th style="width:30%">Organisation name <Hint Appearance="mandatory">If you selected an function this field must be filled to be able to proceed to the next step</Hint></xhtml:th>
+            <xhtml:th style="width:50%;border-right:none">Function <Hint Appearance="mandatory">If you selected an organisation name this field must be filled to be able to proceed to the next step</Hint></xhtml:th>
+            <site:conditional avoid="read" force="true">
+              <xhtml:th style="width:6%;border-left:none"/>
+            </site:conditional>
+          </xhtml:tr>
+        </xhtml:table>
+        <Repeat Min="1" Tag="OrganisationList">
+          <Cell Tag="OrganisationInformation">
+            <xhtml:table style="width:100%" >
+              <xhtml:tr style="width:100%">
+                <xhtml:td style="width:35%;">
+                  <xhtml:label class="hide">Organisation name</xhtml:label>
+                  <Field Key="enterprise" Tag="EnterpriseRef"/>
+                </xhtml:td>
+                  <xhtml:td style="width:65%" data-binding="switch" data-variable="corporatefunction" data-switch-scope=".">
+                  <xhtml:label class="hide">Function</xhtml:label>
+                  <Field Key="corporatefunction_member" Tag="CorporateFunctions"/>
+                  <xhtml:div data-avoid-corporatefunction="~10" data-on-class="hide" class="hide feedback-sub" style="float:left;width:100%">
+                    <xhtml:br/>
+                    <Field Key="otherfunction" Tag="Function" Gap="1.5" W="12">Please specify</Field>
+                  </xhtml:div>
+  
+                </xhtml:td>
+              </xhtml:tr>
+              <xhtml:tr style="width:100%">
+                <xhtml:td >
+                  <site:conditional meet="read" force="true">
+                    <xhtml:div style="display:none"><Menu/></xhtml:div>
+                  </site:conditional>
+                </xhtml:td>
+                <site:conditional avoid="read" force="true">
+                  <xhtml:td style="width:6%;text-align: right" ><xhtml:span class="c-repeat-menu">Click on minus (resp. plus) to remove (resp. add) an organisation<Menu/></xhtml:span></xhtml:td>
+                </site:conditional>
+              </xhtml:tr>  
+            </xhtml:table>
+          </Cell>
+        </Repeat>
+          <Separator/>
+          <!-- enable temporary EIC Beneficiary creation -->
+          <xhtml:div data-avoid-myorganisationtypes="61" data-on-class="hide" class="hide">
+            <Use TypeName="create_organisation" Tag="CreateOrganisation"/>
+          </xhtml:div>
+        </xhtml:div>
+      
+    </xt:component>
+
+    <xt:component name="t_create_organisation">
+      <Row>
+        <Field Key="neworg_yesno" Tag="YesNoScaleRef" Gap="2" W="12" L="0"><xhtml:span style="font-size: 17px">Not in the list? Add a new organisation</xhtml:span></Field>
+      </Row>
+      <xhtml:div data-avoid-newentreprise="~1" data-on-class="hide" class="hide">
+        <Use TypeName="new_organisation" Tag="OrganisationInformation"/>
+      </xhtml:div>
+    </xt:component>
+    
+    <xt:component name="t_new_organisation">
+      
+      <xhtml:div data-avoid-newentreprise="~1" data-on-class="hide" class="hide">
+      <Row>
+        <Field Key="new_org_name" Tag="Name" Gap="3.1" W="12">Organisation name</Field>
+      </Row>
+        <Row>
+          <Field Key="corporatefunction_user" Tag="CorporateFunctions" Gap="3.1" W="12" L="0">Functions</Field>
+          <xhtml:div data-avoid-usercorpfunc="~10" data-on-class="hide" class="hide feedback-sub" style="float:left;width:100%">
+            <Field Key="otherfunction" Tag="Function" Gap="3.1" W="8">Please specify</Field>
+          </xhtml:div>
+        </Row>
+        
+        <!-- show when "SME Beneficiary(EIC, SMEi, FTI, FETOpen)" in "New Organisation type" -->
+        <xhtml:div data-avoid-myorganisationtypes="60" data-on-class="hide" class="hide">
+          <Row Gap="0">
+            <Field Key="picode" Tag="PIC" Gap="3.1" W="12" L="0">Participant identification code (PIC)</Field>
+          </Row>
+        </xhtml:div>
+        
+          <Row>
+            <Field Key="vat" Tag="VAT" Gap="3.1" W="12" L="0">VAT number <xhtml:span data-avoid-myorganisationtypes="60" data-on-class="hide" class="hide"><Hint Appearance="mandatory">You must complete this field before you submit</Hint></xhtml:span></Field>
+            <Field Key="euid" Tag="EUID" Gap="3.1" W="12" L="0">Registration number (EUID)</Field>
+          </Row>
+        <xhtml:div data-avoid-myorganisationtypes="60" data-on-class="hide" class="hide">
+          <Row>
+            <Field Key="clients" Tag="Clients" Gap="3.1" W="12">Clients</Field>
+          </Row>
+        </xhtml:div>
+       
+          <Row>
+            <Field Key="size" Tag="SizeRef" Gap="3.1" W="6">Organisation size <xhtml:span data-avoid-myorganisationtypes="61" data-on-class="hide" class="hide"><Hint Appearance="mandatory">You must complete this field before you submit</Hint></xhtml:span></Field>
+            <Field Key="creation" Tag="CreationYear" Gap="3.1" W="6">Year of establishment <xhtml:span data-avoid-myorganisationtypes="61" data-on-class="hide" class="hide"><Hint Appearance="mandatory">You must complete this field before you submit</Hint></xhtml:span></Field>
+          </Row>
+          <Row>
+            <Use TypeName="addresses_table"/>
+          </Row>
+          
+        <Row>
+          <Field Key="organisation-phone" Tag="Phone" Gap="3.1" W="6">Organisation phone number</Field>
+          <Field Key="organisation-email" Tag="Email" Gap="3.1" W="6">Organisation email</Field>
+        </Row>
+        <!-- <Row>
+           <Field Key="corporate-email-domain" Tag="DomainNames" Gap="4.25" >Organisation Email domain name(s)</Field>
+            </Row>
+         -->
+        <Row>
+          <Field Key="website" Tag="WebSite" Gap="3.1" W="12">Website</Field>
+        </Row>
+        <Separator/>
+        <Row Gap="0">
+          <Use Tag="OrganisationProfile" TypeName="organisation_profile"/>
+          <Separator/>
+        </Row>  
+        <xhtml:div data-avoid-myorganisationtypes="60" data-on-class="hide" class="hide">
+          <Row Gap="1.75" Tag="PartnerProfile">
+            <Title Level="3">My partnership profile</Title>
+            <Use Tag="Offer" TypeName="partner_offer"/>
+            <Use Tag="Looking" TypeName="partner_looking"/>
+          </Row>
+        </xhtml:div>
+        
+        <!-- show when "Investor/corporate" in "New Organisation type" -->
+        <xhtml:div data-avoid-myorganisationtypes="61" data-on-class="hide" class="hide">
+          <Row >
+            <Field Key="invcorporganisationtypes" Tag="InvestCorpoOrganisationsTypes" Gap="3.1" W="12">Organisation type</Field>
+          </Row>
+        </xhtml:div>
+        <!-- show when "Investor" in "inv/corp Organisation type" -->
+        <xhtml:div data-avoid-invcorporganisationtypes="~611" data-on-class="hide" class="hide">
+          <Use Tag="InvestorProfile" TypeName="investor_profile"/>
+        </xhtml:div>
+        <!-- show when "Corporate" in "inv/corp Organisation type" -->
+        <xhtml:div data-avoid-invcorporganisationtypes="~612" data-on-class="hide" class="hide">
+          <Use Tag="CorporateProfile" TypeName="corporate_profile"/>
+        </xhtml:div>
+      </xhtml:div>
+      
+    </xt:component>
+    <xt:component name="t_addresses_table">
+      <Title Level="4">Locations <Hint data-placement="right">You must enter at least one complete address line to be able to submit your registration. You may enter several addresses by clicking on + if your organisation has main offices in different countries.</Hint></Title>
+      <xhtml:table class="table table-bordered" style="margin-bottom:0">
+        <xhtml:tr>
+          <xhtml:th style="width:30%">Address <Hint Appearance="mandatory">You must complete this field before you submit</Hint></xhtml:th>
+          <xhtml:th style="width:10%">Postcode <Hint Appearance="mandatory">You must complete this field before you submit</Hint></xhtml:th>
+          <xhtml:th style="width:28%">City <Hint Appearance="mandatory">You must complete this field before you submit</Hint></xhtml:th>
+          <xhtml:th style="width:25%;border-right:none">Country <Hint Appearance="mandatory">You must complete this field before you submit</Hint></xhtml:th>
+          <site:conditional avoid="read" force="true">
+            <xhtml:th style="width:6%;border-left:none"/>
+          </site:conditional>
+        </xhtml:tr>
+      </xhtml:table>
+      <Repeat Min="1" Tag="Locations">
+        <Cell Tag="Location" L="0">
+          <xhtml:table class="table" style="width:100%;margin-bottom:0">
+            <xhtml:tr style="width:100%;">
+              <xhtml:td style="width:30%;border-top:none"><Field Key="address" Tag="Address" /></xhtml:td>
+              <xhtml:td style="width:10%;border-top:none"><Field Key="npa" Tag="PostalCode"/></xhtml:td>
+              <xhtml:td style="width:29%;border-top:none"><Field Key="towns" Tag="Town"/></xhtml:td>
+              <xhtml:td style="width:31%;border-top:none"><Field Key="country" Tag="ISO3CountryRef"/></xhtml:td>
+            </xhtml:tr>
+            <xhtml:tr style="width:100%">
+              <xhtml:td colspan="2" style="border-top:none">
+                <site:conditional meet="read" force="true">
+
+                  <xhtml:div style="display:none"><Menu/></xhtml:div>
+                </site:conditional>
+              </xhtml:td>
+              <site:conditional avoid="read" force="true">
+                <xhtml:td  colspan="2" style="border-top:none;text-align: right"><xhtml:span class="c-repeat-menu">Click on minus (resp. plus) to remove (resp. add) a location<Menu/></xhtml:span></xhtml:td>
+              </site:conditional>
+            </xhtml:tr>  
+          </xhtml:table>
+        </Cell>
+      </Repeat>
+    </xt:component>
+   
+    <xt:component name="t_organisation_profile">
+      <!--<Row>
+        <Field Key="organisationinterestedin" Tag="OrganisationInterests" Gap="3.5" >My Organisation is interested in</Field>
+      </Row>
+      -->
+      <Row>
+        <Field Key="topics_orga" Tag="Topics" Gap="3.1">Topics of interest</Field>
+      </Row>
+     
+      <Row>
+        <Use Tag="CountriesSellingTo" TypeName="countries-selling-to"/>
+      </Row>
+      
+      <Row>
+        <Field Key="targetedMarkets" Tag="TargetedMarkets" Gap="3.1" W="12">Target markets</Field>
+      </Row>
+      <Row>
+        <Field Key="companyDescription" Tag="CompanyDescription" W="12" Gap="3.1">Description </Field>
+      </Row>
+      <xhtml:div data-avoid-myorganisationtypes="60" data-on-class="hide" class="hide">
+        <Row>
+          <Use Tag="ServiceProductOffered" TypeName="serviceproductoffered"/>
+        </Row>
+        <Row>
+          <Use Tag="ServiceProductLookingFor" TypeName="serviceproductlookingfor"/>
+        </Row>
+      </xhtml:div>
+    </xt:component>
+
+    <xt:component name="t_serviceproductoffered">
+      <Field Key="serviceproduct_offered" Tag="DomainActivities" Gap="3.1" W="12" L="0">Service and  product <br/>offered</Field>
+    </xt:component>
+
+    <xt:component name="t_serviceproductlookingfor">
+      <Field Key="serviceproduct_lookingfor" Tag="DomainActivities" Gap="3.1" W="12" L="0">Service and  product <br/>looking for</Field>
+    </xt:component>
+
+    <xt:component name="t_countries-selling-to">
+      <Field Key="geonomenclature" Tag="GeographicalMarkets" Gap="3.1"><xhtml:span data-avoid-myorganisationtypes="60" data-on-class="hide" class="hide">Countries selling to</xhtml:span><xhtml:span data-avoid-myorganisationtypes="61" data-on-class="hide" class="hide">Target countries</xhtml:span></Field>
+    </xt:component>
+    
+    <xt:component name="t_partner_offer">
+      <Field Key="partner_offer" Tag="PartnerTypes" Gap="0" W="12" L="0">Type of business partnership my Organisation can offer</Field>
+      <xhtml:div data-avoid-partneroffer="~7" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="partnertype" Tag="Description" Gap="1.75" W="12">Please specify</Field>
+      </xhtml:div>
+    </xt:component>
+
+    <xt:component name="t_partner_looking">
+      <Field Key="partner_looking" Tag="PartnerTypes" Gap="0" W="12" L="0">Type of business partnership my Organisation is looking for</Field>
+      <xhtml:div data-avoid-partnerlooking="~7" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="partnertype" Tag="Description" Gap="1.75" W="12">Please specify</Field>
+      </xhtml:div>
+    </xt:component>
+    
+    <xt:component name="t_corporate_profile">
+      <Row>
+        <Cell Tag="Type" L="0">
+        <Field Key="corpotypes" Tag="CorporateTypes" Gap="3.1" W="12">Type of Corporate</Field>
+          <xhtml:div data-avoid-corpotypes="~5" data-on-class="hide" class="hide feedback-sub">
+          <Field Key="corpotypeother" Tag="Description" Gap="1.75" W="12">Please specify</Field>
+        </xhtml:div>
+        </Cell>
+      </Row>
+      <Row>
+        <Cell Tag="Interests" L="0">
+          <Field Key="corpointerests" Tag="CorporateInterests" Gap="3.1" W="12">Interest as a corporate</Field>
+          <xhtml:div data-avoid-corpointerests="~7" data-on-class="hide" class="hide feedback-sub">
+          <Field Key="corpointerestother" Tag="Description" Gap="1.75" W="12">Please specify</Field>
+        </xhtml:div>
+        </Cell>
+      </Row>
+    </xt:component>
+    <xt:component name="t_investor_profile">
+      <Row>
+        <Field Key="investorTypes" Tag="InvestorTypes" Gap="3.1" W="12">Investor type</Field>
+      </Row>
+      <Row>
+        <Field Key="afforganisation" Tag="OrganisationAffiliations" Gap="0">My organisation is affiliated to the following association(s)</Field>
+      </Row>
+      <!-- conditional on "National association" in organisationAffiliation -->
+      <xhtml:div data-avoid-afforganisation="~3" data-on-class="hide" class="hide feedback-sub" style="float:left;width:100%">
+        <Field Key="associationname" Tag="Organisation" Gap="3.1" W="12">Please indicate its name</Field>
+      </xhtml:div>
+      <Use Tag="FinancialIntermediary" TypeName="financial"/>
+      <Use Tag="InvestedEIC" TypeName="investedEIC"/>
+      <!-- conditional on "Yes" in InvestedEIC -->
+      <xhtml:div data-avoid-yninvestedeic="1" data-on-class="hide" class="hide feedback-sub" style="float:left;width:100%">
+        <Field Key="eiccompanyname" Tag="Enterprises" Gap="3.1" W="12">Please indicate the name(s) of the company(ies)</Field>
+      </xhtml:div>
+      <Row>
+        <Field Key="investmentInvestors" Tag="InvestmentInvestors" Gap="2.3" W="6">Investor stage</Field>
+        <Field Key="investmentInvestorTickets" Tag="InvestmentInvestorTickets" Gap="2.3" W="6">Investment amount</Field>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_financial">
+      <Row>
+        <Field Key="yesno_financial" Tag="YesNoScaleRef" Gap="0">My organisation is a <xhtml:a target="_blank" href="https://europa.eu/youreurope/business/funding-grants/access-to-finance/index_en.htm">financial intermediary supported by the European Union</xhtml:a> ?</Field>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_investedEIC">
+      <Row>
+        <Field Key="yesno_investedEIC" Tag="YesNoScaleRef" Gap="0">My organisation already invested in an EIC (SME-Instrument, FETopen or FTI) funded company.</Field>
+      </Row>
+    </xt:component>
+
+    <!-- todo add link to  	"Privacy statement.pdf" "Terms and conditions.pdf" see line 51-->
+    <xt:component name="t_consent">
+      <Row>
+        <xhtml:p style="font-size: 17px">
+          <Link Prefix="Please read and accept the " Path="files/EIC_BAS_privacy_statement_2018-1">privacy statement</Link> as well as <Link Prefix="the " Path="files/EIC_Community_terms_conditions_2018-1">terms and conditions</Link>
+          <Hint>The acceptance of Privacy statement as well as the terms and conditions is mandatory to submit your registration</Hint> 
+          <!-- <span data-binding="required" data-variable="terms"> -->
+          <site:conditional avoid="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on" types="input"/>
+          </site:conditional>
+          <site:conditional meet="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on;name=term;noedit=true" types="input"/>
+          </site:conditional>
+          <!-- </span> -->
+        </xhtml:p>
+      </Row>
+    </xt:component>
+    <xt:component name="t_dear_message">
+        <p>
+          Dear <site:field force="true" Key="dearfirstname" Tag="FirstName" style="display:inline"/> <site:field force="true" Key="dearlastname"  Tag="LastName"/>,<br/><!-- @First name @LastName -->
+          to join the EIC Community, please complete your company and personal profile
+        </p>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+   <Use TypeName="dear_message" Tag="EULogin"/>
+  </Row>
+  
+  <!-- Block 2 et 3 -->
+  <Row>
+    <xhtml:div class="hide"><Field Key="ecasdomain" Tag="isECUser">isCommissionUser</Field></xhtml:div>
+    <xhtml:div data-avoid-varecasdomain="no" data-on-class="hide" class="hide">
+    <Title Level="1">My organisation profile</Title>
+    <Use TypeName="organisation_details"/>
+    </xhtml:div>
+  </Row>
+  <!-- Block 4 -->
+  <Separator/>
+  <Row>
+    <Title Level="1">My personal profile</Title>
+    <Use Tag="ParticipantInformation" TypeName="member_profile"/>
+  </Row>
+  <Separator/>
+  
+  <Row>
+    <Use Tag="Consent" TypeName="consent"/>
+  </Row>
+  <!-- <Include src="consent.xml" TypeName="footer"/> -->
+
+  <Bindings>
+    <Condition Keys="corporatefunction_user" Variable="usercorpfunc"/>
+    <Condition Keys="afforganisation" Variable="afforganisation"/>
+    <Condition Keys="neworg_yesno" Variable="newentreprise"/>
+    <Condition Keys="myorganisationtypes" Variable="myorganisationtypes"/>
+    <Condition Keys="invcorporganisationtypes" Variable="invcorporganisationtypes"/>
+    <Condition Keys="corpotypes" Variable="corpotypes"/>
+    <Condition Keys="corpointerests" Variable="corpointerests"/>
+    
+    
+    <!--<Condition Keys="organisationinterestedin" Variable="organisationinterestedin"/>-->
+    <Condition Keys="partner_offer" Variable="partneroffer"/>
+    <Condition Keys="partner_looking" Variable="partnerlooking"/>
+    <Condition Keys="yesno_financial" Variable="ynfinancial"/>
+    <Condition Keys="yesno_investedEIC" Variable="yninvestedeic"/>
+    <Condition Keys="ecasdomain" Variable="varecasdomain"/>
+    <Condition Keys="yesno_service" Variable="ynser"/>
+    <Require Keys="gender phone spokenlanguages"/>
+    <Enforce>
+      <!-- LinkedIn www.linkedin.com/in/franck-leple-8ba63a5 -->
+      <RegExp Keys="linkedIn" Message="The LinkedIn account must be well formed">^\s*$|^https://[a-z]{2,3}[.]linkedin[.]com/.*$</RegExp>
+      <RegExp Keys="twitter" Message="The Twitter account must be well formed">^\s*$|^https://twitter[.]com/.*$</RegExp>
+      <RegExp Keys="member-email organisation-email" Message-loc="validation.email"
+        Message="The EMail adress must be well formed (name@server.domain)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <!-- <RegExp Keys="phone mobile" Message-loc="validation.phone" Message="digits only"
+        >^\+?\s*[\d ]{2,}$</RegExp> -->
+      <RegExp Keys="creation" Message-loc="validation.year"
+        Message="Enter a year as a number with 4 digits">^\s*$|^\d{4}$</RegExp>
+      
+      <RegExp Keys="companyDescription" Message="Description must be up to 500 characters"
+        >^(.?){1,500}$</RegExp>
+    </Enforce>
+  </Bindings>
+
+  <Hints>
+    <Hint Keys="linkedIn" data-placement="right">https://www.linkedin.com/in/[profile]</Hint>
+    <Hint Keys="twitter" data-placement="right">https://twitter.com/[profile]</Hint>
+    <Hint Keys="companyDescription" data-placement="right">Please give a short description (up to 500 characters). Be aware it will be visible to other community members.</Hint>
+    <Hint Keys="picode" data-placement="right">Code used by the validation services in the context of a project.</Hint>
+    <Hint Keys="neworg_yesno" data-placement="top">Select Yes if you cannot find your organisation in the list above, then enter the organisation data.</Hint>
+    <Hint Keys="corporate-email-domain" data-placement="bottom">This will allow future members of your organisation to join the EIC community automatically.</Hint>
+    <Hint Keys="targetedMarkets" data-placement="right">Thomson Reuters classification</Hint>
+    <Hint Keys="serviceproduct_offered serviceproduct_lookingfor" data-placement="right">NACE code classification</Hint>
+    <Mandatory Feedback="none" Keys="gender firstname lastname phone member-email spokenlanguages">You must complete this field before you save</Mandatory>
+    <Mandatory Feedback="border" Keys="corpotypes corpotypeother corpointerests corpointerestother invcorporganisationtypes myorganisationtypes corporatefunction_user otherfunction new_org_name clients address npa towns country companyDescription investorTypes yesno_financial investmentInvestors investmentInvestorTickets topics_orga geonomenclature targetedMarkets serviceproduct_offered serviceproduct_lookingfor yesno_consent">You must complete this field before you submit</Mandatory>
+    <Mandatory Feedback="border" Tags="Organisation">You must complete this field before you submit</Mandatory>
+  </Hints>
+
+  <Plugins>
+    <Input Keys="corpotypeother corpointerestother othertypeoforganisation phone linkedIn twitter new_org_name address npa aff otherfunction picode vat creation euid towns organisation-phone corporate-email-domain associationname partnertype"/>
+    <Input Keys="organisation-email" Media="email"/>
+    <Input Keys="website" Media="url"/>
+    <MultiText Keys="companyDescription"/>
+  </Plugins>
+
+</Form>

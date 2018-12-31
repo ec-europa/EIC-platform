@@ -1,0 +1,69 @@
+<Form Tag="Management" Layout="fluid" StartLevel="3"
+  xmlns:site="http://oppidoc.com/oppidum/site" Width="750px"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Title>KAM assignment</Title>
+
+  <Row>
+    <Cell W="12">
+      <Title Level="1">Enterprise Europe Network
+        <Hint meet="read" data-placement="right">If you are the EEN KAM coordinator click on the Edit button to assign a KAM to the case and fill in the form including the declaration of no conflict of interest; then click on Go to next step to accept the case and move it to the assigned KAM who will perform a needs analysis and assign a coach.</Hint>
+      </Title>
+      <site:conditional meet="read" force="true">
+        <Field Key="assigned-kam" Tag="AccountManagerRef" W="8" Gap="2" L="0">Assigned KAM</Field>
+        <Field Key="authority" Tag="AssignedByRef" W="8" Gap="2" L="0">Assigned by</Field>
+        <Field Key="date" Tag="Date" W="4" Gap="1">Date</Field>
+      </site:conditional>
+      <site:conditional meet="update" force="true">
+        <Field Class="x-AccountManagerRef" Key="assigned-kam" Tag="AccountManagerRef" W="9" Gap="2.85" L="0">Assigned KAM</Field>
+        <!-- <Button Key="btn.createKAM" Class="btn btn-primary" W="3">Create a new KAM</Button> -->
+        <!-- <Field Key="suggested-kam" Tag="SuggestedManagerRef" W="9" Gap="2.85" L="0">Suggestions</Field> -->
+        <xhtml:p class="text-hint" style="clear:both">If your KAM is not on the list or there is no profile in the database, please contact your <xhtml:i>EASME KAM Coordinator</xhtml:i> for updating it (contact information should be available in the <xhtml:i>Who's Who</xhtml:i> tab on the side).</xhtml:p>
+      </site:conditional>
+      <Field Key="comments" Tag="Comments" L="0" Gap="2" W="12" >Comments</Field>
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row>
+    <Cell L="0" Tag="Conformity">
+      <Title Level="1">Declaration of no conflict of interest <Hint data-placement="right">You are asked to indicate if the KAM has any interests in the case which could potentially influence their ability to offer an objective assessment of needs or identification of a suitable coach. A conflict may not necessarily disqualify the KAM from working with the SME.</Hint></Title>
+      <Cell Tag="Personal">
+        <Title Level="3">Does the KAM have any personal affiliation with the company?</Title>
+        <Row>
+          <Field Key="yes-no" Tag="YesNoScaleRef" W="2"/>
+          <Field Key="explain" Tag="Comment" W="10"/>
+          <label style="display:none">1st ethical conformity question</label>
+        </Row>
+      </Cell>
+      <Cell Tag="Financial">
+        <Title Level="3">Does the KAM have any financial interest into the company?</Title>
+        <Row>
+          <Field Key="yes-no" Tag="YesNoScaleRef" W="2"/>
+          <Field Key="explain" Tag="Comment" W="10"/>
+          <label style="display:none">2nd ethical conformity question</label>
+        </Row>
+      </Cell>
+    </Cell>
+  </Row>
+  <Modals>
+    <!-- <Modal Id="c-kam-information" Width="500px" Template="^/templates/person">
+          <Title Mode="create">Create a Key Account Manager</Title>
+        </Modal> -->
+  </Modals>
+  <Commands>
+    <!-- <Augment Key="btn.createKAM" Mode="create" TargetEditor="c-kam-information" Controller="persons/add?f=kam" TargetField=".x-AccountManagerRef"/> -->
+  </Commands>
+  <Bindings>
+    <Require Keys="yes-no"/>
+  </Bindings>
+  <Plugins>
+    <Text Keys="explain"/>
+    <MultiText Keys="comments"/>
+  </Plugins>
+  <Hints>
+    <Hint Keys="assigned-kam" data-placement="right" avoid="read">Select the KAM from your EEN entity that will contact the SME beneficiary once the grant agreement is signed by EASME to propose a coaching and that will assign a coach from the results of a needs analysis</Hint>
+    <!-- <Hint Keys="suggested-kam" data-placement="right">Suggestions show the KAM who have already been linked to the EEN entitiy in charge of the case</Hint> -->
+  </Hints>
+
+</Form>

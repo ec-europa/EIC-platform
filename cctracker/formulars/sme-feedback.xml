@@ -1,0 +1,53 @@
+<!-- CCTRACKER - EIC Case Tracker Application
+
+     Author: Stéphane Sire <s.sire@opppidoc.fr>
+
+     (c) Copyright may be reserved
+  -->
+<!-- see also config/settings.xml to mirror Id -->
+<!-- see also Poll application mapping -->
+<Poll Tag="Answers" Lang="en" xmlns:site="http://oppidoc.com/oppidum/site">
+  <Id>cctracker-sme-feedback</Id>
+  <Title>SME Instrument Feedback on Coaching (SME)</Title>
+  <Questions>
+    <site:conditional context="poll">
+      <Prefill Key="email" Tag="ContactEmail" DefaultVariable="NA_Contact_Email">Your e-mail (please correct it if you are not <Variable Name="NA_Contact_Name">Name of Contact</Variable> or if it is incorrect)</Prefill>
+    </site:conditional>
+    <Question Key="SME1"><Variable Name="KAM_Name">Name of KAM</Variable> helped us to identify relevant business needs</Question>
+    <Question Key="SME2">The needs analysis performed together with <Variable Name="KAM_Name">Name of KAM</Variable> lead our company to take internal actions</Question>
+    <Question Key="SME3">I was well informed about coaches to be able to choose the appropriate one</Question>
+    <Question Key="SME4">Thanks to <Variable Name="Coach_Name">Name of Coach</Variable>, we changed the way to approach our challenges</Question>
+    <Question Key="SME5">Thanks to <Variable Name="Coach_Name">Name of Coach</Variable>, we expect our business innovation project to progress faster</Question>
+    <Question Key="SME6">Thanks to <Variable Name="Coach_Name">Name of Coach</Variable>, our business strategy improved</Question>
+    <Question Key="SME7">I would recommend business innovation coaching to other companies</Question>
+    <Question Key="Comments">Describe your experiences</Question>
+  </Questions>
+  <Plugins>
+    <Likert Prefix="Likert_RatingScaleRef_" Keys="SME1 SME2 SME3 SME4 SME5 SME6 SME7">
+      <Option>
+        <Id>5</Id>
+        <Name>Strongly\ disagree</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Disagree</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Neutral</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Agree</Name>
+      </Option>
+      <Option>
+        <Id>1</Id>
+        <Name>Strongly\ agree</Name>
+      </Option>
+    </Likert>
+    <Comments Keys="Comments"/>
+  </Plugins>
+  <Bindings>
+    <Recommended Prefix="Likert_" Keys="SME1 SME2 SME3 SME4 SME5 SME6 SME7"/>
+  </Bindings>
+</Poll>

@@ -1,0 +1,259 @@
+<Form Tag="Event" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Title>Feedback</Title>
+
+  <Verbatim>
+    <xt:component name="t_contact_person">
+      <Field Key="firstname" Tag="FirstName" Gap="1.75" W="4" L="0">First Name</Field>
+      <Field Key="lastname" Tag="LastName" Gap="1.5" W="4">Last Name</Field>
+      <Field Key="civility" Tag="Civility" Gap="1" W="2">Title</Field>
+      <Field Key="phone" Tag="Phone" Gap="1.75" W="4" L="0">Direct phone</Field>
+      <Field Key="email_contact" Tag="Email" Gap="1.5" W="6">Email</Field>
+    </xt:component>
+
+    <xt:component name="t_representatives_table">
+      <xhtml:p>Please state the names and contact details of the company representatives present at the trade fair <Hint Appearance="mandatory">You must enter at least one company representative to be able to proceed to the next step</Hint></xhtml:p>
+      <xhtml:table class="table table-bordered" style="margin-bottom:0">
+        <xhtml:tr>
+          <xhtml:th style="width:20%">First Name <Hint Appearance="mandatory">You must complete this field</Hint></xhtml:th>
+          <xhtml:th style="width:20%">Last Name <Hint Appearance="mandatory">You must complete this field</Hint></xhtml:th>
+          <xhtml:th style="width:28%">Function</xhtml:th>
+          <xhtml:th style="width:25%;border-right:none">Email <Hint Appearance="mandatory">This field must be filled to be able to proceed to the next step</Hint></xhtml:th>
+          <xhtml:th style="width:6%;border-left:none"/>
+        </xhtml:tr>
+        </xhtml:table>
+        <Repeat Min="1" Tag="Representatives">
+          <Cell Tag="Representative">
+            <xhtml:table style="width:100%">
+              <xhtml:tr style="width:100%">
+                <xhtml:td style="width:20%"><label class="hide">First Name</label><Field Key="firstname" Tag="FirstName"/></xhtml:td>
+                <xhtml:td style="width:20%"><label class="hide">Last Name</label><Field Key="lastname" Tag="LastName"/></xhtml:td>
+                <xhtml:td style="width:28%"><label class="hide">Function</label><Field Key="function" Tag="Function"/></xhtml:td>
+                <xhtml:td style="width:25%"><label class="hide">Email</label><Field Key="email_representative" Tag="Email"/></xhtml:td>
+                <xhtml:td style="width:6%"><xhtml:span class="c-repeat-menu"><Menu/></xhtml:span></xhtml:td>
+              </xhtml:tr>
+            </xhtml:table>
+          </Cell>
+        </Repeat>
+    </xt:component>
+      
+    <xt:component name="t_q1">
+      <Field Key="yesno_01" Tag="YesNoScaleRef" Gap="0">1. Did you use the helpdesk services to apply to the programme (information, application process, follow-up) ?</Field>
+      <!-- conditional on "Yes" -->
+      <xhtml:div data-avoid-yn01="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="satisfaction_01" Tag="SatisfactionLevelRef" W="12">If yes, what is your overall satisfaction ?</Field>
+      </xhtml:div>
+      <Field Key="comments_01" Tag="Comments" W="12" L="0">Please, provide any comments you may have :</Field>
+    </xt:component>
+    
+    <xt:component name="t_q2">
+      <Field Key="satisfaction_02" Tag="SatisfactionLevelRef" Gap="0">2. Are you satisfied with the one-day briefing session in Brussels (agenda, presentations, promotional material, information conveyed)?</Field>
+        <Field Key="comments_02" Tag="Comments" W="12" L="0">Please, provide any comments you may have :</Field>
+    </xt:component>
+
+    <xt:component name="t_q3">
+      <Field Key="trade-fair-services" Tag="TradeFairServices" Gap="0">3. Did you order any customised services ?</Field>
+      <!-- conditional on anything but "No" -->
+      <xhtml:div data-avoid-tfs03="1" data-off-class="hide" class="hide feedback-sub">
+        <Field Key="satisfaction_03" Tag="SatisfactionLevelRef" W="12">If yes, what is your overall level of satisfaction ?</Field>
+        <Field Key="comments_03" Tag="Comments" W="12" L="0">Please, provide any comments you may have :</Field>
+      </xhtml:div>
+    </xt:component>
+
+    <xt:component name="t_q4">
+      <Field Key="satisfaction_04" Tag="SatisfactionLevelRef" Gap="0">4. Are you satisfied with the drafting of your company showcase and catalogue drafted by the team for the fair ?</Field>
+      <Field Key="comments_04" Tag="Comments" W="12" L="0">Please, provide any comments you may have :</Field>
+    </xt:component>
+
+    <xt:component name="t_q5">
+      <Field Key="satisfaction_05" Tag="SatisfactionLevelRef" Gap="0">5. Are you satisfied with the individual mentoring/support by our team ?</Field>
+      <Field Key="comments_05" Tag="Comments" W="12" L="0">Please, provide any comments you may have :</Field>
+    </xt:component>
+
+    <xt:component name="t_q6">
+      <Field Key="min_satisfaction_06" Tag="SatisfactionLevelRef" Gap="0">6. Are you satisfied with the business counterparts suggested to you in view of the pre-set business meetings and the actual meetings scheduled (understanding the needs, successful matchmaking, number, ease of scheduling) ?</Field>
+      <Field Key="comments_06" Tag="Comments" W="12" L="0">Please, provide any comments you may have :</Field>
+    </xt:component>
+
+    <xt:component name="t_q7">
+      <Field Key="total" Tag="Total" Gap="7.5" W="12" L="0">7. How many of your business meetings were pre-arranged ?</Field>
+    </xt:component>
+
+    <xt:component name="t_q8">
+      <Field Key="total" Tag="Total" Gap="7.5" W="12" L="0">8. How many of your pre-scheduled business meetings took place ?</Field>
+      <Field Key="comments_08" Tag="Comments" W="12" L="0">Please, provide any comments you may have :</Field>
+    </xt:component>
+
+    <xt:component name="t_q9">
+      <Field Key="total" Tag="Total" Gap="7.5" W="12" L="0">9. How many business meetings did you have in total during the trade fair (pre-set meetings and other business meetings) ?</Field>
+      <Field Key="meaningful-total" Tag="MeaningfulTotal" Gap="7.5" W="12" L="0">How many of these meetings were meaningful to you ?</Field>
+      <Field Key="business-meeting-goals" Tag="BusinessMeetingGoals" Gap="4.75" W="12" L="0">These meaningful meetings were mainly for :</Field>
+      <Field Key="comments_09" Tag="Comments" W="12" L="0">Please, provide any comments you may have :</Field>
+    </xt:component>
+    
+    <xt:component name="t_q789">
+      <Use Tag="PreArranged" TypeName="q7"/>
+      <Use Tag="PreScheduled" TypeName="q8"/>
+      <Use TypeName="q9"/>
+    </xt:component>
+
+    <xt:component name="t_q10">
+      <Field Key="total" Tag="Total" Gap="7.5" W="12" L="0">10. How many meaningful contacts did you have with counterparts at the fair (including meetings but also less formal contacts) ?</Field>
+    </xt:component>
+
+    <xt:component name="t_q11">
+      <Field Key="yesno_11" Tag="YesNoScaleRef" Gap="0">11. Have you received requests for quotation or signed new contracts ?</Field>
+      <!-- conditional on "Yes" -->
+      <xhtml:div data-avoid-yn11="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="total" Tag="Total" Gap="4.5" W="12" >If Yes, please specify the number</Field>
+        <Field Key="comments_11" Tag="Comments" W="12" L="0">... and type of requests for quotation or new contracts :</Field>
+      </xhtml:div>
+    </xt:component>
+
+    <xt:component name="t_q12">
+      <Field Key="yesno_12" Tag="YesNoScaleRef" Gap="0">12. Have you developed new interesting business contacts (press, political, regional, trade associations) ?</Field>
+      <!-- conditional on "Yes" -->
+      <xhtml:div data-avoid-yn12="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="total" Tag="Total" Gap="4.5" W="12" >If Yes, please specify the number</Field>
+        <Field Key="comments_12" Tag="Comments" W="12" L="0">... and type of new contacts :</Field>
+      </xhtml:div>
+    </xt:component>
+
+    <xt:component name="t_q13">
+      <Field Key="satisfaction_13" Tag="SatisfactionLevelRef" Gap="0">13. Are you satisfied with the promotion of your company at the trade fair (reception, welcome, press, etc.) ?</Field>
+      <Field Key="comments_13" Tag="Comments" W="12" L="0">Please, provide any comments you may have :</Field>
+    </xt:component>
+
+    <xt:component name="t_q14">
+      <Field Key="trade-fair-activities" Tag="TradeFairActivities" Gap="0">14. In which activity did you take part at the Trade Fair :</Field>
+      <xhtml:div data-avoid-tfa14="~1" data-on-class="hide" class="hide feedback-sub">
+          <Field Key="comments_14a" Tag="OtherComments" Gap="0">If other, please specify</Field>
+      </xhtml:div>
+      <Field Key="comments_14b" Tag="MostUsefulActivities" Gap="0">Please specify the most useful activities :</Field>
+    </xt:component>
+
+    <xt:component name="t_q15">
+      <Field Key="yesno_15" Tag="YesNoScaleRef" Gap="0">15. Where you interviewed by the press ?</Field>
+      <!-- conditional on "Yes" -->
+      <xhtml:div data-avoid-yn15="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="comments_15" Tag="Comments" Gap="0">If yes, please specify</Field>
+      </xhtml:div>
+    </xt:component>
+
+    <xt:component name="t_q16">
+      <Field Key="min_satisfaction_16" Tag="SatisfactionLevelRef" Gap="0">16. Were you satisfied with the logistics of the booth ?</Field>
+      <Field Key="comments_16" Tag="Comments" W="12" L="0">Please, provide any comments you may have :</Field>
+    </xt:component>
+
+    <xt:component name="t_q17">
+      <Field Key="business-mission-values" Tag="BusinessMissionValues" Gap="4.75" W="12" L="0">17. How was this business mission for you ?</Field>
+    </xt:component>
+
+    <xt:component name="t_q18">
+      <Field Key="yesno_18" Tag="YesNoScaleRef" Gap="0">18. Do you intend to apply again to participate in future Overseas Trade Fair Participation events ?</Field>
+      <Field Key="comments_18" Tag="Comments" W="12" L="0">Please, provide any comments you may have :</Field>
+    </xt:component>
+
+    <xt:component name="t_q19">
+      <Field Key="yesno_19" Tag="YesNoScaleRef" Gap="0">19. Would you recommend other SME Instrument SMEs to participate in the Overseas Trade Fairs Programme ?</Field>
+      <Field Key="comments_19" Tag="Comments" W="12" L="0">Please, provide any comments you may have :</Field>
+    </xt:component>
+
+    <xt:component name="t_q20">
+      <Field Key="one-to-five" Tag="OneToFiveScaleRef" Gap="0">20. On a scale from 1 to 5 (5 being highly satisfied; 1 being very a poor experience), what is your overall appreciation of the Programme ?</Field>
+      <Field Key="comments_20a" Tag="Comments" W="12" L="0">Please specify :</Field>
+    </xt:component>
+  </Verbatim>
+
+  <site:conditional avoid="update" force="true">
+    <Row Class="no-export">
+      <Cell Gap="2.75" Tag="Initiated">
+        <Title Level="3">Feedback form sent to:</Title>
+        <Field Key="email_addressee" Tag="Email" Gap="1.8" W="7">To SME Contact</Field>
+        <Field Key="date" Tag="Date" Gap="1.8" W="4">Date </Field>
+      </Cell>
+    </Row>
+    <Separator/>
+  </site:conditional>
+
+  <Row>
+    <Cell Gap="2.75">
+      <Title Level="3">Answered by:</Title>
+      <Use Tag="Contact" TypeName="contact_person"/>
+    </Cell>
+  </Row>
+  
+  <Row>
+    <Use TypeName="representatives_table"/>
+  </Row>
+
+  <Row>
+    <Cell Tag="Preparation">
+      <Title>Section 1 : Preparation to the Trade Fair</Title>
+      <Use Tag="HelpDesk" TypeName="q1"/>
+      <Use Tag="Briefing" TypeName="q2"/>
+      <Use Tag="Services" TypeName="q3"/>
+      <Use Tag="Catalogue" TypeName="q4"/>
+      <Use Tag="Mentoring" TypeName="q5"/>
+    </Cell>
+
+    <Cell Tag="FairTrade">
+      <Title>Section 2 : At the Trade Fair</Title>
+      <Use Tag="CounterParts" TypeName="q6"/>
+      <Use Tag="BusinessMeetings" TypeName="q789"/>
+      <Use Tag="Contacts" TypeName="q10"/>
+      <Use Tag="Contracts" TypeName="q11"/>
+      <Use Tag="BusinessContacts" TypeName="q12"/>
+      <Use Tag="Promotion" TypeName="q13"/>
+      <Use Tag="Activities" TypeName="q14"/>
+      <Use Tag="Press" TypeName="q15"/>
+      <Use Tag="Logistics" TypeName="q16"/>
+      <Use Tag="BusinessMission" TypeName="q17"/>
+    </Cell>
+    
+    <Cell Tag="Programme">
+      <Title>Section 3 : Interest in the Programme</Title>
+      <Use Tag="FutureParticipation" TypeName="q18"/>
+      <Use Tag="Recommendation" TypeName="q19"/>
+    </Cell>
+    
+    <Cell Tag="Summary">
+      <Title>Section 4 : Overall Appreciation &amp; Improvements</Title>
+      <Use Tag="Appreciation" TypeName="q20"/>
+      <Field Key="comments_20b" Tag="Improvements" W="12" L="0">What would you improve ?</Field>
+    </Cell>
+    
+    <xhtml:p><xhtml:b>Thanks again for your collaboration and good luck scaling up your overseas activities !</xhtml:b></xhtml:p>
+  </Row>
+
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="email_contact" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <!-- FIXME: actually it is not possible to validate in a repetition because the feedback warning applies to all lines !-->
+    </Enforce>
+    <Condition Keys="yesno_01" Variable="yn01"/>
+    <Condition Keys="yesno_11" Variable="yn11"/>
+    <Condition Keys="yesno_12" Variable="yn12"/>
+    <Condition Keys="yesno_15" Variable="yn15"/>
+    <Condition Keys="trade-fair-activities" Variable="tfa14"/>
+    <Condition Keys="trade-fair-services" Variable="tfs03"/>
+  </Bindings>
+
+  <Hints>
+    <!-- FIXME: switch back to "border" feedback when compatible with Condition / RegExp ... -->
+    <Mandatory Feedback="none" Tags="FirstName LastName Civility Phone YesNoScaleRef SatisfactionLevelRef TradeFairServices Total BusinessMeetingGoals TradeFairActivities MostUsefulActivities BusinessMissionValues OneToFiveScaleRef Improvements">This field must be filled to be able to proceed to the next step</Mandatory>
+    <Mandatory Feedback="none" Keys="comments_20a email_contact">This field must be filled to be able to proceed to the next step</Mandatory>
+  </Hints>
+
+  <Plugins>
+    <Input Keys="firstname lastname function civility phone email_contact email_addressee email_representative"/>
+    <Input Keys="total meaningful-total amount"/>
+    <MultiText Prefix="comments"/>
+  </Plugins>
+</Form>

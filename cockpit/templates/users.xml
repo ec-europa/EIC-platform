@@ -1,0 +1,207 @@
+<Templates>
+  <!-- <Description>Create an unaffiliated user : that mean a user registered in the /persons collection with Information block but not member in any company. Roles must be assigned later on so that user can access the application.</Description> -->
+  <Template Name="unaffiliated-user" Mode="create">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="create" Entity="person" Key="{ $id }">
+      <Person>
+        <Id>{ $id }</Id>
+        <CreatedByRef>{ $uid }</CreatedByRef>
+        <UserProfile>
+          <Email Name='ECAS'>{ normalize-space($form/Contacts/Email) }</Email>
+        </UserProfile>
+        <Information>
+        {
+        $form/Sex,
+        $form/Civility,
+        $form/Name,
+        $form/Contacts,
+        $form/CorporateFunctions,
+        $form/Function,
+        $form/SpokenLanguages
+        }
+        </Information>
+      </Person>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- <Description>Create an Information block to archive person information inside unaffiliated Person account</Description> -->
+  <Template Name="person-information" Mode="create" Form="team-member.xml person.xml#Member">
+<![CDATA[
+<Information LastModification="{ $date }">
+  {
+  $form/Sex,
+  $form/Civility,
+  $form/Name,
+  $form/Contacts,
+  $form/CorporateFunctions,
+  if ($form/CorporateFunctions/CorporateFunctionRef = '10') then
+    $form/Function
+  else
+    (),
+  $form/SpokenLanguages  
+  }
+</Information>
+]]>
+  </Template>
+  
+<!-- 
+    Templates used by "User roles" formular 
+  -->   
+  
+  <!-- Read template
+    used for fill the user roles formular
+  -->
+  
+  <Template Name="user_roles" Mode="read" Subject="Person">
+<![CDATA[
+  <BusinessSegmentation>
+  {
+    if (($subject/BusinessSegmentation[FunctionRef eq '10']/TargetGroups/CompaniesTargetGroup//Location) or ($subject/BusinessSegmentation[FunctionRef eq '10']/TargetGroups/InvestorsTargetGroup//Location)) then
+     (<FacilitatorMonitorSelector>1</FacilitatorMonitorSelector>,
+     <BusinessSegmentationFacilitator>
+       <TargetGroupsFacilitator>
+         {
+           (
+             if ($subject/BusinessSegmentation[FunctionRef eq '10']/TargetGroups/CompaniesTargetGroup//Location) then
+               <TargetGroupFacilitatorCompanies>
+                 <TargetGroupFacilitatorCompaniesSelector>on</TargetGroupFacilitatorCompaniesSelector>
+                 { $subject/BusinessSegmentation[FunctionRef eq '10']/TargetGroups/CompaniesTargetGroup/* }
+               </TargetGroupFacilitatorCompanies>
+             else ()
+             ,
+             if ($subject/BusinessSegmentation[FunctionRef eq '10']/TargetGroups/InvestorsTargetGroup//Location) then
+               <TargetGroupFacilitatorInvestors>
+                 <TargetGroupFacilitatorInvestorsSelector>on</TargetGroupFacilitatorInvestorsSelector>
+                 { $subject/BusinessSegmentation[FunctionRef eq '10']/TargetGroups/InvestorsTargetGroup/* }
+               </TargetGroupFacilitatorInvestors>
+             else ()
+           )
+         }
+       </TargetGroupsFacilitator>
+     </BusinessSegmentationFacilitator>)
+    else ()
+    ,
+    if (($subject/BusinessSegmentation[FunctionRef eq '11']/TargetGroups/CompaniesTargetGroup//Location) or ($subject/BusinessSegmentation[FunctionRef eq '11']/TargetGroups/InvestorsTargetGroup//Location)) then
+      (<FacilitatorMonitorSelector>2</FacilitatorMonitorSelector>,
+      <BusinessSegmentationMonitor>
+        <BusinessSegmentationMonitorSelector>on</BusinessSegmentationMonitorSelector>
+        <TargetGroupsMonitor>
+          {
+            (
+              if ($subject/BusinessSegmentation[FunctionRef eq '11']/TargetGroups/CompaniesTargetGroup//Location) then
+                <TargetGroupMonitorCompanies>
+                  <TargetGroupMonitorCompaniesSelector>on</TargetGroupMonitorCompaniesSelector>
+                  { $subject/BusinessSegmentation[FunctionRef eq '11']/TargetGroups/CompaniesTargetGroup/* }
+                </TargetGroupMonitorCompanies>
+              else ()
+              ,
+              if ($subject/BusinessSegmentation[FunctionRef eq '11']/TargetGroups/InvestorsTargetGroup//Location) then
+                <TargetGroupMonitorInvestors>
+                  <TargetGroupMonitorInvestorsSelector>on</TargetGroupMonitorInvestorsSelector>
+                  { $subject/BusinessSegmentation[FunctionRef eq '11']/TargetGroups/InvestorsTargetGroup/* }
+                </TargetGroupMonitorInvestors>
+              else ()
+            )
+          }
+        </TargetGroupsMonitor>
+      </BusinessSegmentationMonitor>)
+    else ()     
+  }
+  </BusinessSegmentation>
+]]>
+  </Template>  
+  <!-- Update Person monitor and facilitator role -->
+  <Template Name="user_roles" Mode="update" Subject="Person" Object="Data">
+<![CDATA[
+  <XAL _Prune="none">
+    {
+      let $is_not_existing_bsf := (exists($object/BusinessSegmentation[FacilitatorMonitorSelector eq '1']) and (not(exists($subject/BusinessSegmentation[FunctionRef eq '10']))))
+      let $is_bsf := exists($object/BusinessSegmentation[FacilitatorMonitorSelector eq '1'])
+      let $is_bsf_tgfc := exists($object/BusinessSegmentation[FacilitatorMonitorSelector eq '1']/BusinessSegmentationFacilitator/TargetGroupsFacilitator/TargetGroupFacilitatorCompanies[TargetGroupFacilitatorCompaniesSelector eq 'on'])
+      let $is_bsf_tgfi := exists($object/BusinessSegmentation[FacilitatorMonitorSelector eq '1']/BusinessSegmentationFacilitator/TargetGroupsFacilitator/TargetGroupFacilitatorInvestors[TargetGroupFacilitatorInvestorsSelector eq 'on'])
+      let $is_not_existing_bsm := (exists($object/BusinessSegmentation[FacilitatorMonitorSelector eq '2']) and (not(exists($subject/BusinessSegmentation[FunctionRef eq '11']))))
+      let $is_bsm := exists($object/BusinessSegmentation[FacilitatorMonitorSelector eq '2'])
+      let $is_bsm_tgmc := exists($object/BusinessSegmentation[FacilitatorMonitorSelector eq '2']/BusinessSegmentationMonitor/TargetGroupsMonitor/TargetGroupMonitorCompanies[TargetGroupMonitorCompaniesSelector eq 'on'])
+      let $is_bsm_tgmi := exists($object/BusinessSegmentation[FacilitatorMonitorSelector eq '2']/BusinessSegmentationMonitor/TargetGroupsMonitor/TargetGroupMonitorInvestors[TargetGroupMonitorInvestorsSelector eq 'on'])
+      return
+      (
+        if ($is_not_existing_bsf) then          
+          <XALAction Type="insert" Pivot="$subject">
+          { <BusinessSegmentation><FunctionRef>10</FunctionRef></BusinessSegmentation> }
+          </XALAction>                    
+        else ()
+        ,
+        if (($is_bsf) and (($is_bsf_tgfc) or ($is_bsf_tgfi))) then
+          <XALAction Type="replace" Pivot="$subject/BusinessSegmentation[FunctionRef eq '10']">           
+            {
+              if (($is_bsf) and (($is_bsf_tgfc) or ($is_bsf_tgfi))) then
+                <TargetGroups>
+                  {
+                    (
+                    if ($is_bsf_tgfc) then
+                    <CompaniesTargetGroup>
+                       <Locations>
+                      { $object/BusinessSegmentation[FacilitatorMonitorSelector eq '1']/BusinessSegmentationFacilitator/TargetGroupsFacilitator/TargetGroupFacilitatorCompanies[TargetGroupFacilitatorCompaniesSelector eq 'on']/Locations/Location }
+                       </Locations>
+                    </CompaniesTargetGroup>
+                    else <CompaniesTargetGroup/>,
+                    if ($is_bsf_tgfi) then
+                    <InvestorsTargetGroup>
+                      <Locations>
+                      { $object/BusinessSegmentation[FacilitatorMonitorSelector eq '1']/BusinessSegmentationFacilitator/TargetGroupsFacilitator/TargetGroupFacilitatorInvestors[TargetGroupFacilitatorInvestorsSelector eq 'on']/Locations/Location }
+                       </Locations>
+                    </InvestorsTargetGroup>
+                    else <InvestorsTargetGroup/>
+                    )
+                  }
+                </TargetGroups>            
+              else <TargetGroups/>                        
+            }          
+          </XALAction>
+        else           
+          <XALAction Type="delete" Pivot="$subject/BusinessSegmentation[FunctionRef eq '10']"/>           
+        ,
+        if ($is_not_existing_bsm) then          
+          <XALAction Type="insert" Pivot="$subject">
+           { <BusinessSegmentation><FunctionRef>11</FunctionRef></BusinessSegmentation> }
+         </XALAction>          
+        else ()
+        ,
+        if (($is_bsm) and (($is_bsm_tgmc) or ($is_bsm_tgmi))) then
+          <XALAction Type="replace" Pivot="$subject/BusinessSegmentation[FunctionRef eq '11']">           
+            {
+              if (($is_bsm) and (($is_bsm_tgmc) or ($is_bsm_tgmi))) then
+                <TargetGroups>
+                  {
+                    (
+                    if ($is_bsm_tgmc) then
+                    <CompaniesTargetGroup>
+                      <Locations>
+                      { $object/BusinessSegmentation[FacilitatorMonitorSelector eq '2']/BusinessSegmentationMonitor/TargetGroupsMonitor/TargetGroupMonitorCompanies[TargetGroupMonitorCompaniesSelector eq 'on']/Locations/Location }
+                      </Locations>
+                    </CompaniesTargetGroup>
+                    else <CompaniesTargetGroup/>,
+                    if ($is_bsm_tgmi) then
+                    <InvestorsTargetGroup>
+                       <Locations>
+                      { $object/BusinessSegmentation[FacilitatorMonitorSelector eq '2']/BusinessSegmentationMonitor/TargetGroupsMonitor/TargetGroupMonitorInvestors[TargetGroupMonitorInvestorsSelector eq 'on']/Locations/Location }
+                       </Locations>
+                    </InvestorsTargetGroup>
+                    else <InvestorsTargetGroup/>
+                    )
+                  }
+                </TargetGroups>            
+              else <TargetGroups/>                         
+            }          
+          </XALAction>
+        else           
+          <XALAction Type="delete" Pivot="$subject/BusinessSegmentation[FunctionRef eq '11']"/>           
+       )
+     }
+  </XAL>
+]]>
+  </Template>  
+  
+</Templates>

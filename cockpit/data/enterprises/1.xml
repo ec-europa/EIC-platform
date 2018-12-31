@@ -1,0 +1,66 @@
+<Enterprise>
+  <Id>1</Id>
+  <Information>
+    <Name>Executive Agency for Small and Medium-sized Enterprises (EASME)</Name>
+    <ShortName>EASME Unit A.2 H2020 SME</ShortName>
+    <WebSite>http://ec.europa.eu/easme</WebSite>
+    <Address>
+      <StreetNameAndNo>Covent Garden 2, Pl. Rogier 16</StreetNameAndNo>
+      <PostalCode>1210</PostalCode>
+      <Town>Brussels</Town>
+      <Country>BE</Country>
+    </Address>
+    <SizeRef>3</SizeRef>
+    <DomainActivityRef>N82</DomainActivityRef>
+  </Information>
+  <Team>
+    <Members LastIndex="3">
+      <Member LastModification="2017-05-09T14:59:02.527+02:00">
+        <Id>1</Id>
+        <CreatedByRef>-1</CreatedByRef>
+        <PersonRef>1</PersonRef>
+        <Information>
+          <Sex>M</Sex>
+          <Name>
+            <LastName>Sire</LastName>
+            <FirstName>Stéphane</FirstName>
+          </Name>
+          <Contacts>
+            <Email>s.sire@oppidoc.fr</Email>
+          </Contacts>
+        </Information>
+      </Member>
+      <Member LastModification="2017-05-09T14:59:02.527+02:00">
+        <Id>2</Id>
+        <CreatedByRef>-1</CreatedByRef>
+        <PersonRef>2</PersonRef>
+        <Information>
+          <Sex>M</Sex>
+          <Name>
+            <LastName>Dumonceaux</LastName>
+            <FirstName>Frédéric</FirstName>
+          </Name>
+          <Contacts>
+            <Email>Frederic.DUMONCEAUX@ext.ec.europa.eu</Email>
+          </Contacts>
+        </Information>
+      </Member>
+      <Member LastModification="2017-06-15T11:59:02.527+02:00">
+        <Id>3</Id>
+        <CreatedByRef>-1</CreatedByRef>
+        <PersonRef>3</PersonRef>
+        <Information>
+          <Sex>M</Sex>
+          <Name>
+            <LastName>Todorov</LastName>
+            <FirstName>Yassen</FirstName>
+          </Name>
+          <Contacts>
+            <Email>yassen.todorov@ec.europa.eu</Email>
+          </Contacts>
+        </Information>
+      </Member>
+    </Members>
+  </Team>
+  <Projects/>
+</Enterprise>

@@ -1,0 +1,358 @@
+<?xml version="1.0"?>
+<html xmlns:site="http://oppidoc.com/oppidum/site" xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:xt="http://ns.inria.org/xtiger">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="Oppidoc: solutions pour l'&#xE9;dition et la publication sur le Web"/>
+    <meta name="keywords" content="&#xE9;diteur, web, d&#xE9;veloppement, xml, javascript, xquery, xslt"/>
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="generator" content="Oppidum by Oppidoc"/>
+    <title>D&#xE9;monstrateur pour les formulaires</title>
+    <site:skin force="true">
+      <script type="text/javascript" charset="utf-8" src="../resources/contribs/jquery/jquery-1.7.1.min.js">//</script>
+      <script type="text/javascript" charset="utf-8" src="../resources/contribs/bootstrap-2.3.2/js/bootstrap.min.js">//</script>
+      <script src="../resources/contribs/axel-1.3/axel.js" type="text/javascript">//</script>
+      <script src="../resources/contribs/axel/axel-forms.js" data-bundles-path="../resources/contribs/axel/bundles" type="text/javascript">//</script>
+      <script src="../resources/contribs/select2-3.4-axel/select2.min.js" type="text/javascript">//</script>
+      <script src="../resources/lib/extensions.js" type="text/javascript">//</script>
+    <link href="../resources/contribs/axel-1.3/axel.css" rel="stylesheet" type="text/css" />
+      <link href="../resources/contribs/bootstrap-2.3.2/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+      <link href="../resources/contribs/bootstrap-2.3.2/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+      <link href="../resources/contribs/bootstrap-2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+      <link href="../resources/contribs/select2-3.4-axel/select2.css" rel="stylesheet" type="text/css" />
+      <link href="../resources/contribs/select2-3.4-axel/select2-bootstrap.css" rel="stylesheet" type="text/css" />
+      <link href="../resources/css/site.css" rel="stylesheet" type="text/css"/>
+      <link href="../resources/css/forms.css" rel="stylesheet" type="text/css"/>
+      <link href="../resources/css/workflow.css" rel="stylesheet" type="text/css"/>
+    </site:skin>
+    <xt:head version="1.1" templateVersion="1.0" label="Report">
+    </xt:head>
+    <style type="text/css">
+body {
+  margin: 20px;
+}
+a, a:hover, a:active, a:focus {
+  outline: 0 none;
+}
+#c-tab-index {
+  width: 180px;
+}
+ul#c-workflow {
+  width: 860px;
+  margin: 10px auto 30px auto;
+}
+li > p.c-timestamp {
+  display: block;
+}
+h2 {
+  text-align: center;
+  margin: 15px 0 30px;
+}
+.c-document-menu.c-design-visible {
+  display: block;
+}
+div.c-tab-heading {
+    background: none repeat scroll 0 0 #9EC0D9;
+    margin: 0 0 20px;
+    padding: 4px 15px;
+    position: relative;
+}
+div.tab-pane li {
+  color: #004563;
+}
+div.tab-pane a {
+  text-decoration: none;
+}
+div.accordion h3.c-arrow:before {
+  content: "\25B6";
+  text-align: top;
+  margin-right: 10px;
+}
+h3.c-opened:before, div.accordion-group.c-with-menu h3:before {
+  content: "\25BC";
+  text-align: top;
+  margin-right: 10px;
+}
+.c-document-menu.c-with-menu {
+  display: inline;
+}
+/* FIX */
+.accordion-body.in:hover { overflow:visible; }
+#c-activity {
+  margin-bottom: 200px; /* for drop down */
+}
+
+fieldgroup.c-report-box legend {
+  font-size: 18px;
+  line-height: 20px;
+  padding: 0;
+  margin: 0 0 10px 0;
+  border-bottom: solid 1px #E5E5E5;
+  float:left;
+  width: 200px;
+  padding: 10px;
+}
+
+ul.c-report-box {
+  list-style-type: none;
+  display: relative;
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  border-radius: 4px 4px 4px 4px;
+  margin-left: 0;
+  padding: 10px;
+}
+ul.c-report-box input {
+  margin-right: 10px;
+  vertical-align: top;
+}
+
+    </style>
+      <script type="text/javascript" charset="utf-8">
+    (function ($axel) {
+      function decide() {
+        $('#c-editor-foundd-menu').show();
+        $("#decide").attr('disabled', true);
+      }
+
+      function init() {
+        $("#decide").attr('disabled', false);
+        $("a[href='#c-activity']").tab('show');
+        $("#decide").bind('click', decide);
+        $("#collapsefoundd").bind('hide', function () {$("#decide").attr('disabled', false);$('#c-editor-foundd-menu').hide(); });
+        $("#annuler-decider").bind('click', function () {$("#collapsefoundd").collapse('hide'); });
+      }
+      jQuery(function() { init(); });
+    }());
+
+      </script>
+  </head>
+  <body>
+    <div class="container">
+
+      <!-- TITLE -->
+      <div class="row">
+        <div class="span12" style="margin-bottom: 40px">
+          <h1 style="text-align:left"><img src="../resources/images/home.png" style="width:50px;margin-right:20px"/> Company</h1>
+        </div>
+      </div>
+
+      <!--  TAB  -->
+      <div class="row">
+        <div class="span12">
+          <div class="tabbable tabs-left">
+            <ul class="nav nav-tabs" id="c-tab-index">
+              <li><a href="#c-activity" data-toggle="tab">Profile</a></li>
+              <li><a href="#c-annexes" data-toggle="tab">History</a></li>
+              <li><a href="#c-specialists" data-toggle="tab">Team</a></li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane" id="c-activity">
+
+                <!--  ACCORDEON DOCUMENTS  -->
+                <div class="accordion">
+
+                   <div data-src="http://localhost:8099/exist/projets/cockpit/enterprises/1/address.blend" data-with-template="../templates/enterprises/address?goal=read" data-target-ui="c-editor-case-menu" data-target="c-editor-case" class="accordion-group">
+                        <div class="accordion-heading c-current">
+                            <span class="c-document-menu">
+                                <button data-edit-action="update" data-src="http://localhost:8099/exist/projets/cockpit/enterprises/1/address.xml?goal=update" data-with-template="http://localhost:8099/exist/projets/cockpit/templates/funding-request" data-target-ui="c-editor-foundr-menu" data-target="c-editor-foundr" class="btn btn-primary">Modifier</button>
+                            </span>
+                            <h3 class="c-arrow">
+                                <a href="#collapsecase" data-toggle="collapse">Address</a>
+                            </h3>
+                        </div>
+                        <div class="accordion-body collapse" id="collapsecase">
+                            <div class="accordion-inner">
+                              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus arcu libero, aliquet sit amet, ornare quis, vulputate a, nibh. Aliquam sit amet lectus vitae ligula feugiat condimentum. Proin eu mauris. Suspendisse ac sem. Cras in quam in augue fringilla porttitor. Nulla facilisi. Aliquam erat volutpat. Morbi consectetuer, libero at iaculis fermentum, dolor velit tincidunt sapien, lacinia ultricies ligula dui eget orci. Maecenas magna quam, volutpat ut, auctor et, malesuada quis, quam. Fusce semper pharetra mi. Aliquam facilisis tortor ut ante. Nam dignissim, ipsum et pharetra pretium, est sem feugiat sapien, a mattis elit sem vitae neque. Ut nec nibh. Ut sagittis magna nec velit. Maecenas ut eros. Duis lectus. Sed venenatis. Fusce iaculis urna euismod neque.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                  <div data-src="http://localhost:8080/exist/projets/coaching/cases/7/activities/1/funding-request.blend" data-with-template="../templates/funding-request?readonly" data-target-ui="c-editor-foundr-menu" data-target="c-editor-foundr" class="accordion-group">
+                      <div class="accordion-heading c-current">
+                          <span class="c-document-menu">
+                              <button data-edit-action="update" data-src="http://localhost:8099/exist/projets/cockpit?4editing" data-with-template="http://localhost:8099/exist/projets/cockpit" data-target-ui="c-editor-foundr-menu" data-target="c-editor-foundr" class="btn btn-primary">Modifier</button>
+                          </span>
+                          <h3 class="c-arrow">
+                              <a href="#collapsefoundr" data-toggle="collapse">Statistical data</a>
+                          </h3>
+                      </div>
+                      <div class="accordion-body collapse" id="collapsefoundr">
+                          <div class="accordion-inner">
+                              <!-- <div data-validation-label="label" data-validation-output="c-editor-foundr-errors" id="c-editor-foundr" class="c-document-editor">
+                                  <noscript>Activez Javascript</noscript>
+                                  <p>Chargement du formulaire en cours</p>
+                              </div> -->
+                              <div class="alert alert-error af-validation" id="c-editor-foundr-errors"></div>
+                              <img src="statistics.png" style="margin-left:25px"/><!-- <img src="binoculars.png" style="position:absolute;top:0px;left:0px"/> -->
+                              <div class="c-editor-menu" id="c-editor-foundr-menu">
+                                  <div style="text-align: center">
+                                      <button data-replace-type="event" data-target="c-editor-foundr" class="btn btn-primary">Enregistrer</button>
+                                      <button data-trigger-event="axel-cancel-edit" data-target="c-editor-foundr" class="btn">Annuler</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div data-src="http://localhost:8099/exist/projets/cockpit" data-with-template="http://localhost:8099/exist/projets/cockpit" data-target-ui="c-editor-foundd-menu" data-target="c-editor-foundd" class="accordion-group">
+                      <div class="accordion-heading c-current">
+                          <span class="c-document-menu">
+                              <button data-edit-action="update" data-src="http://localhost:8099/exist/projets/cockpit" data-with-template="http://localhost:8099/exist/projets/cockpit" data-target-ui="c-editor-foundr-menu" data-target="c-editor-foundr" class="btn btn-success" id="decide">Prendre la décision</button>
+                          </span>
+                          <h3 class="c-arrow">
+                              <a href="#collapsefoundd" data-toggle="collapse">Products / Services</a>
+                          </h3>
+                      </div>
+                      <div class="accordion-body collapse" id="collapsefoundd">
+                          <div class="accordion-inner">
+                              <div data-validation-label="label" data-validation-output="c-editor-foundd-errors" id="c-editor-foundd" class="c-document-editor">
+                                  <noscript>Activez Javascript</noscript>
+                                  <p>Chargement du formulaire en cours</p>
+                              </div>
+                              <div class="alert alert-error af-validation" id="c-editor-foundd-errors"></div>
+                              <div class="c-editor-menu" id="c-editor-foundd-menu">
+                                <div style="text-align: center">
+                                  <div class="btn-group">
+                                    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+                                      Enregistrer et ...
+                                      <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu" style="text-align:left">
+                                      <li><a tabindex="-1" href="#">Accepter</a></li>
+                                        <li><a tabindex="-1" href="#">Refuser</a></li>
+                                        <li><a tabindex="-1" href="#">Retourner en préparation</a></li>
+                                        <li class="divider"></li>
+                                        <li><a tabindex="-1" href="#">Décider plus tard</a></li>
+                                    </ul>
+                                  </div>
+                                  <!-- <button data-replace-type="event" data-target="c-editor-foundd" class="btn btn-primary">Enregistrer sans Décider</button> -->
+                                  <button id="annuler-decider" data-trigger-event="axel-cancel-edit" data-target="c-editor-foundd" class="btn">Annuler</button>
+                                </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- ANNEXES -->
+              <div class="tab-pane" id="c-annexes">
+
+                <div class="accordion">
+                  <div class="accordion-group">
+                      <div class="accordion-heading c-current">
+                          <span class="c-document-menu c-with-menu">
+                              <button href="#collapseannexes" data-toggle="collapse" class="btn btn-primary">Ajouter une annexe</button>
+                          </span>
+                          <h3>
+                              Documents annexes
+                          </h3>
+                      </div>
+                      <div class="accordion-body collapse" id="collapseannexes">
+                          <div class="accordion-inner">
+                            <p>Formulaire pour télécharger une annexe....</p>
+                            <p>Choisissez le fichier</p>
+                          </div>
+                          <div class="c-editor-menu" id="c-editor-annexe-menu">
+                              <div style="text-align: center">
+                                  <button data-replace-type="event" data-target="c-editor-foundd" class="btn btn-primary">Enregistrer</button>
+                                  <button data-trigger-event="axel-cancel-edit" data-target="c-editor-foundd" class="btn">Annuler</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+
+                <p>Pas d'annexe pour le moment</p>
+              </div>
+
+              <div class="tab-pane" id="c-specialists">
+
+                <div class="accordion">
+                  <div class="accordion-group">
+                      <div class="accordion-heading c-current">
+                          <span class="c-document-menu c-with-menu">
+                            <button href="#collapsespecialists" data-toggle="collapse" class="btn btn-primary">Add a team member</button>
+                          </span>
+                          <h3>
+                              Team
+                          </h3>
+                      </div>
+                      <div class="accordion-body collapse" id="collapsespecialists">
+                          <div class="accordion-inner">
+                            <p>Team member formular...</p>
+                            <p>Choisissez le fichier</p>
+                          </div>
+                          <div class="c-editor-menu" id="c-editor-annexe-menu">
+                              <div style="text-align: center">
+                                  <button data-replace-type="event" data-target="c-editor-foundd" class="btn btn-primary">Enregistrer</button>
+                                  <button data-trigger-event="axel-cancel-edit" data-target="c-editor-foundd" class="btn">Annuler</button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+
+                <!--  ACCORDEON SPECIALISTES  -->
+                <div class="accordion">
+                  <div class="accordion-group">
+                      <div class="accordion-heading c-current">
+                          <span class="c-document-menu">
+                              <button class="btn btn-primary">Modifier</button>
+                          </span>
+                          <h3 class="c-arrow">
+                              <a href="#collapse-specialist-1" data-toggle="collapse">Team member nº1 (CEO)</a>
+                          </h3>
+                      </div>
+                      <div class="accordion-body collapse" id="collapse-specialist-1">
+                          <div class="accordion-inner">
+                              <div data-validation-label="label" data-validation-output="c-editor-foundd-errors" id="c-editor-foundd" class="c-document-editor">
+                                  <noscript>Activez Javascript</noscript>
+                                  <p>Chargement du formulaire en cours</p>
+                              </div>
+                              <div class="alert alert-error af-validation" id="c-editor-foundd-errors"></div>
+                              <div class="c-editor-menu" id="c-editor-foundd-menu">
+                                  <div style="text-align: center">
+                                      <button data-replace-type="event" data-target="c-editor-foundd" class="btn btn-primary">Enregistrer</button>
+                                      <button data-trigger-event="axel-cancel-edit" data-target="c-editor-foundd" class="btn">Annuler</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <!--  RAPPORTS -->
+              <div class="tab-pane" id="c-reports" data-template="#">
+                <div class="c-tab-heading">
+                  <h3 class="">Génération du rapport</h3>
+                </div>
+                <p class="text-info">Sélectionnez une ou plusieurs rubriques à inclure puis cliquez sur “Imprimer” pour ouvrir le rapport prêt à imprimer dans une nouvelle fenêtre</p>                
+                <div style="width: 220px">
+                  <fieldgroup class="c-report-box">
+                    <legend>Rubriques</legend>
+                  <xt:use types="choice" label="Sections" param="appearance=full;xvalue=Section;multiple=yes;class=c-report-box" values="Demande\ de\ financement Décision\ de\ financement Évaluation Clôture"/>
+                  </fieldgroup>
+                </div>
+                <button class="btn btn-primary">Imprimer</button>
+              </div>
+
+              <!--  ALERTES -->
+              <div class="tab-pane " id="c-alerts">
+                <div class="c-tab-heading">
+                  <h3 class="">Alertes</h3>
+                </div>
+                  <p>Etiam elementum. Curabitur magna. Nulla facilisi. Donec dapibus sagittis diam. Duis sodales placerat nisi. Sed varius. Etiam fermentum iaculis nunc. Pellentesque dictum fringilla diam. In hac habitasse platea dictumst. Maecenas at purus. Etiam molestie, magna eget pharetra pretium, leo ligula lobortis sem, vitae bibendum erat ligula et nibh. Suspendisse pharetra nibh at tortor. Curabitur libero. In elementum pulvinar ipsum. Pellentesque tempus lobortis purus. Nullam erat enim, convallis in, faucibus non, lobortis ac, sem. Aenean aliquam.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

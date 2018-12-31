@@ -1,0 +1,93 @@
+<Form Tag="Profile" Layout="fluid" StartLevel="2" Orientation="horizontal"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:site="http://oppidoc.com/oppidum/site" xmlns:xt="http://ns.inria.org/xtiger">
+
+  <Verbatim>
+    <xt:component name="t_term">
+      <xhtml:blockquote>
+        <xhtml:p>
+          Please read the <xhtml:a href="privacy-statement" target="_blank">privacy statement</xhtml:a>.
+        </xhtml:p>
+      </xhtml:blockquote>
+      <xhtml:p>
+        <xhtml:label style="display:inline;vertical-align:middle;margin-right:10px" id="required">
+          I confirm that I read the <xhtml:a href="http://ec.europa.eu/easme/node/27" target="_blank">Call for expression of interest</xhtml:a> for Business coaches
+        </xhtml:label>
+        <span data-binding="required" data-variable="terms">
+          <xt:use param="type=radio;filter=event;value=on" types="input"/>
+        </span>
+      </xhtml:p>
+    </xt:component>
+    <xt:component name="t_information">
+      <Row>
+        <Cell W="12">
+          <Title Level="2">Agreement</Title>
+          <Row>
+            <Use Tag="Term" TypeName="term"/>
+          </Row>
+        </Cell>
+        <Title Level="2">Personal details</Title>
+        <Row>
+        <Cell W="6">
+          <Row>
+            <Field Key="sex" Tag="Sex" loc="term.sex" W="5" Gap="1.5">Sexe</Field>
+          </Row>
+          <Row>
+            <Field Key="civility" Tag="Civility" loc="term.civility" W="7" Gap="1.5">Civilité</Field>
+          </Row>
+          <Cell Tag="Name">
+            <Field Key="lastname" Tag="LastName" loc="term.surname" Gap="1.5">Surname</Field>
+            <Field Key="firstname" Tag="FirstName" loc="term.firstName" Gap="1.5">Name</Field>
+          </Cell>
+        </Cell>
+        </Row>
+      </Row>
+      <Row>
+        <Cell Tag="Contacts" W="6">
+          <Title Level="2">Contact</Title>
+          <Field Key="phone" Tag="Phone" loc ="term.phoneAbbrev" Gap="1.5">Téléphone</Field>
+          <Field Key="mobile" Tag="Mobile" loc="term.mobile" Gap="1.5">Mobile</Field>
+          <site:conditional force="true" meet="merge">
+            <Field Key="courriel" Tag="Email" loc="term.email" Gap="1.5">Courriel</Field>
+          </site:conditional>
+          <site:conditional force="true" avoid="merge">
+            <Field Key="email" Tag="Email" loc="term.email" Gap="1.5">Courriel</Field>
+          </site:conditional>
+          <Field Key="skype" Tag="Skype" loc="term.skype" Gap="1.5">Skype</Field>
+        </Cell>
+        <Cell Tag="Address" W="6">
+          <Title Level="2">Address</Title>
+          <Field Key="npa" Tag="PostalCode" Gap="1.1">Postcode</Field>
+          <Field Key="town" Tag="Town" Gap="1.1">City</Field>
+          <Field Key="countries" Tag="Country" loc="term.country" Gap="1.1">Country</Field>
+        </Cell>
+      </Row>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <Use Tag="Information" TypeName="information"/>
+  </Row>
+
+  <Bindings>
+    <Require Keys="firstname lastname email"/>
+    <Enforce>
+      <RegExp Keys="email" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)+@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <!-- <RegExp Keys="phone mobile" Message-loc="validation.phone"
+        Message="Vous devez saisir un numéro de téléphone composé de chiffres uniquement séparés par des espaces"
+        >^\+?\s*[\d ]{2,}$</RegExp> -->
+    </Enforce>
+  </Bindings>
+
+  <Plugins>
+    <Input Keys="civility firstname lastname phone mobile skype npa town"/>
+    <Input Keys="email" Media="email"/>
+    <Constant Keys="courriel"/>
+  </Plugins>
+
+  <Hints>
+    <Hint Keys="email">Your e-mail address must be that used to authenticate through EU login.</Hint>
+    <Hint Keys="courriel">Your e-mail address is the one you used to authenticate through EU login.</Hint>
+  </Hints>
+</Form>

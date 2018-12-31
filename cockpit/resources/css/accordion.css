@@ -1,0 +1,120 @@
+/* Tabs */
+
+div.c-tab-heading {
+    background: #9EC0D9;
+    margin: 0 0 20px;
+    padding: 4px 15px;
+    position: relative;
+}
+
+div.c-tab-heading.case {
+  background: #ffaf24;
+}
+
+div.tab-pane li {
+  color: #004563;
+}
+
+div.tab-pane a {
+  text-decoration: none;
+}
+
+/**** Accordion ****/
+
+div.c-documents.c-opened > div.accordion-body {
+  overflow: visible;
+}
+
+div.accordion-inner > div > form { /* non modal form inside an accordion */
+  background: white;
+  padding: 0;
+}
+
+div.accordion-inner.c-editing-mode, div.accordion-inner.c-editing-mode > div > form {
+  background: #fff;
+}
+
+div.accordion-heading.c-active h3.c-document-title:before {
+  content: "\25B6";
+  text-align: top;
+  margin-right: 10px;
+}
+
+div.accordion-group.c-opened h3.c-document-title:before, div.accordion-group.c-opened h3.c-drawer-title:before {
+  content: "\25BC";
+  text-align: top;
+  margin-right: 10px;
+}
+
+/* FIX : desactivated because it breaks spell checker ! */
+/*.accordion-body.in:hover {
+  overflow:visible;
+}
+*/
+div.accordion-inner {
+  padding: 9px 10px; /* overwrite Bootstrap */
+}
+
+div.accordion-heading {
+  background:#ffaf24;
+  padding: 4px 15px;
+  margin: 0;
+  position: relative;
+}
+
+div.accordion-heading.otf {
+  background: #ffaf24;
+}
+
+div.accordion-heading.otf.c-off {
+  background: rgba(255, 176, 36, 0.5);
+}
+
+div.accordion-accordion.c-active a.c-accordion-toggle {
+  color: #004563;
+  text-decoration: none;
+}
+
+div.accordion-heading.c-inactive a.c-accordion-toggle {
+  color: #999;
+  text-decoration: none;
+  cursor: default;
+}
+
+span.c-editor-menu, div.c-editor-menu {
+  display: none;
+  padding: 5px 0;
+}
+
+span.c-editor-menu {
+  float: right;
+}
+
+span.c-document-menu.c-hidden {
+  display: none !important; /* to overwrite .c-opened on accordion panel */
+}
+
+span.c-document-menu {
+  display: none;
+/*  position: absolute;
+  right: 20px;
+  top: 10px;*/
+  float: right;
+  padding: 5px 0;
+}
+
+span.c-document-menu > button {
+  margin-left: 10px;
+}
+
+div.accordion-group.c-opened span.c-document-menu, span.c-document-menu.c-perm-menu {
+  display: inline;
+}
+
+div.c-editor-menu {
+  text-align: center;
+}
+
+div.c-editor-menu.c-perm-menu {
+  display: block;
+}

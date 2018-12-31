@@ -1,0 +1,707 @@
+<Templates>
+  <!-- export extra columns with project's project officer name -->
+  <Template Name="export-po" Mode="export" Subject="Enterprise" Object="Project" Form="Event">
+<![CDATA[
+<Stats _Prune="none">
+  <ProjectOfficer>{ custom:gen-project-officer-name($object/ProjectOfficerKey) }</ProjectOfficer>
+</Stats>
+]]>
+  </Template>
+  <!-- export extra columns with enterprise statistics -->
+  <Template Name="cie-stats-for-application" Mode="export" Subject="Enterprise" Object="Project" Form="Event">
+<![CDATA[
+let $info := $subject/Information
+return
+  <Stats _Prune="none">
+    <CreationYear>{ $info/CreationYear/text() }</CreationYear>
+    <SizeRef>{ $info/SizeRef/text() }</SizeRef>
+    <DomainActivities>{ $info/ServicesAndProductsOffered/DomainActivities/* }</DomainActivities>
+    <TargetedMarkets>{ $info/TargetedMarkets/* }</TargetedMarkets>
+    <MainActivities>{ $info/MainActivities/text() }</MainActivities>
+  </Stats>
+]]>
+  </Template>
+  <!-- export extra columns with enterprise statistics -->
+  <Template Name="project-id-and-acronym" Mode="export" Subject="Enterprise" Object="Project" Form="Event">
+<![CDATA[
+<Stats _Prune="none">
+  <Enterprise>{ $subject/Information/ShortName/text() }</Enterprise>
+  <ProjectId>{ $object/ProjectId/text() }</ProjectId>
+  <Acronym>{ $object/Acronym/text() }</Acronym>
+</Stats>
+]]>
+  </Template>
+<!-- Converts event application submission to Application document  
+     Implements conditional fields cleanup (note: could be done client-side) -->
+  <Template Name="investors-msc" Mode="create">
+<![CDATA[
+<Application>
+  {
+  $form/Company,
+  $form/Contact,
+  $form/MSCIEProgramParts,
+  $form/MSCIEParticipants,
+  $form/BusinessConcept,
+  $form/ProductAndBenefits,
+  $form/MSCIEPartners,
+  if ('7' = $form//MSCIEPartnerRef) then
+    $form/OtherPartnership
+  else
+    (),
+  if ('3' = $form//MSCIEProgramPartRef) then (
+    <EBITDA>
+      {
+      if ($form/EBITDA//ApplicabilityRankRef = 1) then
+        $form/EBITDA/*
+      else
+        $form/EBITDA/ApplicabilityRanks
+      }
+    </EBITDA>,
+    <Revenue>
+      {
+      if ($form/Revenue//ApplicabilityRankRef = 1) then
+        $form/Revenue/*
+      else
+        $form/Revenue/ApplicabilityRanks
+      }
+    </Revenue>,
+    $form/InvestmentKinds,
+    $form/InvestmentSizes,
+    $form/SellingShares,
+    $form/InvestorKinds,
+    $form/(ShareholderStructure | IntellectualProperty | MarketIntelligence | Customers | Competitors | TeamStructure)
+    )
+  else
+    (),
+  $form/(Term | Cancellation)
+  }
+</Application>
+]]>
+  </Template>
+  <!-- FIXME: replace with a RelaxNG schema ? -->
+  <Template Name="investors-msc" Object="Event" Subject="Application" Mode="validate">
+<![CDATA[
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-ARE-MANDATORY">
+        { 
+        count($subject/Company/*[. ne '']) = 2 and 
+        count($subject/Contact/*[. ne '']) = 5 and
+        count($subject//MSCIEProgramPartRef) ge 1 and
+        count($subject//MSCIEParticipantRef) ge 1 and
+        count($subject//MSCIEPartnerRef) ge 1 and
+        (
+        not('7' = $subject//MSCIEPartnerRef) or exists($subject/OtherPartnership)
+        ) and
+        (
+        not('3' = $subject//MSCIEProgramPartRef) or
+          (
+          ($subject/EBITDA//ApplicabilityRankRef = 2 or 
+            (count($subject/EBITDA/(LastYearValue | TwoYearsAgoValue | ThreeYearsAgoValue)) eq 3)) and
+          ($subject/Revenue//ApplicabilityRankRef = 2 or 
+            (count($subject/Revenue/(LastYearValue | TwoYearsAgoValue | ThreeYearsAgoValue)) eq 3)) and
+          count($subject//InvestmentKindRef) ge 1 and
+          count($subject//InvestmentSizeRef) ge 1 and
+          count($subject//SellingShareRef) ge 1 and 
+          count($subject//InvestorKindRef) ge 1 and
+          count($subject/(ShareholderStructure | IntellectualProperty | MarketIntelligence | Customers | Competitors | TeamStructure)) eq 6
+          )
+        ) and
+        count($subject/(BusinessConcept | ProductAndBenefits | Term | Cancellation)) eq 4
+        }
+      </True>
+      <True Error="CLOSED-APPLICATION">
+        {
+        oppidum:get-current-user-groups() = ('events-manager', 'events-supervisor', 'admin-system')
+        or
+        substring(string(current-dateTime()), 1, 10) <= $object//Application/To
+        }
+      </True>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- Converts event application submission to Application document
+       Implements conditional fields cleanup (note: could be done client-side) -->
+  <Template Name="corporate-abb" Mode="create">
+<![CDATA[
+<Application>
+  {
+  $form/Company,
+  $form/Contact,
+  $form/BusinessConcept,
+  $form/ProductAndBenefits,
+  $form/MSCIEPartners,
+  if ('7' = $form//MSCIEPartnerRef) then
+    $form/OtherPartnership
+  else
+    (),
+  $form/(Term | Cancellation)
+  }
+</Application>
+]]>
+  </Template>
+  <!-- FIXME: replace with a RelaxNG schema ? -->
+  <Template Name="corporate-abb" Object="Event" Subject="Application" Mode="validate">
+<![CDATA[
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-ARE-MANDATORY">
+        { 
+        count($subject/Company/*[. ne '']) = 2 and 
+        count($subject/Contact/*[. ne '']) = 5 and
+        count($subject//MSCIEPartnerRef) ge 1 and
+        (
+        not('7' = $subject//MSCIEPartnerRef) or exists($subject/OtherPartnership)
+        ) and
+        count($subject/(BusinessConcept | ProductAndBenefits | Term | Cancellation)) eq 4
+        }
+      </True>
+      <True Error="CLOSED-APPLICATION">
+        {
+        oppidum:get-current-user-groups() = ('events-manager', 'events-supervisor', 'admin-system')
+        or
+        substring(string(current-dateTime()), 1, 10) <= $object//Application/To
+        }
+      </True>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- Generic satisfaction survey read data template 
+       Currently configured as param="document=satisfaction" on mapping -->
+  <Template Name="satisfaction" Mode="read" Subject="Enterprise" Object="Event">
+<![CDATA[
+let $alert := $object/Alerts/Alert[Key eq 'event-satisfaction'][last()]
+return
+  if (exists($object/Data/Satisfaction)) then 
+    <Satisfaction>
+      <Initiated>
+        <Email>{ $alert/Addressees/Addressee/text() }</Email>
+        <Date>{ $alert/Date/text() }</Date>
+      </Initiated>
+      { $object/Data/Satisfaction/* }
+    </Satisfaction>
+  else (: should be filled by a company member :)
+    let $member := $subject//Member[PersonRef eq user:get-current-person-id()]
+    return
+      <Satisfaction>
+        <Initiated>
+          <Email>{ string($alert/Addressees) }</Email>
+          <Date>{ $alert/Date/text() }</Date>
+        </Initiated>
+        <Contact>
+          {
+          $member/Information/Name/node(), 
+          $member/Information/Civility, 
+          $member/Information/Contacts/node() 
+          }
+        </Contact>
+      </Satisfaction>
+]]>
+  </Template>
+  <!-- Generic satisfaction survey update data template
+       Currently configured as param="document=satisfaction" on mapping
+       FIXME: ideally we should cleanup conditional fields since this is not done client-side yet ! -->
+  <Template Name="satisfaction" Mode="update" Subject="Enterprise" Object="Event">
+<![CDATA[
+<XAL>
+  <XALAction Type="replace" Pivot="$object/Data">
+    <Satisfaction LastModification="{ $date }">
+      { $form/* }
+    </Satisfaction>
+  </XALAction>
+</XAL>
+]]>
+  </Template>
+  <Template Name="closing" Mode="read" Subject="Enterprise" Object="Event">
+<![CDATA[
+<Closing>
+  <Something>
+    {
+    if ($object/StatusHistory/Status[ValueRef = 6 ]) then
+      <Field>Satisfaction survey submitted on { display:gen-display-date-time($object/StatusHistory/Status[ValueRef = 6 ]/Date/text()) }</Field>
+    else
+      <Field>Satisfaction survey not submitted yet</Field>,
+    let $date := current-date()
+    let $end := globals:collection('events-uri')//Event[Id eq $object/Id]/Information/Date/To
+    let $left := if ($end castable as xs:date) then days-from-duration(xs:date($end) + xs:yearMonthDuration("P6M") - current-date()) else -1
+    return
+      if ($left > 0) then
+        <FollowUp>{ $left } day{ if ($left > 1) then 's' else () } reminding before impact survey</FollowUp>
+      else
+        ()
+    }
+  </Something>
+</Closing>
+]]>
+  </Template>
+  <!-- Generic impact survey read data template 
+       Currently configured as param="document=impact" on mapping -->
+  <Template Name="impact" Mode="read" Subject="Enterprise" Object="Event">
+<![CDATA[
+let $alert := $object/Alerts/Alert[Key eq 'event-impact'][last()]
+return
+  if (exists($object/Data/Impact)) then 
+    <Impact>
+      <Initiated>
+        <Email>{ $alert/Addressees/Addressee/text() }</Email>
+        <Date>{ $alert/Date/text() }</Date>
+      </Initiated>
+      { $object/Data/Impact/* }
+    </Impact>
+  else (: should be filled by a company member :)
+    let $member := $subject//Member[PersonRef eq user:get-current-person-id()]
+    return
+      <Impact>
+        <Initiated>
+          <Email>{ string($alert/Addressees) }</Email>
+          <Date>{ $alert/Date/text() }</Date>
+        </Initiated>
+        <Contact>
+          {
+          $member/Information/Name/node(), 
+          $member/Information/Civility, 
+          $member/Information/Contacts/node() 
+          }
+        </Contact>
+      </Impact>
+]]>
+  </Template>
+  <!-- Generic impact survey update data template
+       Currently configured as param="document=impact" on mapping
+       FIXME: ideally we should cleanup conditional fields since this is not done client-side yet ! -->
+  <Template Name="impact" Mode="update" Subject="Enterprise" Object="Event">
+<![CDATA[
+<XAL>
+  <XALAction Type="replace" Pivot="$object/Data">
+    <Impact LastModification="{ $date }">
+      { $form/* }
+    </Impact>
+  </XALAction>
+</XAL>
+]]>
+  </Template>
+  <!-- Validates application data contains 12 Questions + 2 confirms
+       This may break for legacy events however System Administrator users bypass validation
+       except for the e-mail address which is required to send survey notifications
+       NOTE: normalizes e-mail because saved imported event wraps it in a Text element with line breaks
+       -->
+  <Template Name="otf-application" Object="Event" Subject="Application" Mode="validate">
+<![CDATA[
+<XAL>
+  <XALAction Type="assert">
+    <True Error="BAD-CONTACT-EMAIL">
+      {
+      let $email := if ($subject/Emailaddress) then $subject/Emailaddress else $subject/Contact/Email
+      return
+        matches(normalize-space($email), "^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$")
+      }
+    </True>
+    <True Error="ALL-FIELDS-MANDATORY">
+      {
+      oppidum:get-current-user-groups() = ('admin-system')
+      or
+      ((count($subject/Company/*[. ne '']) = 2)
+      and (count($subject/Contact/*[. ne '']) = 5)
+      and (count($subject/*[not(local-name(.) = ('Contact', 'Company')) and ./node()[. ne '']])  = 14))
+      }
+    </True>
+    <True Error="CLOSED-APPLICATION">
+      {
+      oppidum:get-current-user-groups() = ('events-manager', 'events-supervisor', 'admin-system')
+      or
+      substring(string(current-dateTime()), 1, 10) <= $object//Application/To
+      }
+    </True>
+  </XALAction>
+</XAL>
+]]>
+  </Template>
+  <!-- FIXME: - replace with a RelaxNG schema ?
+              - check Email regexp in form -->
+  <Template Name="otf-satisfaction" Subject="Satisfaction" Mode="validate">
+<![CDATA[
+let $prepa := $subject/Preparation
+let $fair := $subject/FairTrade
+let $program := $subject/Programme
+let $summary := $subject/Summary
+return
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="MISSING-CONTACT">
+        {
+        $subject/Contact/FirstName
+        and
+        $subject/Contact/LastName
+        and
+        $subject/Contact/Civility
+        and
+        $subject/Contact/Phone
+        and
+        $subject/Contact/Email
+        }
+      </True>
+    </XALAction>
+    <XALAction Type="assert">
+      <True Error="BAD-REPRESENTATIVE">
+        {
+        every $r in $subject/Representatives/Representative
+        satisfies $r/FirstName and $r/LastName and $r/Email and matches($r/Email, '^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$' )
+        }
+      </True>
+      <True Error="ALL-FIELDS-MANDATORY">
+        {
+        $subject/Representatives/Representative
+        and
+        $prepa/HelpDesk/YesNoScaleRef
+        and
+        ($prepa/HelpDesk/YesNoScaleRef eq '2' or $prepa/HelpDesk/SatisfactionLevelRef)
+        and
+        $prepa/Briefing/SatisfactionLevelRef
+        and
+        $prepa/Services//TradeFairServiceRef
+        and
+        $prepa/Catalogue/SatisfactionLevelRef
+        and
+        $prepa/Mentoring/SatisfactionLevelRef
+        and
+        $fair/CounterParts/SatisfactionLevelRef
+        and
+        $fair/BusinessMeetings/PreArranged/Total
+        and
+        $fair/BusinessMeetings/PreScheduled/Total
+        and
+        $fair/BusinessMeetings/Total
+        and
+        $fair/BusinessMeetings//BusinessMeetingGoalRef
+        and
+        $fair/Contacts/Total
+        and
+        $fair/Contracts/YesNoScaleRef
+        and
+        ($fair/BusinessContacts/YesNoScaleRef eq '2' or $fair/BusinessContacts/Total)
+        and
+        $fair/Promotion/SatisfactionLevelRef
+        and
+        $fair/Activities//TradeFairActivityRef
+        and
+        $fair/Activities/MostUsefulActivities
+        and
+        $fair/Press/YesNoScaleRef
+        and
+        $fair/Logistics/SatisfactionLevelRef
+        and
+        $fair/BusinessMission//BusinessMissionValueRef
+        and
+        $program/FutureParticipation/YesNoScaleRef
+        and
+        $program/Recommendation/YesNoScaleRef
+        and
+        $summary/Appreciation/OneToFiveScaleRef
+        and
+        $summary/Appreciation/Comments
+        and
+        $summary/Improvements
+        }
+      </True>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- FIXME: - replace with a RelaxNG schema ?
+              - check Email regexp in form -->
+  <Template Name="otf-impact" Subject="Impact" Mode="validate">
+<![CDATA[
+let $result := $subject/Result
+let $program := $subject/Programme
+let $fup := $result/FollowUp
+let $pp := $result/BusinessCollaboration/PublicProcurement
+let $invest := $result/Investment
+return
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="MISSING-CONTACT">
+        {
+        $subject/Contact/FirstName
+        and
+        $subject/Contact/LastName
+        and
+        $subject/Contact/Civility
+        and
+        $subject/Contact/Phone
+        and
+        $subject/Contact/Email
+        }
+      </True>
+    </XALAction>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-MANDATORY">
+        {
+        count($fup//YesNoNAScaleRef) = 3
+        and
+        ((some $answer in $fup//YesNoNAScaleRef satisfies $answer != 2 ) or $fup/OtherComments)
+        and
+        $result/Materialization/Total
+        and
+        $result/Materialization/Amount
+        and
+        $result//BusinessAgreementTypeRef
+        and
+        (not($result//BusinessAgreementTypeRef = 7) or $result/BusinessCollaboration/OtherComments)
+        and
+        ($result/BusinessCollaboration/PublicProcurement/YesNoScaleRef = 2 or ($pp/Total and $pp/Amount and $pp/Comments))
+        and 
+        ($result/Employment/YesNoNAScaleRef = (2,3) or $result/Employment/Total)
+        and 
+        $result/Employment/AdditionalTotal
+        and 
+        ($result/Investment/YesNoScaleRef = 2 or ($invest/Total and $invest/Amount and $invest/Comments))
+        and 
+        $result//MarketAdaptationTypeRef
+        and
+        (not($result//MarketAdaptationTypeRef = 6) or $result/MarketAdaptation/OtherComments)
+        and 
+        $program/FutureParticipation/YesNoScaleRef
+        and
+        $program/FutureParticipation/Comments
+        }
+      </True>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="pitching-impact" Subject="Impact" Mode="validate">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="MISSING-CONTACT">
+        {
+        $subject/Contact/FirstName
+        and
+        $subject/Contact/LastName
+        and
+        $subject/Contact/Civility
+        and
+        $subject/Contact/Phone
+        and
+        $subject/Contact/Email
+        }
+      </True>
+    </XALAction>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-MANDATORY">
+        {
+        $subject/Contacts/FinancialContacts/YesNoScaleRef[1] eq '2' or $subject/Contacts/FinancialContacts/Comments/Text
+        and
+        $subject/Contacts/FinancialContacts/YesNoScaleRef[2] = ('1','2')
+        and
+        count($subject/Improvement/FutureParticipation/(Strategy | Organisation | MarketEntry | Partnership | Finance)) eq 5
+        and
+        count($subject/Growth/CompanyGrowth/(Turnover | Employment)) eq 2
+        and
+        $subject/Suggestions/YesNoScaleRef = ('1','2')
+        }
+      </True>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="closed" Mode="read" Subject="Enterprise" Object="Event">
+<![CDATA[
+<Closing>
+  <Something>
+    {
+    if ($object/StatusHistory/Status[ValueRef = 8 ]) then
+      <Field>Impact survey submitted on { display:gen-display-date-time($object/StatusHistory/Status[ValueRef = 8 ]/Date/text()) }</Field>
+    else
+      <Field>Impact survey not submitted</Field>
+    }
+  </Something>
+</Closing>
+]]>
+  </Template>
+  <!-- Standard pitching event satisfaction questionnaire validation data template
+       FIXME: - check Email regexp in form -->
+  <Template Name="pitching-satisfaction" Subject="Satisfaction" Mode="validate">
+<![CDATA[
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="MISSING-CONTACT">
+        {
+        $subject/Contact/FirstName
+        and
+        $subject/Contact/LastName
+        and
+        $subject/Contact/Civility
+        and
+        $subject/Contact/Phone
+        and
+        $subject/Contact/Email
+        }
+      </True>
+    </XALAction>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-MANDATORY">
+        {
+        $subject//EventBenefitRef
+        and
+        $subject/CounterParts/FairSatisfactionLevelRef
+        and 
+        $subject/Contacts/Total
+        and
+        $subject//RecommendationLevelRef
+        }
+      </True>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- Pitching event satisfaction questionnaire validation data template
+       FIXME: - check Email regexp in form -->
+  <Template Name="pitching-satisfaction-v2" Subject="Satisfaction" Mode="validate">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="MISSING-CONTACT">
+        {
+        $subject/Contact/FirstName
+        and
+        $subject/Contact/LastName
+        and
+        $subject/Contact/Civility
+        and
+        $subject/Contact/Phone
+        and
+        $subject/Contact/Email
+        }
+      </True>
+    </XALAction>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-MANDATORY">
+        {
+        $subject//EventBenefitRef
+        and
+        $subject/CounterParts/TrueSatisfactionLevelRef
+        and 
+        $subject/Contacts/Total
+        and
+        $subject//RecommendedLevelRef
+        }
+      </True>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- Standard academy satisfaction questionnaire validation data template
+       FIXME: - check Email regexp in form
+       REMOVED (november 13, 2017):
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-MANDATORY">
+        {
+        $subject/Objective/UtilityLevelRef
+        and
+        $subject/Trainer/CompetencyLevelRef
+        and 
+        $subject/Material/UtilityLevelRef
+        and
+        $subject/Preparation/YesNoNopScaleRef
+        }
+      </True>
+    </XALAction>
+  -->
+  <Template Name="academy-satisfaction" Subject="Satisfaction" Mode="validate">
+<![CDATA[
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="MISSING-CONTACT">
+        {
+        $subject/Contact/FirstName
+        and
+        $subject/Contact/LastName
+        and
+        $subject/Contact/Civility
+        and
+        $subject/Contact/Phone
+        and
+        $subject/Contact/Email
+        }
+      </True>
+    </XALAction>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-MANDATORY">
+        {
+        exists($subject/Recommendation/RecommendationLevelRef)
+        }
+      </True>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="academy-satisfaction-v2" Subject="Satisfaction" Mode="validate">
+<![CDATA[
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="MISSING-CONTACT">
+        {
+        $subject/Contact/FirstName
+        and
+        $subject/Contact/LastName
+        and
+        $subject/Contact/Civility
+        and
+        $subject/Contact/Phone
+        and
+        $subject/Contact/Email
+        }
+      </True>
+    </XALAction>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-MANDATORY">
+        {
+        (count($subject//OneToFiveScaleRef) eq 6) and
+        exists($subject/Recommendation/RatingScaleRef)
+        }
+      </True>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- FIXME: replace with a RelaxNG schema ? -->
+  <Template Name="investors-sme" Object="Event" Subject="Application" Mode="validate">
+<![CDATA[
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-ARE-MANDATORY">
+        { 
+        count($subject/Company/*[. ne '']) = 2 and 
+        count($subject//InvestmentKindRef) ge 1 and
+        count($subject//InvestmentSizeRef) ge 1 and
+        count($subject//SellingShareRef) ge 1 and 
+        count($subject//InvestorKindRef) ge 1 and
+        ($subject/EBITDA//ApplicabilityRankRef eq '2' or (count($subject/EBITDA/Value[. ne '']) eq 1)) and
+        ($subject/Revenue//ApplicabilityRankRef eq '2' or (count($subject/Revenue/Value[. ne '']) eq 1)) and
+        count($subject/(ShareholderStructure | BusinessConcept | ProductAndBenefits | IntellectualProperty | MarketIntelligence | Customers | Competitors | TeamStructure)) eq 8 and
+        count($subject/(Term | Cancellation)) eq 2
+        }
+      </True>
+    </XALAction>
+    <XALAction Type="assert">
+      <True Error="MISSING-CONTACT">
+        {
+        $subject/Contact/FirstName
+        and
+        $subject/Contact/LastName
+        and
+        $subject/Contact/Civility
+        and
+        $subject/Contact/Phone
+        and
+        $subject/Contact/Email
+        }
+      </True>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+</Templates>

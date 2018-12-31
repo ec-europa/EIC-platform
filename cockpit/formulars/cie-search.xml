@@ -1,0 +1,28 @@
+<Form Tag="SearchEnterprisesRequest" Layout="fluid" Wrapper="none">
+  <Row>
+    <Column W="4" L="0">
+      <Field Key="programs" Tag="FundingPrograms" W="12" Placeholder-loc="content.any">Funding Program</Field>
+      <Field Key="project" Tag="ProjectId" L="0" W="6" Placeholder-loc="content.any">Project Number</Field>
+      <Field Key="acronyms" Tag="Acronyms" W="6" Placeholder-loc="content.any">Project Acronym</Field>
+      <Field Key="POs" Tag="ProjectOfficers" W="12" L="0" Placeholder-loc="content.any">Project Officer</Field>
+      <Field Key="calls" Tag="Calls" W="6" L="0" Placeholder-loc="content.any">Call cut-off</Field>
+      <Field Key="terminations" W="6" Tag="TerminationFlags" Placeholder-loc="content.any">Termination</Field>
+    </Column>
+    <Column W="4" L="0">
+      <Field Key="enterprises" Tag="Enterprises" W="12" Placeholder-loc="content.any">Company</Field>
+      <Field Key="towns" Tag="Towns" loc="term.town" L="0" W="6" Placeholder-loc="content.any.f">Localité</Field>
+      <Field Key="countries" Tag="Countries" loc="term.country" W="6" Placeholder-loc="content.any">Pays</Field>
+      <Field Key="persons" Tag="Persons" W="12" L="0" loc="term.teamMember" Placeholder-loc="content.any">Team</Field>
+      <Field Key="company-type" Tag="CompanyTypes" L="0" W="6" Placeholder-loc="content.any">Organisation type</Field>
+      <Field Key="validity" Tag="StatusFlags" W="6" Placeholder-loc="content.any">Validity</Field>
+    </Column>
+    <Column W="4" L="0">
+      <Field Key="sizes" Tag="Sizes" W="12"  L="0" loc="term.enterpriseSize" Placeholder-loc="content.any.f">Taille d'entreprise</Field>
+      <Field Key="domains-of-activities" W="12"  L="0" Tag="DomainsOfActivities" loc="term.domainActivity" Placeholder-loc="content.any">NACE</Field>
+      <Field Key="targeted-markets" W="12"  L="0" Tag="TargetedMarkets" loc="term.targetedMarkets" Placeholder-loc="content.any">Marchés ciblés</Field>
+    </Column>
+  </Row>
+  <Plugins>
+    <Input Keys="project"/>
+  </Plugins>
+</Form>

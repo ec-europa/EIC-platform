@@ -1,0 +1,21 @@
+<Form xmlns:site="http://oppidoc.com/oppidum/site"
+  Tag="Service" Layout="fluid" Width="540px" Orientation="horizontal">
+  <Row>
+    <Cell Gap="1">
+      <Title>Service</Title>
+      <Field Key="name" Tag="Name" Gap="1">Name</Field>
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row>
+    <Cell Gap="1">
+      <Title>Team</Title>
+      <Field Key="coaches" Tag="Coaches" Gap="1">Coaches</Field>
+    </Cell>
+  </Row>
+  <Bindings>
+  </Bindings>
+  <Plugins>
+    <Constant Keys="name"/>
+  </Plugins>
+</Form>

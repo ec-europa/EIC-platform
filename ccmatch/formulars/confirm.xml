@@ -1,0 +1,9 @@
+<Form Tag="Confirm" StartLevel="2" 
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger">
+  
+  <Title>Blabla</Title>
+  <Row>
+    <Plain Type="text">I confirm that I am experienced and have a proven track record working with established SMEs, different from start-ups.</Plain>
+  </Row>
+</Form>

@@ -1,0 +1,645 @@
+<GlobalInformation>
+  <Description Lang="en">
+    <Selector Name="FundingPrograms" Value="Id" Label="Name" Test="Funding Program">
+      <Option>
+        <Id>1</Id>
+        <Brief>SMEi</Brief>
+        <Name>SME Instrument</Name>
+        <Calls>SMEiCalls</Calls>
+        <Type>SMEiFundings</Type>
+        <Panels>EICPanels</Panels>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Brief>FTI</Brief>
+        <Calls>FTICalls</Calls>
+        <Name>Fast Track to Innovation</Name>
+        <Panels>EICPanels</Panels>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Brief>FET Open</Brief>
+        <Name>Future and Emerging Technologies - Open</Name>
+        <Calls>FETCalls</Calls>
+        <Type>FETActions</Type>
+      </Option>
+    </Selector>
+    <Selector Name="SMEiFundings" Value="Code" Label="Name" Test="Funding scheme">
+      <Option>
+        <Code>1-1</Code>
+        <Name>Phase 1</Name>
+      </Option>
+      <Option>
+        <Code>1-2</Code>
+        <Name>Phase 2</Name>
+      </Option>
+    </Selector>
+    <Selector Name="SMEiCalls" Value="Code" Label="Name">
+      <Group>
+        <Code>H2020-SMEInst-2014-2015-1</Code>
+        <Name>SME Instrument 14/15 - Phase 1</Name>
+        <Brief>H2020-SMEInst-2014-2015 - Phase 1</Brief>
+        <Type>1-1</Type>
+        <Selector>
+          <Option>
+            <Code>0101</Code>
+            <Name Date="2014-06-18">18/06/2014</Name>
+          </Option>
+          <Option>
+            <Code>0102</Code>
+            <Name Date="2014-09-24">24/09/2014</Name>
+          </Option>
+          <Option>
+            <Code>0103</Code>
+            <Name Date="2014-12-17">17/12/2014</Name>
+          </Option>
+          <Option>
+            <Code>0104</Code>
+            <Name Date="2015-03-18">18/03/2015</Name>
+          </Option>
+          <Option>
+            <Code>0105</Code>
+            <Name Date="2015-06-17">17/06/2015</Name>
+          </Option>
+          <Option>
+            <Code>0106</Code>
+            <Name Date="2015-09-17">17/09/2015</Name>
+          </Option>
+          <Option>
+            <Code>0107</Code>
+            <Name Date="2015-11-25">25/11/2015</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>H2020-SMEInst-2014-2015-2</Code>
+        <Name>SME Instrument 14/15 - Phase 2</Name>
+        <Brief>H2020-SMEInst-2014-2015 - Phase 2</Brief>
+        <Type>1-2</Type>
+        <Selector>
+          <Option>
+            <Code>0201</Code>
+            <Name Date="2014-10-09">09/10/2014</Name>
+          </Option>
+          <Option>
+            <Code>0202</Code>
+            <Name Date="2014-12-17">17/12/2014</Name>
+          </Option>
+          <Option>
+            <Code>0203</Code>
+            <Name Date="2015-03-18">18/03/2015</Name>
+          </Option>
+          <Option>
+            <Code>0204</Code>
+            <Name Date="2015-06-17">17/06/2015</Name>
+          </Option>
+          <Option>
+            <Code>0205</Code>
+            <Name Date="2015-09-17">17/09/2015</Name>
+          </Option>
+          <Option>
+            <Code>0206</Code>
+            <Name Date="2015-11-25">25/11/2015</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>H2020-SMEInst-2016-2017-1</Code>
+        <Name>SME Instrument 16/17 - Phase 1</Name>
+        <Brief>H2020-SMEInst-2016-2017 - Phase 1</Brief>
+        <Type>1-1</Type>
+        <Selector>
+          <Option>
+            <Code>0301</Code>
+            <Name Date="2016-02-24">24/02/2016</Name>
+          </Option>
+          <Option>
+            <Code>0302</Code>
+            <Name Date="2016-05-03">03/05/2016</Name>
+          </Option>
+          <Option>
+            <Code>0303</Code>
+            <Name Date="2016-09-07">07/09/2016</Name>
+          </Option>
+          <Option>
+            <Code>0304</Code>
+            <Name Date="2016-11-09">09/11/2016</Name>
+          </Option>
+          <Option>
+            <Code>0305</Code>
+            <Name Date="2017-02-15">15/02/2017</Name>
+          </Option>
+          <Option>
+            <Code>0306</Code>
+            <Name Date="2017-05-03">03/05/2017</Name>
+          </Option>
+          <Option>
+            <Code>0307</Code>
+            <Name Date="2017-09-06">06/09/2017</Name>
+          </Option>
+          <Option>
+            <Code>0308</Code>
+            <Name Date="2017-11-09">09/11/2017</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>H2020-SMEInst-2016-2017-2</Code>
+        <Name>SME Instrument 16/17 - Phase 2</Name>
+        <Brief>H2020-SMEInst-2016-2017 - Phase 2</Brief>
+        <Type>1-2</Type>
+        <Selector>
+          <Option>
+            <Code>0401</Code>
+            <Name Date="2016-02-03">03/02/2016</Name>
+          </Option>
+          <Option>
+            <Code>0402</Code>
+            <Name Date="2016-04-14">14/04/2016</Name>
+          </Option>
+          <Option>
+            <Code>0403</Code>
+            <Name Date="2016-06-15">15/06/2016</Name>
+          </Option>
+          <Option>
+            <Code>0404</Code>
+            <Name Date="2016-10-13">13/10/2016</Name>
+          </Option>
+          <Option>
+            <Code>0405</Code>
+            <Name Date="2017-01-18">18/01/2017</Name>
+          </Option>
+          <Option>
+            <Code>0406</Code>
+            <Name Date="2017-04-06">06/04/2017</Name>
+          </Option>
+          <Option>
+            <Code>0407</Code>
+            <Name Date="2017-06-01">01/06/2017</Name>
+          </Option>
+          <Option>
+            <Code>0408</Code>
+            <Name Date="2017-10-18">18/10/2017</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>H2020-EIC-SMEInst-2018-2020-1</Code>
+        <Name>SME Instrument 2018/20 - Phase 1</Name>
+        <Brief>H2020-EIC-SMEInst-2018-2020 - Phase 1</Brief>
+        <Type>1-1</Type>
+        <Selector>
+          <Option>
+            <Code>0501</Code>
+            <Name Date="2018-02-08">08/02/2018</Name>
+            <Brief>2018-02-08</Brief>
+          </Option>
+          <Option>
+            <Code>0502</Code>
+            <Name Date="2018-05-03">03/05/2018</Name>
+            <Brief>2018-05-03</Brief>
+          </Option>
+          <Option>
+            <Code>0503</Code>
+            <Name Date="2018-09-05">05/09/2018</Name>
+            <Brief>2018-09-05</Brief>
+          </Option>
+          <Option>
+            <Code>0504</Code>
+            <Name Date="2018-11-07">07/11/2018</Name>
+            <Brief>2018-11-07</Brief>
+          </Option>
+          <Option>
+            <Code>0505</Code>
+            <Name Date="2019-02-13">13/02/2019</Name>
+            <Brief>2019-02-13</Brief>
+          </Option>
+          <Option>
+            <Code>0506</Code>
+            <Name Date="2019-05-07">07/05/2019</Name>
+            <Brief>2019-05-07</Brief>
+          </Option>
+          <Option>
+            <Code>0507</Code>
+            <Name Date="2019-09-05">05/09/2019</Name>
+            <Brief>2019-09-05</Brief>
+          </Option>
+          <Option>
+            <Code>0508</Code>
+            <Name Date="2019-11-06">06/11/2019</Name>
+            <Brief>2019-11-06</Brief>
+          </Option>
+          <Option>
+            <Code>0509</Code>
+            <Name Date="2020-02-12">12/02/2020</Name>
+            <Brief>2020-02-12</Brief>
+          </Option>
+          <Option>
+            <Code>0510</Code>
+            <Name Date="2020-05-06">06/05/2020</Name>
+            <Brief>2020-05-06</Brief>
+          </Option>
+          <Option>
+            <Code>0511</Code>
+            <Name Date="2020-09-02">02/09/2020</Name>
+            <Brief>2020-09-02</Brief>
+          </Option>
+          <Option>
+            <Code>0512</Code>
+            <Name Date="2020-11-04">04/11/2020</Name>
+            <Brief>2020-11-04</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>H2020-EIC-SMEInst-2018-2020-2</Code>
+        <Name>SME Instrument 2018/20 - Phase 2</Name>
+        <Brief>H2020-EIC-SMEInst-2018-2020 - Phase 2</Brief>
+        <Type>1-2</Type>
+        <Selector>
+          <Option>
+            <Code>0601</Code>
+            <Name Date="2018-01-10">10/01/2018</Name>
+            <Brief>2018-01-10</Brief>
+          </Option>
+          <Option>
+            <Code>0602</Code>
+            <Name Date="2018-03-14">14/03/2018</Name>
+            <Brief>2018-03-14</Brief>
+          </Option>
+          <Option>
+            <Code>0603</Code>
+            <Name Date="2018-05-23">23/05/2018</Name>
+            <Brief>2018-05-23</Brief>
+          </Option>
+          <Option>
+            <Code>0604</Code>
+            <Name Date="2018-10-10">10/10/2018</Name>
+            <Brief>2018-10-10</Brief>
+          </Option>
+          <Option>
+            <Code>0605</Code>
+            <Name Date="2019-01-09">09/01/2019</Name>
+            <Brief>2019-01-09</Brief>
+          </Option>
+          <Option>
+            <Code>0606</Code>
+            <Name Date="2019-04-03">03/04/2019</Name>
+            <Brief>2019-04-03</Brief>
+          </Option>
+          <Option>
+            <Code>0607</Code>
+            <Name Date="2019-06-05">05/06/2019</Name>
+            <Brief>2019-06-05</Brief>
+          </Option>
+          <Option>
+            <Code>0608</Code>
+            <Name Date="2019-10-09">09/10/2019</Name>
+            <Brief>2019-10-09</Brief>
+          </Option>
+          <Option>
+            <Code>0609</Code>
+            <Name Date="2020-01-08">08/01/2020</Name>
+            <Brief>2020-01-08</Brief>
+          </Option>
+          <Option>
+            <Code>0610</Code>
+            <Name Date="2020-03-18">18/03/2020</Name>
+            <Brief>2020-03-18</Brief>
+          </Option>
+          <Option>
+            <Code>0611</Code>
+            <Name Date="2020-05-19">19/05/2020</Name>
+            <Brief>2020-05-19</Brief>
+          </Option>
+          <Option>
+            <Code>0612</Code>
+            <Name Date="2020-10-07">07/10/2020</Name>
+            <Brief>2020-10-07</Brief>
+          </Option>
+        </Selector>
+      </Group>
+    </Selector>
+    <Selector Name="FTICalls" Value="Code" Label="V+Name">
+      <Group>
+        <Code>H2020-FTIPilot-2015-1</Code>
+        <Name>FTI Pilot 2015</Name>
+        <Brief>FTI Pilot 2015</Brief>
+        <Selector>
+          <Option>
+            <Code>1801</Code>
+            <Name>29/04/2015</Name>
+            <Brief>2015-04-29</Brief>
+          </Option>
+          <Option>
+            <Code>1802</Code>
+            <Name>01/09/2015</Name>
+            <Brief>2015-09-01</Brief>
+          </Option>
+          <Option>
+            <Code>1803</Code>
+            <Name>01/12/2015</Name>
+            <Brief>2015-12-01</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>H2020-FTIPilot-2016-1</Code>
+        <Name>FTI Pilot 2016</Name>
+        <Brief>FTI Pilot 2016</Brief>
+        <Selector>
+          <Option>
+            <Code>1901</Code>
+            <Name>15/03/2016</Name>
+            <Brief>2016-03-15</Brief>
+          </Option>
+          <Option>
+            <Code>1902</Code>
+            <Name>01/06/2016</Name>
+            <Brief>2016-06-01</Brief>
+          </Option>
+          <Option>
+            <Code>1903</Code>
+            <Name>25/10/2016</Name>
+            <Brief>2016-10-25</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>FTI</Code>
+        <Name>FTI (18/20)</Name>
+        <Brief>FTI (18/20)</Brief>
+        <Selector>
+          <Option>
+            <Code>0701</Code>
+            <Name>21/02/2018</Name>
+            <Brief>2018-02-21</Brief>
+          </Option>
+          <Option>
+            <Code>0702</Code>
+            <Name>31/05/2018</Name>
+            <Brief>2018-05-31</Brief>
+          </Option>
+          <Option>
+            <Code>0703</Code>
+            <Name>23/10/2018</Name>
+            <Brief>2018-10-23</Brief>
+          </Option>
+          <Option>
+            <Code>0704</Code>
+            <Name>21/02/2019</Name>
+            <Brief>2019-02-21</Brief>
+          </Option>
+          <Option>
+            <Code>0705</Code>
+            <Name>23/05/2019</Name>
+            <Brief>2019-05-23</Brief>
+          </Option>
+          <Option>
+            <Code>0706</Code>
+            <Name>22/10/2019</Name>
+            <Brief>2019-10-22</Brief>
+          </Option>
+          <Option>
+            <Code>0707</Code>
+            <Name>19/02/2019</Name>
+            <Brief>2020-02-19</Brief>
+          </Option>
+          <Option>
+            <Code>0708</Code>
+            <Name>09/06/2020</Name>
+            <Brief>2020-06-09</Brief>
+          </Option>
+          <Option>
+            <Code>0709</Code>
+            <Name>27/10/2020</Name>
+            <Brief>2020-10-27</Brief>
+          </Option>
+        </Selector>
+      </Group>
+    </Selector>
+    <Selector Name="FETCalls" Value="Code" Label="V+Name">
+      <Group>
+        <Code>FETOPEN-2014-2015-RIA</Code>
+        <Name>FETOpen - Research and Innovative Actions (14/15)</Name>
+        <Brief>Research and Innovative Actions</Brief>
+        <Type>3-1</Type>
+        <Selector>
+          <Option>
+            <Code>1301</Code>
+            <Name>30/09/2014</Name>
+            <Brief>2014-09-30</Brief>
+          </Option>
+          <Option>
+            <Code>1302</Code>
+            <Name>31/03/2015</Name>
+            <Brief>2015-03-31</Brief>
+          </Option>
+          <Option>
+            <Code>1303</Code>
+            <Name>30/09/2015</Name>
+            <Brief>2015-09-30</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>FETOPEN-2014-CSA</Code>
+        <Name>FETOpen - Coordination and Support Activities 2014</Name>
+        <Brief>Coordination and Support Activities</Brief>
+        <Type>3-2</Type>
+        <Selector>
+          <Option>
+            <Code>1401</Code>
+            <Name>30/09/2014</Name>
+            <Brief>2014-09-30</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>FETOPEN-2015-CSA</Code>
+        <Name>FETOpen - Coordination and Support Activities 2015</Name>
+        <Brief>Coordination and Support Activities</Brief>
+        <Type>3-2</Type>
+        <Selector>
+          <Option>
+            <Code>1501</Code>
+            <Name>31/03/2015</Name>
+            <Brief>2015-03-31</Brief>
+          </Option>
+          <Option>
+            <Code>1502</Code>
+            <Name>30/09/2015</Name>
+            <Brief>2015-09-30</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>FETOPEN-01-2016-2017</Code>
+        <Name>FETOpen - Research and Innovative Actions (16/17)</Name>
+        <Brief>Research and Innovative Actions</Brief>
+        <Type>3-1</Type>
+        <Selector>
+          <Option>
+            <Code>1101</Code>
+            <Name>11/05/2016</Name>
+            <Brief>2016-05-11</Brief>
+          </Option>
+          <Option>
+            <Code>1102</Code>
+            <Name>17/01/2017</Name>
+            <Brief>2017-01-17</Brief>
+          </Option>
+          <Option>
+            <Code>1103</Code>
+            <Name>27/09/2017</Name>
+            <Brief>2017-09-27</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>FETOPEN-02-2016</Code>
+        <Name>FETOpen - Coordination and Support Actions 2016</Name>
+        <Brief>Coordination and Support Actions</Brief>
+        <Type>3-2</Type>
+        <Selector>
+          <Option>
+            <Code>1601</Code>
+            <Name>11/05/2016</Name>
+            <Brief>2016-05-11</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>FETOPEN-03-2017</Code>
+        <Name>FETOpen - Coordination and Support Actions 2017</Name>
+        <Brief>Coordination and Support Actions</Brief>
+        <Type>3-2</Type>
+        <Selector>
+          <Option>
+            <Code>1701</Code>
+            <Name>17/01/2017</Name>
+            <Brief>2017-01-17</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>FETOPEN-04-2016-2017</Code>
+        <Name>FETOpen - Innovation Launchpad (16/17) (CSA)</Name>
+        <Brief>Coordination and Support Actions</Brief>
+        <Type>3-2</Type>
+        <Selector>
+          <Option>
+            <Code>1201</Code>
+            <Name>29/09/2016</Name>
+            <Brief>2016-09-29</Brief>
+          </Option>
+          <Option>
+            <Code>1202</Code>
+            <Name>27/09/2017</Name>
+            <Brief>2017-09-27</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>FETOPEN-01-2018-2019-2020</Code>
+        <Name>FETOpen - Challenging Current Thinking (RIA)</Name>
+        <Brief>Challenging Current Thinking</Brief>
+        <Type>3-1</Type>
+        <Selector>
+          <Option>
+            <Code>0801</Code>
+            <Name>16/05/2018</Name>
+            <Brief>2018-05-16</Brief>
+          </Option>
+          <Option>
+            <Code>0802</Code>
+            <Name>24/01/2019</Name>
+            <Brief>2019-01-24</Brief>
+          </Option>
+          <Option>
+            <Code>0803</Code>
+            <Name>18/09/2019</Name>
+            <Brief>2019-09-18</Brief>
+          </Option>
+          <Option>
+            <Code>0804</Code>
+            <Name>13/05/2020</Name>
+            <Brief>2020-05-13</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>FETOPEN-02-2018</Code>
+        <Name>FETOpen - Coordination and Support Actions</Name>
+        <Brief>Coordination and Support Actions</Brief>
+        <Type>3-2</Type>
+        <Selector>
+          <Option>
+            <Code>0901</Code>
+            <Name>11/04/2018</Name>
+            <Brief>2018-04-11</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>FETOPEN-03-2018-2019-2020</Code>
+        <Name>FETOpen - Innovation Launchpad (CSA)</Name>
+        <Brief>Innovation Launchpad</Brief>
+        <Type>3-2</Type>
+        <Selector>
+          <Option>
+            <Code>1001</Code>
+            <Name>16/10/2018</Name>
+            <Brief>2018-10-16</Brief>
+          </Option>
+          <Option>
+            <Code>1002</Code>
+            <Name>08/10/2018</Name>
+            <Brief>2018-10-08</Brief>
+          </Option>
+          <Option>
+            <Code>1003</Code>
+            <Name>14/10/2020</Name>
+            <Brief>2020-10-14</Brief>
+          </Option>
+        </Selector>
+      </Group>
+    </Selector>
+    <Selector Name="FETActions" Value="Code" Label="Name" Test="Targeted action">
+      <Option>
+        <Code>3-1</Code>
+        <Brief>RIA</Brief>
+        <Name>Research and Innovation Action</Name>
+      </Option>
+      <Option>
+        <Code>3-2</Code>
+        <Brief>CSA</Brief>
+        <Name>Coordination and Support Actions</Name>
+      </Option>
+    </Selector>
+    <!-- virtual selector to make a Phase column for SME Benficiary Excel export 
+         grouping together the different programs  -->
+    <Selector Name="ProjectCallPhases">
+      <Option>
+        <Value>1-1</Value>
+        <Name>Phase 1</Name>
+      </Option>
+      <Option>
+        <Value>1-2</Value>
+        <Name>Phase 2</Name>
+      </Option>
+      <Option>
+        <Value>3-1</Value>
+        <Name>RIA</Name>
+      </Option>
+      <Option>
+        <Value>3-2</Value>
+        <Name>CSA</Name>
+      </Option>
+      <Option>
+        <Value>FTI</Value>
+        <Name>FTI</Name>
+      </Option>
+    </Selector>
+  </Description>
+</GlobalInformation>

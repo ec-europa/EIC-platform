@@ -1,0 +1,39 @@
+<Form Tag="Host" StartLevel="2" Wrapper="none" xmlns:xt="http://ns.inria.org/xtiger" xmlns:site="http://oppidoc.com/oppidum/site" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <Verbatim>
+    <xt:component name="t_contact">
+      <xhtml:tr>
+        <xhtml:td>
+          <Field Key="persons" Tag="PersonRef" Gap="2" W="10"/>
+        </xhtml:td>
+        <xhtml:td>
+          <Field Key="date" Tag="Date"/>
+        </xhtml:td>
+        <xhtml:td>
+          <xt:menu-marker/>
+        </xhtml:td>
+      </xhtml:tr>
+    </xt:component>
+  </Verbatim>
+  <Row>
+    <xhtml:blockquote>
+      This list needs being updated in case  a contact person will be assigned to the coaches. If this is not the case, the list shall not be used. 
+    </xhtml:blockquote>
+    <Cell Tag="Contacts">
+      <Title Level="1">List of contact persons</Title>
+      <xhtml:table class="table table-bordered spreadsheet">
+        <xhtml:tr>
+          <xhtml:th class="control-label">Name</xhtml:th>
+          <xhtml:th class="control-label" style="width:100px">Date</xhtml:th>
+          <xhtml:th style="width:60px" />
+        </xhtml:tr>
+        <xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="Contact">
+          <xt:use types="t_contact" label="Contact"/>
+        </xt:repeat>
+      </xhtml:table>
+    </Cell>
+  </Row>
+  <Plugins>
+    <Plain Prefix="date" Type="constant"/>
+  </Plugins>
+
+</Form>

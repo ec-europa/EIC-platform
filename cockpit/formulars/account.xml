@@ -1,0 +1,45 @@
+<Form Tag="Person" Layout="fluid" Width="600px" Orientation="horizontal"
+  xmlns:site="http://oppidoc.com/oppidum/site" 
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+  <Row>
+    <Cell W="8" Gap="0" Tag="External">
+      <Title>External Login</Title>
+      <Row>
+        <Field Key="email" Tag="Email" loc="term.email" Gap="1">Courriel</Field>
+        <Field Key="remkey" Tag="Remote" Gap="1">User Id</Field>
+        <Field Key="realm" Tag="Realm" Gap="1">Realm</Field>
+      </Row>
+    </Cell>
+  </Row>
+  <Row>
+    <xhtml:table class="a-repeat-table">
+      <xt:repeat pseudoLabel="Member" minOccurs="0" maxOccurs="1">
+        <xhtml:tr>
+          <xhtml:td class="a-repeat-row">
+            <Title><Menu/> Master information for unaffiliated users<Hint>Use this optional section to keep track of personal information when the user is not member of any team in database. You cannot delete it if the user is currently not member of any team.</Hint></Title>
+            <Include src="team-member.xml"/>
+          </xhtml:td>
+        </xhtml:tr>
+      </xt:repeat>
+    </xhtml:table>
+  </Row>
+  
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="email" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <!-- <RegExp Keys="phone mobile" Message-loc="validation.phone"
+        Message="Vous devez saisir un numéro de téléphone composé de chiffres uniquement séparés par des espaces"
+        >^\+?\s*[\d ]{2,}$</RegExp> -->
+    </Enforce>
+  </Bindings>
+  <Plugins>
+    <Input Keys="remkey"/>
+    <Input Keys="email" Media="email"/> 
+  </Plugins>
+  <Hints>
+  </Hints>  
+</Form>

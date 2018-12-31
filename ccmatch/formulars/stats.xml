@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Coaching
+
+     Author: Stéphane Sire <s.sire@opppidoc.fr>
+
+     Library of component for Statistics Search Masks
+
+     Place a copy in /db/www/cctracker/formulars/stats.xml 
+     to generate criteria tables in stats exportation
+
+     February 2015 - (c) Copyright may be reserved
+  -->
+
+<Form Tag="CasesFilter" StartLevel="2" Wrapper="none"
+      xmlns:xt="http://ns.inria.org/xtiger" xmlns:site="http://oppidoc.com/oppidum/site">
+
+  <Component Name="host">
+      <Group Background="#C2FFFF">
+        <Title>Host</Title>
+        <Criteria Key="host" Tag="Host" ValueTag="Host" render="display:gen-host-name($filter/Host, 'en')">Host</Criteria>
+        <Criteria Key="accreditation-status" Tag="AccreditationStatus" ValueTag="AccreditationStatusRef" selector="Accreditations">Current acceptance status</Criteria>
+        <Criteria Key="initiation-period" Mask="Period-Date" loc="stats.criteria.period" render="local:serialize-period($filter/AccreditationStartDate, $filter/AccreditationEndDate)">initiated...</Criteria>
+        <Criteria Key="availability" Tag="Availability" ValueTag="YesNoAvailRef" selector="YesNoAvails">Availability for host</Criteria>
+        <Criteria Key="visibility" Tag="Visibility" ValueTag="YesNoAcceptRef" selector="YesNoAccepts">Visibility for other coaches</Criteria>
+        <Criteria Key="services" Tag="Services" ValueTag="ServiceRef" selector="Services">Coaching service</Criteria>
+      </Group>
+  </Component>
+
+  <Component Name="coach">
+      <Group Background="#F5E0FF">
+        <Title>Coach</Title>
+        <Criteria Key="coach-name" Tag="Coaches" ValueTag="CoachRef" function="gen-person-name">Name</Criteria>
+        <Criteria Key="sex" Tag="Sex" ValueTag="Sex">Sex</Criteria>
+        <Criteria Key="countries" Tag="Countries" ValueTag="Country" selector="Countries">Country</Criteria>
+        <Criteria Key="languages" Tag="EU-Languages" ValueTag="EU-LanguageRef" selector="EU-Languages">Language(s)</Criteria>
+        <Criteria Key="min-max-score" Tag="Performance" render="local:serialize-range($filter/Performance)">Performance - SME feedback</Criteria>
+        <Criteria Key="service-years" Tag="ServiceYears" ValueTag="ServiceYearRef" selector="ServiceYears">Years of experience in industrial management position</Criteria>
+      </Group>
+  </Component>
+
+  <Component Name="experiences">
+    <Group Background="#C2FFFF">
+      <Title>Experiences</Title>
+      <Criteria Key="domains-of-activities" Tag="DomainsOfActivities" ValueTag="DomainActivityRef"
+        selector="DomainActivities">Nace</Criteria>
+      <Criteria Key="targeted-markets" Tag="TargetedMarkets" ValueTag="TargetedMarketRef" selector="TargetedMarkets" loc="stats.criteria.targetedMarkets">Markets</Criteria>
+      <Criteria Key="ctx-life-cycle" Tag="InitialContexts" ValueTag="InitialContextRef"
+        selector="InitialContexts">Company's life cycle stages</Criteria>
+    </Group>
+  </Component>
+
+  <Component Name="competences">
+    <Group Background="#83D6C3">
+      <Title>Competences</Title>
+      <Criteria Key="vectors" Tag="Vectors" ValueTag="VectorRef"
+        render="display:gen-case-impact-name('Vectors', $filter/Vectors/VectorRef, 'en', $local:separator)"
+        loc="stats.criteria.innovationVectors">Vectors</Criteria>
+      <Criteria Key="ideas" Tag="Ideas" ValueTag="IdeaRef" 
+        render="display:gen-case-impact-name('Ideas', $filter/Ideas/IdeaRef, 'en', $local:separator)"
+        loc="stats.criteria.ideaSources">Ideas</Criteria>
+      <Criteria Key="resources" Tag="Resources" ValueTag="ResourceRef" 
+        render="display:gen-case-impact-name('Resources', $filter/Resources/ResourceRef, 'en', $local:separator)"
+        loc="stats.criteria.resources">Resources</Criteria>
+      <Criteria Key="partners" Tag="Partners" ValueTag="PartnerRef"
+        render="display:gen-case-impact-name('Partners', $filter/Partners/PartnerRef, 'en', $local:separator)" loc="stats.criteria.partners">Partenships</Criteria>
+    </Group>
+  </Component>
+
+  <Plugins>
+    <Period Prefix="Accreditation" Keys="initiation-period" From="between" To="and"/>
+    <Component Name="min-max">
+      <MinMax Keys="min-max-score" Min="rating between" Max="and"/>
+    </Component>
+  </Plugins>
+  
+  <Ornamentations>
+    <Expertise Keys="services domains-of-activities targeted-markets ctx-life-cycle vectors ideas resources partners"/>
+  </Ornamentations>
+</Form>

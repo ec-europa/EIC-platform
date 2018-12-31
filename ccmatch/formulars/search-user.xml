@@ -1,0 +1,17 @@
+<Form Tag="Search" Layout="fluid" StartLevel="1"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger">
+
+  <Title>Coach Search Criteria</Title>
+
+  <Row>
+    <Field Key="roles" Tag="Roles" Gap="2" W="10">Roles</Field>
+  </Row>
+  <Row>
+    <Field Key="countries" Tag="Countries" loc="term.country" Gap="2" W="10">Country</Field>
+  </Row>
+  <Row>
+    <Field Key="persons" Tag="Persons" Gap="2" W="10">Name</Field>
+  </Row>
+</Form>
+

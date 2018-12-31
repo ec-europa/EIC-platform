@@ -1,0 +1,356 @@
+<!-- CCTRACKER - EIC Case Tracker Application
+
+     Author: Stéphane Sire <s.sire@opppidoc.fr>
+
+     (c) Copyright may be reserved
+  -->
+<Form Tag="FundingRequest" StartLevel="2"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+  <Title>Demande de financement</Title>
+
+  <Verbatim>
+    <!-- SME coaching plan e-mail  -->
+    <xt:component name="t_sme_agreement">
+      <site:conditional force="true" noflag="smeagree">
+        <Field Key="constant" Tag="Date" Gap="2.9" W="5" L="0">Coach Plan sent to SME</Field>
+        <Field Key="constant" Tag="SentByRef" Gap="1" W="7">Sent by</Field>
+      </site:conditional>
+      <site:conditional force="true" avoid="read" flag="smeagree">
+        <Field Key="constant" Tag="Date" Gap="2.9" W="5" L="0">Coach Plan sent to SME</Field>
+        <Field Key="constant" Tag="SentByRef" Gap="1" W="7">Sent by</Field>
+      </site:conditional>      
+      <site:conditional force="true" meet="read" flag="smeagree">
+        <Field Key="constant" Tag="Date" Gap="2.9" W="5" L="0">Coach Plan sent to SME</Field>
+        <Field Key="constant" Tag="SentByRef" Gap="1" W="5">Sent by</Field>
+        <div data-avoid-notasks="0" data-off-class="hide" class="hide">
+          <Button Key="btn.sme-agreement" Class="btn-small btn-primary" W="2" style="margin: 0px 0 0 10px">Send Email</Button>
+        </div>
+      </site:conditional>
+      <Field Key="sme-approval" Tag="YesNoScaleRef" W="8" Gap="6.5" L="0">I confirm that this coaching plan is approved by the SME</Field>
+      
+      <xhtml:div class="span12" style="margin-left:0">
+        <xhtml:p style="border-style: solid; border-color:red; padding: 10px 5px 10px; font-weight:bold; color:red"><xhtml:span style="text-decoration:underline">Under No Circumstances</xhtml:span> should you start coaching without a fully signed contract.<br/>
+          Costs incurred outside the contract will NOT be paid.<xhtml:br/>
+Please, download the mandatory timesheet and read the instruction carefully.</xhtml:p>
+      </xhtml:div>
+    </xt:component>
+
+    <xt:component name="t_contract">
+      <xhtml:div style="display:none" id="x-freq-ContractData">
+        <xt:use types="constant" label="HourlyRate"></xt:use>
+      </xhtml:div>
+    </xt:component>
+
+    <!-- Tasks table -->
+    <xt:component name="t_task">
+      <xhtml:tr>
+        <xhtml:td class="spreadsheet"><Field Key="cell-text" Tag="Description"/></xhtml:td>
+        <xhtml:td class="spreadsheet right"><Field Key="cell-number" Tag="NbOfHours"/>
+          <site:conditional force="true" meet="read">
+            <xhtml:span class="c-repeat-menu"><xt:menu-marker/></xhtml:span>
+          </site:conditional>
+        </xhtml:td>
+        <site:conditional force="true" avoid="read">
+          <xhtml:td><xt:menu-marker/></xhtml:td>
+        </site:conditional>
+      </xhtml:tr>
+    </xt:component>
+
+    <!-- Other expenses -->
+    <!-- <xt:component name="t_travel_expenses">
+          <tr id="x-freq-Travel">
+            <td style="width:20%">Travel</td>
+            <td class="spreadsheet"><Field Key="cell-3" Tag="Description"/></td>
+            <td class="spreadsheet right"><Field Key="cell-4" Tag="Amount"/></td>
+          </tr>
+        </xt:component>
+        <xt:component name="t_allowance_expenses">
+          <tr id="x-freq-Allowance">
+            <td>Allowance</td>
+            <td class="spreadsheet"><Field Key="cell-5" Tag="Description"/></td>
+            <td class="spreadsheet right"><Field Key="cell-6" Tag="Amount"/></td>
+          </tr>
+        </xt:component>
+        <xt:component name="t_accomodation_expenses">
+          <tr id="x-freq-Accomodation">
+            <td>Accomodation</td>
+            <td class="spreadsheet"><Field Key="cell-7" Tag="Description"/></td>
+            <td class="spreadsheet right"><Field Key="cell-8" Tag="Amount"/></td>
+          </tr>
+        </xt:component> -->
+    
+    <!-- Updated financial planning table -->
+    <!-- <xt:component name="t_current_activity">
+      <tr id="x-freq-CurrentActivity">
+        <td><Field Key="static-9" Tag="ClientEnterprise"/></td>
+        <td class="right"><Field Key="static-10" Tag="Phase"/></td>
+        <td class="right"><Field Key="static-11" Tag="Hours"/></td>
+        <td class="right"><Field Key="static-12" Tag="Fee"/></td>
+        <td class="right"><Field Key="static-13" Tag="Travel"/></td>
+        <td class="right"><Field Key="static-14" Tag="Allowance"/></td>
+        <td class="right"><Field Key="static-15" Tag="Total"/></td>
+        <site:conditional force="true" meet="read">
+          <td> --><!-- CONDITIONAL WITH FLAG : <Button Class="btn-small btn-primary">Update</Button> --><!-- </td>
+                  </site:conditional>
+                </tr>
+              </xt:component>
+              <xt:component name="t_activity_summary">
+                <tr class="x-Activity">
+                  <td><span style="display:none"><xt:menu-marker/></span><Field Key="static-16" Tag="ClientEnterprise"/></td>
+                  <td class="right"><Field Key="static-17" Tag="Phase"/></td>
+                  <td class="right"><Field Key="static-18" Tag="Hours"/></td>
+                  <td class="right"><Field Key="static-19" Tag="Fee"/></td>
+                  <td class="right"><Field Key="static-20" Tag="Travel"/></td>
+                  <td class="right"><Field Key="static-21" Tag="Allowance"/></td>
+                  <td class="right"><Field Key="static-22" Tag="Total"/></td>
+                  <site:conditional force="true" meet="read">
+                    <td><Button Class="btn-small btn-primary">Update</Button></td>
+                  </site:conditional>
+                </tr>
+              </xt:component>
+              <xt:component name="t_activity_total">
+                <tr id="x-freq-Totals">
+                  <td class="c-total">Totals (EUR)</td>
+                  <td></td>
+                  <td class="right"><Field Key="static-23" Tag="TotalHours"/></td>
+                  <td class="right"><Field Key="static-24" Tag="TotalFee"/></td>
+                  <td class="right"><Field Key="static-25" Tag="TotalTravel"/></td>
+                  <td class="right"><Field Key="static-26" Tag="TotalAllowance"/></td>
+                  <td class="right"><Field Key="static-27" Tag="TotalTotal"/></td>
+                  <site:conditional force="true" meet="read">
+                    <td></td>
+                  </site:conditional>
+                </tr>
+              </xt:component> -->
+  </Verbatim>
+
+  <Row>
+    <site:conditional force="true" flag="legacy">
+      <Cell L="0" Tag="Conformity">
+        <Title Level="1">Declaration of no conflict of interest</Title>
+        <Cell Tag="Evaluation">
+          <Title Level="4">Are you an evaluator for the SME instrument projects ?</Title>
+          <Row>
+            <Field Key="yes-no-mandatory" Tag="YesNoScaleRef" W="2"/>
+            <Field Key="explain" Tag="Comment" W="10"/>
+            <xhtml:label style="display:none">1st ethical question</xhtml:label>
+          </Row>
+        </Cell>
+        <Cell Tag="Personal">
+          <Title Level="4">Do you have any personal affiliation with the company ?</Title>
+          <Row>
+            <Field Key="yes-no-mandatory" Tag="YesNoScaleRef" W="2"/>
+            <Field Key="explain" Tag="Comment" W="10"/>
+            <xhtml:label style="display:none">2nd ethical question</xhtml:label>
+          </Row>
+        </Cell>
+        <Cell Tag="Financial">
+          <Title Level="4">Do you have any financial interest into the company ?</Title>
+          <Row>
+            <Field Key="yes-no-mandatory" Tag="YesNoScaleRef" W="2"/>
+            <Field Key="explain" Tag="Comment" W="10"/>
+            <xhtml:label style="display:none">3rd ethical question</xhtml:label>
+          </Row>
+        </Cell>
+        <Cell Tag="Professional">
+          <Title Level="4">Do you have any professional conflict of interest with the company ?</Title>
+          <Row>
+            <Field Key="yes-no-mandatory" Tag="YesNoScaleRef" W="2"/>
+            <Field Key="explain" Tag="Comment" W="10"/>
+            <xhtml:label style="display:none">4th ethical question</xhtml:label>
+          </Row>
+        </Cell>
+      </Cell>
+    </site:conditional>
+    <site:conditional force="true" noflag="legacy">
+      <Cell L="0" Tag="ConformitySimplified">
+        <Title Level="1">Declaration of no conflict of interest</Title>
+        <xhtml:h3 style="color:red">Please be aware of the new declaration text.</xhtml:h3>
+        <xhtml:p><site:field force="true" Key="decl1"/><xhtml:span style="margin-left:25px">I declare that I am not an evaluator for EIC projects. </xhtml:span></xhtml:p>
+        <xhtml:p><site:field force="true" Key="decl2"/><xhtml:span style="margin-left:25px">I declare that I respect the <a href="../../../../../files/Code_of_conduct_coaches" target="_blank">Impartiality Code of Conduct</a>, as described in the <a href="../../../../../files/h2020-experts-mono-contract_en" target="_blank">coaching contract</a>. </xhtml:span></xhtml:p>
+        <xhtml:p><site:field force="true" Key="decl3"/><xhtml:span style="margin-left:25px">I declare that I have no employment or financial interest with the company. </xhtml:span></xhtml:p>
+        <xhtml:p><site:field force="true" Key="decl4"/><xhtml:span style="margin-left:25px">I declare that I am not involved in writing EIC project proposals. </xhtml:span></xhtml:p>
+      </Cell>
+    </site:conditional>
+  </Row>
+
+  <Row>
+    <Title Level="1">Coaching objectives <Hint data-placement="right">Limited to 1000 characters max.</Hint></Title>
+    <xhtml:h4 style="text-align:center">What do you want to achieve?</xhtml:h4>
+    <Field Key="objectives" Tag="Objectives"/>
+  </Row>
+
+  <Row>
+    <Cell Tag="Budget" Id="x-freq-Budget">
+
+      <Cell Tag="Tasks">
+        <Title Level="1">Coaching activities</Title>
+        <xhtml:h4 style="text-align:center">How do you want to achieve the objectives?</xhtml:h4>
+        <xhtml:table class="table table-bordered spreadsheet">
+          <xhtml:tr>
+            <xhtml:th class="control-label">Coaching activities <Hint data-placement="right">Each task is limited to 200 characters max.</Hint></xhtml:th>
+            <xhtml:th class="control-label" style="width:100px">Nb of hours</xhtml:th>
+            <site:conditional force="true" avoid="read">
+              <xhtml:th class="control-label" style="width:60px">Add/Remove activities</xhtml:th>
+            </site:conditional>
+          </xhtml:tr>
+          <xt:repeat minOccurs="1" maxOccurs="*" pseudoLabel="Task">
+            <xt:use types="t_task" label="Task"/>
+          </xt:repeat>
+          <xhtml:tr>
+            <xhtml:td class="c-total control-label">Total hours</xhtml:td>
+            <xhtml:td class="spreadsheet right" data-binding="switch" data-variable="notasks"><Field Key="computed-1" Tag="TotalNbOfHours"/></xhtml:td>
+            <site:conditional force="true" avoid="read">
+              <xhtml:td></xhtml:td>
+            </site:conditional>
+          </xhtml:tr>
+          <xhtml:tr>
+            <xhtml:td class="c-total control-label">Total fees (EUR)</xhtml:td>
+            <xhtml:td class="spreadsheet right"><Field Key="computed-2" Tag="TotalTasks"/></xhtml:td>
+            <site:conditional force="true" avoid="read">
+              <xhtml:td></xhtml:td>
+            </site:conditional>
+          </xhtml:tr>
+        </xhtml:table>
+      </Cell>
+
+      <!-- <Cell Tag="OtherExpenses">
+              <table class="table table-bordered spreadsheet">
+                <tr>
+                  <th colspan="2">Other expenses</th>
+                  <th style="width:160px">Expenses</th>
+                </tr>
+                <xt:use types="t_travel_expenses" label="Travel"/>
+                <xt:use types="t_allowance_expenses" label="Allowance"/>
+                <xt:use types="t_accomodation_expenses" label="Accomodation"/>
+                <tr>
+                  <td colspan="2" class="c-total right">Total expenses (EUR)</td>
+                  <td class="spreadsheet right"><Field Key="computed-3" Tag="TotalExpenses"/></td>
+                </tr>
+                <tr>
+                  <td colspan="2" class="c-total">Total fee and expenses (EUR)</td>
+                  <td class="spreadsheet right"><Field Key="computed-4" Tag="TotalBudget"/></td>
+                </tr>
+              </table>
+            </Cell> -->
+      </Cell>
+
+      <Row>
+        <Title Level="1">Approval of coaching plan by the SME beneficiary</Title>
+        <Use Tag="SME-Agreement" TypeName="sme_agreement"/>
+        <site:conditional force="true" meet="read">
+          <Cell W="12" Gap="3.4" L="0">
+            <Title Level="2">Mandatory time sheet</Title>
+            <p><SideLink Path="/tools/timesheet.docx" Appearance="compact" NoTarget="1"/></p>
+          </Cell>
+        </site:conditional>
+      </Row>
+
+      <Row>
+        <Title Level="1">Coach comments to EASME</Title>
+        <Field Key="comments" Tag="Comments"/>
+        <Use Tag="ContractData" TypeName="contract"/>
+      </Row>
+
+      <!-- <Title Level="1">Budget situation (TO BE RE-DESIGNED)</Title>
+
+      <Cell Tag="ContractData" W="6" L="0" Id="x-freq-ContractData">
+        <Title Level="2">Contract data</Title>
+        <table class="table table-bordered spreadsheet">
+          <tr>
+            <td>Maximum contract value</td>
+            <td class="right"><Field Key="static-28" Tag="MaxContractValue"/></td>
+          </tr>
+          <tr>
+            <td>Maximum number of days</td>
+            <td class="right"><Field Key="static-29" Tag="MaxNbOfDays"/></td>
+          </tr>
+          <tr>
+            <td>Maximum number of hours</td>
+            <td class="right"><Field Key="static-30" Tag="MaxNbOfHours"/></td>
+          </tr>
+          <tr>
+            <td>Daily rate</td>
+            <td class="right"><Field Key="static-31" Tag="DailyRate"/></td>
+          </tr>
+          <tr>
+            <td>Hourly rate</td>
+            <td class="right"><Field Key="static-32" Tag="HourlyRate"/></td>
+          </tr>
+        </table>
+      </Cell>
+
+      <Cell Tag="FinancialStatement" Id="x-freq-FinancialStatement">
+        <Title Level="2">Summary of coach activities costs</Title>
+        <table class="table table-bordered spreadsheet">
+          <tr>
+            <th>Name of client SME</th>
+            <th>Phase</th>
+            <th>Hours</th>
+            <th>Fee</th>
+            <th>Travel</th>
+            <th>Allowance</th>
+            <th>Total cost</th>
+            <site:conditional force="true" meet="read">
+              <th>Action</th>
+            </site:conditional>
+          </tr>
+          <xt:use types="t_current_activity" label="CurrentActivity"/>
+          <xt:repeat minOccurs="0" maxOccurs="*" label="OtherActivities">
+            <xt:use types="t_activity_summary" label="Activity"/>
+          </xt:repeat>
+          <xt:use types="t_activity_total" label="Totals"/>
+        </table>
+      </Cell>
+
+      <Cell Id="x-freq-Constraints" Tag="Constraints" W="6" L="0">
+        <Title Level="2">Balance available for new SME</Title>
+        <table class="table table-bordered spreadsheet">
+          <tr>
+            <td>Total remaining balance (EUR)</td>
+            <td class="right"><Field Key="static-33" Tag="Balance"/></td>
+          </tr>
+        </table>
+      </Cell> -->
+
+  </Row>
+
+  <Modals>
+    <!-- <Modal Id="c-financial-statement" Width="800px" Template="^/templates/financial-statement">
+      <Title Mode="update">Financial statement update</Title>
+    </Modal> -->
+    <Modal Id="c-email" Width="800px" EventTarget="c-editor-funding-request" PrependerId="c-activity-alerts-list" SaveLabel="action.email">
+      <Title>Send coaching plan to SME beneficiary for approval</Title>
+    </Modal>
+  </Modals>
+
+  <Commands>
+    <!-- <Update Key="btn.update-FinancialStatement" TargetEditor="c-financial-statement" Template="^/templates/financial-statement?goal=update&amp;from=FundingRequest" Resource="$_/financial-statement" TargetAncestor="x-Activity"/> -->
+    <Add Key="btn.sme-agreement" TargetEditor="c-email" Template="templates/email?goal=create&amp;full=1" Resource="~/alerts?goal=init&amp;from=SME-Agreement"/>
+    <!-- <Add Key="btn.sme-opinion" TargetEditor="c-opinions"  Template="^/templates/position?goal=update&amp;context=SME-Opinion" Resource="~/opinions/SME-Opinion"/> -->
+  </Commands>
+
+  <Bindings>
+    <Require Keys="yes-no-mandatory"/>
+    <Enforce>
+      <!-- <RegExp Keys="amount-oe amount-fs task-nb-of-hours" Message-loc="validation.integer" Message="Entrez uniquement des chiffres" Pattern="[0-9]*">^\s*\d*\s*$</RegExp> -->
+    </Enforce>
+  </Bindings>
+
+  <Plugins>
+    <Plain Prefix="cell-text" Type="text">task description</Plain>
+    <Plain Prefix="cell-number" Type="number"/>
+    <Plain Prefix="computed" Type="constant"/>
+    <Plain Prefix="static" Type="constant"/>
+    <!-- <Input Keys="amount-oe amount-fs" Class="text-right"/> -->
+    <!-- <Input Keys="title name task-nb-of-hours"/> -->
+    <!-- <Text Keys="comments task-description funding-comment"/> -->
+    <!-- <Constant Keys="total-tasks total-other-expenses total-budget total-funding-src" Append="EU" Class="text-right"/> -->
+    <!-- <RichText Keys="objectives" Menu="inside"/> -->
+    <MultiText Keys="objectives comments"/>
+    <Text Keys="explain"/>
+  </Plugins>
+</Form>

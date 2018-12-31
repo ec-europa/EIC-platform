@@ -1,0 +1,88 @@
+<Emails>
+  <!-- *************************************** -->
+  <Email Name="new-password-by-admin" Lang="en">
+    <Subject>Modification of your Coach Match user account</Subject>
+    <Message>
+      <Text>Dear @@User_First_Name@@ @@User_Last_Name@@,</Text>
+      <Text>Your new Coach Match password is : @@Password@@</Text>
+      <Text>Please use it to connect to https://coachmatch-smei.easme-web.eu/login</Text>
+      <Text>To change your password click on your login name on the right upper corner of your dashboard page.</Text>
+      <Text>Currently, our web site is not optimised for Internet Explorer. Please use Firefox in the meantime or another browser.</Text>
+      <Block>
+        <Line>Warmest regards,</Line>
+        <Line>@@Admin_First_Name@@ @@Admin_Last_Name@@</Line>
+        <Line>Coach Match Administrator</Line>
+      </Block>
+    </Message>
+  </Email>
+  <!-- *************************************** -->
+  <Email Name="new-password-by-user" Lang="en">
+    <Subject>Modification of your Coach Match user account</Subject>
+    <Message>
+      <Text>Your new Coach Match password is : @@Password@@</Text>
+      <Text>Please use it to connect to https://coachmatch-smei.easme-web.eu/login</Text>
+      <Text>To change your password click on your login name on the right upper corner of your dashboard page.</Text>
+      <Text>Currently, our web site is not optimised for Internet Explorer. Please use Firefox in the meantime or another browser.</Text>
+      <Text>This message has been automatically generated, please do not answer</Text>
+    </Message>
+  </Email>
+  <!-- *************************************** -->
+  <Email Name="login-created" Lang="en">
+    <Subject>Your Coach Match user account</Subject>
+    <Message>
+      <Text>Dear @@User_First_Name@@ @@User_Last_Name@@,</Text>
+      <Text>Your Coach Match user account has been created</Text>
+      <Block>
+        <Line>Your login is : @@Login@@</Line>
+        <Line>Your password is : @@Password@@</Line>
+      </Block>
+      <Text>Please use it to connect to https://coachmatch-smei.easme-web.eu/login</Text>
+      <Text>To change your password click on your login name on the right upper corner of your dashboard page.</Text>
+      <Text>Currently, our web site is not optimised for Internet Explorer. Please use Firefox in the meantime or another browser.</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>@@Admin_First_Name@@ @@Admin_Last_Name@@</Line>
+        <Line>Coach Match Administrator</Line>
+      </Block>
+    </Message>
+  </Email>
+  <!-- *************************************** -->
+  <Email Name="login-self-created" Lang="en">
+    <Subject>Your Coach Match user account</Subject>
+    <Message>
+      <Text>Dear @@User_First_Name@@ @@User_Last_Name@@,</Text>
+      <Text>Your Coach Match user account has been created</Text>
+      <Block>
+        <Line>Your login is : @@Login@@</Line>
+        <Line>Your password is : @@Password@@</Line>
+      </Block>
+      <Text>Please use it to connect to https://coachmatch-smei.easme-web.eu/login</Text>
+      <Text>To change your password click on your login name on the right upper corner of your dashboard page.</Text>
+      <Text>Currently, our web site is not optimised for Internet Explorer. Please use Firefox in the meantime or another browser.</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>Coach Match Team</Line>
+      </Block>
+    </Message>
+  </Email>
+  <!-- *************************************** -->
+  <Email Name="login-updated" Lang="en">
+    <Subject>Modification of your Coach Match user account</Subject>
+    <Message>
+      <Text>Dear @@User_First_Name@@ @@User_Last_Name@@,</Text>
+      <Text>Your Coach Match user account has been modified</Text>
+      <Block>
+        <Line>Your new login is : @@Login@@</Line>
+        <Line>Your new password is : @@Password@@</Line>
+      </Block>
+      <Text>Please use it to connect to https://coachmatch-smei.easme-web.eu/login</Text>
+      <Text>To change your password click on your login name on the right upper corner of your dashboard page.</Text>
+      <Text>Currently, our web site is not optimised for Internet Explorer. Please use Firefox in the meantime or another browser.</Text>
+      <Block>
+        <Line>Warmest regards,</Line>
+        <Line>@@Admin_First_Name@@ @@Admin_Last_Name@@</Line>
+        <Line>Coach Match Platform Administrator</Line>
+      </Block>
+    </Message>
+  </Email>
+</Emails>

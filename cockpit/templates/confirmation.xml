@@ -1,0 +1,127 @@
+<Templates>
+  <Template Name="confirmation" Mode="read" Subject="Enterprise" Object="Event">
+    <![CDATA[
+let $alert := $object/Alerts/Alert[Key = ('event-acceptation','event-waiting')][last()]
+return
+  if (exists($object/Data/Confirmation)) then 
+    <Confirmation>
+      <Initiated>
+        <Email>{ string-join($alert/Addressees/Addressee, ', ') }</Email>
+        <Date>{ $alert/Date/text() }</Date>
+      </Initiated>
+      { $object/Data/Confirmation/* }
+    </Confirmation>
+  else (: should be filled by a company member :)
+    let $member := $subject//Member[PersonRef eq user:get-current-person-id()]
+    let $company := $subject/Information
+    return
+      <Event>
+        <Initiated>
+          <Email>{ string-join($alert/Addressees/Addressee, ', ') }</Email>
+          <Date>{ $alert/Date/text() }</Date>
+        </Initiated>
+        <Preparation>
+          <Company>
+            <Name>{ $company/ShortName/text() }</Name>
+            { $company/WebSite }
+            { $company/Address/Country }
+          </Company>
+          <Contact>
+          {
+            $member/Information/Name/node(),
+            $member/Information/Contacts/node() 
+          }
+          </Contact>
+          <Offering>{ $object/Resources/Photo }</Offering>
+        </Preparation>
+      </Event>
+]]>
+  </Template>
+  <!-- FIXME: ideally we should cleanup conditional fields since this is not done client-side yet ! -->
+  <Template Name="confirmation" Mode="update" Subject="Enterprise" Object="Event">
+    <![CDATA[
+<XAL>
+  <XALAction Type="replace" Pivot="$object/Data">
+    <Confirmation LastModification="{ $date }">
+      { $form/* }
+    </Confirmation>
+  </XALAction>
+</XAL>
+]]>
+  </Template>
+  <Template Name="otf-confirmation" Subject="Confirmation" Mode="validate">
+    <![CDATA[
+let $prepa := $subject/Preparation
+let $offering := $prepa/Offering
+let $success := $prepa/SuccessStory
+let $expec := $subject/Expectation
+return
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="MISSING-CONTACT">
+        {
+        $prepa/Company/Name
+        and
+        $prepa/Company/WebSite
+        and
+        $prepa/Company/Country
+        and
+        $prepa/Contact/FirstName
+        and
+        $prepa/Contact/LastName
+        and
+        $prepa/Contact/Phone
+        and
+        $prepa/Contact/Email
+        }
+      </True>
+    </XALAction>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-MANDATORY">
+        {
+        $offering/UniqueSellingPoint
+        and
+        $offering/ProductsOverview
+        and
+        $offering/CompanyObjectives
+        and
+        $offering/MainProductDescription
+        and
+        $offering/LinkToOtherMaterial
+        and
+        $offering/ExposingPrototype/YesNoScaleRef
+        and
+        ($offering/ExposingPrototype/YesNoScaleRef eq '2' or $offering/ExposingPrototype/Comments)
+        and
+        $offering/DropLogo/ResourceId
+        and
+        $offering/DropPhotos/ResourceId
+        and
+        $offering/PromotingMyCompany
+        and
+        $success/Awarded
+        and
+        $success/ReceivedInvestment/YesNoScaleRef
+        and
+        ($success/ReceivedInvestment/YesNoScaleRef eq '2' or $success/ReceivedInvestment/Comments)
+        and
+        $success/ConcludedBusinessDeals/YesNoScaleRef
+        and
+        ($success/ConcludedBusinessDeals/YesNoScaleRef eq '2' or $success/ConcludedBusinessDeals/Comments)
+        and
+        $success/PublicProcurement
+        and
+        $expec/BusinessMeetingGoals/BusinessMeetingGoalRef
+        and
+        $expec/KeyPartners
+        and
+        $expec/BusinessProposition
+        and
+        $expec/IdentifiedCounterparts
+        }
+      </True>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+</Templates>

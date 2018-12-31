@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalInformation>
+  <Description Lang="en">
+    <Selector Name="OrganisationAffiliations">
+      <Version>20180924-0</Version>
+      <Description>Organisation affiliation to association(s)</Description>
+        <Option>
+          <Value>4</Value>
+          <Name>BAE (Business Angels Europe)</Name>
+        </Option>
+        <Option>
+          <Value>1</Value>
+          <Name>EBAN (European Business Angle Network)</Name>
+        </Option>
+        <Option>
+          <Value>2</Value>
+          <Name>Invest Europe</Name>
+        </Option>
+        <Option>
+          <Value>3</Value>
+          <Name>National association</Name>
+        </Option>
+      </Selector>
+  </Description>
+</GlobalInformation>

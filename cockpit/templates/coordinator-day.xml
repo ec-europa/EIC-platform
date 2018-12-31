@@ -1,0 +1,95 @@
+<!-- 
+ : Data templates for the Coordinator's day event application workflow
+ :
+ : NOTE: actually no template to create the application since it uses 
+ :       deprecated default behavior of data.xql which saves everything
+ -->
+<Templates>
+  <Template Name="coordinator-day-application" Mode="bootstrap" Subject="Enterprise" Object="Event">
+<![CDATA[
+  <Application>
+    <Company>
+      { $subject/Information/Name }
+    </Company>
+    <Delegates>
+      <Delegate>
+        {
+        let $member := $subject//Member[PersonRef = user:get-current-person-id()]
+        return (
+          $member/Information/Name/node(),
+          $member/Information/Contacts/node()
+          )
+        }
+      </Delegate>
+    </Delegates>
+  </Application>
+]]>
+  </Template>
+  <Template Name="coordinator-day-application" Mode="read" Subject="Enterprise" Object="Event" Assert="exists($object/Data/Application)" Fallback="bootstrap">
+<![CDATA[
+let $application := $object/Data/Application
+return
+  <Application>
+    {
+    $application/Company,
+    <Project>
+      {
+      if ($application/Project/Acronym) then (
+        let $project-id := $application/Project/Acronym
+        let $project := $subject/Projects/Project[ProjectId = $project-id]
+        return (
+          <Acronym _Display="{ concat($project/Acronym, ' (', $project-id,')' ) }">
+            { $project-id/text() }
+          </Acronym>,
+          <ProjectOfficer>{ custom:gen-project-officer-name($project/ProjectOfficerKey) }</ProjectOfficer>
+          )
+        )
+      else
+        (),
+      $application/Project/Summary
+      }
+    </Project>,
+    $application/Delegates
+    }
+  </Application>
+]]>
+  </Template>
+  <!-- Make the assumption e-mail address are valid (client-side regexp validation)
+    -->
+  <Template Name="coordinator-day-application" Subject="Application" Mode="validate">
+<![CDATA[
+<XAL>
+  <XALAction Type="assert">
+    <True Error="ALL-FIELDS-MANDATORY">
+      {
+          $subject/Company/Summary
+      and $subject/Project/Acronym
+      and $subject/Project/Summary
+      and (count($subject/Delegates/Delegate) > 0)
+      and (
+        every $delegate in $subject/Delegates/Delegate
+        satisfies
+              $delegate/FirstName
+          and $delegate/LastName
+          and $delegate/Phone
+          and $delegate/Email
+          and $delegate/ISO3Country
+          and $delegate/BirthDate
+          and $delegate/IDCard
+          and $delegate/IDExpDate
+          and $delegate/Biography
+        )
+      }
+    </True>
+    <MaxLength Error="CIE-SUMMARY-LENGTH" Limit="1500">{ $subject/Company/Summary }</MaxLength>
+    <MaxLength Error="PROJECT-SUMMARY-LENGTH" Limit="1500">{ $subject/Project/Summary }</MaxLength>
+    {
+    for $delegate in $subject/Delegates/Delegate
+    return
+      <MaxLength Error="DELEGATE-SUMMARY-LENGTH" Limit="800">{ $delegate/Biography }</MaxLength>
+    }
+  </XALAction>
+</XAL>
+]]>
+  </Template>
+</Templates>

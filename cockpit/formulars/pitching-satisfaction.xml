@@ -1,0 +1,92 @@
+<Form Tag="Event" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Title>Feedback</Title>
+
+  <Verbatim>
+    <xt:component name="t_contact_person">
+      <Field Key="firstname" Tag="FirstName" Gap="1.75" W="4" L="0">First Name</Field>
+      <Field Key="lastname" Tag="LastName" Gap="1.5" W="4">Last Name</Field>
+      <Field Key="civility" Tag="Civility" Gap="1" W="2">Title</Field>
+      <Field Key="phone" Tag="Phone" Gap="1.75" W="4" L="0">Direct phone</Field>
+      <Field Key="email_contact" Tag="Email" Gap="1.5" W="6">Email</Field>
+    </xt:component>
+
+    <xt:component name="t_q1">
+      <Field Key="benefits_01" Tag="EventBenefits" Gap="0">1. What was/were your main benefit(s) from this event ?</Field>
+      <Field Key="comments_01" Tag="Comments" W="12" L="0">Please explain</Field>
+    </xt:component>
+    
+    <xt:component name="t_q2">
+      <Field Key="fair_satisfaction_02" Tag="FairSatisfactionLevelRef" Gap="0">2. How satisfied were you with the selection of business/finance partners you met at the event ?</Field>
+      <Field Key="comments_02" Tag="Comments" W="12" L="0">Please explain</Field>
+    </xt:component>
+
+    <xt:component name="t_q3">
+      <Field Key="total_03" Tag="Total" Gap="0">3. How many relevant contacts, for potential future collaboration, did you meet at the event ?</Field>
+      <Field Key="comments_03" Tag="Comments" Gap="0">Please specify their names</Field>
+    </xt:component>
+
+    <xt:component name="t_q4">
+      <Field Key="recommendation_04" Tag="RecommendationLevelRef" Gap="0">4. Would you recommend this event to other SME instrument companies ?</Field>
+      <Field Key="comments_04" Tag="Comments" W="12" L="0">Please explain</Field>
+    </xt:component>
+
+    <xt:component name="t_q5">
+      <Field Key="comments_05" Tag="Improvements" Gap="0">5. What can we do better next time ?</Field>
+    </xt:component>
+
+    <xt:component name="t_q6">
+      <Field Key="comments_06" Tag="Suggestions" Gap="0">6. What are your suggestions for future SME Instrument Business Acceleration Services ?</Field>
+    </xt:component>
+  </Verbatim>
+
+  <site:conditional avoid="update" force="true">
+    <Row Class="no-export">
+      <Cell Gap="2.75" Tag="Initiated">
+        <Title Level="3">Feedback form sent to:</Title>
+        <Field Key="email_addressee" Tag="Email" Gap="1.8" W="8">SME Contact</Field>
+        <Field Key="date" Tag="Date" Gap="1.8" W="4">Date </Field>
+      </Cell>
+    </Row>
+    <Separator/>
+  </site:conditional>
+
+  <Row>
+    <Cell Gap="2.75">
+      <Title Level="3">Answered by: </Title>
+      <Use Tag="Contact" TypeName="contact_person"/>
+    </Cell>
+  </Row>
+  
+  <Row>
+    <Use Tag="Benefits" TypeName="q1"/>
+    <Use Tag="CounterParts" TypeName="q2"/>
+    <Use Tag="Contacts" TypeName="q3"/>
+    <Use Tag="Recommendation" TypeName="q4"/>
+    <Use TypeName="q5"/>
+    <Use TypeName="q6"/>
+  </Row>
+
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="email_contact" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <!-- FIXME: actually it is not possible to validate in a repetition because the feedback warning applies to all lines !-->
+    </Enforce>
+  </Bindings>
+
+  <Hints>
+    <Mandatory Feedback="none" Tags="FirstName LastName Civility Phone">This field must be filled to be able to proceed to the next step</Mandatory>
+    <Mandatory Feedback="none" Keys="email_contact benefits_01 fair_satisfaction_02 total_03 recommendation_04">This field must be filled to be able to proceed to the next step</Mandatory>
+  </Hints>
+
+  <Plugins>
+    <Input Keys="firstname lastname function civility phone email_contact email_addressee total_03"/>
+    <MultiText Prefix="comments"/>
+  </Plugins>
+</Form>

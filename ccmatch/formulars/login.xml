@@ -1,0 +1,24 @@
+<Form Tag="Account"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger">
+
+  <Title>Login creation</Title>
+  <Row>
+    <p>Is your e-mail address below correct ? If not click on Update account information and correct it.</p>
+    <Field Key="email" Tag="Email" Gap="2">Your email address</Field>
+    <p><xt:use types="constant" label="Suggestion">not available</xt:use></p>
+    <Field Key="create-login" Tag="Login" Gap="2">Login name</Field>
+  </Row>
+  <Bindings>
+    <Require Keys="create-login"/> 
+    <Enforce>
+      <RegExp Keys="create-login update-login" Message-loc="validation.login" Message="At least 5 characters - no space">^\s*[\w-]{5,}\s*$</RegExp>
+    </Enforce>
+  </Bindings>
+  <Plugins>
+    <Input Keys="create-login"/>
+  </Plugins>
+  <Hints>
+    <Hint Keys="create-login" data-placement="right">The login name must contain at least 5 characters and no space. Once created you will receive your credentials at your e-mail address.</Hint>
+  </Hints>
+</Form>

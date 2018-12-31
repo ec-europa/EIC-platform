@@ -1,0 +1,342 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:site="http://oppidoc.com/oppidum/site" xmlns:xt="http://ns.inria.org/xtiger">
+  <head>
+    <!-- Use UTF-8 and avoid the xml protocol declaration at the top for Internet Explorer -->
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=8;" />
+    <meta name="description" content="XTiger XML document template" />
+    <meta name="keywords" content="template, XTiger" />
+    <title>Formulaire d'accueil de l'application coaching EIC</title>
+
+    <!-- ******************************************** -->
+    <!-- ********** BEGIN file system test ********** -->
+    <!-- ******************************************** -->
+    <!-- this is ONLY USEFUL to test the template with AXEL demonstration editor  -->
+    <link rel="stylesheet" type="text/css" href="../../resources/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="../../resources/css/site.css" />
+    <link rel="stylesheet" type="text/css" href="../../resources/css/search.css" />
+    <link rel="stylesheet" type="text/css" href="../../resources/css/stage.css" />
+    <!-- ******************************************** -->
+    <!-- ********** END file system test ********** -->
+    <!-- ******************************************** -->
+    <xt:head version="1.1" templateVersion="1.0" label="SearchStageRequest">
+      <!-- Use this component as a main entry point to test this template inside the AXEL editor
+        This component simulates application layout  -->
+      <xt:component name="t_simulation">
+        <div class="container">
+          <form class="form-horizontal" action="" onsubmit="return false;">
+            <div id="editor">
+              <xt:use types="t_main"></xt:use>
+            </div>
+          </form>
+        </div>
+      </xt:component>
+
+      <!-- Use this component as the real entry point for this template  -->
+      <xt:component name="t_main">
+        <div class="row">
+          <div class="span12">
+            <table id="form-table">
+              <tbody>
+                <td>
+                  <xt:use types="t_enterprise_criteria"></xt:use>
+                </td>
+                <td>
+                  <xt:use types="t_case_criteria"></xt:use>
+                </td>
+                <td>
+                  <xt:use types="t_activity_criteria"></xt:use>
+                </td>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </xt:component>
+      <xt:component name="t_enterprise_criteria">
+        <fieldset>
+          <legend loc="stage.legend.enterprises">Critères entreprises</legend>
+          <div class="control-group">
+            <label class="control-label" loc="term.enterprise">Entreprise</label>
+            <div class="controls">
+              <site:field force="true" Tag="Enterprises" Key="enterprises" Placeholder-loc="content.any.f">enterprises[Enterprises]</site:field>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" loc="term.domainActivity">NACE</label>
+            <div class="controls">
+              <site:field force="true" Tag="DomainsOfActivities" Key="domains-of-activities" Placeholder-loc="content.any">domains[DomainsOfActivities]</site:field>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label">
+              <span loc="term.targetedMarkets">Marchés ciblés</span>
+              <span class="sg-hint" data-placement="right" rel="tooltip" title="Thomson Reuters Business Classification">?</span>
+            </label>
+            <div class="controls">
+              <site:field force="true" Tag="TargetedMarkets" Key="targeted-markets" Placeholder-loc="content.any">targeted-markets[TargetedMarkets]</site:field>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" loc="term.country">Country</label>
+            <div class="controls">
+              <site:field force="true" Tag="Countries" Key="countries" Placeholder-loc="content.any">countries[Countries]</site:field>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" loc="term.creationYear">Year</label>
+            <div class="controls" data-binding="regexp" data-regexp="^\s*$|^\d{4}$" data-variable="creation" data-error-scope="div.controls">
+              <xt:use types="input" param="filter=optional event;class=span1 a-control" label="CreationYear"></xt:use>
+              <p data-regexp-error="creation" class="af-error">Enter a 4 digits number</p>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" loc="term.enterpriseSize">Size</label>
+            <div class="controls">
+              <site:field force="true" Tag="Sizes" Key="sizes" Placeholder-loc="content.any.f">sizes[EnterpriseSizes]</site:field>
+            </div>
+          </div>
+        </fieldset>
+      </xt:component>
+      <xt:component name="t_case_criteria">
+        <fieldset>
+          <legend>Project Information</legend>
+          <div style="position:relative">
+            <!-- LEFT column -->
+            <div style="float:left;width=210px;margin-top:10px">
+              <div class="control-group">
+                <label class="control-label">Project number</label>
+                <div class="controls">
+                  <xt:use types="input" param="placeholder=clear;class=c-input-nb;filter=optional" label="ProjectId" loc="content.any">tout</xt:use>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Funding Program</label>
+                <div class="controls">
+                  <site:field force="true" Tag="FundingProgramRef" Key="prog" Placeholder-loc="content.any"></site:field>
+                </div>
+              </div>
+            </div>
+            <!-- RIGHT column -->
+            <div style="float:left;width=210px;margin-top: 10px;margin-left:10px">
+              <div class="control-group">
+                <label class="control-label">Project acronym</label>
+                <div class="controls">
+                  <site:field force="true" Tag="Acronyms" Key="acronyms" Placeholder-loc="content.any">acronyms[Acronyms]</site:field>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Type of Action</label>
+                <div class="controls">
+                  <site:field force="true" Tag="Fundings" Key="funding" Placeholder-loc="content.any"></site:field>
+                </div>
+              </div>
+            </div>
+            <fieldset class="subset" style="width: 451px">
+              <div class="control-group">
+                <label class="control-label">Project Officer</label>
+                <div class="controls">
+                  <site:field force="true" Tag="ProjectOfficers" Key="po" Placeholder-loc="content.any">po[ProjectOfficers]</site:field>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Cutoff</label>
+                <div class="controls" data-binding="switchv2" data-variable="calls">
+                  <site:field force="true" Tag="Calls" Key="cutoffs" Placeholder-loc="content.any"></site:field>
+                </div>
+              </div>
+              <div class="control-group hide" data-avoid-calls="101 102 103 104 105 106 107 201 202 203 204 205 206 301 302 303 304 305 306 307 308 401 402 403 404 405 406 407 408" data-on-class="hide">
+                <label class="control-label">Call topic</label>
+                <div class="controls">
+                  <site:field force="true" Tag="Topics" Key="topics" Placeholder-loc="content.any">topics[Topics]</site:field>
+                </div>
+              </div>
+              <div class="control-group hide" data-avoid-calls="501 502 503 504 505 506 507 508 509 510 511 512 601 602 603 604 605 606 607 608 609 610 701 702 703 704 705 706 707 708 709" data-on-class="hide">
+                <!--  FTI FETOPEN-01-2018-2019-2020 FETOPEN-02-2018 FETOPEN-03-2018-2019-2020-->
+                <label class="control-label">EIC Topics</label>
+                <span class="sg-hint" data-toggle="tooltip" title="Return every project whether at least a topic matches the query. Restrict to the first topic issued in the proposal by ticking the option below">?</span>
+                <div class="controls">
+                  <site:field force="true" Tag="EICPanels" Key="panels" Placeholder-loc="content.any">panels[EICPanels]</site:field>
+                </div>
+                <div style="display: inline-flex;">
+                  <div style="width:10px; margin-right:20px">
+                    <xt:use types="input" label="MainPanel" param="type=checkbox;value=true;class=span"></xt:use>
+                  </div>Main Topic only </div>
+              </div>
+              <div class="control-group hide" data-avoid-calls="801 802 803 804 901 1001 1002 1003 1101 1102 1103 1201 1202" data-on-class="hide">
+                <!--  FTI FETOPEN-01-2018-2019-2020 FETOPEN-02-2018 FETOPEN-03-2018-2019-2020-->
+                <label class="control-label">FET Topics</label>
+                <span class="sg-hint" data-toggle="tooltip" title="Return every project whether at least a topic matches the query. Restrict to the first topic issued in the proposal by ticking the option below">?</span>
+                <div class="controls">
+                  <site:field force="true" Tag="FETTopics" Key="fettopics" Placeholder-loc="content.any">panels[EICPanels]</site:field>
+                </div>
+                <div style="display: inline-flex;">
+                  <div style="width:10px; margin-right:20px">
+                    <xt:use types="input" label="FETMainPanel" param="type=checkbox;value=true;class=span"></xt:use>
+                  </div>Main Topic only </div>
+              </div>
+            </fieldset>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend loc="stage.legend.cases">Critères cas</legend>
+          <div style="position:relative">
+            <!-- LEFT column -->
+            <div style="float:left;width=210px;margin-top:10px">
+              <div class="control-group">
+                <label class="control-label" loc="term.case.nb">Numéro</label>
+                <div class="controls">
+                  <xt:use types="input" param="placeholder=clear;class=c-input-nb;filter=optional" label="CaseNumber" loc="content.any">tout</xt:use>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label" loc="term.caseStatus">Status</label>
+                <div class="controls" data-binding="condition" data-variable="case-status">
+                  <site:field force="true" Tag="CaseActivityStatus" Key="case-status" Placeholder-loc="content.any">Status</site:field>
+                </div>
+              </div>
+              <div class="control-group" data-binding="interval" data-variable="case-period">
+                <label data-avoid-case-status="" class="control-label" style="padding-top:2px" loc="term.statusRange">Période</label>
+                <xt:use types="t_case_period" label="CasePeriod"></xt:use>
+              </div>
+            </div>
+            <!-- RIGHT column -->
+            <div style="float:left;width=210px;margin-top: 10px;margin-left:10px">
+              <div class="control-group">
+                <label class="control-label">Nutscode</label>
+                <div class="controls">
+                  <site:field force="true" Tag="NutsCodes" Key="nuts" Placeholder-loc="content.any">nuts[NutsCodes]</site:field>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">EEN</label>
+                <div class="controls">
+                  <site:field force="true" Tag="RegionalEntities" Key="entities" Placeholder-loc="content.any">entities[RegionalEntities]</site:field>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">KAM</label>
+                <div class="controls">
+                  <site:field force="true" Tag="CaseCoaches" Key="kam" Placeholder-loc="content.any">coaches[Coaches]</site:field>
+                </div>
+              </div>
+              <div class="control-group">
+                <label class="control-label">Sector groups</label>
+                <div class="controls">
+                  <site:field force="true" Tag="SectorGroups" Key="sector-groups" Placeholder-loc="content.any">SectorGroups</site:field>
+                </div>
+              </div>
+            </div>
+          </div>
+          <fieldset class="subset" style="width:450px;position:relative">
+            <legend class="subset" loc="form.legend.enterpriseContext">Contexte entreprise</legend>
+            <div style="float:left;width=210px;margin-top:10px">
+              <div class="control-group" style="clear:none">
+                <label class="control-label" loc="term.initialContext">Contexte initial</label>
+                <div class="controls">
+                  <site:field force="true" Tag="InitialContexts" Key="ctx-initial" Placeholder-loc="content.any">ctx-initial[InitialContext]</site:field>
+                </div>
+              </div>
+            </div>
+            <div style="float:left;width=210px;margin-left:10px;margin-top:10px">
+              <div class="control-group" style="clear:none">
+                <label class="control-label" loc="term.targetContext">Contexte visé</label>
+                <div class="controls">
+                  <site:field force="true" Tag="TargetedContexts" Key="ctx-target" Placeholder-loc="content.any">ctx-target[TargetedContext]</site:field>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset class="subset" style="width: 451px">
+            <legend class="subset" loc="form.legend.intentionalImpact">Impact intentionnel</legend>
+            <div class="control-group">
+              <label class="control-label" loc="term.innovationVectors">Vecteurs d'innovation</label>
+              <div class="controls">
+                <site:field force="true" Tag="Vectors" Key="vectors" Placeholder-loc="content.any">Vectors</site:field>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" loc="term.ideaSources">Sources d'idées</label>
+              <div class="controls">
+                <site:field force="true" Tag="Ideas" Key="ideas" Placeholder-loc="content.any.f">Ideas</site:field>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" loc="term.resources">Ressources</label>
+              <div class="controls">
+                <site:field force="true" Tag="Resources" Key="resources" Placeholder-loc="content.any.f">Resources</site:field>
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" loc="term.partnerships">Partenariats</label>
+              <div class="controls">
+                <site:field force="true" Tag="Partners" Key="partners" Placeholder-loc="content.any">Partners</site:field>
+              </div>
+            </div>
+          </fieldset>
+        </fieldset>
+      </xt:component>
+      <xt:component name="t_activity_criteria">
+        <fieldset>
+          <legend loc="stage.legend.activities">Critères activités</legend>
+          <div class="control-group">
+            <label class="control-label" loc="term.activity.nb">No</label>
+            <div class="controls">
+              <xt:use types="input" param-loc="placeholder=clear;class=c-input-nb;filter=optional" label="ActivityNumber" loc="content.any">tout</xt:use>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" loc="term.activityPhase">Activité</label>
+            <div class="controls">
+              <site:field force="true" Tag="Services" Key="services" Placeholder-loc="content.any.f">ActivitType</site:field>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" loc="term.coachingStatus">Status</label>
+            <div class="controls" data-binding="condition" data-variable="activity-status">
+              <site:field force="true" Tag="ActivityStatus" Key="activity-status" Placeholder-loc="content.any">Status</site:field>
+            </div>
+          </div>
+          <div class="control-group" data-binding="interval" data-variable="activity-period">
+            <label data-avoid-activity-status="" class="control-label" style="padding-top:2px" loc="term.statusRange">Période d'initiation des statuts</label>
+            <xt:use types="t_activity_period" label="Period"></xt:use>
+          </div>
+          <div class="control-group">
+            <label class="control-label" loc="term.coach">Coach</label>
+            <div class="controls">
+              <site:field force="true" Tag="ActivityCoaches" Key="coaches" Placeholder-loc="content.any">coaches[Coaches]</site:field>
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" loc="stage.field.communication">Comm</label>
+            <div class="controls">
+              <site:field force="true" Tag="ToAppearsInNews" Key="communication" Placeholder-loc="content.any">Comm</site:field>
+            </div>
+          </div>
+        </fieldset>
+      </xt:component>
+      <xt:component name="t_activity_period">
+        <div class="controls" style="margin-bottom:1.5em;text-align:right" data-min-date="activity-period" data-avoid-activity-status="">
+          <span loc="term.from">du</span>
+          <xt:use types="input" label="StartDate" param="type=date;date_region=en;date_format=ISO_8601;class=year;filter=optional;maxDate=today;class=date" loc="content.indifferent">any</xt:use>
+        </div>
+        <div class="controls" style="text-align:right" data-max-date="activity-period" data-avoid-activity-status="">
+          <span loc="term.to">au</span>
+          <xt:use types="input" label="EndDate" param="type=date;date_region=en;date_format=ISO_8601;class=year;filter=optional;maxDate=today;class=date" loc="content.indifferent">any</xt:use>
+        </div>
+      </xt:component>
+      <xt:component name="t_case_period">
+        <div class="controls" style="margin-bottom:1.5em;text-align:right" data-min-date="case-period" data-avoid-case-status="">
+          <span loc="term.from">du</span>
+          <xt:use types="input" label="StartDate" param="type=date;date_region=en;date_format=ISO_8601;class=year;filter=optional;maxDate=today;class=date" loc="content.indifferent">any</xt:use>
+        </div>
+        <div class="controls" style="text-align:right" data-max-date="case-period" data-avoid-case-status="">
+          <span loc="term.to">au</span>
+          <xt:use types="input" label="EndDate" param="type=date;date_region=en;date_format=ISO_8601;class=year;filter=optional;maxDate=today;class=date" loc="content.indifferent">any</xt:use>
+        </div>
+      </xt:component>
+    </xt:head>
+  </head>
+  <body>
+    <xt:use types="t_main"></xt:use>
+    <!-- <xt:use types="t_simulation"/> -->
+  </body>
+</html>

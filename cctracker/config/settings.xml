@@ -1,0 +1,75 @@
+<Settings>
+  <SMTPServer>!localhost</SMTPServer>
+  <DefaultEmailSender>case-tracker-no-reply@coachcom2020.eu</DefaultEmailSender>
+  <Sudoer>
+    <User>create-dba-user</User>
+    <Password>dba-user-password</Password>
+  </Sudoer>
+  <Media>
+    <Allow>
+      <Category>account</Category>
+    </Allow>
+    <Debug>
+      <Category>reminders</Category>
+      <Category>account</Category>
+      <Category>workflow</Category>
+      <Category>action</Category>
+    </Debug>
+  </Media>
+  <Hold>
+    <Allow>admin</Allow>
+  </Hold>
+  <Batch>
+    <DefaultEmailReplyTo>EASME-SME-COACHING@ec.europa.eu</DefaultEmailReplyTo>
+    <DefaultEmailSignature>
+      <LastName>Hemmes</LastName>
+      <FirstName>Jasper</FirstName>
+    </DefaultEmailSignature>
+  </Batch>
+  <Questionnaires>
+    <!-- see also Poll application mapping -->
+    <!-- independent : no rollback if failure occurs at least once, otherwise atomic rollbacks whether an error occurs -->
+    <Transaction Dependent="true">
+      <Name>feedback-at-eval</Name>
+      <Form ErrPrefix="SME-">
+        <Name>cctracker-sme-feedback</Name>
+        <Template Lang="en">sme-feedback</Template>
+        <SendTo>NA_Contact_Email</SendTo>
+      </Form>
+      <Form ErrPrefix="KAM-">
+        <Name>cctracker-kam-feedback</Name>
+        <Template Lang="en">kam-feedback</Template>
+        <SendTo>KAM_Email</SendTo>
+      </Form>
+    </Transaction>
+  </Questionnaires>
+  <Module>
+    <Name>reminders</Name>
+    <Property>
+      <Key>enabled</Key>
+      <Value>on</Value>
+    </Property>
+    <Property>
+      <Key>default-email-reply-to</Key>
+      <Value>EASME-SME-COACHING@ec.europa.eu</Value>
+    </Property>
+  </Module>
+  <Module>
+    <Name>reports</Name>
+    <Property>
+      <Key>freshness</Key>
+      <Value>PT14400S</Value>
+    </Property>
+  </Module>
+  <Module>
+    <Name>login</Name>
+    <Property>
+      <Key>startref</Key>
+      <Value>stage</Value>
+    </Property>
+    <Property>
+      <Key>ecas</Key>
+      <Value>off</Value>
+    </Property>
+  </Module>
+</Settings>

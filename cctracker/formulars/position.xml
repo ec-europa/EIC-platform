@@ -1,0 +1,28 @@
+<Form Tag="Position" StartLevel="2" 
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger">
+
+  <Title>Avis et position des responsables</Title>
+  <Row>
+    <site:conditional flag="yesno" force="true">
+        <Field Key="position" Tag="YesNoScaleRef" W="4" Gap="0">Validation</Field>
+    </site:conditional>
+    <site:conditional flag="position" force="true">
+        <Field Key="position" Tag="PositionRef" W="4" Gap="0">Opinion</Field>
+    </site:conditional>
+    <site:conditional flag="decision" force="true">
+        <Field Key="position" Tag="DecisionRef" W="4" Gap="0">Decision</Field>
+    </site:conditional>
+    <Field Key="date" Tag="Date" W="2" Gap="0" loc="term.date">Date</Field>
+    <Field Key="author" Tag="Author" W="6" Gap="0" loc="term.author">Auteur</Field>
+  </Row>
+  <Row>
+    <Field Key="comment" Tag="Comment" W="12" Gap="0" loc="term.comment">Commentaire</Field>
+  </Row>
+  <Plugins>
+    <MultiText Keys="comment"/>
+  </Plugins>
+  <Bindings>
+    <!-- <Require Keys="comment"/> -->
+  </Bindings>
+</Form>

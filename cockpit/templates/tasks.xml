@@ -1,0 +1,66 @@
+<!-- 
+Cockpit - EIC SME Dashboard Application
+
+Creation: Franck Leplé <franck.leple@amplexor.com>
+  Contributor:     
+  
+  Description:
+  Templates for the /db/tasks/cockpit collection
+  
+  July 2018 - European Union Public Licence EUPL
+-->
+  
+<Templates>
+
+  <Template Name="tasks-read-current-task" Mode="read">
+    <![CDATA[
+      $subject/CurrentTask
+    ]]>
+  </Template>
+
+  <!-- Remove first task and place it in CurrentTask -->
+  <!-- Update tasks collection (remove a task) -->
+  <Template Name="tasks-move-task-current" Mode="update" Subject="tasks" Object="task">
+    <![CDATA[
+      <XAL _Prune="none">
+        <XALAction Type="replace" Pivot="$subject">
+          <CurrentTask>{ $object }</CurrentTask>
+        </XALAction>
+        <XALAction Type="delete" Pivot="$subject/Task[1]"/>
+      </XAL>   
+    ]]>
+  </Template>  
+  <!-- Remove all bootstrap task  -->
+ 
+  <Template Name="tasks-remove-all-bootstrap" Mode="update" Subject="tasks" Object="task">
+    <![CDATA[
+      <XAL _Prune="none">
+      
+        <XALAction Type="delete" Pivot="$subject/Task[@name='bootstrap']"/>
+       
+      </XAL>   
+    ]]>
+  </Template>  
+  <!-- Emptied CurrentTask -->
+  <Template Name="tasks-emptied-current-task" Mode="update" Subject="tasks" Object="task">
+    <![CDATA[
+      <XAL _Prune="none">
+        <XALAction Type="replace" Pivot="$subject">
+          <CurrentTask/>
+        </XALAction>
+      </XAL>    
+    ]]>
+  </Template>   
+ 
+  <!-- Update tasks collection (add a task) -->
+  <Template Name="tasks-add-task" Mode="update" Subject="tasks" Object="task">
+    <![CDATA[  
+      <XAL _Prune="none">
+        <XALAction Type="insert" Pivot="$subject">
+          { $object }
+        </XALAction>
+      </XAL>    
+    ]]>
+  </Template>  
+
+</Templates>

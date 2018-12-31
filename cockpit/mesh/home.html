@@ -1,0 +1,170 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:site="http://oppidoc.com/oppidum/site" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="description" content="Oppidum /cockpit application to create business applications with Oppidum and Supergrid"/>
+    <meta name="keywords" content="oppidum, supergrid, /cockpit"/>
+    <meta name="robots" content="noindex,nofollow"/>
+    <meta name="generator" content="Oppidum by Oppidoc"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <site:window>Cockpit application</site:window>
+    <site:skin force="true">
+      <link href="../resources/contribs/bootstrap-2.3.2/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+      <link href="../resources/contribs/bootstrap-2.3.2/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"/>
+      <link href="../resources/contribs/bootstrap-2.3.2/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+      <link href="../resources/css/index.scss" rel="stylesheet" type="text/css"/>
+      <link href="../resources/css/horizontal-menus.css" rel="stylesheet" type="text/css"/>
+      <script type="text/javascript" src="lib/ec-preset-website.js"/>
+    </site:skin>
+    <site:header>XTCOMP</site:header>
+    <script type="text/javascript">document.addEventListener('DOMContentLoaded', function () {
+      ECL.megamenu();
+    });</script>
+  </head>
+  <body>
+    
+    <header class="ecl-site-header" role="banner">
+      <div class="ecl-container">
+        <nav class="ecl-navigation-list__root ecl-u-f-r">
+          <ul class="ecl-navigation-list ecl-navigation-list--small">
+            <li class="ecl-navigation-list__item">
+              <a class="ecl-link ecl-navigation-list__link" href="mailto:EASME-SME-HELPDESK@ec.europa.eu">Contact us</a>
+            </li>
+            <li class="ecl-navigation-list__item">
+              <site:title/>
+            </li>
+              <site:login force="true">Login</site:login>
+          </ul>
+        </nav>
+        
+      </div>
+      
+      
+      <div class="ecl-container ecl-site-header__banner">
+        <div class="ecl-banner">
+          <a href="https://ec.europa.eu" class="ecl-logo ecl-logo--logotype ecl-site-header__logo" title="Home - European Commission">
+            <span class="ecl-u-sr-only">Home - European Commission</span>
+          </a>
+          <h1>European Innovation Council</h1>
+          <h2>Business Acceleration Services</h2>
+        </div>
+      </div>
+      <div class="ecl-page-header">
+        <div class="ecl-container">
+          <nav class="ecl-breadcrumbs " aria-label="breadcrumbs">
+            <ol class="ecl-breadcrumbs__segments-wrapper">
+              <li class="ecl-breadcrumbs__segment">
+                <a href="https://ec.europa.eu/info/index_en" class="ecl-breadcrumbs__segment--first ecl-breadcrumbs__link">European Commission</a>
+              </li>
+              <li class="ecl-breadcrumbs__segment">
+                <a href="http://ec.europa.eu/research/eic/index.cfm" class="ecl-link ecl-link--inverted ecl-link--standalone ecl-breadcrumbs__link">EIC</a>
+              </li>
+              <li class="ecl-breadcrumbs__segment ecl-breadcrumbs__segment">
+                <a href="https://ec.europa.eu/easme/en/tags/business-acceleration-services" class="ecl-link ecl-link--inverted ecl-link--standalone ecl-breadcrumbs__link">BAS</a>
+              </li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <nav class="ecl-navigation-menu" aria-label="Main Navigation">
+      <div class="ecl-container">
+        
+        
+        <site:navigation force="true">NAV</site:navigation>
+        
+      </div>
+    </nav>
+    <site:layout force="true">
+      <div id="err-msg" class="row">
+        <div id="error" class="span12" condition="has-error">
+          <span class="ui-close" onclick="javascript:document.errorOff()">X</span>
+          <!-- <button class="close" onclick="javascript:document.errorOff()">×</button> -->
+          <site:error force="true">
+            <p>ERROR</p>
+          </site:error>
+        </div>
+        <div id="message" class="span12" condition="has-message">
+          <span class="ui-close" data-timeout="1500" onclick="javascript:document.messageOff()">X</span>
+          <!-- <button class="close ui-close" onclick="javascript:document.messageOff()">×</button> -->
+          <site:message force="true">
+            <p>MESSAGE</p>
+          </site:message>
+        </div>
+      </div>
+      <site:content>CONTENT</site:content>
+      <!-- <hr class="a-separator"/>-->
+      
+    </site:layout>
+    <footer class="ecl-footer">
+      <div class="ecl-footer__site-corporate">
+        <div class="ecl-container">
+          <div class="ecl-row">
+            <div class="ecl-col-sm ecl-footer__column">
+              <h4 class="ecl-h4 ecl-footer__title">European Commission</h4>
+              <ul class="ecl-footer__menu">
+                <li class="ecl-footer__menu-item">
+                  <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/commission/index_en">Commission and its priorities</a>
+                </li>
+                <li class="ecl-footer__menu-item">
+                  <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/info/index_en">Policies, information and services</a>
+                </li>
+              </ul>
+            </div>
+            <div class="ecl-col-sm ecl-footer__column">
+              <h4 class="ecl-h4 ecl-footer__title">Follow the European Commission</h4>
+              <ul class="ecl-footer__menu ecl-list--inline ecl-footer__social-links">
+                <li class="ecl-footer__menu-item">
+                  <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://www.facebook.com/EuropeanCommission">
+                    <span class="ecl-icon ecl-icon--facebook ecl-footer__social-icon"/>Facebook</a>
+                </li>
+                <li class="ecl-footer__menu-item">
+                  <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://twitter.com/EU_commission">
+                    <span class="ecl-icon ecl-icon--twitter ecl-footer__social-icon"/>Twitter</a>
+                </li>
+              </ul>
+            </div>
+            <div class="ecl-col-sm ecl-footer__column">
+              <h4 class="ecl-h4 ecl-footer__title">European Union</h4>
+              <ul class="ecl-footer__menu">
+                <li class="ecl-footer__menu-item">
+                  <a class="ecl-link ecl-link--inverted ecl-link--external ecl-footer__link" href="https://europa.eu/european-union/about-eu/institutions-bodies_en">EU institutions</a>
+                </li>
+                <li class="ecl-footer__menu-item">
+                  <a class="ecl-link ecl-link--inverted ecl-link--external ecl-footer__link" href="https://europa.eu/european-union/index_en">European Union</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="ecl-footer__ec">
+        <div class="ecl-container">
+          <div class="ecl-row">
+            <div class="ecl-col-sm ">
+              <ul class="ecl-list--inline ecl-footer__menu">
+                <li class="ecl-footer__menu-item">
+                  <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/info/about-commissions-new-web-presence_en">About the Commission's new web presence</a>
+                </li>
+                <li class="ecl-footer__menu-item">
+                  <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/info/resources-partners_en">Resources for partners</a>
+                </li>
+                <li class="ecl-footer__menu-item">
+                  <a class="ecl-link ecl-link--inverted ecl-footer__link" href="https://ec.europa.eu/info/cookies_en">Cookies</a>
+                </li>
+                <li class="ecl-footer__menu-item">
+                  
+                  <site:footer force="true"/>
+                  
+                </li>
+                <li class="ecl-footer__menu-item">
+                  <a class="ecl-link ecl-link--inverted ecl-footer__link" href="mailto:EASME-SME-HELPDESK@ec.europa.eu">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<Form Tag="Email"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger">
+
+  <Row>
+    <Field Key="date" Tag="Date" W="4" Gap="1" loc="term.date">Date</Field>
+    <Field Key="from" Tag="From" W="8" Gap="1" loc="term.sender">De</Field>
+  </Row>
+
+  <Row>
+    <Cell>
+      <Field Key="recipient" Tag="To" W="12" Gap="1" loc="term.recipient">À</Field>
+    </Cell>
+    <site:conditional force="true" flag="smegrant">
+      <Field Key="carbon-copy" Tag="CC" W="12" Gap="1" L="0">Cc</Field>
+    </site:conditional>
+  </Row>
+
+  <Row>
+    <Field Key="subject" Tag="Subject" W="12" Gap="1" loc="term.subject">Sujet</Field>
+  </Row>
+
+  <Row>
+    <Field Key="message" Tag="Message" W="12" Gap="1" loc="term.message">Message</Field>
+    <site:conditional force="true" flag="full">
+      <Field Key="attachment" Tag="Attachment" W="12" Gap="1" L="0">Attachment (will be pasted at the end of the message)</Field>
+    </site:conditional>
+  </Row>
+
+  <Bindings>
+    <Require Keys="from recipient subject"/>
+    <Enforce>
+      <RegExp Keys="from recipient" Message-loc="validation.email" Message="email">^\s*$|^\w([-.]?\w)+@\w([-.]?\w)+\.[a-z]{2,6}$</RegExp>
+    </Enforce>
+  </Bindings>
+
+  <Plugins>
+    <Input Keys="from recipient"/>
+    <Text Keys="subject"/>
+    <MultiText Keys="message" Mode="enhanced"/>
+  </Plugins>
+</Form>

@@ -1,0 +1,16 @@
+<Form Tag="Activity">
+  <Title>Création d'une activité dans l'application coaching EIC</Title>
+  <Row>
+    <Field Key="title" Tag="Title" Gap="1" loc="term.title">Titre</Field>
+    <Field Key="phase" Tag="PhaseRef" W="8" L="0" Gap="1" loc="term.phase">Phase</Field>
+    <Field Key="number" Tag="No" W="4" Gap="1" loc="term.activity.nb">No</Field>
+    <Field Key="coach" Tag="ResponsibleCoach" W="6" L="0" Gap="1" loc="term.coach">Coach</Field>
+    <Field Key="service" Tag="ActivityService" W="6" Gap="1" loc="term.service">Service</Field>
+  </Row>
+  <Plugins>
+    <Input Keys="title"/>
+  </Plugins>
+  <Bindings>
+    <Require Keys="title phase coach service"/>
+  </Bindings>
+</Form>

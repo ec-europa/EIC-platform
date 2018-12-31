@@ -1,0 +1,19 @@
+<Database>
+  <Policies>
+    <Policy Name="container" Owner="admin" Group="users" Perms="rwxrwxr--"/>
+    <Policy Name="open" Owner="admin" Group="users" Perms="rwxrwxr-x"/>
+    <Policy Name="users" Owner="admin" Group="users" Perms="rwxrwxr--"/>
+    <Policy Name="public" Owner="admin" Group="users" Perms="rwxrwxrwx"/>
+    <Policy Name="private" Owner="admin" Group="users" Perms="rwxrwx---"/>
+  </Policies>
+  <Entities>
+    <Entity Name="person">
+      <Resource Policy="users" Pivot="//Person/Id">$_.xml</Resource>
+      <Collection Policy="container" Sharding="bucket(4,50)">persons</Collection>
+    </Entity>
+    <Entity Name="region">
+      <Resource Policy="users" Pivot="//Region/Id">$_.xml</Resource>
+      <Collection Policy="container" Sharding="bucket(4,50)">regions</Collection>
+    </Entity>
+  </Entities>
+</Database>

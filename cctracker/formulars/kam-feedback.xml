@@ -1,0 +1,88 @@
+<!-- CCTRACKER - EIC Case Tracker Application
+
+     Author: Stéphane Sire <s.sire@opppidoc.fr>
+
+     (c) Copyright may be reserved
+  -->
+<Poll Lang="en">
+  <Id>cctracker-kam-feedback</Id>
+  <Title>SME Instrument Feedback on Coaching (KAM)</Title>
+  <Questions>
+    <site:conditional xmlns:site="http://oppidoc.com/oppidum/site" context="poll">
+      <Prefill Key="email" Tag="ContactEmail" DefaultVariable="KAM_Email">Your e-mail (please correct it if you are not <Variable Name="KAM_Name">Name of Contact</Variable> or if it is incorrect)</Prefill>
+    </site:conditional>
+    <CommentatedQuestion Label="Dialogue" CommentLabel="Describe your experiences">
+      <Question Key="KAM04">I appreciate the interaction with the coach <Variable Name="Coach_Name">Name of Coach</Variable> (dialogue, responsiveness).</Question>
+    </CommentatedQuestion>
+    <CommentatedQuestion Label="PastRegionalInvolvement">
+      <Question Key="KAM05">Was the company working with regional support ecosystem prior to the SME Instrument project ?</Question>
+    </CommentatedQuestion>
+    <CommentatedQuestion Label="RegionalInvolvement">
+      <Question Key="KAM06">Did the regional support ecosystem work with the company during the SME Instrument project ?</Question>
+    </CommentatedQuestion>
+    <CommentatedQuestion Label="FutureRegionalInvolvement">
+      <Question Key="KAM07">Will the regional support ecosystem be involved in the future ?</Question>
+    </CommentatedQuestion>
+    <CommentatedQuestion Label="FutureSupport">
+      <Question Key="KAM08">Need for further SME support (SME instrument, coaching, financing, etc.)</Question>
+    </CommentatedQuestion>
+    <CommentatedQuestion Label="Dissemination" CommentLabel="Describe the attractiveness as a success story">
+      <Question Key="KAM09">Would you recommend this case as a success story for EASME communication ?</Question>
+    </CommentatedQuestion>
+  </Questions>
+  <Plugins>
+    <Likert Prefix="Likert_RatingScaleRef_" Keys="KAM04">
+      <Option>
+        <Id>5</Id>
+        <Name>Strongly\ disagree</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Disagree</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Neutral</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Agree</Name>
+      </Option>
+      <Option>
+        <Id>1</Id>
+        <Name>Strongly\ agree</Name>
+      </Option>
+    </Likert>
+    <Likert Prefix="Likert_SupportScaleRef_" Keys="KAM05 KAM06 KAM07 KAM08">
+      <Option>
+        <Id>1</Id>
+        <Name>Yes</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>No</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Unknown</Name>
+      </Option>
+    </Likert>
+    <Likert Prefix="Likert_CommunicationAdviceRef_" Keys="KAM09">
+      <Option>
+        <Id>1</Id>
+        <Name>Yes</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>No</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Later</Name>
+      </Option>
+    </Likert>
+  </Plugins>
+  <Bindings>
+    <Recommended Prefix="Likert_" Keys="KAM04 KAM05 KAM06 KAM07 KAM08 KAM09"/>
+  </Bindings>
+</Poll>

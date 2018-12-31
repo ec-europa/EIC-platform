@@ -1,0 +1,25 @@
+<Form Tag="Organisation" Width="500px"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger">
+  <Verbatim>
+    <xt:component name="t_HostAccount">
+      <Field Key="name" Tag="Name" Gap="2">Name</Field>
+      <Field Key="logo" Tag="Logo" Gap="2">Logo</Field>
+      <Field Key="description" Tag="Description" Gap="2">Description</Field>
+      <Field Key="country" Tag="Country" Gap="2">Country / Area</Field>
+      <Field Key="acceptance" Tag="AcceptanceSystem" Gap="2">Acceptance system</Field>
+      <Field Key="link" Tag="Link" Gap="2">Home page</Field>
+      <Field Key="phone" Tag="Phone" Gap="2">Phone</Field>
+    </xt:component>
+  </Verbatim>
+  
+  <Row>
+    <Use Tag="HostAccount" Type="HostAccount"/>
+  </Row>
+  
+  <Plugins>
+    <Constant Keys="name description country acceptance phone"/>
+    <Constant Keys="link" Media="url"/>
+    <Constant Keys="logo" Media="image" Base="/static/ccmatch/" Tag="Logo"/>
+  </Plugins>
+</Form>

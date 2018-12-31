@@ -1,0 +1,53 @@
+<!--
+CC Tracker
+
+Creation: Franck Leplé <franck.leple@amplexor.com>
+  Contributor:
+
+  Description:
+  Templates for the persons collection -
+
+  August 2018 - European Union Public Licence EUPL
+-->
+
+<Templates>
+
+  <Template Name="person" Mode="update" Subject="person">
+    <![CDATA[
+      <XAL _Prune="none">
+        <XALAction Type="replace">
+          <Sex>{ $form/Sex/text() }</Sex>
+        </XALAction>
+        <XALAction Type="replace">
+          <Name>{ $form/Name/* }</Name>
+        </XALAction>
+        <XALAction Type="replace">
+          <Civility>{ $form/Civility/text() }</Civility>
+        </XALAction>
+        <XALAction Type="replace">
+          <Country>{ $form/Country/text() }</Country>
+        </XALAction>
+        <XALAction Type="replace">
+          <Function>{ $form/Function/text() }</Function>
+        </XALAction>
+        <XALAction Type="replace">
+          <EnterpriseRef>{ $form/EnterpriseRef/text() }</EnterpriseRef>
+        </XALAction>
+        <XALAction Type="replace">
+          <Contacts>{ $form/Contacts/* }</Contacts>
+        </XALAction>
+        <XALAction Type="replace">
+          <Photo>{ $form/Photo/text() }</Photo>
+        </XALAction>
+        {
+          if (exists($form/External)) then
+            <XALAction Type="replace" Pivot="$subject/UserProfile">
+              <Remote Name="{ $form/External/Realm }">{ $form/External/Remote/text()}</Remote>
+            </XALAction>
+          else ()
+        }
+      </XAL>
+    ]]>
+  </Template>
+
+</Templates>

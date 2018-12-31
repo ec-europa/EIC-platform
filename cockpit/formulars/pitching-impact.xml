@@ -1,0 +1,137 @@
+<Form Tag="ImpactSurvey" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+  
+  <Title>Impact</Title>
+  
+  <Verbatim>
+    <xt:component name="t_contact_person">
+      <Field Key="firstname" Tag="FirstName" Gap="1.75" W="4" L="0">First Name</Field>
+      <Field Key="lastname" Tag="LastName" Gap="1.5" W="4">Last Name</Field>
+      <Field Key="civility" Tag="Civility" Gap="1" W="2">Title</Field>
+      <Field Key="phone" Tag="Phone" Gap="1.75" W="4" L="0">Direct phone</Field>
+      <Field Key="email_contact" Tag="Email" Gap="1.5" W="6">Email</Field>
+    </xt:component>
+    
+    <xt:component name="t_q13">
+      <!-- conditional on "Other" -->
+      <xhtml:div data-avoid-ba1="~7" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="comments_01b" Tag="OtherComments" Gap="0">Please specify</Field>
+      </xhtml:div>
+    </xt:component>
+    
+    <xt:component name="t_q12">
+      <!--2. If Business cooperation  -->
+      <xhtml:div data-avoid-yn02="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="business-agreements" Tag="BusinessAgreementTypes" Gap="0">Please indicate the type of cooperation?</Field>
+        <Use Tag="CooperationTypes" TypeName="q13"/> 
+      </xhtml:div>
+      <xhtml:div data-avoid-yn02="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="comments_01c" Tag="Comments" Gap="0">Please indicate the amount committed, if any?</Field>
+      </xhtml:div>
+    </xt:component>
+    
+    <xt:component name="t_q1">
+      <!--1. If Financial contacts -->
+      <Field Key="yesno_01" Tag="YesNoScaleRef" Gap="3">1. Financial contacts</Field>
+      <xhtml:div data-avoid-yn01="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="comments_01a" Tag="Comments" Gap="0">Please indicate the amount committed, if any?</Field>
+      </xhtml:div>
+      <!--2. If Business cooperation  -->
+      <Field Key="yesno_02" Tag="YesNoScaleRef" Gap="3">2. Business cooperation</Field>
+        <Use Tag="Cooperations" TypeName="q12"/>
+    </xt:component>
+    
+    <xt:component name="t_q2">
+        <xhtml:div>
+          <Field Key="strategy" Tag="Strategy" Gap="0">3. Strategy</Field>
+          <Field Key="organisations" Tag="Organisation" Gap="0">4. Organisation</Field>
+          <Field Key="market_entries" Tag="MarketEntry" Gap="0">5. Market Entry</Field>
+          <Field Key="partnership" Tag="Partnership" Gap="0">6. Partnership</Field>
+          <Field Key="finance" Tag="Finance" Gap="0">7. Finance</Field>
+        </xhtml:div>
+    </xt:component>
+    
+    <xt:component name="t_q3">
+      <xhtml:div>
+        <Field Key="turnover" Tag="Turnover" Gap="0">8. Turnover</Field>
+        <Field Key="employments" Tag="Employment" Gap="0">9. Employment</Field>
+      </xhtml:div>
+    </xt:component>
+    
+    <xt:component name="t_q4">
+      <xhtml:div>
+        <Field Key="yesno_04" Tag="YesNoScaleRef" Gap="0">10. Would you apply again for this type of event?</Field>
+        <Field Key="comments_04a" Tag="Comments" Gap="0">Please explain</Field>
+        <Field Key="comments_04b" Tag="Comments" Gap="0">11. What would you improve in our business acceleration services.</Field>
+      </xhtml:div>
+    </xt:component>
+    
+  </Verbatim>
+  
+  <site:conditional avoid="update" force="true">
+    <Row Class="no-export">
+      <Cell Gap="2.75" Tag="Initiated">
+        <Title Level="3">Feedback form sent to:</Title>
+        <Field Key="email_addressee" Tag="Email" Gap="1.8" W="7">SME Contact</Field>
+        <Field Key="date" Tag="Date" Gap="1.8" W="4">Date </Field>
+      </Cell>
+    </Row>
+    <Separator/>
+  </site:conditional>
+  
+  <Row>
+    <Cell Gap="2.75">
+      <Title Level="3">Answered by:</Title>
+      <Use Tag="Contact" TypeName="contact_person"/>
+    </Cell>
+  </Row>
+  
+  <Row>
+    <Cell Tag="Contacts">
+      <Title style="margin: 20px 0 15px">I. Thanks to this event with how many contacts are you in business discussion?</Title>
+      <Use Tag="FinancialContacts" TypeName="q1"/>
+    </Cell>
+    
+    <Cell Tag="Improvement">
+      <Title style="margin: 20px 0 10px">II. Thanks to this event, my company improved significantly:</Title>
+      <Use Tag="FutureParticipation" TypeName="q2"/>
+    </Cell>
+    
+    <Cell Tag="Growth">
+      <Title style="margin: 20px 0 10px">III. Thanks to this event, my company grew significantly:</Title>
+      <Use Tag="CompanyGrowth" TypeName="q3"/>
+    </Cell>
+    
+    <Cell Tag="Suggestions">
+      <Title style="margin: 20px 0 10px">IV. Suggestions</Title>
+      <Use TypeName="q4"/>
+    </Cell>
+  </Row>
+  
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="email_contact" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+    </Enforce>
+    <Condition Keys="yesno_01" Variable="yn01"/>
+    <Condition Keys="yesno_02" Variable="yn02"/>
+    <Condition Keys="business-agreements" Variable="ba1"/>
+  </Bindings>
+  
+  <Hints>
+    <!-- FIXME: switch back to "border" feedback when compatible with Condition / RegExp ... -->
+    <Mandatory Feedback="none" Tags="FirstName LastName Civility Phone BusinessAgreementTypes Organisation Strategy MarketEntry Partnership Finance Turnover Employment YesNoScaleRef">This field must be filled to be able to proceed to the next step</Mandatory>
+    <Mandatory Feedback="none" Keys="email_contact comments_04a comments_04c comments_06 comments_07 comments_21">This field must be filled to be able to proceed to the next step</Mandatory>
+    <Mandatory Feedback="none" Keys="comments_01">This field must be filled if you answered NO to the 3 previous questions to be able to proceed to the next step</Mandatory>    
+  </Hints>
+  
+  <Plugins>
+    <Input Keys="firstname lastname function civility phone email_contact"/>
+    <Input Keys="total amount additional-total"/>
+    <MultiText Prefix="comments"/>
+  </Plugins>
+</Form>

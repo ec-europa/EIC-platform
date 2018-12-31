@@ -1,0 +1,165 @@
+<!-- ======================================================================
+                        Case Tracker skin
+  ======================================================================= -->
+<skin xmlns="http://oppidoc.com/oppidum/skin">
+  <handler name="msg-or-err">
+    <predef module="oppidum">flash</predef>
+  </handler>
+  <profile name="photo" type="predef">
+    <link href="lib/axel/bundles/photo/photo.css"/>
+    <script type="text/javascript"> function finishTransmission(status, result) {
+  // var pwin = window.parent; 
+  // iff template run from inside an iframe ! 
+  var manager = window.xtiger.factory('upload').getInstance(document); 
+  if (manager) { manager.reportEoT(status, result); } 
+}
+    </script>
+  </profile>
+  <profile name="axel-1.3-no-jquery" type="predef">
+    <link href="lib/axel-1.3/axel.css"/>
+    <script src="lib/axel-1.3/axel.js"/>
+    <script data-bundles-path="lib/axel/bundles" data-when="deferred" src="lib/axel-forms.js"/>
+  </profile>
+  <profile name="date" type="predef">
+    <link href="jquery/css/ui-lightness/jquery-ui-1.10.4.custom.min.css"/>
+    <script src="jquery/js/jquery-ui-1.10.4.custom.min.js"/>
+  </profile>
+  <profile name="*">
+    <predef module="oppidum">jquery</predef>
+    <script src="lib/app.js"/>
+    <!-- TODO: jQuery CDN version -->
+  </profile>
+  <profile name="select2" type="predef">
+    <link href="select2/select2.css"/>
+    <link href="select2/select2-bootstrap.css"/>
+    <script src="select2/select2.min.js"/>
+  </profile>
+  <profile name="home" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <link href="css/site.css"/>
+    <predef avoid="error()">axel-1.3-no-jquery</predef>
+    <predef avoid="error()">date</predef>
+    <script src="bootstrap/js/bootstrap.min.js"/>
+    <predef>select2</predef>
+  </profile>
+  <profile name="search" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <link href="css/site.css"/>
+    <predef avoid="error()">axel-1.3-no-jquery</predef>
+    <predef avoid="error()">date</predef>
+    <script src="bootstrap/js/bootstrap.min.js"/>
+    <predef>select2</predef>
+  </profile>
+  <profile name="workflow" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <link href="css/site.css"/>
+    <predef avoid="error()">axel-1.3-no-jquery</predef>
+    <predef avoid="error()">date</predef>
+    <script src="bootstrap/js/bootstrap.min.js"/>
+    <predef>select2</predef>
+  </profile>
+  <profile name="export" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <link href="css/export.css"/>
+    <script src="lib/extensions.js"/>
+    <script src="bootstrap/js/bootstrap.min.js"/>
+    <script src="excellentexport/excellentexport.js"/>
+    <script src="tablesorter/jquery.tablesorter.min.js"/>
+    <script src="lib/export.js"/>
+    <predef avoid="error()">date</predef>
+  </profile>
+  <profile name="console" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <script src="bootstrap/js/bootstrap.min.js"/>
+  </profile>
+  <!-- outil formulaires  -->
+  <profile name="formulars" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <link href="css/site.css"/>
+    <link href="css/forms.css"/>
+    <predef avoid="error()">axel-1.3-no-jquery</predef>
+    <predef avoid="error()">date</predef>
+    <script src="bootstrap/js/bootstrap.min.js"/>
+    <predef>select2</predef>
+    <script src="lib/formulars.js"/>
+    <script src="lib/extensions.js"/>
+    <predef>photo</predef>
+  </profile>
+  <!-- outil test  -->
+  <profile name="xtiger" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <link href="css/site.css"/>
+    <link href="css/forms.css"/>
+    <predef avoid="error()">axel-1.3-no-jquery</predef>
+    <predef avoid="error()">date</predef>
+    <script src="bootstrap/js/bootstrap.min.js"/>
+    <predef>select2</predef>
+  </profile>
+  <profile name="stage">
+    <link href="css/search.css"/>
+    <link href="css/stage.css"/>
+    <script src="lib/search.js"/>
+    <script src="lib/extensions.js"/>
+  </profile>
+  <profile name="enterprises">
+    <link href="css/search.css"/>
+    <link href="css/forms.css"/>
+    <link href="css/enterprises.css"/>
+    <script src="lib/search.js"/>
+    <script src="lib/extensions.js"/>
+  </profile>
+  <profile name="persons">
+    <link href="css/search.css"/>
+    <link href="css/forms.css"/>
+    <link href="css/persons.css"/>
+    <script src="lib/search.js"/>
+    <script src="lib/extensions.js"/>
+    <predef>photo</predef>
+  </profile>
+  <profile name="coaches">
+    <link href="css/search.css"/>
+    <link href="css/forms.css"/>
+    <link href="css/persons.css"/>
+    <script src="d3/d3.min.js"/>
+    <script src="exfront:lib/commons.js"/>
+    <script src="lib/match/coaches.js"/>
+    <script src="lib/extensions.js"/>
+  </profile>
+  <profile name="case">
+    <link href="css/forms.css"/>
+    <link href="css/case.css"/>
+    <script src="lib/extensions.js"/>
+  </profile>
+  <profile name="workflow">
+    <link href="css/forms.css"/>
+    <link href="css/workflow.css"/>
+    <link href="css/case.css"/>
+    <script src="lib/extensions.js"/>
+    <script src="lib/workflow.js"/>
+    <predef>photo</predef>
+  </profile>
+  <profile name="management">
+    <link href="css/forms.css"/>
+    <link href="css/export.css"/>
+    <script src="exfront:lib/commons.js"/>
+    <script src="lib/widgets.js"/>
+    <script src="lib/extensions.js"/>
+    <script src="lib/management.js"/>
+    <script src="d3/d3.min.js"/>
+    <script src="excellentexport/excellentexport.js"/>
+    <script src="tablesorter/jquery.tablesorter.min.js"/>
+    <predef>photo</predef>
+  </profile>
+  <!-- outil stats  -->
+  <profile name="stats">
+    <link href="css/forms.css"/>
+    <link href="css/stats.css"/>
+    <script src="lib/extensions.js"/>
+    <script src="d3/d3.min.js"/>
+    <script src="excellentexport/excellentexport.min.js"/>
+    <script src="lib/stats.js"/>
+  </profile>
+  <profile name="axel">
+    <predef>axel-1.3-no-jquery</predef>
+  </profile>
+</skin>

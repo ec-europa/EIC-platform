@@ -1,0 +1,174 @@
+<messages>
+  <info type="INFO" timeout="-1">
+    <message>%s</message>
+  </info>
+  <info type="ANNOUNCEMENT" timeout="-1" at="!login">
+    <!-- remove ! prefix to enable login message -->
+    <message>Announcement</message>
+  </info>
+  <info type="ASK-LOGOUT" timeout="-1">
+    <message lang="en">The case tracker will be put into maintenance. You are kindly requested to finish your operations and to log out from the application as soon as possible. In any case you will be logged out in %s from now.</message>
+  </info>
+  <info type="ACTION-LOGIN-SUCCESS">
+    <message lang="en">Welcome, you are logged in as "%s"</message>
+  </info>
+  <info type="ACTION-LOGIN-INFO" timeout="-1">
+    <message lang="en">The case tracker currently holds a total of %s coaching hours</message>
+  </info>
+  <info type="ACTION-LOGIN-SUCCESS-MERGE" timeout="-1">
+    <message lang="en">Congratulations! Your 'EU Login' account was successfully merged with your Casetracker account. From now on, you will be asked to connect to the Casetracker with your 'EU Login' only.</message>
+  </info>
+  <info type="ACTION-LOGOUT-SUCCESS">
+    <message lang="en">You have been logged out successfully</message>
+  </info>
+  <info type="ACTION-UPDATE-SUCCESS">
+    <message lang="en">The resource has just been updated</message>
+  </info>
+  <info type="ACTION-UPDATE-SAME-SUCCESS">
+    <message lang="en">The resource has just been saved</message>
+  </info>
+  <info type="ACTION-CREATE-SUCCESS" code="201">
+    <message lang="en">The new resource has been entered successfully</message>
+  </info>
+  <info type="CASE-CREATED">
+    <message lang="en">The case has been created</message>
+  </info>
+  <info type="ACTIVITY-CREATED" code="201">
+    <message lang="en">The activity has been created</message>
+  </info>
+  <info type="WFSTATUS-UPDATED">
+    <message lang="en">The status has been changed with success</message>
+  </info>
+  <info type="DELETE-CASE-CONFIRM" code="202">
+    <message lang="en">You can remove the case "%s" because it does not contain any activity. Are you sure you want to delete it? This action is irreversible</message>
+  </info>
+  <info type="DELETE-ACTIVITY-CONFIRM" code="202">
+    <message lang="en">You can delete the activity "%s" of case "%s" because it is in coach assignment status. Are you sur you want to delete it now ? This action is irreversible, the only way to come back will be to create a new coaching activity</message>
+  </info>
+  <info type="DELETE-PERSON-CONFIRM" code="202">
+    <message lang="en">You can remove the person "%s" because s/he is not referenced in any case or coaching activity and has no access login. Are you sure you want to delete her? This action is irreversible</message>
+  </info>
+  <info type="DELETE-CASE-SUCCESS">
+    <message lang="en">The case has been removed successfully</message>
+  </info>
+  <info type="DELETE-ACTIVITY-SUCCESS" timeout="-1">
+    <message lang="en">The coaching activity "%s" of case "%s" has been removed successfully</message>
+  </info>
+  <info type="DELETE-PERSON-SUCCESS">
+    <message lang="en">The person "%s" has been removed successfully</message>
+  </info>
+  <info type="DELETE-ANNEXE-SUCCESS">
+    <message lang="en">the appendix "%s" has been removed successfully</message>
+  </info>
+  <info type="LOGBOOK-CLOSED">
+    <message lang="en">The activity data are now available in the final report, since the activity progress has been closed</message>
+  </info>
+  <info type="DELETE-ENTERPRISE-CONFIRM" code="202">
+    <message lang="en">You can remove the company "%s" because it is not linked to any case, any activity and is not represented by any person of the data base. Are you sure you want to delete it? This action is irreversible</message>
+  </info>
+  <info type="DELETE-REGION-CONFIRM" code="202">
+    <message lang="en">You can remove the EEN entity "%s" since it is not linked to any case. As a side effect any member bearing the KAM coordinator role or the KAM role for this entity will be updated to remove the corresponding role. Are you sure you want to delete it? This action is irreversible.</message>
+  </info>
+  <info type="DELETE-ENTERPRISE-SUCCESS">
+    <message lang="en">The company "%s" has been removed successfully</message>
+  </info>
+  <info type="DELETE-REGION-SUCCESS">
+    <message lang="en">The EEN entity "%s" has been removed successfully</message>
+  </info>
+  <info type="ACTION-ALERT-CREATED" code="201">
+    <message lang="en">The message has just been sent to the adressee(s) and registered in the messages review</message>
+  </info>
+  <info type="ACTIVITY-CREATE-MISS-CONFIRM" code="202" envelope="confirm">
+    <message lang="en">The needs analysis performed by "%s" does not define any business challenge for the case, do you confirm anyway the creation of a coaching activity ?</message>
+  </info>
+  <info type="ACTIVITY-CREATE-OK-CONFIRM" code="202" envelope="confirm">
+    <message lang="en">Do you confirm the creation of a coaching activity from the needs analysis of "%s" ?</message>
+  </info>
+  <info type="COACH-PLAN-APPROVED-EMAIL">
+    <message lang="en">The resource has just been updated. In addition since you approved the coach plan an e-mail message has been sent to %s.</message>
+  </info>
+  <info type="CASE-ASSIGNED" timeout="-1">
+    <message lang="en">The case %s has been assigned to %s and an e-mail has been sent to %s</message>
+  </info>
+  <info type="COMMAND-TERMINATED" timeout="-1">
+    <message lang="en">The command has been run on the server</message>
+  </info>
+  <info type="NOTIFY-TRANSITION-REPORT" timeout="-1">
+    <message lang="en">A notification e-mail has been sent to %s</message>
+  </info>
+  <info type="NO-NOTIFY-SME-TRANSITION-REPORT" timeout="-1">
+    <message lang="en">The SME has already received an automatic notification e-mail on %s, 5 days after EEN Assignment</message>
+  </info>
+  <info type="SME-FEEDBACK-EMAIL-SENT" timeout="-1">
+    <message lang="en">An e-mail with a link to the SME feedback questionnaire has been sent to %s</message>
+  </info>
+  <info type="KAM-FEEDBACK-EMAIL-SENT" timeout="-1">
+    <message lang="en">An e-mail with a link to the KAM feedback questionnaire has been sent to %s</message>
+  </info>
+  <info type="ACTION-DELETE-SUCCESS">
+    <message lang="en">The resource has been deleted</message>
+  </info>
+  <info type="MODE-WARNING-TEST">
+    <message lang="en">This is a TEST SERVER only ! If your intent is to use the real Case Tracker application, then check the URL you are using. Information on this platform may not be accurate and can be lost at any time...</message>
+  </info>
+  <info type="MODE-WARNING-DEV">
+    <message lang="en">This is a DEVELOPMENT SERVER only ! If your intent is to use the real Case Tracker application, then check the URL you are using. Information on this platform may not be accurate and can be lost at any time...</message>
+  </info>  
+  <info type="OTF-ADVERT">
+    <message lang="en"> <span style="font-weight:bold;"><a xmlns="http://www.w3.org/1999/xhtml" href="https://ec.europa.eu/easme/en/matchmaking-events-investors-and-business-partners">Business acceleration services</a>: Notify your client about the latest opportunity!</span></message>
+  </info>
+  <!-- ******************************************** -->
+  <!-- *************  Account Messages ************ -->
+  <!-- ******************************************** -->
+  <info type="ACCOUNT-LOGIN-CREATED" code="201">
+    <message lang="en">The account has been created and a message has been sent to "%s"</message>
+  </info>
+  <info type="ACCOUNT-LOGIN-UPDATED">
+    <message lang="en">The new account has been created and a message has been sent to "%s"</message>
+  </info>
+  <info type="ACCOUNT-LOGIN-DELETED">
+    <message lang="en">The user "%s" has been removed and therefore has no longer access to the data base</message>
+  </info>
+  <info type="ACCOUNT-PWD-CHANGED-MAIL">
+    <message lang="en">The password has been changed and a notification message has been sent to %s</message>
+  </info>
+  <info type="ACCOUNT-PWD-CHANGED-NOMAIL">
+    <message lang="en">The password has been changed but the notification message couldn't be sent to %s. Try to get it through another canal</message>
+  </info>
+  <info type="PROFILE-UPDATED-WOACCESS">
+    <message lang="en">The profil of "%s" has been updated, do not forget to create him a login or to generate a password if you want him to have an access to the application</message>
+  </info>
+  <info type="PROFILE-UPDATED">
+    <message lang="en">The profile of the user "%s" has been updated</message>
+  </info>
+  <info type="REMOTE-PROFILE-CREATED">
+    <message lang="en">The profile of the remote user "%s" has been created and a message has been sent to "%s"</message>
+  </info>
+  <info type="REMOTE-PROFILE-UPDATED">
+    <message lang="en">The profile of the remote user "%s" has been updated and a message has been sent to "%s"</message>
+  </info>
+  <!-- ******************************************** -->
+  <!-- ************  Appendix Messages ************ -->
+  <!-- ******************************************** -->
+  <info type="APPENDIX-PREFLIGHT-OK" code="200">
+    <message>%s</message>
+  </info>
+  <info type="APPENDIX-CREATED" code="201">
+    <message>%s</message>
+  </info>
+  <!-- ***************************************** -->
+  <!-- ************  Stats Messages ************ -->
+  <!-- ***************************************** -->
+  <info type="INFO-BI" code="200" timeout="-1">
+    <message>As member of the business intelligence group you can view statistics for all cases and activities</message>
+  </info>
+  <info type="INFO-KAMCO" code="200" timeout="-1">
+    <message>As an EEN KAM Coordinator you can view statistics for %s</message>
+  </info>
+  <info type="INFO-NCP" code="200" timeout="-1">
+    <message>As an National Contact Point you can view statistics for %s</message>
+  </info>
+  <info type="INFO-KAM" code="200" timeout="-1">
+    <message>As a KAM you can view statistics for your own cases</message>
+  </info>
+</messages>

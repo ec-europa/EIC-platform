@@ -1,0 +1,29 @@
+<Feeds>
+  <Feed For="1"> <!-- SME Instrument -->
+    <Chart>
+      <Title>Coaching performance</Title>
+      <Composition Selector="RatingScales" Variable="Q" Name="coach-kpi">
+        <Mean loc="perf.resource" Filter="RI"> <!-- same as KPI3 -->
+          <Rank>8</Rank>
+          <Rank>9</Rank>
+          <Rank>10</Rank>
+          <Rank>11</Rank>
+          <Rank>12</Rank>
+        </Mean>
+        <Mean loc="perf.business" Filter="BI"> <!-- same as KPI4 -->
+          <Rank>13</Rank>
+          <Rank>14</Rank>
+        </Mean>
+        <Mean loc="perf.interaction" Filter="I">
+          <Rank>15</Rank>
+        </Mean>
+        <Mean loc="sme.rating" Filter="SME" Stats="alone">
+          <Rank>9</Rank>
+          <Rank>11</Rank>
+          <Rank>13</Rank>
+          <Rank>14</Rank>
+        </Mean>
+      </Composition>
+    </Chart>
+  </Feed>
+</Feeds>

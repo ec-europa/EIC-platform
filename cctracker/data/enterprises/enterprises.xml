@@ -1,0 +1,14 @@
+<Enterprises>
+  <Enterprise>
+      <Id>1</Id>
+      <Name>Sample SME Limited</Name>
+      <Address>
+          <StreetNameAndNo>sample street, 1</StreetNameAndNo>
+          <Town>Sample</Town>
+          <PostalCode>75000</PostalCode>
+          <Country>FR</Country>
+      </Address>
+      <SizeRef>1</SizeRef>
+      <DomainActivityRef>M74</DomainActivityRef>
+  </Enterprise>
+</Enterprises>

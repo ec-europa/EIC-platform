@@ -1,0 +1,29 @@
+<html xmlns:site="http://oppidoc.com/oppidum/site" xmlns:xt="http://ns.inria.org/xtiger" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <site:window>Case Tracker beta</site:window>
+    <xt:head version="1.1" templateVersion="1.0" label="Tools">
+    </xt:head>
+    <site:skin force="true">
+    </site:skin>
+  </head>
+  <body>
+    <div id="err-msg">
+        <div id="error" condition="has-error">
+          <span class="ui-close" onclick="javascript:document.errorOff()">X</span>
+          <site:error force="true">
+              <p>ERROR</p>
+          </site:error>
+        </div>
+        <div id="message" condition="has-message">
+          <span class="ui-close" data-timeout="1500" onclick="javascript:document.messageOff()">X</span>
+          <site:message force="true">
+              <p>MESSAGE</p>
+          </site:message>
+        </div>
+    </div>
+    <div class="container">
+      <site:content/>
+    </div>
+  </body>
+</html>

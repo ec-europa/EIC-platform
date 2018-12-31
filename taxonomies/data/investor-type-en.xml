@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalInformation>
+  <Description Lang="en">
+    <Selector Name="InvestorTypes">
+      <Version>20180924-0</Version>
+      <Title>What is the type of the investor</Title>
+        <Option>
+          <Value>1</Value>
+          <Name>Business Angel</Name>
+        </Option>
+        <Option>
+          <Value>2</Value>
+          <Name>Private Equity</Name>
+        </Option>
+        <Option>
+          <Value>3</Value>
+          <Name>Venture Capital</Name>
+        </Option>
+        <Option>
+          <Value>4</Value>
+          <Name>Corporate Venture Capital</Name>
+        </Option>
+        <Option>
+          <Value>5</Value>
+          <Name>Family Office</Name>
+        </Option>
+        <Option>
+          <Value>6</Value>
+          <Name>Growth Equity</Name>
+        </Option>
+        <Option>
+          <Value>7</Value>
+          <Name>State funds</Name>
+        </Option>
+        <Option>
+          <Value>8</Value>
+          <Name>Bank funds</Name>
+        </Option>
+        <Option>
+          <Value>9</Value>
+          <Name>Management buy In</Name>
+        </Option>
+        <Option>
+          <Value>10</Value>
+          <Name>Debt funds</Name>
+        </Option>
+      </Selector>
+      
+  </Description>
+</GlobalInformation>

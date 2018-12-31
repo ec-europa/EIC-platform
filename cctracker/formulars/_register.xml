@@ -1,0 +1,147 @@
+<Formulars>
+  <Formular>
+    <Name>Demo (test purpose)</Name>
+    <Form>forms/demo</Form>
+  </Formular>
+  <Formular>
+    <Name>Enterprise</Name>
+    <Form>forms/enterprise</Form>
+  </Formular>
+  <Formular>
+    <Name>Enterprise (search)</Name>
+    <Form>forms/enterprise-search</Form>
+    <Template>templates/search/enterprises</Template>
+  </Formular>
+  <Formular>
+    <Name>Regional Entity</Name>
+    <Form>forms/region</Form>
+  </Formular>
+  <Formular>
+    <Name>Regional Entity (search)</Name>
+    <Form>forms/region-search</Form>
+    <Template>templates/search/regions</Template>
+  </Formular>
+  <Formular>
+    <Name>Person</Name>
+    <Form>forms/person</Form>
+  </Formular>
+  <Formular>
+    <Name>Person (search)</Name>
+    <Form>forms/person-search</Form>
+    <Template>templates/search/persons</Template>
+  </Formular>
+  <Formular>
+    <Name>Service</Name>
+    <Form>forms/service</Form>
+  </Formular>
+  <Formular>
+    <Name>Coach (search)</Name>
+    <Form>forms/coach-search</Form>
+    <Template>templates/search/coaches</Template>
+  </Formular>
+  <Formular>
+    <Name>Project information</Name>
+    <Form>forms/project-information</Form>
+  </Formular>
+  <!-- Case Workflow -->
+  <Formular>
+    <Name>EEN assignment</Name>
+    <Form>forms/case-information</Form>
+  </Formular>
+  <Formular>
+    <Name>EEN Assigned entity (modal)</Name>
+    <Form>forms/managing-entity</Form>
+  </Formular>  
+  <Formular>
+    <Name>KAM assignment</Name>
+    <Form>forms/case-management</Form>
+  </Formular>
+  <Formular>
+    <Name>Needs analysis (coaching initiation)</Name>
+    <Form>forms/needs-analysis</Form>
+  </Formular>
+  <Formular>
+    <Name>Coaching assignment</Name>
+    <Form>forms/coaching-assignment</Form>
+  </Formular>  
+  <!-- Activity Workflow -->
+  <Formular>
+    <Name>Coaching plan</Name>
+    <Form>forms/funding-request</Form>
+  </Formular>
+  <Formular>
+    <Name>Consultation (Overview)</Name>
+    <Form>forms/opinions</Form>
+  </Formular>
+  <Formular>
+    <Name>Approval</Name>
+    <Form>forms/funding-decision</Form>
+  </Formular>
+  <Formular>
+    <Name>Coach Contract Signature</Name>
+    <Form>forms/coach-contract</Form>
+  </Formular>
+  <Formular>
+    <Name>Coaching report</Name>
+    <Form>forms/final-report</Form>
+  </Formular>
+  <Formular>
+    <Name>KAM report</Name>
+    <Form>forms/final-report-approval</Form>
+  </Formular>
+  <Formular>
+    <Name>Closing</Name>
+    <Form>forms/closing</Form>
+  </Formular>
+  <Formular>
+    <Name>Evaluation</Name>
+    <Form>forms/evaluation</Form>
+  </Formular>
+  <Formular>
+    <Name>Evaluations (SME, KAM, Coach)</Name>
+    <Form>forms/evaluations</Form>
+  </Formular>
+  <Formular>
+    <Name>Position statement (modal)</Name>
+    <Form>forms/position</Form>
+  </Formular>
+  <!-- Shared between Case and Activity Workflow -->
+  <Formular>
+    <Name>Notification message (Alert)</Name>
+    <Form>forms/notification</Form>
+  </Formular>
+  <Formular>
+    <Name>Email message (Grant Signature)</Name>
+    <Form>forms/email</Form>
+  </Formular>
+  <!-- Management -->
+  <Formular>
+    <Name>User profile</Name>
+    <Form>forms/profile</Form>
+  </Formular>
+  <Formular>
+    <Name>User account</Name>
+    <Form>forms/account</Form>
+  </Formular>
+  <Formular>
+    <Name>Remote account (pre-registration)</Name>
+    <Form>forms/remote</Form>
+  </Formular>
+  <Formular>
+    <Name>Financial statement (DEPRECATED)</Name>
+    <Form>forms/financial-statement</Form>
+  </Formular>
+  <!-- Statistics -->
+  <Formular>
+    <Name>Cases statistics</Name>
+    <Form>forms/stats-cases</Form>
+  </Formular>
+  <Formular>
+    <Name>Activities statistics</Name>
+    <Form>forms/stats-activities</Form>
+  </Formular>
+  <Formular>
+    <Name>KPI statistics</Name>
+    <Form>forms/stats-kpi</Form>
+  </Formular>  
+</Formulars>

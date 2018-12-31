@@ -1,0 +1,192 @@
+<!-- CCTRACKER - EIC Case Tracker Application
+
+     Author: Stéphane Sire <s.sire@opppidoc.fr>
+
+     (c) Copyright may be reserved
+  -->
+<Form Tag="NeedsAnalysis" Layout="fluid" StartLevel="1" xmlns:site="http://oppidoc.com/oppidum/site" xmlns:xt="http://ns.inria.org/xtiger" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <Title>Coaching initiation</Title>
+
+  <Verbatim>
+    <xt:component name="t_person_name">
+      <Field Key="firstname" Tag="FirstName" W="6" Gap="1" L="0">Name</Field>
+      <Field Key="lastname" Tag="LastName" W="6" Gap="1">Surname</Field>
+    </xt:component>
+    <xt:component name="t_contacts">
+      <Field Key="phone" Tag="Phone" Gap="1" W="6" L="0">Phone</Field>
+      <Field Key="mobile" Tag="Mobile" Gap="1" W="6">Mobile</Field>
+      <Field Key="email" Tag="Email" Gap="1" W="12" L="0">Email</Field>
+    </xt:component>
+    <xt:component name="t_tools">
+      <Cell Gap="2">
+        <Title>Tools used by KAM <Hint data-placement="right">This list of tools does not represent a choice, preference or preselection, but merely a list of tools which have been used in the Network. Fell free to add your own tool description using the field below</Hint></Title>
+        <Field Key="known-tools" Tag="KnownTools" W="12" Gap="2" L="0"/>
+      </Cell>
+      <Cell Gap="2">
+        <Title>Description of other tools <Hint data-placement="right">Use this field to add your own tool description (or the one you use) simply by entering its name if it is not on the list above</Hint></Title>
+        <Field Key="methods" Tag="Comments" W="12" Gap="2" L="0"/>
+      </Cell>
+    </xt:component>
+    <xt:component name="t_KAMReportNAProxy">
+      <Cell Tag="Recognition" Class="c-v-spacer">
+        <Field Key="likert-scale" Tag="RatingScaleRef" Gap="3" W="12">The top management understands the value of the coaching.</Field>
+        <Field Key="comments" Tag="Comment" Gap="0">Describe your experiences.</Field>
+      </Cell>
+      <Cell Tag="Tools" Class="c-v-spacer">
+        <Field Key="likert-scale" Tag="RatingScaleRef" Gap="3" W="12">I felt confident using the needs analysis tool.</Field>
+        <Field Key="comments" Tag="Comment" Gap="0">Describe your experiences.</Field>
+      </Cell>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <Cell W="12" Gap="2" Tag="Contact">
+      <Title>Date of 1st SME contact <Hint data-placement="right">If the KAM does not enter the date of first contact (and save in the case tracker system), EASME will get an alert notification. This is because reaction time is considered critical to supporting an SME by EASME.</Hint></Title>
+      <Row>
+        <Field Key="date-first" Tag="Date" Gap="1" W="4" L="0">Date</Field>
+        <Field Key="done-by" Tag="Agent" Gap="1.75" W="8">Contacted by</Field>
+      </Row>
+    </Cell>
+  </Row>
+  <Separator/>
+
+  <!-- Aligned with case-information.xml -->
+  <Row>
+    <Cell Gap="2" Class="x-ContactPerson" Tag="ContactPerson">
+      <Title>Contact person for needs analysis</Title>
+      <Row>
+        <Field Key="sex" Tag="Sex" Gap="1" W="3" L="0">Sex</Field>
+        <Field Key="civility" Tag="Civility" Gap="1" W="6" Offset="3">Title</Field>
+        <Use Tag="Name" TypeName="person_name"/>
+        <Use Tag="Contacts" TypeName="contacts"/>
+        <Field Key="function" Tag="Function" Gap="1" W="12" L="0">Function</Field>
+      </Row>
+    </Cell>
+  </Row>
+  <Separator/>
+
+  <Row>
+    <Cell>
+      <Title Level="1" style="text-align:center;margin-bottom:20px">Results of needs analysis <Hint data-placement="right">KAMs will use a variety of methods to undertake the company needs analysis. The results of this activity – regardless of the diagnostic tool used to structure the dialogue with the company – should be translated into the categories below, which are structured to correspond with the coach database. Please do not use these categories as a questionnaire for the company, rather use them to inform the conversation you are having with them on the needs they are facing on their business innovation journey.</Hint></Title>
+      
+      <xhtml:p class="span12 text-hint" style="margin: 0 0 25px 0">The purpose of the needs analysis is to identify a suitable coach and to provide information to the coach for initial discussion</xhtml:p>
+      
+      <Row>
+        <Cell W="12" Gap="2" Tag="Analysis">
+          <Title>Date of needs analysis</Title>
+          <Row>
+            <Field Key="date-analysis" Tag="Date" Gap="1" W="2" L="0"/>
+          </Row>
+        </Cell>
+      </Row>
+      <Separator/>
+      
+      <Row>
+        <Use Tag="Tools" TypeName="tools"/>
+      </Row>
+      <Separator/>
+
+      <Row>
+        <Cell Gap="2" Tag="Stats">
+          <Title>Validation and completion of statistical information <Hint data-placement="right">EASME asks that the KAM verify and complete the four fields detailing the company statistics and the sector group that will be used for future statistics and analytics on the SME Instrument programme.</Hint></Title>
+          <Row>
+            <Field Key="targeted-markets" Tag="TargetedMarkets" Gap="1" W="6">Markets</Field>
+            <Field Key="size" Tag="SizeRef" Gap="1.5" W="6">Company size</Field>
+          </Row>
+          <Row>
+            <Field Key="domain-activity" Tag="DomainActivityRef" Gap="1" W="6">NACE</Field>
+            <Field Key="creation" Tag="CreationYear" Gap="2" W="6">Year of establishment</Field>
+          </Row>
+          <Row>
+            <Field Key="sector-groups" Tag="SectorGroupRef" Gap="1" W="9">Sector group</Field>
+          </Row>
+        </Cell>
+      </Row>
+      <Separator/>
+
+      <Cell W="12" Gap="2" Tag="Context" L="0" style="margin-bottom:20px">
+        <Title>SME life cycle context <Hint data-placement="right">Here the KAM should select the current stage of development of the SME and the planned next step in its development. Please look at the SME Instrument Method Handbook for a detailed explanation and examples of each stage.</Hint></Title>
+        <SideLink Path="/docs/cc20-method-handbook">method handbook</SideLink>
+        <Box Key="ctx-initial" Tag="InitialContextRef" W="6">
+          <Title>What's the SME's current context?</Title>
+        </Box>
+        <Box Key="ctx-target" Tag="TargetedContextRef" W="6">
+          <Title>What's the SME's next target context?</Title>
+        </Box>
+        <!-- <Field Key="ctx-initial" Tag="InitialContextRef" W="6" Gap="2"
+             Placeholder-loc="content.choose">What's the SME's current context?</Field>
+      <Field Key="ctx-target" Tag="TargetedContextRef" W="6" Gap="2"
+             Placeholder-loc="content.choose">What's the SME's next target context?</Field> -->
+        <Field Key="ctx-description" Tag="Comments" Gap="0">Describe the current SME context and where they are planning to move next</Field>
+      </Cell>
+      <Separator/>
+
+      <Cell W="12" Gap="2" Tag="Impact" L="0">
+        <Title>Business innovation challenges <Hint data-placement="bottom">Identify only those areas that are of high importance to the company and where it is currently lacking in capabilities. For more information on identifying business innovation challenges, please look at the SME Instrument Method Handbook.</Hint></Title>
+        <Box Key="vectors" Tag="Vectors" W="3">
+          <Title>Business innovation vectors <Hint>Business Innovation Vectors are used to categorize the main dimensions of business innovation.</Hint></Title>
+        </Box>
+        <Box Key="ideas" Tag="Ideas" W="3">
+          <Title>Sources of business innovation ideas</Title>
+        </Box>
+        <Box Key="resources" Tag="Resources" W="3">
+          <Title>Internal Resources</Title>
+        </Box>
+        <Box Key="partners" Tag="Partners" W="3">
+          <Title>Partnerships</Title>
+        </Box>
+      </Cell>
+
+    </Cell>
+  </Row>
+
+  <Row>
+    <Cell Gap="2">
+      <Title>Describe main challenges <Hint data-placement="bottom">Limited to 1000 characters max.</Hint></Title>
+      <Field Key="expectations" Tag="Comments" W="12" Gap="3"/>
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row>
+    <Title>Evaluation</Title>
+    <Use TypeName="KAMReportNAProxy" Tag="KAMReportNAProxy"/>
+  </Row>
+  <Separator/>
+  <Row>
+    <Title>Overview coaching activities and progress notes <Hint data-placement="right">Limited to 1000 characters max.</Hint></Title>
+    <Field Key="overview" Tag="OverviewProgress"/>
+  </Row>
+  <Modals>
+    <!-- <Modal Id="c-contact-information" Width="500px" Template="^/templates/person">
+      <Title Mode="update" loc="person.update.title">Modification d'une personne</Title>
+      <Title Mode="create" loc="person.create.title">Ajout d'une personne dans la base de données</Title>
+    </Modal>     -->
+  </Modals>
+  <Commands>
+    <!-- <Augment Key="btn.createContact" Mode="create" TargetEditor="c-contact-information" Controller="persons/add" TargetField=".x-PersonRef" TargetRoot=".x-ContactPerson"/>
+    <Augment Key="btn.updateContact" Mode="update" TargetEditor="c-contact-information" Controller="persons/$_.xml?goal=update" TargetField=".x-PersonRef" TargetRoot=".x-ContactPerson" loc="augment.noContactPersonYet"/> -->
+  </Commands>
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="email" Message-loc="validation.email" Message="email">^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <RegExp Keys="creation" Message-loc="validation.year" Message="4 digits">^\s*$|^\d{4}$</RegExp>
+      <!-- <RegExp Keys="phone mobile" Message-loc="validation.phone"
+        Message="Vous devez saisir un numéro de téléphone composé de chiffres uniquement séparés par des espaces"
+        >^\+?\s*[\d ]{2,}$</RegExp> -->
+    </Enforce>
+  </Bindings>
+  <Plugins>
+    <Input Keys="civility lastname firstname phone mobile email function creation done-by"/>
+    <Date Keys="date-first date-analysis"/>
+    <MultiText Keys="expectations methods ctx-description comments overview"/>
+    <!-- <RichText Keys="ctx-description" Menu="static"/> -->
+  </Plugins>
+  <Hints>
+    <Hint Keys="done-by" data-placement="bottom">This should be the name of the person who contacted the SME (it is generally the KAM but might be different if the KAM is out of the office). This is to ensure that someone contacts the company within the necessary time span.</Hint>
+    <Hint Keys="targeted-markets">Thomson Reuters Business Classification</Hint>
+    <Hint Keys="ctx-description">Limited to 1000 characters max.</Hint>
+    <Mandatory Tags="RatingScaleRef Comment TargetedMarkets SizeRef DomainActivityRef CreationYear">To proceed to the next step please fill in the mandatory fields highlighted in red</Mandatory>
+  </Hints>
+  
+</Form>

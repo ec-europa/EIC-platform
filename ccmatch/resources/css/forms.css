@@ -1,0 +1,154 @@
+/* AXEL and AXEL-FORMS customization */
+
+.axel-core-editable {
+  outline: none !important;
+  border: none !important;
+}
+
+div.af-validation, div.span12.af-validation {
+  display: none;
+}
+
+div.af-validation-failed {
+  display: block !important;
+}
+
+.af-error {
+  color: #FF0000;
+  display: none;
+}
+
+label.af-invalid, label.af-required {
+  color: red !important;
+}
+
+/* toc */
+
+a.top {
+  font-size:12px;
+}
+
+a.toc {
+  text-decoration: none;
+}
+
+/* Forms inside modal dialog boxes (limits height + scroll bars) */
+
+.modal {
+  max-height: 80%;
+  overflow-y:auto;
+}
+
+.modal-body {
+  max-height: none;
+  background: #9EC0D9;
+}
+
+/* Bootstrap extension to control Cell and Field labels with span grid units */
+
+ul.select2-choices {
+  margin-bottom: 10px !important;
+}
+
+label.a-gap0 {
+  float: none;
+}
+
+[class*="a-gap"] {
+  float: left;
+  min-height: 1px;
+  margin-left: 0;
+}
+
+.control-label.a-gap1, .a-cell-label.a-gap1 {
+  width: 60px;
+}
+
+.control-label.a-gap1 + .controls,
+.a-cell-label.a-gap1 + .a-cell-body,
+h3.a-gap1 {
+  margin-left: 80px;
+}
+
+.control-label.a-gap2, .a-cell-label.a-gap2 {
+  width: 140px;
+}
+
+.control-label.a-gap2 + .controls,
+.a-cell-label.a-gap2 + .a-cell-body,
+h3.a-gap2 {
+  margin-left: 160px;
+}
+
+.control-label.a-gap3, .a-cell-label.a-gap3 {
+  width: 220px;
+}
+
+.control-label.a-gap3 + .controls,
+.a-cell-label.a-gap3 + .a-cell-body,
+h3.a-gap3 {
+  margin-left: 240px;
+}
+
+.control-label.a-gap4, .a-cell-label.a-gap4 {
+  width: 300px;
+}
+
+.control-label.a-gap4 + .controls,
+.a-cell-label.a-gap4 + .a-cell-body,
+h3.a-gap4 {
+  margin-left: 320px;
+}
+
+/* Box element */
+
+fieldgroup.a-select-box legend {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0;
+  margin: 0 0 10px 0;
+  border: none; /* border: solid 1px #E5E5E5; */
+}
+
+ul.a-select-box, div.a-select-box {
+  list-style-type: none;
+  display: relative;
+  background-color: #FFFFFF;
+  border: 1px solid #CCCCCC;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  border-radius: 4px 4px 4px 4px;
+  margin-left: 0;
+  padding: 4px;
+}
+
+ul.a-select-box input {
+  float: right;
+}
+
+ul.a-select-box.readonly label.axel-choice-unset {
+  font-style: italic;
+  color: #999;
+  font-size: 80%;
+}
+
+textarea.sg-textarea  {
+  min-height: 7em !important;
+}
+
+/* cardinality binding */
+.cardinality-counter {
+  color: green;
+}
+
+#cm-criteria-collapsible.in {
+  overflow: visible;
+}
+
+table.loading th[data-sort="Name"] {
+  background: #229090;
+}
+
+p.ornamentation {
+  font-size: 75%;
+  margin-top: 1em;
+}

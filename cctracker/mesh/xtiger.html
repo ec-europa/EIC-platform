@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:site="http://oppidoc.com/oppidum/site" 
+  xmlns:xt="http://ns.inria.org/xtiger">
+  <!-- DEPRECATED : testing purpose -->
+    <head>
+        <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title>Case Tracker Test Page</title>
+        <site:skin force="true">
+          <link href="../resources/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+          <link href="../resources/css/site.css" rel="stylesheet" type="text/css" />
+        </site:skin>
+        <xt:head version="1.1" templateVersion="1.0" label="Root">
+          <xt:component name="myComponent">
+            <p>Optional non-editable content that you can only repeat<xt:menu-marker /></p>
+          </xt:component> 
+        </xt:head>
+        <site:xt-header force="true"></site:xt-header>
+    </head>
+    <body data-template="#">
+      <div class="container">
+        <div id="err-msg" class="row" >
+            <div id="error" class="span12" condition="has-error">
+              <span class="ui-close" onclick="javascript:document.errorOff()">X</span>
+              <site:error force="true">
+                  <p>ERROR</p>
+              </site:error>
+            </div>
+            <div id="message" class="span12" condition="has-message">
+              <span class="ui-close" data-timeout="1500" onclick="javascript:document.messageOff()">X</span>
+              <site:message force="true">
+                  <p>MESSAGE</p>
+              </site:message>
+            </div>
+        </div>
+        <site:content>CONTENT</site:content>
+      </div>
+    </body>
+</html>

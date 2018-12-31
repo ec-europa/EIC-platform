@@ -1,0 +1,283 @@
+<Dictionary xmlns="http://oppidoc.com/oppidum/site">
+  <Translations lang="en">
+    <!--********************************************************-->
+    <!--  Navigation                                            -->
+    <!--********************************************************-->
+    <Translation key="nav.communication">Communication</Translation>
+    <Translation key="nav.team">Team</Translation>
+    <Translation key="nav.teams">Teams</Translation>
+    <Translation key="nav.events">Events</Translation>
+    <Translation key="nav.coaching">Coaching</Translation>
+    <Translation key="nav.company">Company</Translation>
+    <Translation key="nav.companies">Companies</Translation>
+    <Translation key="nav.grant">Grant</Translation>
+    <Translation key="nav.who-is-who">Who is who</Translation>
+    <Translation key="nav.investors">ScaleupEU</Translation>
+    <Translation key="nav.alerts">Alerts</Translation>
+    <Translation key="nav.community">EIC Community</Translation>    
+    <Translation key="nav.admin">Admin</Translation>
+
+    <!--********************************************************-->
+    <!-- Exact terms (form fields labels, column headers, etc.) -->
+    <!--********************************************************-->
+    <Translation key="term.no">No</Translation>
+    <Translation key="term.case.nb">Case ID</Translation>
+    <Translation key="term.activity.nb">Coaching ID</Translation>
+    <Translation key="term.sender">From</Translation>
+    <Translation key="term.addressees">Addressee(s)</Translation>
+    <Translation key="term.date">Date</Translation>
+    <Translation key="term.startDate">Start date</Translation>
+    <Translation key="term.creationDate">Entry date</Translation>
+    <Translation key="term.numberOfHours">Number of hours</Translation>
+    <Translation key="term.enterprise">Company</Translation>
+    <Translation key="term.npa">Postcode</Translation>
+    <Translation key="term.town">City</Translation>
+    <Translation key="term.state">Canton</Translation>
+    <Translation key="term.country">Country</Translation>
+    <Translation key="term.service">Coaching service</Translation>
+    <Translation key="term.phase">Call phase</Translation>
+    <Translation key="term.initiator">Initiated by</Translation>
+    <Translation key="term.activityPhase">Coaching service</Translation>
+    <Translation key="term.responsibleCoach">Responsible coach</Translation>
+    <Translation key="term.currentStatus">Coaching status</Translation>
+    <Translation key="term.activities">activities</Translation>
+    <Translation key="term.activityDesc">Main activities</Translation>
+    <Translation key="term.cases">Cases</Translation>
+    <Translation key="term.coach">Coach</Translation>
+    <Translation key="term.mobile">Mobile phone</Translation>
+    <Translation key="term.phoneAbbrev">Phone</Translation>
+    <Translation key="term.enterpriseSize">Size</Translation>
+    <Translation key="term.domainActivity">NACE</Translation>
+    <Translation key="term.targetedMarkets">Markets</Translation>
+    <Translation key="term.initialContext">Current</Translation>
+    <Translation key="term.targetContext">Planned</Translation>
+    <Translation key="term.innovationVectors">Vectors</Translation>
+    <Translation key="term.ideaSources">Ideas</Translation>
+    <Translation key="term.resources">Resources</Translation>
+    <Translation key="term.partnerships">Partnerships</Translation>
+    <Translation key="term.partners">Partners</Translation>
+    <Translation key="term.statusRange">Initiated</Translation>
+    <Translation key="term.specialist">Specialist</Translation>
+    <Translation key="term.from">between</Translation>
+    <Translation key="term.to">and</Translation>
+    <Translation key="term.status">Status</Translation>
+    <Translation key="term.caseStatus">Case status</Translation>
+    <Translation key="term.coachingStatus">Coaching status</Translation>
+    <Translation key="term.name">Name</Translation>
+    <Translation key="term.person">Person</Translation>
+    <Translation key="term.member">Member</Translation>
+    <Translation key="term.surname">Last Name</Translation>
+    <Translation key="term.abbrev">Abbreviation</Translation>
+    <Translation key="term.box">Box number</Translation>
+    <Translation key="term.co">c/o</Translation>
+    <Translation key="term.creationYear">Year of creation</Translation>
+    <Translation key="term.email">Email</Translation>
+    <Translation key="term.phone">Phone</Translation>
+    <Translation key="term.postalCode">Postcode</Translation>
+    <Translation key="term.role">Role</Translation>
+    <Translation key="term.streetNameAndNo">Street &amp; no</Translation>
+    <Translation key="term.title">Title</Translation>
+    <Translation key="term.webSite">Website</Translation>
+    <Translation key="term.function">Function</Translation>
+    <Translation key="term.collaborativeEntity">Collaborative entity</Translation>
+    <Translation key="term.administrativeEntity">administrative entity</Translation>
+    <Translation key="term.contactSource">Contact person of company</Translation>
+    <Translation key="term.type">Type</Translation>
+    <Translation key="term.subject">Subject</Translation>
+    <Translation key="term.comment">Comment</Translation>
+    <Translation key="term.alert">Alert message</Translation>
+    <Translation key="term.persons">Persons</Translation>
+    <Translation key="term.team">Team</Translation>
+    <Translation key="term.teamMember">Team member</Translation>
+    <Translation key="term.loading">Loading...</Translation>
+    <Translation key="term.saving">Communication with server...</Translation>
+    <Translation key="term.initialPosition">Current context</Translation>
+    <Translation key="term.targetPosition">Targeted context</Translation>
+    <Translation key="term.description">Description</Translation>
+    <Translation key="term.sex">Sex</Translation>
+    <Translation key="term.civility">Title</Translation>
+    <Translation key="term.firstName">First Name</Translation>
+    <Translation key="term.details">Details</Translation>
+    <Translation key="term.total">Total</Translation>
+    <Translation key="term.funding">Funding</Translation>
+    <Translation key="term.fundingSource">Funds source</Translation>
+    <Translation key="term.balance">Balance</Translation>
+    <Translation key="term.opinion">Opinion</Translation>
+    <Translation key="term.author">Author</Translation>
+    <Translation key="term.expenses">Expenses</Translation>
+    <Translation key="term.activityStatus">Activity Status</Translation>
+    <Translation key="term.nbOfHours">No of working hours</Translation>
+    <Translation key="term.recipient">To</Translation>
+    <Translation key="term.message">Message</Translation>
+    <Translation key="term.fixedContent">Generated content by system</Translation>
+    <Translation key="term.filename">Filename</Translation>
+    <Translation key="term.accessLevel">Access level</Translation>
+    <Translation key="term.PO">Project Officer</Translation>
+    <Translation key="term.parentLEAR">Created by LEAR</Translation>
+
+    <!--***********************************************-->
+    <!-- Application level titles, labels and messages -->
+    <!--***********************************************-->
+    <Translation key="app.title.noResults">No result</Translation>
+    <Translation key="app.message.noResults">There are no results for the selected criteria</Translation>
+    <Translation key="app.message.js">Activate Javascript</Translation>
+    <Translation key="app.message.loading">Loading file...</Translation>
+    <Translation key="app.nav.stage">Home</Translation>
+    <Translation key="app.nav.forms">Supergrid</Translation>
+    <Translation key="app.hint.noResults">Select one or more criteria before searching</Translation>
+    
+    <!--***********************************************-->
+    <!-- OTF Workflow Accordion Titles -->
+    <!--***********************************************-->
+    <Translation key="workflow.title.confirmation">Confirmation form</Translation>
+    <Translation key="workflow.title.finalization">Finalization</Translation>
+    <Translation key="workflow.title.satisfaction">Feedback satisfaction survey</Translation>
+    <Translation key="workflow.title.impact">Feedback impact survey</Translation>
+    <Translation key="workflow.title.closing">Finalising</Translation>
+    <Translation key="workflow.title.closed">Finalised</Translation>
+    <Translation key="workflow.otf.title.apply">Application (on behalf of the SME)</Translation>
+    <Translation key="workflow.otf.title.evaluation">Evaluation (contracting party)</Translation>
+    <Translation key="workflow.academy.title.apply">Application (on behalf of the SME)</Translation>
+    <Translation key="workflow.academy.title.evaluation">Evaluation (contracting party)</Translation>
+    <Translation key="workflow.invest.title.apply">Application (on behalf of the SME)</Translation>
+    <Translation key="workflow.invest.title.evaluation">Evaluation (contracting party)</Translation>
+    <Translation key="workflow.easme.title.apply">Application (on behalf of the SME)</Translation>
+    <Translation key="workflow.easme.title.evaluation">Evaluation</Translation>
+
+    <!--*******************-->
+    <!-- Documents headers -->
+    <!--*******************-->
+    <Translation key="data.enterprise.address">Address</Translation>
+    <Translation key="data.enterprise.statistics">Statistics</Translation>
+    <Translation key="data.enterprise.companyProfile">Company profile</Translation>
+    <Translation key="data.enterprise.status">Current status</Translation>
+    
+    <!--*****************************************-->
+    <!-- Form legends (titles, sub-titles, etc.) -->
+    <!--*****************************************-->
+    <Translation key="form.title.enterprise.search">Search companies</Translation>
+    <Translation key="form.title.persons.search">Search persons</Translation>
+    <Translation key="form.legend.enterpriseContext">Innovation Context</Translation>
+    <Translation key="form.legend.intentionalImpact">Challenges of Innovation System</Translation>
+    <Translation key="form.legend.address">Address</Translation>
+    <Translation key="form.legend.participant.information">Participant Information</Translation>
+    <Translation key="form.legend.company.presentation">Company Presentation</Translation>
+    <Translation key="form.legend.companies.sought">Companies sought</Translation>
+    <Translation key="form.legend.eic.event.berlin">EIC event - Berlin</Translation>
+    <Translation key="form.legend.interestd.in">I would like to attend the following workshops</Translation>
+    
+    <!--**************-->
+    <!-- Form options -->
+    <!--**************-->
+    <Translation key="option.parag">Parag</Translation>
+    <Translation key="option.list">List</Translation>
+    <Translation key="option.title">Title</Translation>
+    
+    <!--***************************-->
+    <!-- Form enterprise / partner -->
+    <!--***************************-->
+    <Translation key="enterprise.name.hint">Enter the name of the company to create, the drop-downlist will show you if a similar firm name already exists.</Translation>
+    <Translation key="enterprise.create.title">Enter company</Translation>
+    <Translation key="enterprise.create.info">In order to avoid duplications, the field of the company name will show you if a similar firm name already exists.</Translation>
+    <Translation key="enterprise.update.title">Modify details</Translation>
+    <Translation key="enterprise.search.result.message1">Results</Translation>
+    <Translation key="enterprise.search.result.message2">Company (ies)</Translation>
+    <Translation key="partner.name.hint">Enter the name of the partner to create,the drop-downlist will show you if a similar partner name already exists</Translation>
+    <Translation key="partner.create.title">Enter partner company</Translation>
+    <Translation key="partner.update.title">Modify details</Translation>
+    <Translation key="partner.repeat.hint">Tick the box or click on the plus to add a partner, untick the box or click on the minus to remove him</Translation>
+    
+    <!--*************-->
+    <!-- Form person -->
+    <!--*************-->
+    <Translation key="person.name.hint">Enter the family name of the person to create then hit return and complete the other fields; the drop-downlist will show you if a person with a similar name already exists in database, please avoid creating duplicate records of the same person !</Translation>
+    <Translation key="person.create.title">Enter person</Translation>
+    <Translation key="person.update.title">modify personal details</Translation>
+    <Translation key="person.search.result.message1">Results</Translation>
+    <Translation key="person.search.result.message2">Person(s)</Translation>
+    
+    <!--******************************-->
+    <!-- Form fields default content  -->
+    <!--******************************-->
+    <Translation key="content.any">All</Translation>
+    <Translation key="content.any.f">All</Translation>
+    <Translation key="content.choose">Choose...</Translation>
+    <Translation key="content.parag">Click to enter a paragraph</Translation>
+    <Translation key="content.listHeader">Click to enter a heading</Translation>
+    <Translation key="content.listItem">Click to enter an item</Translation>
+    <Translation key="content.title">Click to select a title</Translation>
+    <Translation key="content.unseen">Not considered</Translation>
+    
+    <!--*****************************-->
+    <!-- Exact terms (button labels) -->
+    <!--*****************************-->
+    <Translation key="action.close">Close</Translation>
+    <Translation key="action.search">Search</Translation>
+    <Translation key="action.reset">Clear</Translation>
+    <Translation key="action.save">Save</Translation>
+    <Translation key="action.submit">Save &amp; Submit</Translation>
+    <Translation key="action.edit">Edit</Translation>
+    <Translation key="action.correct">Correct</Translation>
+    <Translation key="action.cancel">Cancel</Translation>
+    <Translation key="action.delete">Delete</Translation>
+    <Translation key="action.print">Print</Translation>
+    <Translation key="action.email">Send Email</Translation>
+    <Translation key="action.save.submission">Save default filter</Translation>
+    <Translation key="action.load.submission">Load default filter</Translation>
+    <Translation key="action.terminate">Finish</Translation>
+    <Translation key="action.send">Send</Translation>
+    <Translation key="action.dontSend">Continue without sending</Translation>
+    <Translation key="action.status.change">Go to next step</Translation>
+    <Translation key="action.back">Back</Translation>
+    <Translation key="action.continue">Continue</Translation>
+    <Translation key="action.new.pwd">New password</Translation>
+    <Translation key="action.submit.pwd">Change password</Translation>
+    <Translation key="action.create.yes">Yes, please create it now</Translation>
+    <Translation key="action.create.no">No, thank you I will create it later</Translation>
+    
+    <!--*********************-->
+    <!-- Validation messages -->
+    <!--*********************-->
+    <Translation key="validation.integer">Enter a whole number</Translation>
+    <Translation key="validation.hours">Enter a whole number of hours or with quarters (.25, .5, .75)</Translation>
+    <Translation key="validation.decimal">Enter a whole or a decimal number (2 digits decimal part)</Translation>
+    <Translation key="validation.email">The Email address is not written correctly(name@server.domain)</Translation>
+    <Translation key="validation.phone">The number must be separated by spaces with an optional + at the beginning</Translation>
+    <Translation key="validation.login">Enter at least 5 characters including the sign - and without space</Translation>
+    <Translation key="validation.year">Enter a year as a number with 4 digits</Translation>
+    
+    <!--*******-->
+    <!-- Login -->
+    <!--*******-->
+    <Translation key="login.hold">The SME dashboard has been put on hold while we are updating the application or checking some parameters. Please come back in a few minutes when this banner will be removed. We apologize for any inconvenience caused by the delay ...</Translation>
+    <Translation key="login.check">No user profile is currently linked to your EU Login account. Please contact an administrator.</Translation>
+    <Translation key="login.title">Identification</Translation>
+    <Translation key="login.user">User name</Translation>
+    <Translation key="login.pwd">Password</Translation>
+    <Translation key="login.forgotten">Password forgotten</Translation>
+    <Translation key="login.forgotten.hint">Send a new password by Email</Translation>
+    
+    <!--*****************-->
+    <!-- Password tunnel -->
+    <!--*****************-->
+    <Translation key="pwd.title">Password forgotten</Translation>
+    <Translation key="pwd.hint">If you need a new password, please indicate your user name and your address (the one registered in the application) in the field below</Translation>
+    <Translation key="pwd.email">Email</Translation>
+    <Translation key="pwd.sentByEmail">Your new password has been sent to the following address: </Translation>
+    <Translation key="account.title">User Account Management</Translation>
+    <Translation key="account.pwd.hint">You can modify your password by following the instructions of the Form bellow. Pay attention to the number of characters which must be at least 8. Spaces at the beginning and at the end do not count</Translation>
+    <Translation key="account.pwd">New password</Translation>
+    <Translation key="account.pwd.bis">Enter password again</Translation>
+    <Translation key="account.identity1">You are connected as</Translation>
+    <Translation key="account.identity2">So you are</Translation>
+    <Translation key="pwd.updated">Your new password has been registered</Translation>
+    <Translation key="account.continue.hint">You can keep browsing, make use of your new password the next time you want to open the system</Translation>
+
+    <!--**********************-->
+    <!-- Confirmation dialogs -->
+    <!--**********************-->
+    <Translation key="confirm.status.change">Are you sure you want to change the status of the event application workflow now ?</Translation>
+    <Translation key="confirm.application.submit">Are you sure you want to submit your application ? All fields marked as mandatory must be filled otherwise you won't be able to submit. Once you have submitted you can no longer edit the application form.</Translation>
+    <Translation key="confirm.feedback.submit">Please confirm that you want to submit your feedback ? All fields marked as mandatory must be filled otherwise you won't be able to submit. Once you have submitted you can no longer edit the feedback form.</Translation>
+  </Translations>
+</Dictionary>

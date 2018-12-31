@@ -1,0 +1,72 @@
+<Form Tag="SearchMembersRequest" Wrapper="none" xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <Verbatim>
+    <xt:component name="t_searchmembersrequest">
+
+      <Row>
+        <Column W="6">
+          <Field Key="programs" Tag="FundingPrograms" Placeholder-loc="content.any">Funding
+            Program</Field>
+          <Field Key="project" Tag="ProjectId" W="6" L="0" Placeholder-loc="content.any">Project
+            Number</Field>
+          <Field Key="acronyms" Tag="Acronyms" W="6" L="0" Placeholder-loc="content.any">Project
+            Acronym</Field>
+          <Field Key="PO" Tag="ProjectOfficers" W="6" L="0" loc="term.PO"
+            Placeholder-loc="content.any">Project officer</Field>
+          <Field Key="terminations" Tag="TerminationFlags" W="6" Placeholder-loc="content.any"
+            >Termination</Field>
+        </Column>
+        <Column W="6">
+          <Row>
+            <xhtml:span data-avoid-purpose="1 3 4" data-on-class="hide" class="hide feedback-sub">
+            <Field Key="persons" Tag="Persons" loc="term.teamMember" Placeholder-loc="content.any"
+              >Team</Field>
+            </xhtml:span>
+            <Field Key="enterprises" Tag="Enterprises"
+              Placeholder-loc="content.any" W='12'>Organisation</Field>
+            <Field Key="company-type" Tag="CompanyTypes" W="6" L="0" Placeholder-loc="content.any"
+              >Organisation type</Field>
+            <xhtml:span data-avoid-purpose="5" data-on-class="hide" class="hide feedback-sub">
+              <Field Key="adstatus" Tag="StatusAdmissions" W="6" Placeholder-loc="content.any"
+                >Admission status</Field>
+            </xhtml:span> 
+            <xhtml:span data-avoid-purpose="1 3 4" data-on-class="hide" class="hide feedback-sub">
+            <Field Key="validity" Tag="StatusFlags" W="6" Placeholder-loc="content.any"
+              >Validity</Field>
+            <!--<Field Key="creator" Tag="CreatedBy" Gap="1.75" loc="term.parentLEAR" Placeholder-loc="content.any">Created by LEAR</Field>-->
+            <Field Key="functions" Tag="Functions" loc="term.role" W="6" L="0"
+              Placeholder-loc="content.any">Roles</Field>
+              <Field Key="access" Tag="Status" loc="term.accessLevel" W="6"
+                Placeholder-loc="content.any">Access level</Field>
+            </xhtml:span>
+            <!-- <xhtml:div data-avoid-access="" data-off-class="hide" class="hide"> -->
+            <!-- </xhtml:div> -->
+          </Row>
+        </Column>
+        <Row>
+          <Field Key="purpose" Tag="AccreditationTypeRef" Placeholder-loc="content.any"
+            >Purpose</Field>
+        </Row>
+      </Row>
+    </xt:component>
+  </Verbatim>
+  <Row>
+    <Use TypeName="searchmembersrequest"/>
+  </Row>
+  <Bindings>
+    <!-- <Condition Keys="access" Variable="access"/> -->
+    <Condition Keys="purpose" Variable="purpose"/>
+  </Bindings>
+  <Hints>
+    <Hint Keys="functions" data-placement="right">"ScaleupEU access" means the member is the current
+      company contact person in ScaleupEU</Hint>
+    <Hint Keys="purpose" data-placement="right">Selecting "Manage admissions" or "View unaffiliated"
+      implies the other criteria are not used at all</Hint>
+  </Hints>
+
+  <Plugins>
+    <Input Keys="project"/>
+  </Plugins>
+
+
+</Form>

@@ -1,0 +1,461 @@
+<errors>
+  <error type="CUSTOM" code="500">
+    <message lang="en">%s</message>
+  </error>
+  <error type="LOGOUT-FOR-MAINTENANCE" code="503">
+    <message lang="en">You have been automatically logged out from the application to allow us to perform some maintenance operations. We apologize for any inconvenience. Please come back later.</message>
+  </error>
+  <error type="BROWSER-WARNING" code="500">
+    <message lang="en">The application is actually compatible with the Firefox web browser. It has been reported to work on Chrome and Safari too. We have plan to support recent versions of Internet Explorer but this is not available yet. Since your web browser seems to be Internet Explorer (user agent : "%s") please switch to another supported web brower in the meantime. We apologize for the inconvenience.</message>
+  </error>
+  <error type="HOLD" code="401">
+    <message lang="fr">Maintenance de l'application, merci de revenir dans quelques minutes...</message>
+    <message lang="en">Maintenance in progress, please come back in a few minutes...</message>
+  </error>
+  <error type="SHUTDOWN" code="401">
+    <message lang="en">This server is shutdown for maintenance from %s until %s</message>
+  </error>
+  <error type="FORBIDDEN" code="401">
+    <message lang="en">You don't have the access rights to perform this action or the enterprise status does not allow it</message>
+  </error>
+  <error type="NOT-MEMBER-ERROR" code="401">
+    <message lang="en">You are trying to access the application with an 'EU login' that does not have access rights. Please ask your LEAR to add you to the list of delegates and to request access rights to EASME. The LEAR of your company has system rights to appoint/revoke delegates for the SMEi business support services. For further information, please contact us at EASME-SME-HELPDESK@ec.europa.eu.</message>
+  </error>
+  <error type="NO-VALID-ENTERPRISES" code="401">
+    <message lang="en">You are registered as staff of the following enterprise(s): %s. However none of them has a valid status in the SMEi Dashboard. Please contact EASME-SME-HELPDESK@ec.europa.eu if you need support.</message>
+  </error>
+  <error type="NO-RUNNING-PROJECTS" code="401">
+    <message lang="en">You are registered as staff of the following enterprise(s): %s. However none of them has a running project with a grant signed or all the projects have been terminated. Please contact EASME-SME-HELPDESK@ec.europa.eu if you need support.</message>
+  </error>
+  <error type="STATUS-DONT-ALLOW" code="401">
+    <message lang="en">The current status does not allow to perform this action</message>
+  </error>
+  <error type="MALFORMED" code="401">
+    <message lang="fr">La requête est mal formulée</message>
+    <message lang="de">Die Suchkriterien sind unklar</message>
+    <message lang="en">The request cannot be fulfilled due to a wrong formulation</message>
+  </error>
+  <error type="URI-NOT-SUPPORTED" code="404">
+    <message lang="fr">La page demandée n'existe pas</message>
+    <message lang="de">Die gewünschte Seite existiert nicht</message>
+    <message lang="en">This page does not exist</message>
+  </error>
+  <error type="SOON-AVAILABLE" code="500">
+    <message lang="fr">L'édition du document "%s" sera bientôt disponible</message>
+    <message lang="de">Die Veröffentlichung des Dokumentes "%s" ist demnächst verfügbar</message>
+    <message lang="en">The editing of the document "%s" will soon be available</message>
+  </error>
+  <error type="NOT-IMPLEMENTED-YET" code="500">
+    <message lang="fr">Cette fonctionnalité sera bientôt disponible</message>
+    <message lang="de">Diese Funktion wird bald verfügbar sein</message>
+    <message lang="en">This function is not available yet</message>
+  </error>
+  <error type="DOCUMENT-NOT-FOUND" code="500">
+    <message lang="en">The target document to update could not be found</message>
+  </error>
+  <error type="DATA-NOT-FOUND" code="500">
+    <message lang="en">The target document to update could be found but it does not contain the expected data</message>
+  </error>
+  <error type="SEND-MULTI-EMAIL-FAILURE" code="500">
+    <message lang="fr">Un ou plusieurs courriers électroniques n'ont pu être envoyés (%s)</message>
+    <message lang="de">Eine oder mehrere Nachrichten konnten nicht gesendet werden. (%s) </message>
+    <message lang="en">One or more e-mail messages couldn't be sent (%s)</message>
+  </error>
+  <error type="SEND-EMAIL-FAILURE" code="500">
+    <message lang="en">The server could not send the message to "%s"</message>
+  </error>
+  <error type="INTERNAL-ERROR" code="500">
+    <message lang="fr">Erreur interne côté serveur, votre demande n'a pas pu être réalisée</message>
+    <message lang="de">Interne Fehlermeldung beim Server, Ihre Anfrage konnte nicht durchgeführt werden</message>
+    <message lang="en">Internal error with server, your request couldn't be performed</message>
+  </error>
+  <error type="PERSON-NOT-FOUND" code="404">
+    <message lang="fr">La personne n'existe pas dans la base de donnée ou bien vient d'être effacée par un autre utilisateur</message>
+    <message lang="en">The person does not exist in the database or has just been deleted by someone else</message>
+  </error>
+  <error type="VALID-INTEGER-INTERVAL" code="409">
+    <message lang="en">You must specify an integer number between %s and %s</message>
+  </error>
+  <error type="FILE-NOT-FOUND" code="404">
+    <message lang="en">%s file not found in %s</message>
+  </error>
+  <error type="MODE-WARNING-TEST">
+    <message lang="en">This is a TEST SERVER only ! If your intent is to use the real application, then check the URL you are using. Information on this platform may not be accurate and can be lost at any time...</message>
+  </error>
+  <error type="MODE-WARNING-DEV">
+    <message lang="en">This is a DEVELOPMENT SERVER only ! If your intent is to use the real application, then check the URL you are using. Information on this platform may not be accurate and can be lost at any time...</message>
+  </error>
+  <!-- ************************************* -->
+  <!-- ************ CAS Errors ************* -->
+  <!-- ************************************* -->
+  <error type="CAS-INVALID-GET">
+    <message lang="en">The URL specified for contacting %s (%s) is invalid as a mandatory parameter is lacking.</message>
+  </error>
+  <error type="CAS-INVALID-INIT">
+    <message lang="en">An error has been raised by %s while initializing login: %s.</message>
+  </error>
+  <error type="CAS-INVALID-INIT-NO-RULES">
+    <message lang="en">An error has been raised by %s while initializing login. No way has been provided to process for HTTP code %s.</message>
+  </error>
+  <error type="CAS-INVALID-INIT-NO-VALID-RULES">
+    <message lang="en">An error has been raised by %s while initializing login. No way available to process for HTTP code %s can be applied to the context of the response.</message>
+  </error>
+  <error type="CAS-INVALID-INIT-MISMATCHING-RULES">
+    <message lang="en">An error has been raised by %s while initializing login. Failures and successes have to be enforced at the same time for processing the result of the HTTP code %s.</message>
+  </error>
+  <error type="CAS-INVALID-NOTHING-TO-RETURN">
+    <message lang="en">An error has been raised by %s. Succeeded init. has returned nothing (%s).</message>
+  </error>
+  <error type="CAS-INVALID-VAL">
+    <message lang="en">An error has been raised by %s while validating the ticket: %s.</message>
+  </error>
+  <error type="ECAS-NO-USER-PROFILE">
+    <message lang="en">You must register a user account using the link on the login page before browsing the site</message>
+  </error>
+  <!-- ************************************************* -->
+  <!-- ************ Generic Validation Erors *********** -->
+  <!-- ************************************************* -->
+  <error type="INVALID-INTEGER" code="409">
+    <message lang="fr">Le champ "%s" doit être un nombre entier</message>
+    <message lang="de">Das Feld "%s" muss aus einer ganzen Zahl bestehen</message>
+    <message lang="en">The field "%s" has to be an integer</message>
+  </error>
+  <error type="INVALID-EMAIL" code="409">
+    <message lang="fr">Le champ "%s" doit conteinr une adresse de courrier électronique bien formée</message>
+    <message lang="de">Das Feld "%s" muss aus einer gültigen E-Mail-Adresse bestehen</message>
+    <message lang="en">The field "%s" must contain a correctly written Email address</message>
+  </error>
+  <error type="INVALID-LENGTH" code="409">
+    <message lang="fr">Le champ "%s" est trop court</message>
+    <message lang="de">Das Feld "%s" ist zu kurz</message>
+    <message lang="en">The field "%s" is too short</message>
+  </error>
+  <!-- ****************************************** -->
+  <!-- ************ Validation Errors *********** -->
+  <!-- ****************************************** -->
+  <error type="VALIDATION-FORMAT-ERROR" code="409">
+    <message lang="fr">Les données soumises au serveur ne sont pas dans le bon format, merci de signaler cette erreur à un administrateur</message>
+    <message lang="de">Die beim Server eingetragenen Daten haben nicht das richtige Format, bitte melden Sie diesen Fehler beim Systemmanager</message>
+    <message lang="en">The data submitted to the server does not have the correct format. Please report this error to an administrator</message>
+  </error>
+  <error type="VALIDATION-ROOT-ERROR" code="409">
+    <message lang="fr">Le document soumis au serveur n'a pas la bonne racine (reçu : %s), merci de signaler cette erreur à un administrateur</message>
+    <message lang="de">Das beim Server gemeldete Dokument ist fehlerhaften Ursprungs (empfangen : %s), bitte melden Sie diesen Fehler beim Systemmanager</message>
+    <message lang="en">The document submitted to the server does not have the correct root (received : %s). Please report this error to a database administrator</message>
+  </error>
+  <error type="VALIDATION-FAILED" code="409">
+    <message lang="fr">Données invalides, corrigez la saisie (%s)</message>
+    <message lang="de">Daten ungültig, bitte erneut eingeben. (%s)</message>
+    <message lang="en">Invalid data, please correct the entry (%s)</message>
+  </error>
+  <error type="WRONG-SUBMISSION" code="409">
+    <message lang="fr">soumission incomplète, est-ce que vous avez bien utilisé le bouton Enregistrer pour valider votre soumission ?</message>
+    <message lang="de">Eingabe unvollständig, haben Sie Ihre Daten abgespeichert, um Ihre Eingabe zu bestätigen ?</message>
+    <message lang="en">Incomplete submission. Are you sure of having saved your submission ? ]</message>
+  </error>
+  <error type="UNKNOWN-ENTERPRISE">
+    <message lang="fr">l'entreprise "%s" est inconnue</message>
+    <message lang="de">Das Unternehmen "%s" ist unbekannt</message>
+    <message lang="en">The company "%s" is unknown</message>
+  </error>
+  <error type="ENTERPRISE-NAME-CONFLICT">
+    <message lang="fr">le nom "%s" est déjà pris par une autre entreprise, vérifiez la liste</message>
+    <message lang="de">Der Name "%s" wurde bereits einem anderen Unternehmen zugeteilt, bitte überprüfen Sie die Liste</message>
+    <message lang="en">The name "%s" already exists for another company, please check in the list</message>
+  </error>
+  <error type="SHORTNAME-CONFLICT">
+    <message lang="fr">le nom abrégé "%s" est déjà pris par une autre entreprise</message>
+    <message lang="de">Die Abkürzung "%s" wurde bereits einem anderen Unternehmen zugeteilt</message>
+    <message lang="en">The abbreviation "%s" already exists for another company, please check in the list</message>
+  </error>
+  <error type="PERSON-WITH-LOGIN">
+    <message lang="fr">Il possède un identifiant d'accès à l'application, vous devez le lui retirer d'abord avec l'interface d'administration</message>
+    <message lang="de">Die Person besitzt einen Benutzernamen im System, Sie müssen diesen zuerst in der Rubrik Administration löschen</message>
+    <message lang="en">That person has got a login for the application, you have to ask a system administrator to remove that login first.</message>
+  </error>
+  <error type="DELETE-PERSON-FORBIDDEN" code="409">
+    <message lang="fr">Vous ne pouvez pas supprimer %s. %s</message>
+    <message lang="de">Sie können diesen Benutzer nicht löschen. %s</message>
+    <message lang="en">You cannot delete %s. %s</message>
+  </error>
+  <error type="ENTERPRISE-LINKED-TO-PERSON">
+    <message lang="fr">Elle est représentée par les personne(s) suivant(es) : %s</message>
+    <message lang="de">Das Unternehmen ist an die folgende Personen geknüpft : %s</message>
+    <message lang="en">That company is linked at least with the profile of %s</message>
+  </error>
+  <error type="DELETE-ENTERPRISE-FORBIDDEN" code="409">
+    <message lang="fr">Vous ne pouvez pas supprimer cette entreprise : %s</message>
+    <message lang="de">Sie können dieses Unternehmen nicht löschen : %s</message>
+    <message lang="en">You cannot delete that company. %s</message>
+  </error>
+  <error type="NO-RECIPIENT" code="409">
+    <message lang="en">The e-mail does not specify a recipient</message>
+  </error>
+  <error type="MISSING-PREDEPARTURE-DATE" code="409">
+    <message lang="en">Missing pre-departure briefing date field</message>
+  </error>
+  <error type="ADD-LEAR-FORBIDDEN" code="409">
+    <message lang="en">%s is alread LEAR for company %s, you must remove this LEAR first to allocate a new one</message>
+  </error>  
+  <!-- **************************** -->
+  <!-- ****  Document Assertions ** -->
+  <!-- **************************** -->
+  <error type="INCOMPLETE-DOCUMENT" code="409">
+    <message lang="en">The document cannot be submitted yet, please complete it as explained below. %s</message>
+  </error>
+  <error type="MANDATORY-FIELD" code="409">
+    <message lang="en">The document cannot be submitted yet, please complete "%s" and any other mandatory field marked with a red star.</message>
+  </error>
+  <error type="ALL-FIELDS-MANDATORY" code="409">
+    <message lang="en">The document cannot be submitted yet, please complete all mandatory fields.</message>
+  </error>
+  <error type="ALL-FIELDS-ARE-MANDATORY" code="409">
+    <message lang="en">The document is incomplete and cannot be submitted yet. All the fields are mandatory. Please complete all the fields.</message>
+  </error>
+  <error type="ALL-FIELDS-ADMISSION-ARE-MANDATORY-1" code="409">
+    <message lang="en">The document is incomplete and cannot be submitted yet. In Association(s) field, please specifiy the National association.</message>
+  </error>
+  <error type="ALL-FIELDS-ADMISSION-ARE-MANDATORY-2" code="409">
+    <message lang="en">The document is incomplete and cannot be submitted yet. In EIC event - Berlin section, please specify Networking activities.</message>
+  </error>
+  <error type="ALL-FIELDS-ADMISSION-ARE-MANDATORY-3" code="409">
+    <message lang="en">The document is incomplete and cannot be submitted yet. In EIC event - Berlin section, you must allow the transfer or your data.</message>
+  </error>
+  <error type="ALL-FIELDS-ADMISSION-ARE-MANDATORY-4" code="409">
+    <message lang="en">The document is incomplete and cannot be submitted yet. In EIC event - Berlin section, please specify Pitching sessions.</message>
+  </error>
+  <error type="ALL-FIELDS-ADMISSION-ARE-MANDATORY-5" code="405">
+    <message lang="en">The document is incomplete and cannot be submitted yet. Your organisation already invested in EIC. Please specify, the funded company's name.</message>
+  </error>
+  <error type="MISSING-ENTERPRISE-STATS" code="409">
+    <message lang="en">Please complete the enterprise data in the statistical information block in the Needs Analysis document first. You need to complete at least the "Markets", "Company size", "NACE" and "Year of establishment" fields before moving to the next status.</message>
+  </error>
+  <error type="BAD-REPRESENTATIVE" code="409">
+    <message lang="en">You need to give at least a first name, a last name and a correct email address for every representative, this is not the case actually. Please correct this before submitting.</message>
+  </error>
+  <error type="MISSING-CONTACT" code="409">
+    <message lang="en">You need to enter all your contact information (First Name, Last Name, Title, Direct Phone, Email), this is not the case actually. Please correct this before submitting.</message>
+  </error>
+  <error type="BAD-CONTACT-EMAIL" code="409">
+    <message lang="en">You need to enter a valid contact Email address.</message>
+  </error>
+  <error type="CIE-SUMMARY-LENGTH" code="409">
+    <message lang="en">The summary of the company's activity contains %s characters. You must remove at least %s characters to remain below %s characters</message>
+  </error>
+  <error type="PROJECT-SUMMARY-LENGTH" code="409">
+    <message lang="en">The summary of the project contains %s characters. You must remove at least %s characters to remain below %s characters</message>
+  </error>
+  <error type="DELEGATE-SUMMARY-LENGTH" code="409">
+    <message lang="en">A delegate biography contains %s characters. You must remove at least %s characters to remain below %s characters</message>
+  </error>
+  <error type="ASSERT-EMAIL-UNICITY" code="409">
+    <message lang="en">The e-mail address you entered is already linked with another account, you cannot create two accounts with the same e-mail address</message>
+  </error>
+  <!-- ****************************************** -->
+  <!-- ***************   Password    ************ -->
+  <!-- ****************************************** -->
+  <error type="MISSING-FIELDS" code="409">
+    <message lang="fr">Soumission incomplète, est-ce que vous avez bien saisi tous les champs demandés ?</message>
+    <message lang="de">Eingabe unvollständig, haben Sie alle obligatorischen Felder ausgefüllt ?</message>
+    <message lang="en">Incomplete submission, have you really entered all the requested fields?</message>
+  </error>
+  <error type="VALIDATION-WRONG-EMAIL" code="409">
+    <message lang="fr">L'adresse "%s" ne correspond pas à l'adresse enregistrée dans le profil, contactez un administrateur du Case Tracker si vous souhaitez la mettre à jour</message>
+    <message lang="de">Die Adresse "%s" stimmt nicht mit derjenigen im Benutzerprofil überein.</message>
+    <message lang="en">The address "%s" does not correspond to the one saved in the profile. Please contact a Case Tracker administrator if you need to update your profile</message>
+  </error>
+  <error type="VALIDATION-NO-EMAIL" code="409">
+    <message lang="fr">Le profil "%s" est connu de l'application, par contre son adresse de courrier électronique n'est pas renseignée</message>
+    <message lang="de">Das Benutzerprofil "%s" wurde vom System erkannt, jedoch nicht die E-Mail-Adresse. Nehmen Sie mit EASME Kontakt auf, falls Sie diese ändern möchten</message>
+    <message lang="en">The profile "%s" is known by the application but not the Email address. Please contact EASME if you need to update your profile</message>
+  </error>
+  <error type="VALIDATION-NO-PROFILE" code="409">
+    <message lang="fr">Le profile "%s" n'est pas reconnu par l'application comme ayant un accès autorisé, contactez EASME si vous souhaitez le mettre à jour</message>
+    <message lang="de">Das System verweigert für dieses Benutzerprofil "%s" die Zugriffsrechte. Nehmen Sie mit EASME Kontakt auf, falls Sie dieses ändern möchten</message>
+    <message lang="en">The profile "%s" has no access to the application. Please contact EASME if you need to update your profile</message>
+  </error>
+  <error type="SEND-PASSWORD-FAILURE" code="500">
+    <message lang="fr">Échec de l'envoi du courrier électronique à "%s", le mot de passe n'a pas été modifié, réessayez ou bien ou contactez EASME</message>
+    <message lang="de">Fehlermeldung beim Versand des E-Mails an "%s", das Passwort wurde nicht geändert. Versuchen Sie es erneut oder nehmen Sie mit EASME Kontakt auf</message>
+    <message lang="en">The sending of the Email addressed to "%s" has failed, the password has not been updated, please try again or contact EASME</message>
+  </error>
+  <error type="ACCOUNT-INCONSISTENT-PWD" code="409">
+    <message lang="fr">Les deux mots de passe proposés sont différents, entrez deux fois le même !</message>
+    <message lang="de">Die beiden Passwörter sind nicht identisch, geben Sie zweimal das gleiche Passwort ein</message>
+    <message lang="en">The second password is different from the first one, please enter similar passwords!</message>
+  </error>
+  <error type="ACCOUNT-MALFORMED-PWD" code="409">
+    <message lang="fr">Le mot de passe proposé n'est pas assez complexe : il doit contenir au minimum 8 caractères</message>
+    <message lang="de">Das vorgeschlagene Passwort ist nicht komplex genug : es muss mindestens 8 Zeichen beinhalten</message>
+    <message lang="en">This password is not complicated enough, it must contain at least 8 characters</message>
+  </error>
+  <error type="ACCOUNT-PWD-NO-ACCOUNT" code="409">
+    <message lang="fr">Cet utilisateur possède un identifiant mais pas d'accès à la base de donnée, pour lui créer un nouveau mot de passe commencez par supprimer son identifiant avec le bouton "Supprimer", vous pourrez ensuite recréer son compte avec le même identifiant, ce qui aura pour effet de lui générer un nouveau mot de passe</message>
+    <message lang="de">Dieser Benutzer besitzt einen Benutzernamen, jedoch keinen Zugriff auf die Datenbank. Löschen Sie erst seinen Benutzernamen durch "Löschen" bevor Sie ein neues Passwort eingeben. Sie können anschliessend sein Konto mit dem gleichen Benutzernamen kreieren, wodurch ein ein neues Passwort generiert wird</message>
+    <message lang="en">This user has a login but no valid access to the database. In order to create a new password, please delete the login. Then, recreate the account with the same login. This will generate a new password</message>
+  </error>
+  <!-- ****************************************** -->
+  <!-- *************  Account Errors ************ -->
+  <!-- ****************************************** -->
+  <error type="ACCOUNT-MISSING-EMAIL" code="409">
+    <message lang="fr">Vous devez d'abord renseigner la fiche de la personne avec son adresse de courrier électronique</message>
+    <message lang="de">Sie müssen zuerst die Personendaten ausfüllen mit der Adresse und dem E-Mail</message>
+    <message lang="en">You have to enter the E-mail address of the person first</message>
+  </error>
+  <error type="ACCOUNT-DUPLICATED-LOGIN" code="409">
+    <message lang="fr">L'identifiant "%s" est déjà pris par un autre utilisateur</message>
+    <message lang="de">Der Benutzername "%s" wurde bereits von einem anderen Benutzer verwendet</message>
+    <message lang="en">The login "%s" already exists for another user</message>
+  </error>
+  <error type="ACCOUNT-MALFORMED-LOGIN" code="409">
+    <message lang="fr">L'identifiant du compte doit contenir au minimum 4 caractères alphanumériques y compris le signe - et sans espace</message>
+    <message lang="de">Der Benutzername muss mindestens 4 Buchstaben, einschliesslich dem Zeichen - und ohne Leerzeichen beinhalten</message>
+    <message lang="en">The login of the account must contain at least 4 caracters and a "-" without any space</message>
+  </error>
+  <error type="ACCOUNT-CREATE-LOGIN-FAILED" code="500">
+    <message lang="fr">La création du nouvel identifiant a échoué, merci de réessayer</message>
+    <message lang="de">Die Eingabe des neuen Benutzernamens wurde verweigert, bitte versuchen Sie es erneut</message>
+    <message lang="en">The login has not been entered correctly, please try again</message>
+  </error>
+  <error type="VALIDATION-PROFILE-FAILED" code="409">
+    <message lang="fr">Les données du profile sont mal renseignées, merci de corriger et de réessayer</message>
+    <message lang="de">Die Daten des Benutzerprofils sind nicht korrekt, bitte versuchen Sie es erneut</message>
+    <message lang="en">The profil details haven't been completed properly, please correct or complete the indications and try again</message>
+  </error>
+  <error type="PROTECT-ADMIN-SYSTEM-ROLE" code="409">
+    <message lang="fr">Vous ne pouvez pas vous retirer à vous même le rôle administrateur, demandez à un autre administrateur</message>
+    <message lang="de">Sie können sich nicht selbst die Rolle als Administrator entziehen, fragen Sie einen anderen Administrator</message>
+    <message lang="en">You cannot delete your role of administrator, please ask another administrator to do it</message>
+  </error>
+  <error type="PROTECT-ADMIN-SYSTEM-LOGIN" code="409">
+    <message lang="fr">Vous ne pouvez pas vous retirer votre propre identifiant, demandez à un autre administrateur</message>
+    <message lang="de">Sie können sich nicht Ihren eigenen Benutzernamen entziehen, fragen Sie einen anderen Adiministrator</message>
+    <message lang="en">You cannot delete your own login, please ask another administratort to do it</message>
+  </error>
+  <error type="VALIDATION-DUPLICATED-ROLE" code="409">
+    <message lang="fr">Vous ne pouvez pas déclarer 2 fois un même rôle !</message>
+    <message lang="de">Sie können nicht 2 mal eine gleiche Rolle eingeben !</message>
+    <message lang="en">You cannot chose the same role twice!</message>
+  </error>
+  <error type="VALIDATION-REGION" code="409">
+    <message lang="en">Some regions are not related to the selected countries</message>
+  </error>
+  <error type="VALIDATION-LOCATION" code="409">
+    <message lang="en">Please, don't mix a set of "All" selectors with an other set of a selectors in a target group</message>
+  </error>    
+  <error type="TEAM-MISMATCH" code="409">
+    <message lang="en">You need to select a company of type %s to allocate the %s role</message>
+  </error>
+  <error type="SCALEUPEU-MASTER-ERROR" code="409">
+    <message lang="en">To give the ScaleupEU facilitator or monitor role to that user please complete first his account master information (left column). You must complete at least his name (both first name and last name) and his e-mail.</message>
+  </error>
+  <error type="SCALEUPEU-MASTER-MANDATORY" code="409">
+    <message lang="en">The user has the ScaleupEU facilitator or monitor role, you must keep the master information block with at least first name and last name and an e-mail address</message>
+  </error>
+  <error type="SCALEUPEU-ONE-TOKEN" code="409">
+    <message lang="en">The user is already the investors contact in a team, you cannot give him in addition the facilitator or monitor role</message>
+  </error>
+  <error type="SCALEUPEU-ONE-CONSULTANT" code="409">
+    <message lang="en">The user cannot be both facilitator and monitor at the same time</message>
+  </error>
+  <error type="SCALEUPEU-ONE-ROLE" code="409">
+    <message lang="en">The user cannot cannot have more than one role at a time</message>
+  </error>
+  <!-- ****************************************** -->
+  <!-- *********** Services Errors ************** -->
+  <!-- ****************************************** -->
+  <error type="SERVICE-INTERNAL-ERROR" code="500">
+    <message lang="en">Error while contacting %s, the service returned : %s</message>
+  </error>
+  <error type="SERVICE-NOT-RESPONDING" code="404">
+    <message lang="en">Impossible to contact %s : the service is not responding. You may try again later or please contact a database administrator.</message>
+  </error>
+  <error type="SERVICE-ERROR" code="500">
+    <message lang="en">Error while contacting %s : %s</message>
+  </error>
+  <error type="SERVICE-MALFORMED-URL" code="500">
+    <message lang="en">Error while contacting %s : malformed URL "%", ask a system administrator to check the configuration</message>
+  </error>
+  <error type="SERVICE-MISSING" code="500">
+    <message lang="en">Impossible to contact %s : the service configuration is incomplete, ask a system administrator to fix it</message>
+  </error>
+  <error type="SERVICE-FORBIDDEN" code="401">
+    <message lang="en">Impossible to call %s : authorization refused</message>
+  </error>
+  <!-- ************************************* -->
+  <!-- *********** XAL Errors ************** -->
+  <!-- ************************************* -->
+  <error type="XAL-UNKNOWN-ACTION" code="500">
+    <message lang="en">Unkown XAL action %s</message>
+  </error>
+  <error type="XAL-UNKNOWN-ASSERTION" code="500">
+    <message lang="en">Unknown XAL assertion (%) in XAL Assert action</message>
+  </error>
+  <error type="XAL-PIVOT-ERROR" code="500">
+    <message lang="en">Pivot %s returns too many elements (%s)</message>
+  </error>
+  <error type="TASK-MODULE-NOT-INSTALLED" code="500">
+    <message lang="en">Task module not installed (file %s is missing)</message>
+  </error>
+  
+  <!-- ****************************************** -->
+  <!-- ************* Workflow Errors ************ -->
+  <!-- ****************************************** -->
+  <error type="CLOSED-APPLICATION" code="409">
+    <message lang="en">You cannot apply outside the registration period</message>
+  </error>
+  <error type="WFSTATUS-ORIGIN-ERROR" code="409">
+    <message lang="en">The request for changing the status does not correspond to the current status of the activity. Maybe another request has been sent at the same time, please reload the page to be sure</message>
+  </error>
+  <error type="WFSTATUS-SYNTAX-ERROR" code="409">
+    <message lang="en">The workflow status is undefined or the request for the status modification couldn't be identified. Please try again by reloading the page or contact us</message>
+  </error>
+  <error type="WFSTATUS-NO-TRANSITION" code="409">
+    <message lang="en">The workflow engine has no rule that permits this status change</message>
+  </error>
+  <error type="WFSTATUS-NOT-ALLOWED" code="401">
+    <message lang="en">You don't have enough access rights to change the workflow status</message>
+  </error>
+  <error type="WFSTATUS-MISSING-SUBJECT" code="401">
+    <message lang="en">An internal error prevented to change the workflow status : workflow subject missing</message>
+  </error>
+  <error type="WFSTATUS-MISSING-VALIDATION-PIVOT" code="401">
+    <message lang="en">An internal configuration error prevented to change the workflow status : no pivot is defined in the workflow transition, please tell an administrator</message>
+  </error>
+  <!-- *************************************** -->
+  <!-- *********** Excel import ************** -->
+  <!-- *************************************** -->
+  <error type="IMPORT-TARGET-SHEET-NOT-FOUND" code="500">
+    <message lang="en">Missing excel file "%s"</message>
+  </error>
+  <!-- *************************************** -->
+  <!-- ************* MI Token **************** -->
+  <!-- *************************************** -->
+  <error type="TOKEN-TAKEN" code="409">
+    <message lang="en">The e-mail address %s is already in use for ScaleupEU access in another company. It cannot be registered twice, even if you are member of both companies. Please choose another e-mail address in %s or remove the ScaleupEU access for that user in the other company before you can use it.</message>
+  </error>
+  <error type="WITHDRAW-TOKEN-FIRST" code="409">
+    <message lang="en">You must withdraw the ScaleupEU access associated with %s first !</message>
+  </error>
+  <error type="TOKEN-ROLE-NEEDED" code="409">
+    <message lang="en">%s is the ScaleupEU token owner for %s, you must at least keep one role for that user in the company or withdraw the token first !</message>
+  </error>
+  <error type="TOKEN-ALLOCATED" code="409">
+    <message lang="en">%s is registered as the ScaleupEU token owner for %s with the e-mail address %s, you must withdraw the token if you want to change the Email</message>
+  </error>
+  <!-- *************************************** -->
+  <!-- ********** E-mail update ************** -->
+  <!-- *************************************** -->
+  <error type="DUPLICATED-EMAIL" code="409">
+    <message lang="en">The e-mail address %s is already linked with the user account of %s</message>
+  </error>  
+  <error type="EMAIL-TAKEN" code="409">
+    <message lang="en">The e-mail address %s is already accredited for another team member in another company. If you want to use it you must delete first the member then create a new member with this email (or ask the company LEAR to do it if you do not have enough rights), then wait for being accredited again.</message>
+  </error>
+  <error type="EMAIL-ALREADY-ACCREDITED" code="409">
+    <message lang="en">The e-mail address %s you want to change into %s has already been accredited. If you want to change it you must delete first the member then create a new member with the new e-mail (or ask the company LEAR to do it if you do not have enough rights), then wait for being accredited again.</message>
+  </error>
+  <error type="TOKEN-STATUS-MISMATCH" code="409">
+    <message lang="en">The last token request has already been changed to %s, you cannot %s it any more ! Maybe someone else is editing the token at the same time.</message>
+  </error>
+</errors>

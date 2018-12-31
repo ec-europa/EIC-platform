@@ -1,0 +1,163 @@
+<?xml version="1.0"?>
+<GlobalInformation>
+  <Description Lang="en">
+    <Selector Name="CaseImpacts" Value="Code" Label="V+Name" Test="Case Impacts (Innovation Tree Model)">
+      <Group>
+        <Code>1</Code>
+        <Name>Business innovation vectors</Name>
+        <Root>Vectors</Root>
+        <Selector>
+          <Option>
+            <Code>1</Code>
+            <Name>Offering</Name>
+          </Option>
+          <Option>
+            <Code>2</Code>
+            <Name>Process</Name>
+          </Option>
+          <Option>
+            <Code>4</Code>
+            <Name>Distribution</Name>
+          </Option>
+          <Option>
+            <Code>3</Code>
+            <Name ImportKey="^">Customer</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>2</Code>
+        <Name>Sources of business innovation ideas</Name>
+        <Root>Ideas</Root>
+        <Selector>
+          <Option>
+            <Code>1</Code>
+            <Name ImportKey="-">Internal</Name>
+          </Option>
+          <Option>
+            <Code>10</Code>
+            <Name ImportKey="-">Distributors</Name>
+          </Option>
+          <Option>
+            <Code>5</Code>
+            <Name>Customers</Name>
+          </Option>
+          <Option>
+            <Code>6</Code>
+            <Name>Suppliers</Name>
+          </Option>
+          <Option>
+            <Code>7</Code>
+            <Name ImportKey="schools">Education and research</Name>
+          </Option>
+          <Option>
+            <Code>9</Code>
+            <Name>Others</Name>
+          </Option>
+          <!-- <Option>
+          <Code>2</Code>
+          <Name>Competitors</Name>
+        </Option>
+        <Option>
+          <Code>3</Code>
+          <Name>Meetings, Exhibitions</Name>
+        </Option>
+        <Option>
+          <Code>4</Code>
+          <Name>Support organisation</Name>
+        </Option>
+        <Option>
+          <Code>8</Code>
+          <Name>Newspaper, Internet</Name>
+        </Option> -->
+        </Selector>
+      </Group>
+      <Group>
+        <Code>3</Code>
+        <Name>Internal Resources</Name>
+        <Root>Resources</Root>
+        <Selector>
+          <Option>
+            <Code>1</Code>
+            <Name>Strategy</Name>
+          </Option>
+          <Option>
+            <Code>2</Code>
+            <Name>Organisation</Name>
+          </Option>
+          <Option>
+            <Code>5</Code>
+            <Name>Qualification</Name>
+          </Option>
+          <Option>
+            <Code>6</Code>
+            <Name ImportKey="markets">Market</Name>
+          </Option>
+          <Option>
+            <Code>3</Code>
+            <Name ImportKey="innovation">Innovation process</Name>
+          </Option>
+          <Option>
+            <Code>4</Code>
+            <Name ImportKey="intellectual">Intellectual property</Name>
+          </Option>
+          <Option>
+            <Code>7</Code>
+            <Name>Finances</Name>
+          </Option>
+          <Option>
+            <Code>10</Code>
+            <Name>Culture</Name>
+          </Option>
+          <Option>
+            <Code>9</Code>
+            <Name>Leadership</Name>
+          </Option>
+          <!-- <Option>
+          <Code>8</Code>
+          <Name>Other</Name>
+        </Option> -->
+        </Selector>
+      </Group>
+      <Group>
+        <Code>4</Code>
+        <Name>Partnerships</Name>
+        <Root>Partners</Root>
+        <Selector>
+          <Option>
+            <Code>2</Code>
+            <Name ImportKey="withcustomers">Customer</Name>
+          </Option>
+          <Option>
+            <Code>9</Code>
+            <Name ImportKey="-">Distributor</Name>
+          </Option>
+          <Option>
+            <Code>5</Code>
+            <Name ImportKey="-">Supplier</Name>
+          </Option>
+          <Option>
+            <Code>4</Code>
+            <Name ImportKey="-">Manufacturer</Name>
+          </Option>
+          <Option>
+            <Code>7</Code>
+            <Name ImportKey="withschools">Education and research</Name>
+          </Option>
+          <Option>
+            <Code>6</Code>
+            <Name ImportKey="-">Private investor</Name>
+          </Option>
+          <Option>
+            <Code>10</Code>
+            <Name ImportKey="-">Public support</Name>
+          </Option>
+          <Option>
+            <Code>1</Code>
+            <Name>Others</Name>
+          </Option>
+        </Selector>
+      </Group>
+    </Selector>
+  </Description>
+</GlobalInformation>

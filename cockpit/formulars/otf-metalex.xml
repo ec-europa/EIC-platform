@@ -1,0 +1,120 @@
+<Form Tag="Event" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+  <Verbatim>
+    <xt:component name="t_enterprise">
+      <Field Key="entname" Tag="Name" Gap="1.5">Enterprise name</Field>
+      <Field Key="acronym" Tag="Acronym" Gap="1.5">Project acronym</Field>
+    </xt:component>
+    <xt:component name="t_contact_person">
+      <Field Key="firstname" Tag="FirstName" Gap="1.75" W="4" L="0">First Name</Field>
+      <Field Key="lastname" Tag="LastName" Gap="1.5" W="4">Last Name</Field>
+      <Field Key="civility" Tag="Civility" Gap="1" W="2">Title</Field>
+      <Field Key="phone" Tag="Phone" Gap="1.75" W="4" L="0">Direct phone</Field>
+      <Field Key="email" Tag="Email" Gap="1.5" W="6">Email</Field>
+    </xt:component>
+    <xt:component name="t_term">
+      <blockquote xmlns="http://www.w3.org/1999/xhtml">
+        <p style="font-size:15px;margin-bottom:0.5em">
+          I declare that the information included in this application is true and accurate. If my company is selected for the Trade Fair, I agree to observe the terms and conditions laid down in the call for manifestation of interest to the Trade Fair. I also agree to answer to the follow-up questions related to the Trade Fair at the end of exhibition period and upon my return to Europe.
+        </p>
+        <p style="font-size:15px;margin-bottom:0.5em">
+          The information supplied to the SME Instrument - Overseas Trade Fair Participation Programme will be treated in accordance with the European Union (Council Regulation 45/2001) and Thailand data protection and privacy laws and regulations. The information will only be used for the internal purposes of the SME Instrument - Overseas Trade Fair Participation Programme. Information will only be made public upon your agreement.
+        </p>
+      </blockquote>
+      <p xmlns="http://www.w3.org/1999/xhtml">
+        <label style="display:inline;vertical-align:middle;margin-right:10px;">
+          Click here if you agree to the above declaration
+        </label>
+        <span data-binding="required" data-variable="terms">
+          <xt:use param="type=radio;filter=event;value=on" types="input"/>
+        </span>
+      </p>
+    </xt:component>
+    <xt:component name="t_cancellation">
+      <blockquote xmlns="http://www.w3.org/1999/xhtml">
+        <p style="font-size:15px;margin-bottom:0.5em">
+          Should you be selected to this programme, you will be notified. We expect you to follow up on this within 7 days.
+        </p>
+        <p style="font-size:15px;margin-bottom:0.5em">
+          Cancellations will only be considered in duly documented cases of "force majeure". In any other case, you will be excluded from participating to the SME Instrument - Support to commercialisation services (trade fairs, academy, etc).
+        </p>
+        <p style="font-size:15px;margin-bottom:0.5em">
+          In case of doubts, please contact our helpdesk.
+        </p>
+      </blockquote>
+      <p xmlns="http://www.w3.org/1999/xhtml">
+        <label style="display:inline;vertical-align:middle;margin-right:10px">
+          Click here if you agree to the above cancellation policy
+        </label>
+        <span data-binding="required" data-variable="terms">
+          <xt:use param="type=radio;filter=event;value=on" types="input"/>
+        </span>
+      </p>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <Title>Company Information</Title>
+    <Use Tag="Company" TypeName="enterprise"/>
+  </Row>
+  <Row>
+    <Title>Contact Person for the Trade Fair</Title>
+    <Use Tag="Contact" TypeName="contact_person"/>
+  </Row>
+  <Row>
+    <Title>Introduction to the SME</Title>
+    <Field Key="comments00" Tag="Introduction" Gap="0">1. Please describe the product, service, process or technology that you would like to exhibit at the Trade Fair, including its maturity and commercialisation to date.</Field>
+    <Title>Section 1 - Expected Impact of your Participation to the Trade Fair</Title>
+    <Field Key="comments01" Tag="BusinessPartners" Gap="0">2. Please describe the type of business partners that you intend to meet at the Trade Fair. If you are looking for partners from a specific economic region please also indicate this.</Field>
+    <Field Key="comments02" Tag="Expectations" Gap="0">3. Please describe what you expect to achieve by participation in the Trade Fair.</Field>
+    <Field Key="comments03" Tag="PriorResearch" Gap="0">4. Please provide information on prior market research you have conducted for the commercialisation prospects of your product, service, process or technology in the economic region in which the Trade Fair takes place, and outside the EU in general.</Field>
+    <Field Key="comments04" Tag="PriorAttempts" Gap="0">5. Please provide information on any prior activities to commercialise your product, service, process or technology and find business partners which have been undertaken in the economic region in which the Trade Fair takes place, and outside the EU in general.</Field>
+    <Field Key="comments05" Tag="HowManyContacts" Gap="0">5a. Please tell us how many business contacts you have developed in the particular Third Country or economic region in which the trade fair takes place.</Field>
+    <Field Key="comments06" Tag="RelationshipType" Gap="0">5b. Please specify the type of relationship developed with these counterparts.</Field>
+    <Title>Section 2 - Fit with Trade Fair and Target Market</Title>
+    <Field Key="comments07" Tag="TradeFairScope" Gap="0">6. Please explain how the scope of the Trade Fair matches with your product, service, process or technology.</Field>
+    <Field Key="comments08" Tag="TargetedAudience" Gap="0">7. Please explain how the target audience of the Trade Fair matches with your market strategy for your product, service, process or technology.</Field>
+    <Field Key="comments09" Tag="RegionRelevance" Gap="0">8. Please indicate if the economic region in which the Trade Fair takes place has specific relevance for your product, service, process or technology.</Field>
+    <Title>Section 3 - Commitment to Participate</Title>
+    <Field Key="comments10" Tag="RegionRelevance" Gap="0">9. Please indicate to what extent you are able to free the number of man-days estimated to be needed for preparation and participation to the Trade Fair (or more).</Field>
+    <Field Key="comments11" Tag="AdditionalCosts" Gap="0">10. Please indicate your estimation of any additional costs for participation to the Trade Fair and to what extent you are able to cover them.</Field>
+  </Row>
+  <Row>
+    <Cell W="12">
+      <Title>Declaration</Title>
+      <Row>
+        <Use Tag="Term" TypeName="term"/>
+      </Row>
+    </Cell>
+  </Row>
+  <br/>
+  <Row>
+    <Cell W="12">
+      <Title>Cancellation Policy</Title>
+      <Row>
+        <Use Tag="Cancellation" TypeName="cancellation"/>
+      </Row>
+    </Cell>
+  </Row>
+  <Include src="consent.xml" TypeName="footer"/>
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="email" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+    </Enforce>
+  </Bindings>
+
+  <Hints>
+    <Mandatory Tags="Name Acronym SMEiGrantAgreementNumber FirstName LastName Civility Phone Email Introduction BusinessPartners Expectations PriorResearch PriorAttempts HowManyContacts RelationshipType TradeFairScope TargetedAudience RegionRelevance AdditionalCosts">This field must be filled to be able to proceed to the next step</Mandatory>
+  </Hints>
+  <Plugins>
+    <Input Keys="ganumber firstname lastname civility phone email"/>
+    <MultiText Prefix="comments"/>
+    <Constant Keys="entname"/>
+  </Plugins>
+
+</Form>

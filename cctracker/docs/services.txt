@@ -1,0 +1,56 @@
+Case Tracker Ecosystem Services API
+===================================
+
+Case Tracker Services
+*********************
+
+Hook : /feedback (POST)
+-----------------------
+
+Order[Id, Secret, Answers]
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Submits Answers from a previous Order
+
+Case tracker i) saves the Answers in the Evaluation document, ii) changes status to Evaluated, iii) triggers notification emails
+
+Case tracker replies with a success message
+
+<success>
+  <message>Your answers have been recorderd, thank you for your contribution</message>
+</message>
+
+Case tracker replies with an error message in case ii) or iii) fail (i cannot be checked)
+
+<error>
+  <message>...</message>
+</error>
+
+Side-effect : calling service can delete the Order upon reception of the success message
+
+As a variant Case tracker may replies with a success message with a <delay> (?) or the delay is part of the XML questionnaire specification (?)
+
+<success>
+  <message>Your answers have been recorderd, thank you for your contribution, the questionnaire is now closed, you will be able to consult your answers for the next 10 days</message>
+  <delay>10</delay>
+</message>
+
+Poll Services
+*************
+
+Service : /orders (POST)
+------------------------
+
+Order[Id, Secret, Questionnaire, Variables]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Submit instruction to create an Order
+
+Poll creates the Order
+
+Order[Id, Cancel]
+~~~~~~~~~~~~~~~~~
+
+Submit instruction to cancel an Order
+
+Poll removes the Order

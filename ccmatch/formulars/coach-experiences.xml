@@ -1,0 +1,93 @@
+<Form Tag="Profile" StartLevel="3" Wrapper="none"
+      xmlns:xt="http://ns.inria.org/xtiger" xmlns:site="http://oppidoc.com/oppidum/site">
+      
+  <Verbatim>
+    <xt:component name="t_life_cycle">
+      <ProductTable>
+        <Title Width="50%">Company's life cycle stages</Title>
+        <Combine>
+          <Selector Document="global-information.xml" Prefix="Rating" ConfirmIndex="5 6" ConfirmValue="3" Modal="c-confirm">InitialContexts</Selector>
+          <Selector Document="global-information.xml" Width="16%">ExpertiseScales</Selector>
+        </Combine>
+      </ProductTable>
+    </xt:component>
+    <xt:component name="t_domain_activities">
+      <ProductTable>
+        <Title Width="50%">Industrial sectors (Nace code)</Title>
+        <Combine>
+          <Selector Document="naces-en.xml" Prefix="Rating" CardOnValue="3" CardMax="4">DomainActivities</Selector>
+          <Selector Document="global-information.xml" Width="16%">ExpertiseScales</Selector>
+        </Combine>
+      </ProductTable>
+    </xt:component>
+    <xt:component name="t_targeted_markets">
+      <ProductTable>
+        <Title Width="50%">Markets (Thomson Reuters classification)</Title>
+        <Combine>
+          <Selector Document="reuters-en.xml" Prefix="Rating" CardOnValue="3" CardMax="4">TargetedMarkets</Selector>
+          <Selector Document="global-information.xml" Width="16%">ExpertiseScales</Selector>
+        </Combine>
+      </ProductTable>
+    </xt:component>
+    <xt:component name="t_services">
+      <ProductTable Document="global-information.xml">
+        <Title Width="50%">Coaching services</Title>
+        <Combine>
+          <Selector Document="global-information.xml" Prefix="Rating" CardOnValue="3" CardMax="2">Services</Selector>
+          <Selector Document="global-information.xml" Width="16%">ExpertiseScales</Selector>
+        </Combine>
+      </ProductTable>
+    </xt:component>
+  </Verbatim>
+      
+  <Row Style="margin-bottom: 30px">
+    <Cell Tag="Knowledge" Gap="2"> 
+      <Title Level="1">Basic Information</Title>
+      <Row>
+        <Field Key="languages" Tag="SpokenLanguages" Gap="3">Spoken languages</Field>
+        <Field Key="cv-link" Tag="CV-Link" Gap="3">Curriculum vitae (online)</Field>
+        <Field Key="cv-upload" Gap="3">Curriculum vitae (PDF)</Field>
+        <Cell Tag="IndustrialManagement">
+          <Field Key="experience" Tag="ServiceYearRef" Gap="3">Years of experience in industrial management position</Field>
+        </Cell>
+        <Cell Tag="BusinessCoaching">
+          <Field Key="experience" Tag="ServiceYearRef" Gap="3">Years of experience in business coaching</Field>
+        </Cell>
+      </Row>
+    </Cell>
+  </Row>
+  <Row>
+    <Use Tag="LifeCycleContexts" TypeName="life_cycle"/>
+  </Row>
+  <Row>
+    <Use Tag="DomainActivities" TypeName="domain_activities"/>
+  </Row>
+  <Row>
+    <Use Tag="TargetedMarkets" TypeName="targeted_markets"/>
+  </Row>
+  <Row>
+    <Use Tag="Services" TypeName="services"/>
+  </Row>
+  
+  <Modals>
+    <Modal Id="c-confirm" Width="700px" EventTarget="cm-experiences-edit" Template="^/templates/confirm" Dismiss="none">
+      <Title>Please confirm your expertise</Title>
+      <Footer>
+        <Button>
+          <Label>Continue</Label>
+          <Trigger Target="c-confirm">axel-confirm-continue</Trigger>
+        </Button>
+        <Button>
+          <Label>Cancel</Label>
+          <Trigger Target="c-confirm">axel-confirm-cancel</Trigger>
+        </Button>
+      </Footer>
+    </Modal>
+  </Modals>
+  <Plugins>
+    <Input Keys="cv-link" Media="url"/>
+  </Plugins>
+  <Hints>
+    <Hint Keys="cv-upload">Your file should not exceed 1MB</Hint>
+  </Hints>
+</Form>

@@ -1,0 +1,26 @@
+<Form Tag="Event" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+  <Verbatim>
+    <xt:component name="t_footer">
+      <blockquote>
+        <p>
+          <Link Prefix="Please read the " Path="files/privacy-statement-calls-EASME" Suffix=".">privacy statement</Link>
+        </p>
+      </blockquote>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <Use Tag="Term" TypeName="footer"/>
+  </Row>
+  <Bindings>
+  </Bindings>
+
+  <Hints> </Hints>
+  <Plugins>
+  </Plugins>
+
+</Form>

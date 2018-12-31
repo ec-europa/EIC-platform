@@ -1,0 +1,109 @@
+<!-- 
+SMEi ccmatch
+
+Creation: Franck Leplé <franck.leple@amplexor.com>
+  Contributor:     
+  
+  Description:
+  Templates used by EIC Community services:
+    - Bootstrapping process for EIC Community
+      - Organisation
+      - User
+    - TO DO events, ...
+  
+  Notes:
+  - Users are coaches
+  
+  June 2018 - European Union Public Licence EUPL
+-->
+  
+<Templates>
+  
+  <!-- *********************************************** -->
+  <!-- Update templates for coaches                  -->
+  <!-- *********************************************** -->
+
+  <!-- Companies EICCommunity structure for a company - Keep the last one of each command
+        <EICCommunity @nid @uri>
+          <bootstrap @status @date><description xml structure depends on status code/>
+          </boostrap>
+          <update @status @date><description xml structure depends on status code/>
+          </update>
+        </EICCommunity>
+  -->
+
+  <!-- Create EICCommunity section -->
+  <Template Name="community-coach-eiccommunity" Mode="create" Subject="person">
+    <![CDATA[
+      <XAL _Prune="none">
+        <XALAction Type="insert" Pivot="$subject">
+          <EICCommunity/>
+        </XALAction>
+      </XAL>
+    ]]>
+  </Template>  
+
+  <!-- Create EICCommunity section -->
+  <Template Name="community-coach-eiccommunity" Mode="delete" Subject="person">
+    <![CDATA[
+      <XAL _Prune="none">
+        <XALAction Type="delete" Pivot="$subject/EICCommunity"/>
+      </XAL>
+    ]]>
+  </Template> 
+
+  <!-- Update companies with a boostrap stamp -->
+  <Template Name="community-coach-bootstrap-success" Mode="update" Subject="person" Object="response">
+    <![CDATA[
+      let $nid := $object/nid/text()
+      let $uri := replace($object/uri/text(), '/easme_dashboard/rest' ,'')
+      return
+      <XAL _Prune="none">
+        <XALAction Type="attribute" Name="nid" Pivot="$subject/EICCommunity">
+          <Value>{ $nid }</Value>
+        </XALAction>
+        <XALAction Type="attribute" Name="uri" Pivot="$subject/EICCommunity">
+          <Value>{ $uri }</Value>
+        </XALAction>
+        <XALAction Type="replace" Pivot="$subject/EICCommunity">
+          <Bootstrap status="success" date="{ $date }">{ $object/* }</Bootstrap>
+        </XALAction>
+      </XAL>
+    ]]>
+  </Template>  
+  
+  <!-- Update companies with a boostrap stamp -->
+  <Template Name="community-coach-bootstrap-error" Mode="update" Subject="person" Object="response">
+    <![CDATA[
+      <XAL _Prune="none">
+        <XALAction Type="replace" Pivot="$subject/EICCommunity">
+          <Bootstrap status="error" date="{ $date }">{ $object/. }</Bootstrap>
+        </XALAction>
+      </XAL>
+    ]]>
+  </Template>  
+
+  <!-- Update companies with a update stamp -->
+  <Template Name="community-coach-update-success" Mode="update" Subject="person" Object="response">
+    <![CDATA[     
+      <XAL _Prune="none">
+        <XALAction Type="replace" Pivot="$subject/EICCommunity">
+          <Update status="success" date="{ $date }">{ $object/* }</Update>
+        </XALAction>
+      </XAL>
+    ]]>
+  </Template>  
+  
+  <!-- Update companies with a boostrap stamp -->
+  <Template Name="community-coach-update-error" Mode="update" Subject="person" Object="response">
+    <![CDATA[
+      <XAL _Prune="none">
+        <XALAction Type="replace" Pivot="$subject/EICCommunity">
+          <Update status="error" date="{ $date }">{ $object/. }</Update>
+        </XALAction>
+      </XAL>
+    ]]>
+  </Template>  
+
+ 
+</Templates>

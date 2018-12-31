@@ -1,0 +1,54 @@
+<Form Tag="SearchByFit" Layout="fluid" StartLevel="1"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger">
+
+  <Title>SME Profile</Title>
+  
+  <Verbatim>
+    <xt:component name="t_challenges">
+      <ProductTable>
+        <Title Width="50%">Focus of the coaching activity</Title>
+        <Combine>
+          <Selector Document="innovation-tree-en.xml" Prefix="Rating">CaseImpacts</Selector>
+          <Selector Document="global-information.xml" Width="16%">WeightsScales</Selector>
+        </Combine>
+      </ProductTable>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <h3>Criteria for SME context fit</h3>
+    <Cell>
+      <Row>
+        <Cell Gap="2" Tag="Stats">
+          <Title>Statistical information</Title>
+          <Row>
+            <Field Key="targeted-markets" Tag="TargetedMarkets" Gap="1" W="6">Markets</Field>
+          </Row>
+          <Row>
+            <Field Key="domain-activity" Tag="DomainActivityRef" Gap="1" W="6">NACE</Field>
+          </Row>
+        </Cell>
+      </Row>
+    </Cell>
+    <Cell W="12" Gap="2" Tag="Context" L="0" style="margin-bottom:20px">
+      <Title>SME life cycle context</Title>
+      <Box Key="ctx-initial" Tag="InitialContextRef" W="6">
+        <Title>What's the SME's current context?</Title>
+      </Box>
+      <Box Key="ctx-target" Tag="TargetedContextRef" W="6">
+        <Title>What's the SME's next target context?</Title>
+      </Box>
+    </Cell>
+    <Row>
+      <Field Key="service" Tag="ServiceRef" W="8" Gap="4">Which coaching service should be addressed ?</Field>
+    </Row>
+  </Row>
+
+  <Row Style="margin-top:20px">
+    <h3>Priorities for competence fit</h3>
+    <Use Tag="CaseImpacts" TypeName="challenges"/>
+  </Row>
+
+</Form>
+

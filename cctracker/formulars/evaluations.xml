@@ -1,0 +1,15 @@
+<Form Tag="Evaluations" StartLevel="2" Wrapper="none"
+  xmlns:xt="http://ns.inria.org/xtiger" xmlns:site="http://oppidoc.com/oppidum/site">
+  <Row>
+    <Title Level="1">SME Evaluation</Title>
+  </Row>
+  <Include src="sme-feedback.xml" Label="SME"/>
+  <Row>
+    <Title Level="1">KAM Evaluation</Title>
+  </Row>
+  <Include src="final-report-approval.xml" Label="KAM"/>
+  <Row>
+    <Title Level="1">Coach Evaluation</Title>
+  </Row>
+  <Include src="final-report.xml" Label="Coach"/>
+</Form>

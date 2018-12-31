@@ -1,0 +1,38 @@
+<Form xmlns:site="http://oppidoc.com/oppidum/site"
+  Tag="Enterprise" Layout="fluid" Orientation="horizontal">
+  <Row>
+      <Field Key="enterprise" Tag="Name" Gap="1.5">Name</Field>
+      <Field Key="abbrev" Tag="ShortName" Gap="1.5">Short name</Field>
+      <Field Key="website" Tag="WebSite" Gap="1.5">Website</Field>
+  </Row>
+  <Separator/>
+  <Row>
+      <Cell Gap="1.5" Tag="Address">
+        <Title loc="form.legend.address" style="text-align:right">Address</Title>
+        <Field Key="street" Tag="StreetNameAndNo" W="12" Gap="1.5">Street &amp; no</Field>
+        <Field Key="box" Tag="PO-Box" Gap="1.5">Box number</Field>
+        <Field Key="careof" Tag="Co" Gap="1.5">c/o</Field>
+        <Field Key="npa" Tag="PostalCode" Gap="1.5">Postcode</Field>
+        <Field Key="town" Tag="Town" Gap="1.5">City</Field>
+        <Field Key="nuts" Tag="Nuts" Gap="1.5">Nutscode</Field>
+        <site:conditional noflag="iso3" force="true">
+          <Field Key="country" Tag="Country" Gap="1.5">EU Country</Field>
+        </site:conditional>
+        <site:conditional flag="iso3" force="true">
+          <Field Key="country" Tag="ISO3CountryRef" Gap="1.5">World Country</Field>
+        </site:conditional>
+      </Cell>
+  </Row>
+  <Bindings>
+    <Require Keys="enterprise town"/>
+    <Enforce>
+      <RegExp Keys="creation" Message-loc="validation.year"
+        Message="Enter a year as a number with 4 digits"
+        >^\s*$|^\d{4}$</RegExp>
+    </Enforce>
+  </Bindings>
+  <Plugins>
+    <Input Keys="abbrev street box careof npa town nuts"/>
+    <Input Keys="website" Media="url"/>
+  </Plugins>
+</Form>

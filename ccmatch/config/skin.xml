@@ -1,0 +1,140 @@
+<!-- ======================================================================
+                        Coach Match skin
+  ======================================================================= -->
+<skin xmlns="http://oppidoc.com/oppidum/skin">
+  <handler name="msg-or-err">
+    <predef module="oppidum">flash</predef>
+  </handler>
+  <profile name="photo" type="predef">
+    <link href="lib/axel/bundles/photo/photo.css"/>
+    <script type="text/javascript"> function finishTransmission(status, result) { var pwin = window.parent; var manager = window.xtiger.factory('upload').getInstance(document); if (manager) { manager.reportEoT(status, result); } } </script>
+  </profile>
+  <profile name="axel-1.3-no-jquery" type="predef">
+    <link href="lib/axel-1.3/axel.css"/>
+    <script src="lib/axel-1.3/axel.js"/>
+    <script data-bundles-path="lib/axel/bundles" data-when="deferred" src="lib/axel-forms.js"/>
+  </profile>
+  <profile name="date" type="predef">
+    <link href="jquery/css/ui-lightness/jquery-ui-1.10.4.custom.min.css"/>
+    <script src="jquery/js/jquery-ui-1.10.4.custom.min.js"/>
+  </profile>
+  <profile name="*">
+    <predef module="oppidum">jquery</predef>
+    <script src="lib/app.js"/>
+    <!-- TODO: jQuery CDN version -->
+  </profile>
+  <profile name="select2" type="predef">
+    <link href="select2/select2.css"/>
+    <link href="select2/select2-bootstrap.css"/>
+    <script src="select2/select2.min.js"/>
+  </profile>
+  <profile name="home" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <link href="css/site.css"/>
+    <predef avoid="error()">axel-1.3-no-jquery</predef>
+    <predef avoid="error()">date</predef>
+    <script src="bootstrap/js/bootstrap.min.js"/>
+    <predef>photo</predef>
+  </profile>
+  <!-- same as home but with inline XTiger code -->
+  <profile name="home.xhtml" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <link href="css/site.css"/>
+    <predef avoid="error()">axel-1.3-no-jquery</predef>
+    <predef avoid="error()">date</predef>
+    <script src="bootstrap/js/bootstrap.min.js"/>
+    <predef>photo</predef>
+  </profile>
+  <!-- same as home but with inline XTiger code -->
+  <profile name="menu.xhtml" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <link href="css/site.css"/>
+    <predef avoid="error()">axel-1.3-no-jquery</predef>
+    <predef avoid="error()">date</predef>
+    <script src="bootstrap/js/bootstrap.min.js"/>
+    <predef>photo</predef>
+    <script src="d3/d3.min.js"/>
+    <script src="lib/radar.js"/>
+    <script src="lib/widgets.js"/>
+    <script src="exfront:lib/commons.js"/>
+    <script src="lib/cm-search.js"/>
+  </profile>
+  <profile name="tunnel" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <link href="css/site.css"/>
+    <predef avoid="error()">axel-1.3-no-jquery</predef>
+    <predef avoid="error()">date</predef>
+    <script src="bootstrap/js/bootstrap.min.js"/>
+  </profile>
+  <!-- supergrid  -->
+  <profile name="formulars" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <link href="css/site.css"/>
+    <link href="css/forms.css"/>
+    <predef avoid="error()">axel-1.3-no-jquery</predef>
+    <predef avoid="error()">date</predef>
+    <script src="bootstrap/js/bootstrap.min.js"/>
+    <predef>select2</predef>
+    <script src="lib/formulars.js"/>
+    <script src="lib/widgets.js"/>
+    <predef>photo</predef>
+  </profile>
+  <profile name="axel">
+    <predef>axel-1.3-no-jquery</predef>
+  </profile>
+  <profile name="editor">
+    <predef>select2</predef>
+    <link href="css/forms.css"/>
+  </profile>
+  <!-- coach match management app  -->
+  <profile name="cm-management">
+    <predef>select2</predef>
+    <link href="css/forms.css"/>
+    <script src="d3/d3.min.js"/>
+    <script src="lib/widgets.js"/>
+    <script src="exfront:lib/commons.js"/>
+    <script src="lib/cm-management.js"/>
+  </profile>
+  <!-- coach match suggestion app  -->
+  <profile name="cm-suggest">
+    <predef>select2</predef>
+    <link href="css/forms.css"/>
+    <script src="d3/d3.min.js"/>
+    <script src="lib/radar.js"/>
+    <script src="lib/widgets.js"/>
+    <script src="exfront:lib/commons.js"/>
+    <script src="lib/cm-suggest.js"/>
+  </profile>
+  <!-- includes widgets  -->
+  <profile name="ow-widgets">
+    <script src="lib/widgets.js"/>
+  </profile>
+  <profile name="export" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <link href="css/site.css"/>
+    <script src="lib/export.js"/>
+    <script src="bootstrap/js/bootstrap.min.js"/>
+    <script src="excellentexport/excellentexport.js"/>
+    <script src="tablesorter/jquery.tablesorter.min.js"/>
+    <predef avoid="error()">date</predef>
+  </profile>  
+  <profile name="cm-coaches">
+    <script src="lib/cm-coaches.js"/>
+  </profile>
+  <!-- stats (also requires forms.css and d3.min.js )-->
+  <profile name="stats">
+    <link href="css/stats.css"/>
+    <script src="excellentexport/excellentexport.min.js"/>
+    <script src="lib/stats.js"/>
+  </profile>
+  <!-- C3 stats -->
+  <profile name="C3">
+    <link href="c3/c3.min.css"/>
+    <script src="c3/c3.min.js"/>
+  </profile>
+  <!-- console (feeds) -->
+  <profile name="console" type="mesh">
+    <link href="bootstrap/css/bootstrap.css"/>
+    <script src="lib/console.js"/>
+  </profile>
+</skin>

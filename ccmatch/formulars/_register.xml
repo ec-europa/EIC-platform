@@ -1,0 +1,82 @@
+<Formulars>
+  <Formular>
+    <Name>SME Matching Profile</Name>
+    <Form>forms/sme-profile</Form>
+    <Template>templates/sme/profile</Template>
+  </Formular>
+  <Formular>
+    <Name>Coach Contact Information</Name>
+    <Form>forms/coach-contact</Form>
+    <Template>templates/coach/contact</Template>
+  </Formular>
+  <Formular>
+    <Name>Coach Registration</Name>
+    <Form>forms/coach-registration</Form>
+    <Template>templates/coach/coach-registration</Template>
+  </Formular>
+  <Formular>
+    <Name>Coach Experiences</Name>
+    <Form>forms/coach-experiences</Form>
+    <Template >templates/coach/experiences</Template>
+  </Formular>
+  <Formular>
+    <Name>Coach Competences</Name>
+    <Form>forms/coach-competences</Form>
+    <Template>templates/coach/competences</Template>
+  </Formular>
+  <Formular>
+    <Name>Coach Search Criteria</Name>
+    <Form>forms/search-criteria</Form>
+    <Template>templates/criteria</Template>
+  </Formular>
+  <Formular>
+    <Name>Search User</Name>
+    <Form>forms/search-user</Form>
+    <Template>templates/user</Template>
+  </Formular>
+  <Formular>
+    <Name>User Account</Name>
+    <Form>forms/account</Form>
+    <Template>templates/account</Template>
+  </Formular>
+  <Formular>
+    <Name>Account Availabilities</Name>
+    <Form>forms/account-availabilities</Form>
+    <Template>templates/account/availabilities</Template> <!-- inlined, not mapped  -->
+  </Formular>
+  <Formular>
+    <Name>Account Visibilities</Name>
+    <Form>forms/account-visibilities</Form>
+    <Template>templates/account/visibilities</Template> <!-- inlined, not mapped  -->
+  </Formular>
+  <Formular>
+    <Name>Host Contact Persons</Name>
+    <Form>forms/host-contact-persons</Form>
+    <Template>templates/host/contact-persons</Template>
+  </Formular>
+  <Formular>
+    <Name>Login Creation</Name>
+    <Form>forms/login</Form>
+    <Template>templates/login</Template>
+  </Formular>
+  <Formular>
+    <Name>Confirm</Name>
+    <Form>forms/confirm</Form>
+    <Template>templates/confirm</Template>
+  </Formular>
+  <Formular>
+    <Name>Host Organisation Account</Name>
+    <Form>forms/host-account</Form>
+    <Template>templates/host/account</Template> <!-- inlined, not mapped  -->
+  </Formular>
+  <Formular>
+    <Name>Host Comments</Name>
+    <Form>forms/host-comments</Form>
+    <Template>templates/host/comments</Template>
+  </Formular>
+  <!-- Statistics -->
+  <Formular>
+    <Name>Coaches statistics</Name>
+    <Form>forms/stats-coaches</Form>
+  </Formular>
+</Formulars>

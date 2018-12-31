@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalInformation>
+	<Description Lang="en" Role="normative">
+		<Selector Name="InvestmentInvestorTickets">
+			<Version>20180924-0</Version>
+			<Title>admission - Investment amount</Title>
+			<Note>Amount an investor is willing to invest in a company</Note>
+			<Option>
+				<Value>1</Value>
+				<Name>&lt;100.000&#8364;</Name>
+			</Option>
+			<Option>
+				<Value>2</Value>
+				<Name>100.000&#8364; - 300.000&#8364;</Name>
+			</Option>
+			<Option>
+				<Value>3</Value>
+				<Name>300.000&#8364; - 1.000.000&#8364;</Name>
+			</Option>
+			<Option>
+				<Value>4</Value>
+				<Name>1.000.000&#8364; - 2.000.000&#8364;</Name>
+			</Option>
+			<Option>
+				<Value>5</Value>
+				<Name>2.000.000&#8364; - 5.000.000&#8364;</Name>
+			</Option>
+			<Option>
+				<Value>6</Value>
+				<Name>5.000.000&#8364; - 10.000.000&#8364;</Name>
+			</Option>
+			<Option>
+				<Value>7</Value>
+				<Name>10.000.000&#8364; - 20.000.000&#8364;</Name>
+			</Option>
+			<Option>
+				<Value>8</Value>
+				<Name>&gt;20.000.000&#8364;</Name>
+			</Option>
+		</Selector>
+	</Description>
+</GlobalInformation>

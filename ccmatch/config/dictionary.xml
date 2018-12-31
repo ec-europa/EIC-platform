@@ -1,0 +1,177 @@
+<Dictionary xmlns="http://oppidoc.com/oppidum/site">
+  <Translations lang="en">
+
+    <!--********************************************************-->
+    <!-- Exact terms (form fields labels, column headers, etc.) -->
+    <!--********************************************************-->
+
+    <Translation key="term.npa">Postcode</Translation>
+    <Translation key="term.town">City</Translation>
+    <Translation key="term.country">Country</Translation>
+    <Translation key="term.residence">Country of residence</Translation>
+    <Translation key="term.mobile">Mobile phone</Translation>
+    <Translation key="term.phoneAbbrev">Phone</Translation>
+    <Translation key="term.abbrev">Abbreviation</Translation>
+    <Translation key="term.box">Box number</Translation>
+    <Translation key="term.co">c/o</Translation>
+    <Translation key="term.email">Email</Translation>
+    <Translation key="term.phone">Phone</Translation>
+    <Translation key="term.postalCode">Postcode</Translation>
+    <Translation key="term.streetNameAndNo">Street &amp; no</Translation>
+    <Translation key="term.title">Title</Translation>
+    <Translation key="term.webSite">Website</Translation>
+    <Translation key="term.loading">Loading in progress, please wait...</Translation>
+    <Translation key="term.saving">Communication with server...</Translation>
+    <Translation key="term.sex">Sex</Translation>
+    <Translation key="term.civility">Title</Translation>
+    <Translation key="term.firstName">First name</Translation>
+    <Translation key="term.surname">Last name</Translation>
+    <Translation key="term.skype">Skype</Translation>
+    <Translation key="term.realm">Realm</Translation>
+    <Translation key="term.key">Key</Translation>
+    
+    <!--**********-->
+    <!-- Home tab -->
+    <!--**********-->
+    
+    <Translation key="home.nocoaching.title">The user is not registered as coach in any host application</Translation>
+    <Translation key="home.nocoaching.title.self">You are not registered as coach in any host application</Translation>
+    <Translation key="home.coaching.title">The user is registered as </Translation>
+    <Translation key="home.coaching.title.self">You are registered as </Translation>
+    <Translation key="home.informations.title">User's last activities</Translation>
+    <Translation key="home.informations.title.self">Track of your last activities</Translation>
+    <Translation key="home.handbooks.title">Download handbooks related to business innovation coaching</Translation>
+    <Translation key="home.informations.void">Nothing to report so far</Translation>
+
+    <!--***************-->
+    <!-- Coach profile -->
+    <!--***************-->
+
+    <Translation key="profile.title.contact">Contact information</Translation>
+    <Translation key="profile.title.experiences">Experiences</Translation>
+    <Translation key="profile.title.competences">Competences</Translation>
+
+    <!--***************-->
+    <!-- Coach perfs   -->
+    <!--***************-->
+
+    <Translation key="perf.resource">Resource impact</Translation>
+    <Translation key="perf.business">Business impact</Translation>
+    <Translation key="perf.interaction">Interaction</Translation>
+    <Translation key="sme.rating">SME rating</Translation>
+
+    <!--*******-->
+    <!-- Login -->
+    <!--*******-->
+    
+    <Translation key="login.hold">The coach match application has been put on hold while we are updating the application or checking some parameters. Please come back in a few minutes when this banner will be removed. We apologize for any inconvenience caused by the delay ...</Translation>
+    <Translation key="login.check.notfound">No user profile is currently linked to your EU login account. If this is the first time you visit the Coach Match platform and never had an account on it before, then you can click on Create a new account to create it. If you already have a Coach Match account please log in entering this account credentials below in order to process the identification with your EU login account.</Translation>
+    <Translation key="login.check.found">No user profile is currently linked to your EU login account. However it seems that you already have a Coach Match account registered with the same e-mail address. Please log in entering your credentials below in order to process the identification with your EU login account.</Translation>
+    <Translation key="login.title">Access to Coach Match Platform</Translation>
+    <Translation key="login.user">User name</Translation>
+    <Translation key="login.pwd">Password</Translation>
+    <Translation key="login.registration">Create a new account</Translation>
+    <Translation key="login.registration.hint">You must first create a user account before browsing the website</Translation>
+    <Translation key="login.forgotten">Password forgotten</Translation>
+    <Translation key="login.forgotten.hint">Send a new password by Email</Translation>
+    <Translation key="login.organisations.title">Participating coaching organisations</Translation>
+
+    <!--***********************************************-->
+    <!-- Application level titles, labels and messages -->
+    <!--***********************************************-->
+
+    <Translation key="app.message.loading">File loading in progress, please wait...</Translation>
+
+    <!--*********-->
+    <!-- Actions -->
+    <!--*********-->
+
+    <Translation key="action.close">Close</Translation>
+    <Translation key="action.search">Search</Translation>
+    <Translation key="action.reset">Clear</Translation>
+    <Translation key="action.save">Save</Translation>
+    <Translation key="action.create">Create</Translation>
+    <Translation key="action.edit">Edit</Translation>
+    <Translation key="action.correct">Correct</Translation>
+    <Translation key="action.cancel">Cancel</Translation>
+    <Translation key="action.back">Back</Translation>
+    <Translation key="action.add.person">Add a new user</Translation>
+    <Translation key="action.delete.person">Delete user</Translation>
+    <Translation key="action.add.account">Create access login</Translation>
+    <Translation key="action.update.account">Change access login</Translation>
+    <Translation key="action.delete.account">Remove access login</Translation>
+    <Translation key="action.continue">Continue</Translation>
+    <Translation key="action.new.pwd">New password</Translation>
+    <Translation key="action.submit.pwd">Change password</Translation>
+
+    <!--*********************-->
+    <!-- Validation messages -->
+    <!--*********************-->
+
+    <Translation key="validation.integer">Enter a whole number</Translation>
+    <Translation key="validation.hours">Enter a whole number of hours or with quarters (.25, .5, .75)</Translation>
+    <Translation key="validation.decimal">Enter a whole or a decimal number (2 digits decimal part)</Translation>
+    <Translation key="validation.email">The Email address is not written correctly(name@server.domain)</Translation>
+    <Translation key="validation.phone">The number must be separated by spaces with an optional + at the beginning</Translation>
+    <Translation key="validation.login">Enter at least 5 characters including the sign - and without space</Translation>
+    <Translation key="validation.year">Enter a year as a number with 4 digits</Translation>
+
+    <!--*****************-->
+    <!-- Password tunnel -->
+    <!--*****************-->
+
+    <Translation key="pwd.title">Password forgotten</Translation>
+    <Translation key="pwd.hint">If you need a new password, please indicate your user name and your address (the one registered in the application) in the field below</Translation>
+    <Translation key="pwd.email">Email</Translation>
+    <Translation key="pwd.sentByEmail">Your new password has been sent to the following address: </Translation>
+    <Translation key="account.title">User Account Management</Translation>
+    <Translation key="account.pwd.hint">You can modify your password by following the instructions of the Form bellow. Pay attention to the number of characters which must be at least 8. Spaces at the beginning and at the end do not count</Translation>
+    <Translation key="account.pwd">New password</Translation>
+    <Translation key="account.pwd.bis">Enter password again</Translation>
+    <Translation key="account.identity1">You are connected as</Translation>
+    <Translation key="account.identity2">So you are</Translation>
+    <Translation key="pwd.updated">Your new password has been registered</Translation>
+    <Translation key="account.continue.hint">You can keep browsing, make use of your new password the next time you want to open the system</Translation>
+
+    <!--********** -->
+    <!-- Formulars -->
+    <!--********** -->
+    <Translation key="search.criteria.hint">Values inside each criteria are combined with an OR and criteria between themselves are combined with an AND. A coach will appear in search results if and only if he has edited his skills at least in the experiences or competences parts of his profile.</Translation>
+    <Translation key="fit.competence.hint">The competence fit is an indicator of how competences match with the expressed Business Innovation needs of the SME. For more information, read the business innovation model in the Method Handbook.</Translation>
+    <Translation key="fit.context.hint">The context fit is an indicator of how business experiences match with the specific context of the SME. Experiences are particularly important with regard to life cycle stages, target markets, industry sectors, and demanded coaching service.</Translation>    
+    <Translation key="sme.rating.hint">The SME rating value is an average indicator (min: 1, max: 5) of how past coaching was evaluated by SME.</Translation>
+
+    <!--******* -->
+    <!-- Stats  -->
+    <!--******* -->
+    <Translation key="stats.criteria.period">initiated...</Translation>
+    <Translation key="stats.criteria.targetedMarkets">Markets</Translation>
+    <Translation key="stats.criteria.size">Size</Translation>
+    <Translation key="stats.criteria.initialContext">Current</Translation>
+    <Translation key="stats.criteria.targetedContext">Planned</Translation>
+    <Translation key="stats.criteria.innovationVectors">Vectors</Translation>
+    <Translation key="stats.criteria.ideaSources">Ideas</Translation>
+    <Translation key="stats.criteria.resources">Resources</Translation>
+    <Translation key="stats.criteria.partners">Partnerships</Translation>
+    <Translation key="stats.q1">(Q1) To KAM: The top management understands the value of the coaching</Translation>
+    <Translation key="stats.q2">(Q2) To KAM: I felt confident using the needs analysis tool</Translation>
+    <Translation key="stats.q3">(Q3) To SME: [name of KAM] helped us to identify relevant business needs</Translation>
+    <Translation key="stats.q4">(Q4) To SME: The needs analysis performed together with [name of KAM] lead our company to take internal actions</Translation>
+    <Translation key="stats.q5">(Q5) To KAM: I could find suitably profiled coaches in the coach database</Translation>
+    <Translation key="stats.q6">(Q6) To SME: I was well informed about coaches to be able to choose the appropriate one</Translation>
+    <Translation key="stats.q7">(Q7) To Coach: The KAM prepared constructively my interaction with the SME beneficiary</Translation>
+    <Translation key="stats.q8">(Q8) To Coach: The management team of the company was actively engaged in the coaching process</Translation>
+    <Translation key="stats.q9">(Q9) To SME: I would recommend business innovation coaching to other companies</Translation>
+    <Translation key="stats.q10">(Q10) To Coach: I do consider the coaching experience suitable to be communicated as a success story</Translation>
+    <Translation key="stats.q11">(Q11) To SME: Thanks to [Name of Coach], we changed the way to approach our challenges</Translation>
+    <Translation key="stats.q12">(Q12) To coach: The planned tasks and objectives were achieved</Translation>
+    <Translation key="stats.q13">(Q13) To SME: Thanks to [Name of Coach], we expect our business innovation project to progress faster</Translation>
+    <Translation key="stats.q14">(Q14) To SME: Thanks to [Name of Coach], our business strategy improved</Translation>
+    <Translation key="stats.q15">(Q15) To KAM: I appreciate the interaction with the coach (dialogue, responsiveness)</Translation>
+    <Translation key="stats.sme">Average of average of (Q9), (Q11), (Q13), (Q14)</Translation>
+    <Translation key="RI.hint">To what degree did your coaching empower the company to address its challenges?</Translation>
+    <Translation key="BI.hint">To what degree did the improved company capacity impact the business development?</Translation>
+    <Translation key="I.hint">To what degree was the coach’s interaction with the KAM perceived as beneficiary for the company?</Translation>
+    
+  </Translations>
+</Dictionary>

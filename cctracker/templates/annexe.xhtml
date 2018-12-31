@@ -1,0 +1,50 @@
+<html xmlns:site="http://oppidoc.com/oppidum/site" xmlns="http://www.w3.org/1999/xhtml" xmlns:xt="http://ns.inria.org/xtiger">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+    <title>Fenêtre de téléchargement de document comme Annexe</title>
+    <link href="../resources/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+    <link href="../resources/css/site.css" type="text/css" rel="stylesheet"/>
+    <link href="../resources/css/workflow.css" type="text/css" rel="stylesheet"/>
+    <xt:head label="Document" templateVersion="1.0" version="1.1">
+      <xt:component name="t_simulation">
+        <div class="container">
+          <div class="row-fluid">
+            <div class="span9">
+              <div id="editor">
+                <xt:use types="t_main"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </xt:component>
+      <xt:component name="t_main">
+        <div>
+          <div class="control-group">
+            <label class="control-label span1">Fichier</label>
+            <div class="controls">
+              <site:file>FILE</site:file>
+            </div>
+          </div>
+          <ol style="clear: both" class="x-List">
+            <li>cliquez sur l'icône puis <i>sélectionnez le fichier</i> à charger</li>
+            <li><i>modifiez le nom du fichier</i> à charger :
+              <ul class="x-List">
+                <li>c'est le nom qui servira à former le lien vers le document</li>
+                <li>il doit être unique parmi toutes les annexes et ne comporter ni espace ni caractère spécial</li>
+              </ul>                  
+            </li>
+            <li><i>envoyez le fichier sur le serveur</i> avec le bouton <strong>Enregistrer</strong></li>
+            <li>répétez l'opération ci-dessus (cliquez sur l'icône à droite du message indiquant le succès pour recommencer)</li>
+            <li>cliquez sur <strong>Terminer</strong> lorsque vous aurez fini</li>
+          </ol>
+          <p>Notez que vous ne pouvez télécharger que des documents PDF ou des documents Microsoft Office.</p>
+        </div>
+      </xt:component>
+    </xt:head>
+  </head>
+  <body>
+    <form onsubmit="return false;" action="">
+      <xt:use types="t_main"/>
+    </form>
+  </body>
+</html>

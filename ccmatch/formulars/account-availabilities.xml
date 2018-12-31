@@ -1,0 +1,17 @@
+<Form Tag="Profil" StartLevel="2" Wrapper="none"
+      xmlns:xt="http://ns.inria.org/xtiger" xmlns:site="http://oppidoc.com/oppidum/site">
+  <Row>
+    <Cell Tag="Coaching" W="12">
+      <Title Level="3">Define your availability for coaching services</Title>
+      <Cell Tag="Coaching_1">
+        <Field Key="availability" Tag="YesNoAvailRef" W="8" Gap="3">Availability for SME Instrument</Field>
+      </Cell>
+    </Cell>
+  </Row>
+  <Plugins>
+    <Selector Default="1" Keys="availability" Name="YesNoAvails"/>
+  </Plugins>
+  <Hints>
+    <Hint Keys="availability" data-placement="right">Choosing "No" means that your profile will not appear any more in the coach list proposed to KAM searching for coaches from the SME Instrument Case Tracker; Note that to appear in such lists you also need to be accepted for the SME Instrument organisation</Hint>
+  </Hints>
+</Form>

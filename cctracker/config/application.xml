@@ -1,0 +1,664 @@
+<Application>
+  <Messages>
+    <Email Template="coach-contracting-start" Context="FundingDecision" In="alert.xql">
+      <Recipients CC="r:kam">r:coach</Recipients>
+    </Email>
+  </Messages>
+  <Workflows>
+    <Workflow Id="Project">
+      <Documents TemplateBaseURL="../templates/">
+        <Document Tab="project-info" AtStatus="1" Blender="yes" class="project">
+          <AutoExec AtStatus="1" Id="ae-advance" i18nBase="action.create">
+            <Forward Command="confirm">cmd-create-case</Forward>
+          </AutoExec>
+          <Controller>information</Controller>
+          <Template>project-information</Template>
+          <Action Type="status" AtStatus="1"/>
+          <Action Type="spawn" AtStatus="1" ProxyTab="case-assignment" Id="cmd-create-case" loc="Create a Case"/>
+        </Document>
+        <Document Tab="case-assignment" Accordion="no">
+          <Controller>cases</Controller>
+          <Action Type="create" AtStatus="1"/>
+        </Document>
+      </Documents>
+      <Transitions>
+        <Transition From="1" To="-1">
+          <Meet>r:region-manager g:coaching-manager</Meet>
+        </Transition>
+      </Transitions>
+    </Workflow>
+    <Workflow Id="Case">
+      <Documents TemplateBaseURL="../../../templates/">
+        <Document Tab="project-info" AtStatus="1 2 3" Blender="yes" class="project">
+          <Controller>../../information</Controller>
+          <Template>project-information</Template>
+          <Action Type="status" AtStatus="1 2 3 9 10"/>
+        </Document>
+        <Document Tab="case-init" AtStatus="1 2 3" Blender="yes" class="case">
+          <Controller>information</Controller>
+          <Template Param="breadcrumbs">case-information</Template>
+          <Action Type="status" AtStatus="1 9 10"/>
+          <Action Type="update" AtStatus="1 2 3 9 10"/>
+          <Host RootRef="ManagingEntity">
+            <Action Type="update" AtStatus="1"/>
+            <Flag Name="ment" Action="update"/>
+          </Host>
+          <Host RootRef="SME-Notification">
+            <Action Type="update" AtStatus="1 2 3 9"/>
+            <Flag Name="smegrant" Action="update"/>
+          </Host>
+          <Host RootRef="KAM-Notification">
+            <Action Type="update" AtStatus="1 2 3 9"/>
+            <Flag Name="kamgrant" Action="update"/>
+          </Host>
+        </Document>
+        <Document Tab="kam-init" AtStatus="2 3" Blender="yes" class="case">
+          <AutoExec AtStatus="2" Id="ae-advance" i18nBase="action.status">
+            <Forward Command="status" EventTarget="go-needs-analysis">cmd-change-status</Forward>
+          </AutoExec>
+          <Controller>management</Controller>
+          <Template Param="breadcrumbs">case-management</Template>
+          <Action Type="status" AtStatus="2 9 10" Id="cmd-change-status"/>
+          <Action Type="update" AtStatus="2 3 9 10"/>
+        </Document>
+        <Document Tab="coaching-init" AtStatus="3" Blender="yes" class="case">
+          <AutoExec AtStatus="3" Id="ae-advance" i18nBase="action.create">
+            <Forward Command="confirm">cmd-create-coaching</Forward>
+          </AutoExec>
+          <Controller>needs-analysis</Controller>
+          <Template>needs-analysis</Template>
+          <Action Type="status" AtStatus="3 9 10"/>
+          <Action Type="spawn" AtStatus="3" ProxyTab="coaching-assignment" Id="cmd-create-coaching"/>
+          <Action Type="update" AtStatus="3 9 10"/>
+        </Document>
+        <Document Tab="coaching-assignment" Accordion="no">
+          <Controller>activities</Controller>
+          <Action Type="create" AtStatus="3"/>
+        </Document>
+      </Documents>
+      <Transitions>
+        <!-- ============== EEN assignment ============== -->
+        <Transition From="1" To="2" Template="een-coordinator-notification">
+          <Meet>g:coaching-manager</Meet>
+          <Recipients>r:region-manager</Recipients>
+          <Assert Base="$case" Error="MISSING-BENEFICIARY">
+            <true>$base/PIC[. ne '']</true>
+          </Assert>
+          <Assert Base="$case" Error="MISSING-ENTITY">
+            <true>$base/ManagingEntity/RegionalEntityRef[. ne '']</true>
+          </Assert>
+        </Transition>
+        <Transition From="1" To="9">
+          <Meet>g:coaching-manager</Meet>
+          <Recipients>r:region-manager</Recipients>
+        </Transition>
+        <Transition From="1" To="10">
+          <Meet>g:coaching-manager</Meet>
+          <Recipients>r:region-manager</Recipients>
+        </Transition>
+        <!-- ============== KAM assignment ============== -->
+        <Transition From="2" To="3" Intent="accept" Template="kam-notification" Id="go-needs-analysis">
+          <Meet>r:region-manager</Meet>
+          <Recipients Key="kam-1">r:kam</Recipients>
+          <Email Template="sme-notification">
+            <Recipients CC="r:kam" Max="1" Key="sme-1" Explain="NO-NOTIFY-SME-TRANSITION-REPORT"/>
+          </Email>
+          <Assert Base="$case/Management" Error="MISSING-KAM">
+            <true>$base/AccountManagerRef[. ne '']</true>
+          </Assert>
+        </Transition>
+        <Transition From="2" To="1" Intent="refuse">
+          <Meet>r:region-manager</Meet>
+          <Recipients>g:coaching-manager</Recipients>
+        </Transition>
+        <Transition From="2" To="9">
+          <Meet>g:coaching-manager</Meet>
+          <Recipients>r:region-manager</Recipients>
+        </Transition>
+        <Transition From="2" To="10">
+          <Meet>g:coaching-manager</Meet>
+          <Recipients>r:region-manager</Recipients>
+        </Transition>
+        <!-- ============== Coaching Initiation ============== -->
+        <Transition From="3" To="2">
+          <Meet>r:kam</Meet>
+          <Recipients>r:region-manager g:coaching-manager</Recipients>
+        </Transition>
+        <Transition From="3" To="-1" GenericError="INCOMPLETE-DOCUMENT">
+          <Assert Base="$case/../../Information/Beneficiaries/(Coordinator|Partner)[PIC eq $case/PIC]" Error="MISSING-ENTERPRISE-STATS">
+            <true>count($base/TargetedMarkets/*) &gt;= 1</true>
+            <true>$base/DomainActivityRef[. ne '']</true>
+            <true>$base/SizeRef[. ne '']</true>
+            <true>$base/CreationYear[. ne '']</true>
+          </Assert>
+          <Assert Base="$case/Proxies/KAMReportNAProxy" Error="MISSING-EVALUATION-NEEDS-ANALYSIS">
+            <true>count($base/Recognition/*) &gt;= 2</true>
+            <true>count($base/Tools/*) &gt;= 2</true>
+          </Assert>
+        </Transition>
+        <Transition From="3" To="10">
+          <Meet>r:kam</Meet>
+          <Recipients>r:region-manager g:coaching-manager</Recipients>
+        </Transition>
+        <!-- ============== On hold ============== -->
+        <Transition From="9" To="1">
+          <Meet>g:coaching-manager</Meet>
+          <Recipients>r:region-manager</Recipients>
+        </Transition>
+        <Transition From="9" To="2">
+          <Meet>g:coaching-manager</Meet>
+          <Recipients>r:region-manager</Recipients>
+        </Transition>
+        <Transition From="9" To="last()" Label="Reopen the case, return to latest status">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Transition>
+        <!-- ============== No coaching ============== -->
+        <Transition From="10" To="last()" Label="Reopen the case, return to latest status">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Transition>
+      </Transitions>
+    </Workflow>
+    <Workflow Id="Activity">
+      <Documents TemplateBaseURL="../../../../../templates/">
+        <Document Tab="project-info" AtStatus="1 2 3 4 5 6 7 8" Blender="yes" class="project">
+          <Controller>../../../../information</Controller>
+          <Template>project-information</Template>
+          <Action Type="status" AtStatus="1 2 3 4 5 6 7 8"/>
+        </Document>
+        <!-- Case reminders -->
+        <Document Tab="case-init" AtStatus="1 2 3 4 5 6 7 8" Blender="yes" class="case">
+          <Controller>../../information</Controller>
+          <Template>case-information</Template>
+          <Host RootRef="SME-Notification">
+            <Flag Name="smegrant" Action="update"/>
+          </Host>
+          <Host RootRef="KAM-Notification">
+            <Flag Name="kamgrant" Action="update"/>
+          </Host>
+        </Document>
+        <Document Tab="kam-init" AtStatus="1 2 3 4 5 6 7 8" Blender="yes" class="case">
+          <Controller>../../management</Controller>
+          <Template Param="breadcrumbs">case-management</Template>
+        </Document>
+        <Document Tab="coaching-init" AtStatus="1 2 3 4 5 6 7 8" Blender="yes" class="case">
+          <Controller>needs-analysis</Controller>
+          <Template>needs-analysis</Template>
+        </Document>
+        <!-- Activity documents -->
+        <Document Tab="coaching-assignment" AtStatus="1 2 3 4 5 6 7 8" Blender="yes">
+          <AutoExec AtStatus="1" Id="ae-advance" i18nBase="action.status">
+            <Forward Command="status" EventTarget="go-coaching-plan">cmd-change-status</Forward>
+          </AutoExec>
+          <Controller>assignment</Controller>
+          <Template Param="breadcrumbs">coaching-assignment</Template>
+          <Action Type="status" AtStatus="1" Id="cmd-change-status"/>
+          <Action Type="update" AtStatus="1"/>
+          <Action Type="delete" AtStatus="1"/>
+        </Document>
+        <Document Tab="funding-request" AtStatus="2 3 4 5 6 7 8" Blender="yes">
+          <AutoExec AtStatus="2" Id="ae-advance" Mode="direct">
+            <Forward Command="status" EventTarget="go-consultation">cmd-change-status</Forward>
+          </AutoExec>
+          <Controller>funding-request</Controller>
+          <Template>funding-request</Template>
+          <Action Type="status" AtStatus="2" Id="cmd-change-status"/>
+          <Action Type="update" AtStatus="2" Forward="submit"/>
+          <Host RootRef="SME-Agreement">
+            <Action Type="update" AtStatus="2"/>
+            <Flag Name="smeagree" Action="update"/>
+          </Host>
+          <Host True="exists($activity/FundingRequest/Conformity)">
+            <Flag Name="legacy"/>
+          </Host>
+        </Document>
+        <Document Tab="opinions" AtStatus="3 4 5 6 7 8" Blender="yes">
+          <Controller>opinions</Controller>
+          <Template>opinions</Template>
+          <Action Type="status" AtStatus="3"/>
+          <Host RootRef="KAM-Opinion">
+            <Action Type="update" AtStatus="3"/>
+            <Flag Name="kamop" Action="update"/>
+          </Host>
+          <Host RootRef="ServiceHeadOpinion">
+            <Action Type="update" AtStatus="3"/>
+            <Flag Name="cmop" Action="update"/>
+          </Host>
+          <Host RootRef="SME-Opinion">
+            <Action Type="update" AtStatus="3"/>
+            <Flag Name="smeop" Action="update"/>
+          </Host>
+        </Document>
+        <Document Tab="funding-decision" AtStatus="4 5 6 7 8" Blender="yes">
+          <Controller>funding-decision</Controller>
+          <Template>funding-decision</Template>
+          <Action Type="status" AtStatus="4"/>
+          <Action Type="update" AtStatus="4"/>
+          <Host RootRef="Contract">
+            <Flag Name="warning" Action="sign"/>
+          </Host>
+          <Host RootRef="CoachContract">
+            <Action Type="update" AtStatus="4"/>
+            <Flag Name="coac" Action="update"/>
+            <Flag Name="coaclst" Action="list"/>
+          </Host>
+          <Host RootRef="AnnexFile">
+            <Flag Name="anx" Action="read"/>
+          </Host>
+        </Document>
+        <Document Tab="final-report" AtStatus="5 6 7 8" Blender="yes">
+          <AutoExec AtStatus="5" Id="ae-advance" Mode="direct">
+            <Forward Command="status" EventTarget="go-approval">cmd-change-status</Forward>
+          </AutoExec>
+          <Controller>final-report</Controller>
+          <Template Param="breadcrumbs">final-report</Template>
+          <Action Type="status" AtStatus="5" Id="cmd-change-status"/>
+          <Action Type="update" AtStatus="5" Forward="submit"/>
+          <Host RootRef="TimesheetFile">
+            <Action Type="update" AtStatus="5"/>
+            <Action Type="delete" AtStatus="5"/>
+            <Flag Name="ts" Action="update"/>
+          </Host>
+        </Document>
+        <!--<Document Tab="final-report-approval" AtStatus="6 7 8" Blender="yes">
+                    <Controller>final-report-approval</Controller>
+                    <Template>final-report-approval</Template>
+                    <Action Type="status" AtStatus="6"/>
+                    <Action Type="update" AtStatus="6"/>
+                    </Document>-->
+        <Document Tab="closing" AtStatus="7 8" Blender="yes" Context="Closing">
+          <Controller>final-report-approval</Controller>
+          <Template>closing</Template>
+          <Action Type="status" AtStatus="7"/>
+          <Host RootRef="CoachingAssistantVisa">
+            <Action Type="update" AtStatus="7"/>
+            <Flag Name="cavisa" Action="update"/>
+          </Host>
+          <Host RootRef="CoachingManagerVisa">
+            <Action Type="update" AtStatus="7"/>
+            <Flag Name="cmvisa" Action="update"/>
+          </Host>
+        </Document>
+        <Document Tab="evaluation" AtStatus="8">
+          <Controller>evaluation</Controller>
+          <Template Param="breadcrumbs">evaluation</Template>
+          <Action Type="status" AtStatus="8"/>
+          <!-- BE AWARE OF POSSIBLE CYCLING REFERENCES BETWEEN DOCS (INVOLVING NO TERMINATION) -->
+          <DynamicAssert AtStatus="10 11" Rule="some">
+            <Tab>evaluations</Tab>
+          </DynamicAssert>
+        </Document>
+        <Document Tab="evaluations" Blender="yes" AtStatus="8" AtFinalStatus="10 11">
+          <Controller>evaluations</Controller>
+          <Template Param="breadcrumbs">evaluations</Template>
+          <Action Type="read" AtStatus="8"/>
+          <Action Type="read" AtStatus="10"/>
+          <Action Type="read" AtStatus="11"/>
+          <DynamicAssert AtStatus="8" Base="$activity" Rule="some">
+            <true>count($base/FinalReport/*[not(local-name(.) = ('Partners','TimesheetFile'))][count(child::*) ge 1]) gt 0</true>
+            <true>count($base/FinalReportApproval/*[not(local-name(.) = ('CoachingAssistantVisa','CoachingManagerVisa'))][count(child::*) ge 1]) gt 0</true>
+            <true>$base/Evaluation/Order[Questionnaire/text() eq 'cctracker-sme-feedback']/Answers[. ne '']</true>
+          </DynamicAssert>
+        </Document>
+      </Documents>
+      <Transitions>
+        <!-- ============== Coach assignment ============== -->
+        <Transition From="1" To="2" Id="go-coaching-plan" Template="coach-assignment-coach-notification" GenericError="INCOMPLETE-DOCUMENT">
+          <Meet>r:kam</Meet>
+          <Recipients>r:coach</Recipients>
+          <Email Template="coach-assignment-easme-notification"/>
+          <Assert Base="$activity/Assignment" Error="MISSING-COACH-OR-SERVICE">
+            <true>$base/ServiceRef[. ne '']</true>
+            <true>$base/ResponsibleCoachRef[. ne '']</true>            
+          </Assert>
+          <Assert Base="$activity/FinalReportApproval/Profiles" Error="MISSING-EVALUATION-COACH-ASSIGNMENT">
+            <true>$base/RatingScaleRef[. ne '']</true>
+            <true>$base/Comment[. ne '']</true>
+          </Assert>
+        </Transition>
+        <Transition From="1" To="9">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Transition>
+        <!-- ============== Coaching plan ============== -->
+        <Transition From="2" To="3" Template="coaching-plan-consultation" Mail="direct" Label="Submit" Id="go-consultation">
+          <Meet>r:coach</Meet>
+          <Recipients>r:kam</Recipients>
+          <Email Template="coaching-plan-submission">
+            <Recipients CC="r:kam">r:coach</Recipients>
+          </Email>
+          <Assert Base="$activity/FundingRequest" Error="INCOMPLETE-COACHING-PLAN">
+            <true>$base/SME-Agreement/YesNoScaleRef[. eq '1']</true>
+          </Assert>
+        </Transition>
+        <Transition From="2" To="1" Label="Refuse case, send back to KAM">
+          <Meet>r:coach</Meet>
+          <Recipients>r:kam g:coaching-manager</Recipients>
+        </Transition>
+        <!-- ============== Consultation (no notification) ============== -->
+        <Transition From="3" To="4">
+          <Meet>g:coaching-assistant</Meet>
+        </Transition>
+        <!-- ============== Coach contracting ============== -->
+        <Transition From="4" To="5" Template="coaching-start">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+          <Recipients>r:coach r:kam</Recipients>
+        </Transition>
+        <Transition From="4" To="2">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+          <Recipients>r:coach r:kam r:service-head</Recipients>
+        </Transition>
+        <!-- <Transition From="4" To="3">
+                  <Meet>g:sector-head</Meet>
+                  <Recipients>r:coach r:kam g:coaching-manager</Recipients>
+                </Transition> -->
+        <Transition From="4" To="9">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+          <Recipients>r:coach r:kam r:service-head</Recipients>
+        </Transition>
+        <!-- ============== Coaching report ============== -->
+        <!-- TODO: replace with a direct mail to EASME-SME-COACHING@ec.europa.eu 
+             and uncomment "coach-report-approved" at top -->
+        <Transition From="5" To="7" Label="Submit" Id="go-approval">
+          <Meet>r:coach</Meet>
+          <Recipients>g:coaching-manager g:coaching-assistant</Recipients>
+          <Assert Base="$activity/Resources" Error="MISSING-TIMESHEET-FILE">
+            <true>$base/TimesheetFile[. ne '']</true>
+          </Assert>
+        </Transition>
+        <Transition From="5" To="4" Label="Return to Coach contracting">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Transition>
+        <!-- ============== KAM report ============== -->
+        <!--<Transition From="6" To="7">
+                    <Meet>r:kam</Meet>
+                    <Recipients>g:coaching-manager g:coaching-assistant</Recipients>
+                    <Assert Base="$case/Information/ClientEnterprise" Error="MISSING-ENTERPRISE-STATS">
+                        <true>$base/CreationYear[. ne '']</true>
+                        <true>$base/SizeRef[. ne '']</true>
+                        <true>$base/DomainActivityRef[. ne '']</true>
+                        <true>count($base/TargetedMarkets/TargetedMarketRef)>0</true>
+                    </Assert>
+                </Transition>
+                <Transition From="6" To="5">
+                    <Meet>r:kam</Meet>
+                    <Recipients>r:coach</Recipients>
+                </Transition>-->
+        <!-- ============== Report approval ============== -->
+        <Transition From="7" To="8" Launch="feedback-at-eval">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Transition>
+        <Transition From="7" To="10">
+          <Meet>g:coaching-manager</Meet>
+          <Recipients>r:kam r:coach</Recipients>
+        </Transition>
+        <Transition From="7" To="5">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+          <Recipients>r:coach r:kam</Recipients>
+        </Transition>
+        <!--<Transition From="7" To="6">
+                    <Meet>g:coaching-manager g:coaching-assistant</Meet>
+                    <Recipients>r:kam</Recipients>
+                </Transition>-->
+        <!-- ============== SME feedback ============== -->
+        <Transition From="8" To="10" Launch="close-feedback-at-eval">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+          <Recipients>r:kam r:coach</Recipients>
+        </Transition>
+        <!-- <Transition From="8" To="7">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+          <Recipients>r:kam</Recipients>
+        </Transition> -->
+        <!-- ============== Rejected ============== -->
+        <!-- ============== Closed ============== -->
+        <!-- ============== Evaluated ============== -->
+      </Transitions>
+    </Workflow>
+  </Workflows>
+  <Security>
+    <Documents>
+      <!-- Main documents shown on accordion tabs -->
+      <Document TabRef="case-init" Root="Information" Form="case-information.xml">
+        <Action Type="create">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+        <Action Type="update">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+        <Action Type="delete">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="kam-init" Root="Management" Form="case-management.xml">
+        <Action Type="update">
+          <Meet>r:region-manager</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="coaching-init" Root="NeedsAnalysis" Form="needs-analysis.xml">
+        <Action Type="update">
+          <Meet>r:kam</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="coaching-assignment" Root="Assignment" Form="coaching-assignment.xml">
+        <Action Type="create">
+          <Meet>r:kam</Meet>
+        </Action>
+        <Action Type="update">
+          <Meet>r:kam</Meet>
+        </Action>
+        <Action Type="delete">
+          <Meet>r:kam</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="funding-request" Root="FundingRequest" Form="funding-request.xml">
+        <Action Type="update">
+          <Meet>r:coach</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="opinions" Root="Opinions" Form="opinions.xml">
+        <!-- Displayed on modal windows -->
+      </Document>
+      <Document TabRef="funding-decision" Root="FundingDecision" Form="funding-decision.xml">
+        <Action Type="update">
+          <Meet>g:coaching-manager</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="final-report" Root="FinalReport" Form="final-report.xml">
+        <Action Type="update">
+          <Meet>r:coach</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="final-report-approval" Root="FinalReportApproval" Form="final-report-approval.xml">
+        <Action Type="update">
+          <Meet>r:kam</Meet>
+        </Action>
+      </Document>
+      <Document TabRef="evaluation" Root="Order" Form="evaluation.xml">
+        <!-- not a real document : state of evaluation process  -->
+      </Document>
+      <Document TabRef="evaluations" Root="Evaluations" Form="evaluations.xml">
+        <!-- <Action Type="read">
+          <Meet>s:omni r:project-officer r:region-manager r:kam r:coach</Meet>
+        </Action> -->
+      </Document>
+      <!-- Displayed on accordion tabs and modal window -->
+      <!-- <Document TabRef="financial-statement" Root="FinancialStatement" Form="financial-statement.xml">
+              <Action Type="update">
+                <Meet>r:coach</Meet>
+              </Action>
+            </Document> -->
+      <!-- Sub-documents hosted on main documents with modal window editor -->
+      <Document Root="ClientEnterprise" Form="enterprise.xml">
+        <Action Type="update">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Document>
+      <Document Root="SME-Notification" Form="email.xml">
+        <Action Type="update">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Document>
+      <Document Root="KAM-Notification" Form="email.xml">
+        <Action Type="update">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Document>
+      <Document Root="ManagingEntity" Form="managing-entity.xml">
+        <Action Type="update">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Document>
+      <Document Root="KAM-Opinion" Form="position.xml">
+        <Action Type="update">
+          <Meet>r:kam</Meet>
+        </Action>
+      </Document>
+      <Document Root="ServiceHeadOpinion" Form="position.xml">
+        <Action Type="update">
+          <Meet>r:service-head</Meet>
+        </Action>
+      </Document>
+      <Document Root="Contract">
+        <Action Type="sign">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Document>
+      <Document Root="CoachContract" Form="coach-contract.xml">
+        <Action Type="update">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+        <Action Type="list">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Document>
+      <Document Root="SME-Agreement" Form="email.xml">
+        <Action Type="update">
+          <Meet Policy="strict">r:coach</Meet>
+        </Action>
+      </Document>
+      <Document Root="SME-Opinion" Form="email.xml">
+        <Action Type="update">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Document>
+      <Document Root="CoachingAssistantVisa" Form="position.xml">
+        <Action Type="update">
+          <Meet>g:coaching-assistant</Meet>
+        </Action>
+      </Document>
+      <Document Root="CoachingManagerVisa" Form="position.xml">
+        <Action Type="update">
+          <Meet>g:coaching-manager</Meet>
+        </Action>
+      </Document>
+      <!-- Timesheet PDF file -->
+      <Document Root="TimesheetFile">
+        <Action Type="update">
+          <Meet>r:coach g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+        <Action Type="delete">
+          <Meet>r:coach g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Document>
+      <!-- Annex generated PDF file -->
+      <Document Root="AnnexFile">
+        <Action Type="read">
+          <Meet>g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Document>
+    </Documents>
+    <Resources>
+      <Resource Name="Coach">
+        <Action Type="search">
+          <Avoid Policy="only">r:coach</Avoid>
+        </Action>
+      </Resource>
+      <Resource Name="Person">
+        <Action Type="create">
+          <Meet>g:easme-kam-coordinator g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+        <Action Type="update">
+          <Meet>g:easme-kam-coordinator g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+        <Action Type="delete">
+          <Meet>g:easme-kam-coordinator g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="Region">
+        <Action Type="create">
+          <Meet>g:easme-kam-coordinator g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+        <Action Type="update">
+          <Meet>g:easme-kam-coordinator g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+        <Action Type="delete">
+          <Meet>g:easme-kam-coordinator g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="Enterprise">
+        <Action Type="create">
+          <Meet>g:easme-kam-coordinator g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+        <Action Type="update">
+          <Meet>g:easme-kam-coordinator g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+        <Action Type="delete">
+          <Meet>g:easme-kam-coordinator g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Resource>
+      <Resource Name="Service">
+        <Action Type="update">
+          <Meet>g:easme-kam-coordinator g:coaching-manager g:coaching-assistant</Meet>
+        </Action>
+      </Resource>
+    </Resources>
+  </Security>
+  <Description>
+    <Role>
+      <Name>d:sme-contact</Name>
+      <Legend>Authorized SME contact</Legend>
+    </Role>
+    <Role>
+      <Name>d:needs-analysis-contact</Name>
+      <Legend>Contact person for needs analysis</Legend>
+    </Role>
+    <Role>
+      <Name>r:region-manager</Name>
+      <Legend>EEN KAM Coordinator</Legend>
+      <Domain>RegionalEntityRef</Domain>
+    </Role>
+    <Role>
+      <Name>r:kam</Name>
+      <Legend>Key Account Manager of case</Legend>
+      <Domain>RegionalEntityRef</Domain>
+    </Role>
+    <Role>
+      <Name>r:coach</Name>
+      <Legend>Coach of coaching activity</Legend>
+      <Domain>ServiceRef</Domain>
+    </Role>
+    <Role>
+      <Name>g:coaching-assistant</Name>
+      <Legend>EASME Coaching Assistant</Legend>
+    </Role>
+    <Role>
+      <Name>g:coaching-manager</Name>
+      <Legend>EASME Coaching Manager</Legend>
+    </Role>
+    <Role>
+      <Name>g:easme-kam-coordinator</Name>
+      <Legend>EASME KAM Coordinator</Legend>
+    </Role>
+    <Role>
+      <Name>g:sector-head</Name>
+      <Legend>EASME Head of Sector</Legend>
+    </Role>
+    <Role>
+      <Name>r:service-head</Name>
+      <Legend>EASME Head of coaching service</Legend>
+      <Domain>ServiceRef</Domain>
+    </Role>
+    <Role>
+      <Name>r:project-officer</Name>
+      <Legend>EASME Project Officer</Legend>
+    </Role>
+  </Description>
+</Application>

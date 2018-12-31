@@ -1,0 +1,22 @@
+<Form Tag="ActivitiesFilter" StartLevel="2" Wrapper="none"
+      xmlns:xt="http://ns.inria.org/xtiger" xmlns:site="http://oppidoc.com/oppidum/site">
+  <Title Render="h2" style="text-align:center">Activity related selection criteria</Title>
+  <Row>
+    <SearchMask ThirdColumnWidth="50%">
+      <Include src="stats.xml" Name="coaching"/>
+      <Include src="stats.xml" Name="activity"/>
+      <Include src="stats.xml" Name="priorities"/>
+      <Include src="stats.xml" Name="progress"/>
+      <!-- Header Case related selection criteria -->
+      <Include src="stats.xml" Name="project"/>
+      <Include src="stats.xml" Name="case"/>
+      <Include src="stats.xml" Name="sme"/>
+      <Include src="stats.xml" Name="een"/>
+      <Include src="stats.xml" Name="needs"/>
+    </SearchMask>
+  </Row>
+
+  <Plugins>
+    <Period Keys="period"/>
+  </Plugins>
+</Form>

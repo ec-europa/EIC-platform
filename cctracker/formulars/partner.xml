@@ -1,0 +1,46 @@
+<Form xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  Tag="Enterprise" Layout="fluid" Width="540px" Orientation="horizontal">
+  <Row>
+    <site:conditional meet="create" force="true">
+      <xhtml:div class="text-info well" style="display:relative">
+        <button class="close" onclick="javascript:$(event.target).parent().hide()" type="button" style="position:relative;top:-15px;right:-10px">×</button>
+        Afin d'éviter de créer des doublons, le champ de saisie du Nom du partenaire à créer vous indique les noms des entreprises déjà existantes dans l'annuaire...
+      </xhtml:div>
+    </site:conditional>
+    <Cell Gap="1.5">
+      <Title loc="term.enterprise">Entreprise</Title>
+      <Field Key="enterprise" Tag="Name" Gap="2" loc="term.name">Nom</Field>
+      <Field Key="abbrev" Tag="ShortName" Gap="2" loc="term.abbrev">Abrégé</Field>
+      <Field Key="creation" Tag="CreationYear" Gap="2" loc="term.creationYear">Année de création</Field>
+      <Field Key="size" Tag="SizeRef" Gap="2" loc="term.enterpriseSize">Taille d'entreprise</Field>
+      <Field Key="noga" Tag="NOGA-Code" Gap="2" loc="term.noga">Code NOGA</Field>
+      <Field Key="website" Tag="WebSite" Gap="2" loc="term.webSite">Site web</Field>
+      <Field Key="activities" Tag="MainActivities" Gap="2" loc="term.activityDesc">Activités principales</Field>
+      <Field Key="targeted-markets" Tag="TargetedMarkets" Gap="2" loc="term.targetedMarkets">Marchés ciblés</Field>
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row>
+    <Cell Gap="1.5" Tag="Address">
+      <Title loc="form.legend.address">Adresse</Title>
+      <Field Key="street" Tag="StreetNameAndNo" Gap="1" loc="term.streetNameAndNo">Rue et nº</Field>
+      <Field Key="box" Tag="PO-Box" Gap="1" loc="term.box">Case postale</Field>
+      <Field Key="careof" Tag="Co" Gap="1" loc="term.co">c/o</Field>
+      <Field Key="town" Tag="Town" Gap="1" loc="term.town">Localité</Field>
+      <Field Key="npa" Tag="PostalCode" Gap="1" loc="term.postalCode">NPA</Field>
+      <Field Key="state" Tag="State" Gap="1" loc="term.state">Canton</Field>
+      <Field Key="country" Tag="Country" Gap="1" loc="term.country">Pays</Field>
+    </Cell>
+  </Row>
+  <Bindings>
+    <Require Keys="enterprise"/>
+  </Bindings>
+  <Plugins>
+    <Input Keys="abbrev creation website activities annual-turnover street box careof npa town"/>
+    <RichText Keys="ctx-description" Menu="static"/>
+  </Plugins>
+  <Hints>
+    <Hint Keys="enterprise" meet="create" loc="partner.name.hint">message à définir dans le dictionnaire</Hint>
+  </Hints>
+</Form>

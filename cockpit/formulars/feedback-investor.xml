@@ -1,0 +1,100 @@
+<Form Tag="Feedback" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Title>Investors Feedback</Title>
+
+  <Verbatim>
+    <xt:component name="t_contact_person">
+      <Row>
+      <Field Key="company" Tag="Company" Gap="1.75" W="6" L="0">Company</Field>
+      <Field Key="function" Tag="Function" Gap="1.75" W="6">Function</Field>
+      </Row>
+      <Field Key="firstname" Tag="FirstName" Gap="1.75" W="5" L="0">First Name</Field>
+      <Field Key="lastname" Tag="LastName" Gap="1.5" W="5">Last Name</Field>
+      <Field Key="civility" Tag="Civility" Gap="1" W="2">Title</Field>
+      <Field Key="phone" Tag="Phone" Gap="1.75" W="5" L="0">Direct phone</Field>
+      <Field Key="email_contact" Tag="Email" Gap="1.5" W="7">Email</Field>
+    </xt:component>
+
+    <xt:component name="t_q1">
+      <Field Key="fair_satisfaction_01" Tag="FairSatisfactionLevelRef" Gap="0">1. How satisfied are you with the selection of SMEs you met at the event ?</Field>
+      <Field Key="comments_01" Tag="Comments" W="12" L="0">Please explain</Field>
+    </xt:component>
+
+    <xt:component name="t_q2">
+      <Field Key="total_02" Tag="Total" Gap="0">2. With how many SME Instrument companies will you actively follow up for a potential business cooperation/financial partnership incl investment ?</Field>
+      <Field Key="comments_02" Tag="Comments" Gap="0">Please specify their names</Field>
+    </xt:component>
+    
+    <xt:component name="t_q3">
+      <Field Key="recommendation_03" Tag="RecommendationLevelRef" Gap="0">3. Would you recommend the participation to the SME Instrument Business Acceleration Services to your professional network ?</Field>
+      <Field Key="comments_03" Tag="Comments" W="12" L="0">Please explain</Field>
+    </xt:component>
+
+    <xt:component name="t_q4">
+      <Field Key="yesno_04" Tag="YesNoScaleRef" Gap="0">4. Let us know if you would like to be involved in coming activities organised by the SME Instrument programme</Field>
+      <!-- conditional on "Yes" -->
+      <xhtml:div data-avoid-yn04="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="comments_04a" Tag="PositiveComments" W="12">Please specify which one ?</Field>
+      </xhtml:div>
+      <!-- conditional on "No" -->
+      <xhtml:div data-avoid-yn04="2" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="comments_04b" Tag="NegativeComments" W="12">Please explain why no ?</Field>
+      </xhtml:div>
+    </xt:component>
+
+    <xt:component name="t_q5">
+      <Field Key="comments_05" Tag="Improvements" Gap="0">5. What can we do better next time ?</Field>
+    </xt:component>
+  </Verbatim>
+
+  <site:conditional avoid="update" force="true">
+    <Row>
+      <Cell Gap="1.75" Tag="EditHistory">
+        <Title Level="3">History</Title>
+        <Field Key="creation_date" Tag="CreationDate" Gap="1.75" W="6">Creation date</Field>
+        <!-- <Field Key="last_modification" Tag="LastModification" Gap="1.75" W="4" Offset="1">Last change</Field> -->
+      </Cell>
+    </Row>
+    <Separator/>
+  </site:conditional>
+
+  <Row>
+    <Cell Gap="1.75">
+      <Title Level="3">Answered by:</Title>
+      <Use Tag="Contact" TypeName="contact_person"/>
+    </Cell>
+  </Row>
+  
+  <Row>
+    <Use Tag="CounterParts" TypeName="q1"/>
+    <Use Tag="FollowUp" TypeName="q2"/>
+    <Use Tag="Recommendation" TypeName="q3"/>
+    <Use Tag="FutureInvolvement" TypeName="q4"/>
+    <Use TypeName="q5"/>
+  </Row>
+
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="email_contact" Message-loc="validation.email"
+        Message="E-mail address (username@server.domain)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+    </Enforce>
+    <Require Keys="company firstname lastname civility phone email_contact function"/>
+    <Require Keys="fair_satisfaction_01 total_02 recommendation_03"/>
+    <Condition Keys="yesno_04" Variable="yn04"/>
+  </Bindings>
+
+  <Hints>
+    <Mandatory Feedback="none" Tags="Company FirstName LastName Civility Phone Email Function">This field must be filled</Mandatory>
+    <Mandatory Feedback="none" Keys="fair_satisfaction_01 total_02 recommendation_03">This field must be filled</Mandatory>
+  </Hints>
+
+  <Plugins>
+    <Input Keys="company firstname lastname function civility phone email_contact total_02"/>
+    <MultiText Prefix="comments"/>
+  </Plugins>
+</Form>

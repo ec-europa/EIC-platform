@@ -1,0 +1,6 @@
+<Settings>
+  <Sudoer>
+    <User>create-dba-user</User>
+    <Password>dba-user-password</Password>
+  </Sudoer>
+</Settings>

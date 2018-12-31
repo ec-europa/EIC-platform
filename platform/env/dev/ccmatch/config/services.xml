@@ -1,0 +1,73 @@
+<Services>
+  <Providers>
+    <Service>
+      <Id>ccmatch-public</Id>
+      <Name Lang="en">Coach Match public API</Name>
+      <AuthorizationToken>COACH-MATCH-PUBLIC-KEY</AuthorizationToken>
+      <EndPoint>
+        <Id>ccmatch.suggest</Id>
+        <Name Lang="en">Coach suggestion</Name>
+        <Keys>
+          <KeyRef For="SME-Instrument" Name="Host">1</KeyRef>
+        </Keys>
+      </EndPoint>
+      <EndPoint>
+        <Id>ccmatch.search</Id>
+        <Name Lang="en">Coach search</Name>
+        <Keys>
+          <KeyRef For="SME-Instrument" Name="Host">1</KeyRef>
+        </Keys>
+      </EndPoint>
+      <EndPoint>
+        <Id>ccmatch.summary</Id>
+        <Name Lang="en">Coach summary</Name>
+        <Keys>
+          <KeyRef For="SME-Instrument" Name="Host">1</KeyRef>
+        </Keys>
+      </EndPoint>
+      <EndPoint>
+        <Id>ccmatch.inspect</Id>
+        <Name Lang="en">Coach inspect</Name>
+        <Keys>
+          <KeyRef For="SME-Instrument" Name="Host">1</KeyRef>
+        </Keys>
+      </EndPoint>
+      <EndPoint>
+        <Id>ccmatch.coaches</Id>
+        <Name Lang="en">Coaches available for coaching</Name>
+        <Keys>
+          <KeyRef For="SME-Instrument" Name="Host">1</KeyRef>
+        </Keys>
+      </EndPoint>
+      <EndPoint>
+        <Id>ccmatch.export</Id>
+        <Name Lang="en">Coaches for account importation</Name>
+        <Keys>
+          <KeyRef For="SME-Instrument" Name="Host">1</KeyRef>
+        </Keys>
+      </EndPoint>
+      <EndPoint>
+        <Id>ccmatch.nonce</Id>
+        <Name Lang="en">Nonce certificates</Name>
+      </EndPoint>
+    </Service>
+  </Providers>
+  <Consumers>
+    <Service>
+      <Id>cctracker</Id>
+      <Name Lang="en">Case Tracker</Name>
+      <AuthorizationToken>CASE-TRACKER-KEY</AuthorizationToken>
+      <EndPoint>
+        <Id>cctracker.coaches</Id>
+        <Name Lang="en">Coaches</Name>
+        <URL>http://localhost:8080/exist/projets/cctracker/coaches/export</URL>
+      </EndPoint>
+      <EndPoint>
+        <Id>cctracker.feeds</Id>
+        <Name Lang="en">Coach performance feeds</Name>
+        <URL>http://localhost:8080/exist/projets/cctracker/feeds</URL>
+      </EndPoint>
+    </Service>
+  </Consumers>
+  <Hooks/>
+</Services>

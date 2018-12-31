@@ -1,0 +1,541 @@
+<?xml version="1.0"?>
+<GlobalInformation>
+  <Description Lang="en">
+    <CaseImpact>
+      <Sections>
+        <Section>
+          <Id>1</Id>
+          <SectionName>Business innovation vectors</SectionName>
+          <SectionRoot>Vectors</SectionRoot>
+          <SubSections>
+            <SubSection>
+              <Id>1</Id>
+              <SubSectionName>Offering</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>2</Id>
+              <SubSectionName>Process</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>4</Id>
+              <SubSectionName>Distribution</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>3</Id>
+              <SubSectionName>Customer</SubSectionName>
+            </SubSection>
+          </SubSections>
+        </Section>
+        <Section>
+          <Id>2</Id>
+          <SectionName>Sources of business innovation ideas</SectionName>
+          <SectionRoot>Ideas</SectionRoot>
+          <SubSections>
+            <SubSection>
+              <Id>1</Id>
+              <SubSectionName>Internal</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>10</Id>
+              <SubSectionName>Distributors</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>5</Id>
+              <SubSectionName>Customers</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>6</Id>
+              <SubSectionName>Suppliers</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>7</Id>
+              <SubSectionName>Education and research</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>9</Id>
+              <SubSectionName>Others</SubSectionName>
+            </SubSection>
+            <!-- <SubSection>
+              <Id>2</Id>
+              <SubSectionName>Competitors</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>3</Id>
+              <SubSectionName>Meetings, Exhibitions</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>4</Id>
+              <SubSectionName>Support organisation</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>8</Id>
+              <SubSectionName>Newspaper, Internet</SubSectionName>
+            </SubSection> -->
+          </SubSections>
+        </Section>
+        <Section>
+          <Id>3</Id>
+          <SectionName>Internal Resources</SectionName>
+          <SectionRoot>Resources</SectionRoot>
+          <SubSections>
+            <SubSection>
+              <Id>1</Id>
+              <SubSectionName>Strategy</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>2</Id>
+              <SubSectionName>Organisation</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>5</Id>
+              <SubSectionName>Qualification</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>6</Id>
+              <SubSectionName>Market</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>3</Id>
+              <SubSectionName>Innovation process</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>4</Id>
+              <SubSectionName>Intellectual property</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>7</Id>
+              <SubSectionName>Finances</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>10</Id>
+              <SubSectionName>Culture</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>9</Id>
+              <SubSectionName>Leadership</SubSectionName>
+            </SubSection>
+            <!-- <SubSection>
+              <Id>8</Id>
+              <SubSectionName>Other</SubSectionName>
+            </SubSection> -->
+          </SubSections>
+        </Section>
+        <Section>
+          <Id>4</Id>
+          <SectionName>Partnerships</SectionName>
+          <SectionRoot>Partners</SectionRoot>
+          <SubSections>
+            <SubSection>
+              <Id>2</Id>
+              <SubSectionName>Customer</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>9</Id>
+              <SubSectionName>Distributor</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>5</Id>
+              <SubSectionName>Supplier</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>4</Id>
+              <SubSectionName>Manufacturer</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>7</Id>
+              <SubSectionName>Education and research</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>6</Id>
+              <SubSectionName>Private investor</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>10</Id>
+              <SubSectionName>Public support</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>1</Id>
+              <SubSectionName>Others</SubSectionName>
+            </SubSection>
+          </SubSections>
+        </Section>
+      </Sections>
+    </CaseImpact>
+    <Selector Name="ExpertiseScales" Value="Id" Label="Name" Test="Expertise self rating">
+      <Option>
+        <Id>1</Id>
+        <Name>Little / no expertise</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Expertise</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>My speciality</Name>
+      </Option>
+    </Selector>
+    <Selector Name="WeightsScales" Value="Id" Label="Weight" Test="Weights rating">
+      <Option>
+        <Id>1</Id>
+        <Name>No</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Medium</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>High</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Services" Value="Id" Label="Name" Test="Services" Legend="Coaching service">
+      <Option>
+        <Id>2</Id>
+        <Name ImportKey="business">Business</Name>
+      </Option>
+      <Option>
+        <Id>1</Id>
+        <Name ImportIndex="2">Organisation</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Finance</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Cooperation</Name>
+      </Option>
+    </Selector>
+    <Selector Name="LifeCycleContexts" Value="Id" Label="Name" Test="Life cycle case contexts">
+      <Option>
+        <Id>1</Id>
+        <Name ImportKey="seed">Seed stage</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name ImportKey="project">Project-to-project stage</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name ImportKey="upscaling">Upscaling stage</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name ImportKey="expansion">Expansion stage</Name>
+      </Option>
+      <Option>
+        <Id>6</Id>
+        <Name ImportKey="renewal">Renewal stage</Name>
+      </Option>
+      <Option>
+        <Id>5</Id>
+        <Name ImportKey="consolidation">Consolidation stage</Name>
+      </Option>
+    </Selector>
+    <Selector Name="InitialContexts" Value="Id" Label="Name" Test="Initial case contexts" Legend="Current life cycle stage">
+      <Option>
+        <Id>1</Id>
+        <Name>Seed stage</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Project-to-project stage</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Upscaling stage</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Expansion stage</Name>
+      </Option>
+      <Option>
+        <Id>6</Id>
+        <Name>Renewal stage</Name>
+      </Option>
+      <Option>
+        <Id>5</Id>
+        <Name>Consolidation stage</Name>
+      </Option>
+    </Selector>
+    <Selector Name="TargetedContexts" Value="Id" Label="Name" Test="Targeted case contexts" Legend="Planned life cycle stage">
+      <Option>
+        <Id>1</Id>
+        <Name>Seed stage</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Project-to-project stage</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Upscaling stage</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Expansion stage</Name>
+      </Option>
+      <Option>
+        <Id>6</Id>
+        <Name>Renewal stage</Name>
+      </Option>
+      <Option>
+        <Id>5</Id>
+        <Name>Consolidation stage</Name>
+      </Option>
+    </Selector>
+    <Selector Name="YesNoAvails" Value="Id" Label="Name" Test="Yes or no">
+      <Option>
+        <Id>1</Id>
+        <Name>Yes, I am available</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>No, I am not available</Name>
+      </Option>
+    </Selector>
+    <Selector Name="YesNoAccepts" Value="Id" Label="Name" Test="Yes or no">
+      <Option>
+        <Id>1</Id>
+        <Name>Yes, I accept</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>No, I do not accept</Name>
+      </Option>
+    </Selector>
+    <Selector Name="ServiceYears" Value="Id" Label="Name" Test="Years of experience">
+      <Option>
+        <Id>1</Id>
+        <Name>Less than 5 years</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>5 to 9 years</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>10 years or more</Name>
+      </Option>
+    </Selector>
+    <Selector Name="EU-Languages" Value="Code" Label="Name" Test="EU Languages">
+      <Option>
+        <Id>1</Id>
+        <Name>Bulgarian</Name>
+        <Code>bg</Code>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Croatian</Name>
+        <Code>hr</Code>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Czech</Name>
+        <Code>cs</Code>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Danish</Name>
+        <Code>da</Code>
+      </Option>
+      <Option>
+        <Id>5</Id>
+        <Name>Dutch</Name>
+        <Code>nl</Code>
+      </Option>
+      <Option>
+        <Id>6</Id>
+        <Name>English</Name>
+        <Code>en</Code>
+      </Option>
+      <Option>
+        <Id>7</Id>
+        <Name>Estonian</Name>
+        <Code>et</Code>
+      </Option>
+      <Option>
+        <Id>8</Id>
+        <Name>Finnish</Name>
+        <Code>fi</Code>
+      </Option>
+      <Option>
+        <Id>9</Id>
+        <Name>French</Name>
+        <Code>fr</Code>
+      </Option>
+      <Option>
+        <Id>10</Id>
+        <Name>German</Name>
+        <Code>de</Code>
+      </Option>
+      <Option>
+        <Id>11</Id>
+        <Name>Greek</Name>
+        <Code>el</Code>
+      </Option>
+      <Option>
+        <Id>12</Id>
+        <Name>Hungarian</Name>
+        <Code>hu</Code>
+      </Option>
+      <Option>
+        <Id>13</Id>
+        <Name>Irish</Name>
+        <Code>ga</Code>
+      </Option>
+      <Option>
+        <Id>14</Id>
+        <Name>Italian</Name>
+        <Code>it</Code>
+      </Option>
+      <Option>
+        <Id>15</Id>
+        <Name>Latvian</Name>
+        <Code>lv</Code>
+      </Option>
+      <Option>
+        <Id>16</Id>
+        <Name>Lithuanian</Name>
+        <Code>lt</Code>
+      </Option>
+      <Option>
+        <Id>17</Id>
+        <Name>Maltese</Name>
+        <Code>mt</Code>
+      </Option>
+      <Option>
+        <Id>18</Id>
+        <Name>Polish</Name>
+        <Code>pl</Code>
+      </Option>
+      <Option>
+        <Id>19</Id>
+        <Name>Portuguese</Name>
+        <Code>pt</Code>
+      </Option>
+      <Option>
+        <Id>20</Id>
+        <Name>Romanian</Name>
+        <Code>ro</Code>
+      </Option>
+      <Option>
+        <Id>21</Id>
+        <Name>Slovak</Name>
+        <Code>sk</Code>
+      </Option>
+      <Option>
+        <Id>22</Id>
+        <Name>Slovenian</Name>
+        <Code>sl</Code>
+      </Option>
+      <Option>
+        <Id>23</Id>
+        <Name>Spanish</Name>
+        <Code>es</Code>
+      </Option>
+      <Option>
+        <Id>24</Id>
+        <Name>Swedish</Name>
+        <Code>sv</Code>
+      </Option>
+    </Selector>
+    <Selector Name="Acceptances" Value="Id" Label="Name">
+      <Option>
+        <Id>1</Id>
+        <Name>Submitted</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Rejected</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Removed</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Accepted</Name>
+      </Option>
+    </Selector>
+    <Selector Name="WorkingRanks" Value="Id" Label="Name">
+      <Option>
+        <Id>1</Id>
+        <Name>Activated</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Deactivated</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Values" Value="Id" Label="Name">
+      <Option>
+        <Id>1</Id>
+        <Name>Created</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Self Created</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Disabled</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Self Disabled</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Genders" Value="Id" Label="Name">
+      <Option>
+        <Id>M</Id>
+        <Name>Male</Name>
+      </Option>
+      <Option>
+        <Id>F</Id>
+        <Name>Female</Name>
+      </Option>
+    </Selector>
+    <Selector Name="RatingScales" Value="Id" Label="Name" Test="Rating scale">
+      <Option>
+        <Id>5</Id>
+        <Name>Strongly disagree</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Disagree</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Neutral</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Agree</Name>
+      </Option>
+      <Option>
+        <Id>1</Id>
+        <Name>Strongly agree</Name>
+      </Option>
+    </Selector>
+    <Functions>
+      <Function Role="coach">
+        <Id>4</Id>
+        <Name>Coach</Name>
+      </Function>
+      <Function Role="coach-contact">
+        <Id>3</Id>
+        <Name>Host Contact Person</Name>
+      </Function>
+      <Function Role="host-manager">
+        <Id>2</Id>
+        <Name>Host Manager</Name>
+      </Function>
+      <Function Group="admin-system" Role="admin-system">
+        <Id>1</Id>
+        <Name>System Administrator</Name>
+      </Function>
+    </Functions>
+  </Description>
+</GlobalInformation>

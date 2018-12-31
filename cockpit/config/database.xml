@@ -1,0 +1,35 @@
+<Database>
+  <Policies>
+    <Policy Name="container" Owner="admin" Group="users" Perms="rwxrwxr--"/>
+    <Policy Name="open" Owner="admin" Group="users" Perms="rwxrwxr-x"/>
+    <Policy Name="users" Owner="admin" Group="users" Perms="rwxrwxr--"/>
+    <Policy Name="public" Owner="admin" Group="users" Perms="rwxrwxrwx"/>
+    <Policy Name="private" Owner="admin" Group="users" Perms="rwxrwx---"/>
+  </Policies>
+  <Entities>
+    <Entity Name="person">
+      <Resource Policy="users" Pivot="//Person/Id">$_.xml</Resource>
+      <Collection Policy="container" Sharding="bucket(4,50)">persons</Collection>
+    </Entity>
+    <Entity Name="enterprise">
+      <Resource Policy="users" Pivot="//Enterprise/Id">$_.xml</Resource>
+      <Collection Policy="container" Sharding="bucket(4,50)">enterprises</Collection>
+    </Entity>
+    <Entity Name="admission">
+      <Resource Policy="users" Pivot="//Admission/Id">$_.xml</Resource>
+      <Collection Policy="container" Sharding="bucket(4,50)">admissions</Collection>
+    </Entity>
+    <Entity Name="event">
+      <Resource Policy="users" Pivot="//Event/Id">$_.xml</Resource>
+      <Collection Policy="open" Sharding="bucket(4,50)">events</Collection>
+    </Entity>
+    <Entity Name="feedback">
+      <Resource Policy="private" Root="Feedbacks">$_.xml</Resource>
+      <Collection Policy="public" Sharding="mirror">feedbacks/events</Collection>
+    </Entity>
+    <Entity Name="test">
+      <Resource Policy="users" Pivot="//Test/Id">$_.xml</Resource>
+      <Collection Policy="container" Sharding="bucket(4,50)">tests</Collection>
+    </Entity>
+  </Entities>
+</Database>

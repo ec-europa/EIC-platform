@@ -1,0 +1,160 @@
+<Form Tag="ImpactSurvey" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Title>Impact</Title>
+
+  <Verbatim>
+    <xt:component name="t_contact_person">
+      <Field Key="firstname" Tag="FirstName" Gap="1.75" W="4" L="0">First Name</Field>
+      <Field Key="lastname" Tag="LastName" Gap="1.5" W="4">Last Name</Field>
+      <Field Key="civility" Tag="Civility" Gap="1" W="2">Title</Field>
+      <Field Key="phone" Tag="Phone" Gap="1.75" W="4" L="0">Direct phone</Field>
+      <Field Key="email_contact" Tag="Email" Gap="1.5" W="6">Email</Field>
+    </xt:component>
+
+    <xt:component name="t_sample">
+      <Field Key="yesnona_01a" Tag="YesNoNAScaleRef" Gap="3">Send information/samples :</Field>
+    </xt:component>
+
+    <xt:component name="t_visit">
+      <Field Key="yesnona_01b" Tag="YesNoNAScaleRef" Gap="3">Visit target country :</Field>
+    </xt:component>
+
+    <xt:component name="t_invitation">
+      <Field Key="yesnona_01c" Tag="YesNoNAScaleRef" Gap="3">Invite contacts to Europe :</Field>
+    </xt:component>
+
+    <xt:component name="t_q1">
+      <xhtml:p style="color:#004563">1. How did you follow up with the contacts established at the trade fair ?</xhtml:p>
+      <Use Tag="Sample" TypeName="sample"/>
+      <Use Tag="Visit" TypeName="visit"/>
+      <Use Tag="Invitation" TypeName="invitation"/>
+      <Field Key="comments_01" Tag="OtherComments" W="12" L="0">Other :</Field>
+    </xt:component>
+
+    <xt:component name="t_q23">
+      <Field Key="total" Tag="Total" Gap="0">2. How many of your business meetings materialised into actual business ?</Field>
+      <Field Key="amount" Tag="Amount" Gap="0">3. How much additional business do you expect to achieve (within 12 months from the day of the trade fair, in €)</Field>
+    </xt:component>
+
+    <xt:component name="t_q4infra">
+      <Field Key="yesno_04" Tag="YesNoScaleRef" Gap="0">Did you win any public procurement contracts in the target market/region ?</Field>
+      <!-- conditional on "Yes" -->
+      <xhtml:div data-avoid-yn04="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="total" Tag="Total" Gap="4.5" W="12" >If Yes, how may ?</Field>
+        <Field Key="amount" Tag="Amount" Gap="4.5" W="12" L="0">For how much (€) ?</Field>
+        <Field Key="comments_04c" Tag="Comments" Gap="0">How long did it take to receive the investment ?</Field>
+      </xhtml:div>
+    </xt:component>
+    
+    <xt:component name="t_q4">
+      <Field Key="business-agreements" Tag="BusinessAgreementTypes" Gap="0">4. What type of business collaboration agreements/contracts has your company signed in the target market/region following the trade fair ?</Field>
+      <!-- conditional on "Other" -->
+      <xhtml:div data-avoid-ba4="~7" data-on-class="hide" class="hide feedback-sub">
+          <Field Key="comments_04a" Tag="OtherComments" Gap="0">If other, please specify</Field>
+      </xhtml:div>
+      <Field Key="comments_04b" Tag="LargeCorporationsComments" Gap="0">Did you conclude any business deals with large multinational corporations ? If yes, please let us know the name of the large corporates and the type of business deals</Field>
+      <Use Tag="PublicProcurement" TypeName="q4infra"/>
+    </xt:component>
+    
+    <xt:component name="t_q5">
+      <Field Key="yesnona_05" Tag="YesNoNAScaleRef" Gap="0">5. Have you employed extra HR resources as a result of new/increased business in the target market/region ?</Field>
+      <!-- conditional on "Yes" -->
+      <xhtml:div data-avoid-yn05="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="total" Tag="Total" Gap="4.5" W="12" >If yes, how many full time employees ?</Field>
+      </xhtml:div>
+      <Row>
+        <Field Key="additional-total" Tag="AdditionalTotal" Gap="7.5" W="12">Estimate additional full time employees in six months from now :</Field>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_q6">
+      <Field Key="yesno_06" Tag="YesNoScaleRef" Gap="0">6. Did any investors met during the business mission invest in your company ?</Field>
+      <!-- conditional on "Yes" -->
+      <xhtml:div data-avoid-yn06="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="total" Tag="Total" Gap="4.5" W="12" >If Yes, how may ?</Field>
+        <Field Key="amount" Tag="Amount" Gap="4.5" W="12" L="0">For how much (€) ?</Field>
+        <Field Key="comments_06" Tag="Comments" Gap="0">How long did it take to receive the investment ?</Field>
+      </xhtml:div>
+    </xt:component>
+
+    <xt:component name="t_q7">
+      <Field Key="market-adaptations" Tag="MarketAdaptationTypes" Gap="0">7. Did/will your company change/adapt to the target market/region in terms of :</Field>
+      <!-- conditional on "Other" -->
+      <xhtml:div data-avoid-ma7="~6" data-on-class="hide" class="hide feedback-sub">
+          <Field Key="comments_07" Tag="OtherComments" Gap="0">If other, please specify</Field>
+      </xhtml:div>
+    </xt:component>
+
+    <xt:component name="t_q21">
+      <Field Key="yesno_21" Tag="YesNoScaleRef" Gap="0">1. Would you apply again to participate in future OTF missions ?</Field>
+      <Field Key="comments_21" Tag="Comments" W="12" L="0">2. Please share any suggestions/comments you may have concerning your own OTF experience or the programme in general</Field>
+    </xt:component>
+
+  </Verbatim>
+
+  <site:conditional avoid="update" force="true">
+    <Row Class="no-export">
+      <Cell Gap="2.75" Tag="Initiated">
+        <Title Level="3">Feedback form sent to:</Title>
+        <Field Key="email_addressee" Tag="Email" Gap="1.8" W="7">SME Contact</Field>
+        <Field Key="date" Tag="Date" Gap="1.8" W="4">Date </Field>
+      </Cell>
+    </Row>
+    <Separator/>
+  </site:conditional>
+
+  <Row>
+    <Cell Gap="2.75">
+      <Title Level="3">Answered by:</Title>
+      <Use Tag="Contact" TypeName="contact_person"/>
+    </Cell>
+  </Row>
+
+  <Row>
+    <Cell Tag="Result">
+      <Title style="margin: 20px 0 15px">Section 1 : Results of your Participation to the Trade Fair</Title>
+      <Use Tag="FollowUp" TypeName="q1"/>
+      <Use Tag="Materialization" TypeName="q23"/>
+      <Use Tag="BusinessCollaboration" TypeName="q4"/>
+      <Use Tag="Employment" TypeName="q5"/>
+      <Use Tag="Investment" TypeName="q6"/>
+      <Use Tag="MarketAdaptation" TypeName="q7"/>
+    </Cell>
+
+    <Cell Tag="Programme">
+      <Title style="margin: 20px 0 10px">Section 2 : Interest in the Programme</Title>
+      <Use Tag="FutureParticipation" TypeName="q21"/>
+    </Cell>
+  </Row>
+
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="email_contact" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+    </Enforce>
+    <Condition Keys="yesno_04" Variable="yn04"/>
+    <Condition Keys="yesnona_05" Variable="yn05"/>
+    <Condition Keys="yesno_06" Variable="yn06"/>
+    <Condition Keys="business-agreements" Variable="ba4"/>
+    <Condition Keys="market-adaptations" Variable="ma7"/>
+    
+  </Bindings>
+
+  <Hints>
+    <!-- FIXME: switch back to "border" feedback when compatible with Condition / RegExp ... -->
+    <Mandatory Feedback="none" Tags="FirstName LastName Civility Phone YesNoScaleRef YesNoNAScaleRef Total Amount AdditionalTotal BusinessAgreementTypes MarketAdaptationTypes">This field must be filled to be able to proceed to the next step</Mandatory>
+    <Mandatory Feedback="none" Keys="email_contact comments_04a comments_04c comments_06 comments_07 comments_21">This field must be filled to be able to proceed to the next step</Mandatory>
+    <Mandatory Feedback="none" Keys="comments_01">This field must be filled if you answered NO to the 3 previous questions to be able to proceed to the next step</Mandatory>    
+  </Hints>
+
+  <Plugins>
+    <Input Keys="firstname lastname function civility phone email_contact"/>
+    <Input Keys="total amount additional-total"/>
+    <MultiText Prefix="comments"/>
+  </Plugins>
+</Form>

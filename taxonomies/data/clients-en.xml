@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalInformation>
+  <Description Lang="en">
+    <Selector Name="Clients">
+      <Version>20180924-0</Version>
+      <Title>type of clients the company has</Title>
+        <Option>
+          <Value>1</Value>
+          <Alt Variant="1">b2b</Alt>
+          <Name>Business to business</Name>
+        </Option>
+        <Option>
+          <Value>2</Value>
+          <Alt Variant="1">b2c</Alt>
+          <Name>Business to customer</Name>
+        </Option>
+      </Selector>
+  </Description>
+</GlobalInformation>

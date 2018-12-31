@@ -1,0 +1,62 @@
+<Form Tag="Closing" StartLevel="2" xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:site="http://oppidoc.com/oppidum/site">
+  <Title>Closing</Title>
+
+  <Row>
+    <!-- EASME coaching assistant visa -->
+    <Cell Tag="CoachingAssistantVisa">
+      <Title Level="1">Information check <site:conditional force="true" flag="cavisa"><Button Key="btn.assistant-visa" Class="btn-small btn-primary" W="2" style="float:right">Edit</Button></site:conditional></Title>
+      <Cell Gap="1.5">
+        <Title Level="3">EASME coaching assistant</Title>
+        <Field Key="constant" Tag="PositionRef" Gap="0" W="4">Opinion</Field>
+        <Field Key="date" Tag="Date" W="2" Gap="0">Date</Field>
+        <Field Key="author" Tag="Author" W="6" Gap="0">Author</Field>
+        <Field Key="comment-7" Tag="Comment" W="12" Gap="0" L="0">Comment</Field>
+      </Cell>
+    </Cell>
+
+    <!-- EASME coaching manager visa -->
+    <Cell Tag="CoachingManagerVisa">
+      <Title Level="1">Approval of final report <site:conditional force="true" flag="cmvisa"><Button Key="btn.manager-visa" Class="btn-small btn-primary" W="2" style="float:right">Edit</Button></site:conditional></Title>
+      <Cell Gap="1.5">
+        <Title Level="3">EASME coaching manager</Title>
+        <Field Key="constant" Tag="DecisionRef" Gap="0" W="4">Decision</Field>
+        <Field Key="date" Tag="Date" W="2" Gap="0">Date</Field>
+        <Field Key="author" Tag="Author" W="6" Gap="0">Author</Field>
+        <Field Key="comment-8" Tag="Comment" W="12" Gap="0" L="0">Comment</Field>
+      </Cell>
+    </Cell>
+
+    <!-- <Cell Tag="SME-Evaluation" Gap="1.5">
+          <Title Level="2">Initiation of evaluation</Title>
+          <site:conditional force="true" flag="coam"><Button Key="btn.sme-evaluation" Class="btn-small btn-primary" W="2" style="float:right">Send Email</Button></site:conditional>
+          <Field Key="constant-8" Tag="ActionStatusRef" W="3" L="0">Status</Field>
+          <Field Key="constant-6" Tag="Date" Gap="0" W="3">Date</Field>
+          <Field Key="constant-7" Tag="Author" Gap="0" W="3">Author</Field>
+        </Cell> -->
+  </Row>
+
+  <Modals>
+    <Modal Id="c-visa" Width="700px" EventTarget="c-editor-closing">
+      <Title Key="cavisa">Information check by EASME coaching assistant</Title>
+      <Title Key="cmvisa">Approval of final report by EASME coaching manager</Title>
+      <Title>Title</Title>
+    </Modal>
+  </Modals>
+
+  <Commands>
+    <Add Key="btn.assistant-visa" TargetEditor="c-visa" TargetTitle="c-visa-modal" TitleKey="cavisa"
+         Template="^/templates/position?goal=update&amp;context=CoachingAssistantVisa&amp;position=1"
+         Resource="~/final-report-approval/CoachingAssistantVisa"/>
+    <Add Key="btn.manager-visa" TargetEditor="c-visa" TargetTitle="c-visa-modal" TitleKey="cmvisa"
+         Template="^/templates/position?goal=update&amp;context=CoachingManagerVisa&amp;decision=1"
+         Resource="~/final-report-approval/CoachingManagerVisa"/>
+  </Commands>
+
+  <Bindings>
+  </Bindings>
+
+  <Plugins>
+    <MultiText Prefix="comment"/>
+  </Plugins>
+</Form>

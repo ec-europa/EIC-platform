@@ -1,0 +1,58 @@
+<Form Tag="Character" Style="width:800px;background:gray">
+  <Title>Formulaire de démonstration</Title>
+  <Row>
+    <Cell W="12" Gap="1.6" Tag="RichText">
+      <Title loc="form.legend.enterpriseContext">Texte riche</Title>
+      <Field Key="redaction" Tag="Redaction" Gap="0">Rédaction (avec menu static)</Field>
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row>
+    <Field Key="none" Tag="None">Pas de Gap</Field>
+    <Field Key="none" Tag="None" Gap="0">Gap 0</Field>
+    <Field Key="none" Tag="None" Gap="1">Gap 1</Field>
+    <Field Key="none" Tag="None" Gap="2">Gap 2</Field>
+    <Field Key="none" Tag="None" Gap="3">Gap 3</Field>
+  </Row>  
+  <Separator/>
+  <Row>
+    <Field Key="name" Tag="Service" W="6" Gap="1">Vote nom</Field>
+    <Field Key="surname" Tag="ResponsibleCoach" W="6" Gap="2">Votre prénom</Field>
+  </Row>
+  <Separator/>
+  <Row>
+    <Cell W="5" Tag="Facts">
+      <Cell Gap="2">
+        <Title>Caractéristiques</Title>
+        <Field Key="age" W="12" Tag="Age" Gap="1">Age</Field>
+        <Field Key="height" Tag="Height" Gap="1">Taille</Field>
+        <Field Key="weight" Tag="Weight" Gap="1">Poids</Field>
+      </Cell>
+      <Field Key="eyes" Tag="Eyes" Gap="2">Couleurs des yeux</Field>
+      <Field Key="hairs" Tag="Hairs" Gap="2">Couleurs des cheveux</Field>
+    </Cell>
+    <Cell W="7">
+      <Cell W="12" Gap="2" Tag="Tastes">
+        <Title>Goûts</Title>
+        <Row><Field Key="animal" Tag="Animal" W="12" Gap="2">Animal favori</Field></Row>
+        <Row><Field Key="author" Tag="Author" W="12" Gap="2">Auteur préféré</Field></Row>
+        <Row><Field Key="drink" Tag="Drink" W="12" Gap="2">Boisson favorite</Field></Row>
+      </Cell>
+      <Row>
+          <Field Key="portrait" Tag="ContextDescription" W="12" Gap="1">Portrait</Field>
+       </Row>
+    </Cell>
+  </Row>
+  <Bindings>
+    <Require Keys="name surname"/>
+    <Enforce>
+      <RegExp Keys="age" Message="L'âge ne doit comporter que des chiffres" Pattern="[0-9]*">^\s*$|^\d*$</RegExp>
+    </Enforce>
+  </Bindings>  
+  <Plugins>
+    <Input Keys="name surname age height weight hairs eyes animal author drink"/>
+    <RichText Keys="portrait" Menu="dynamic"/>
+    <RichText Keys="redaction" Menu="static"/>
+    <MultiText Keys="none"/>
+  </Plugins>
+</Form>

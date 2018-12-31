@@ -1,0 +1,249 @@
+<Form Tag="Event" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Title>Confirmation</Title>
+
+  <Verbatim>
+    <xt:component name="t_enterprise">
+      <Field Class="no-export" Key="entname" Tag="Name" Gap="2">Enterprise name</Field>
+      <Field Key="website" Tag="WebSite" Gap="2">Website</Field>
+      <Field Key="country" Tag="Country" Gap="2">Country</Field>
+    </xt:component>
+    
+    <xt:component name="t_contact_person">
+      <Field Key="firstname" Tag="FirstName" Gap="2" W="6" L="0">First Name</Field>
+      <Field Key="lastname" Tag="LastName" Gap="2" W="6">Last Name</Field>
+      <Field Key="phone" Tag="Phone" Gap="2" W="6" L="0">Direct phone</Field>
+      <Field Key="email_contact" Tag="Email" Gap="2" W="6">Email</Field>
+    </xt:component>
+    
+    <xt:component name="t_sec1-q1-q4">
+      <Title>Products, Services and Technology information</Title>
+      <Field Key="text_1" Tag="UniqueSellingPoint" W="12" L="0">1. Please provide your company unique selling point</Field>
+      <Field Key="comments_2" Tag="ProductsOverview" W="12" L="0">2. Please provide general overview of your company's products, services or technology</Field>
+      <Field Key="comments_3" Tag="CompanyObjectives" W="12" L="0">3. Please provide a short description of your company's mission, objectives and its story</Field>
+      <Field Key="comments_4" Tag="MainProductDescription" W="12" L="0">4. Please provide a description of the main product, service or technology promoted and exhibited at the trade fair</Field>
+    </xt:component>
+
+    <xt:component name="t_q5">
+      <Field Key="yesno_05" Tag="YesNoScaleRef" Gap="0">5. Do you intend to expose a prototype during the trade fair?</Field>
+      <!-- conditional on "Yes" -->
+      <xhtml:div data-avoid-yn05="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="comments_5" Tag="Comments" W="12" >Please provide all relevant information with regards to it (e.g. name, short description and rationale, size, weight). Please note that limits on weights and sizes might apply depending on the type of pedestals display available at each trade fair</Field>
+      </xhtml:div>
+    </xt:component>
+
+    <xt:component name="t_sec1-q6-q9">
+      <Field Key="text_6" Tag="LinkToOtherMaterial" W="12" L="0">6. If you wish to attach links to any relevant material other than your company website, please copy the link here (full company catalogue, promotional video, etc.), and specify the name/nature of the item</Field>
+      <Row style="margin-bottom: 20px">
+      <Field Key="droplogo" Tag="DropLogo" Gap="7.5">7. Please attach a high quality logo of your company</Field>
+      </Row>
+      <Row style="margin: 20px 0">
+      <site:conditional avoid="read" force="true">
+        <Field Key="dropphoto" Tag="DropPhotos">8. Please attach up to [3] high quality images of the product, service or technology promoted at the trade fair</Field>
+      </site:conditional>
+      <site:conditional meet="read" force="true">
+        <Cell>
+          <xhtml:label class="control-label">8. Please attach up to [3] high quality images  of the product, service or technology promoted at the trade fair <Hint>minimum resolution 1062x1499 for printing up to 9x13cm size, accepted format JPEG, TIFF and PNG, maximum file size 3MB</Hint></xhtml:label>
+          <Row>
+            <Field Key="photo1" Tag="Photo1" W="4"/>
+            <Field Key="photo2" Tag="Photo2" W="4"/>
+            <Field Key="photo3" Tag="Photo3" W="4"/>
+          </Row>
+        </Cell>
+      </site:conditional>
+      </Row>
+      <Field Key="comments_9" Tag="PromotingMyCompany" W="12" L="0">9. Do you have any other particular element that you would like to highlight to promote your company at the trade fair?</Field>
+    </xt:component>
+
+    <xt:component name="t_sec2-q1">
+      <Field Key="text_10" Tag="Awarded" W="12" L="0">1. Did you win any award in the last years (apart from the SME instrument)?</Field>
+    </xt:component>
+
+    <xt:component name="t_q11">
+      <Field Key="yesno_11" Tag="YesNoScaleRef" Gap="0">2. Did you receive any investment from any investor in the last year?</Field>
+      <!-- conditional on "Yes" -->
+      <xhtml:div data-avoid-yn11="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="comments_11" Tag="Comments" W="12" >Please specify.</Field>
+      </xhtml:div>
+    </xt:component>
+    
+    <xt:component name="t_q12">
+      <Field Key="yesno_12" Tag="YesNoScaleRef" Gap="0">3. Did you conclude any business deals with large corporates in the last years?</Field>
+      <!-- conditional on "Yes" -->
+      <xhtml:div data-avoid-yn12="1" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="comments_12" Tag="Comments" W="12" >Please specify.</Field>
+      </xhtml:div>
+    </xt:component>
+    
+    <xt:component name="t_term">
+      <blockquote xmlns="http://www.w3.org/1999/xhtml">
+        <p style="font-size:15px;margin-bottom:0.5em">
+          I declare that the information included in this application is true and accurate. If my company is selected for the Trade Fair, I agree to observe the terms and conditions laid down in the call for manifestation of interest to the Trade Fair. I also agree to answer to the follow-up questions related to the Trade Fair at the end of exhibition period and upon my return to Europe.
+        </p>
+        <p style="font-size:15px;margin-bottom:0.5em">
+          The information provided in <span style="text-decoration : underline;">Section 2 of this form is public and will be used for promotion purposes</span>. It can be used by Overseas Trade Fair team on the SME Instrument website, in the SME Instrument Overseas Trade Fairs business mission showcase and any other relevant promotional material or channel.
+        </p>
+        <p style="font-size:15px;margin-bottom:0.5em">
+          When possible, the data will also be transferred to the organisers of the trade fair to be published in the Trade Fair directory, website or any other trade fair-related promotion.
+        </p>
+      </blockquote>
+      <p xmlns="http://www.w3.org/1999/xhtml">
+        <label style="display:inline;vertical-align:middle;margin-right:10px;">
+          Click here if you agree to the above declaration
+        </label>
+        <span data-binding="required" data-variable="terms">
+          <site:conditional avoid="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on" types="input"/>
+          </site:conditional>
+          <site:conditional meet="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on;name=term;noedit=true" types="input"/>
+          </site:conditional>
+        </span>
+      </p>
+    </xt:component>
+    
+    <xt:component name="t_cancellation">
+      <blockquote xmlns="http://www.w3.org/1999/xhtml">
+        <p style="font-size:15px;margin-bottom:0.5em">
+          By submitting this Company Profile form and ticking the box below, you confirm your acceptation to participate to the Trade Fair within the business mission organised by the SME Instrument Overseas Trade Fairs programme.
+        </p>
+        <p style="font-size:15px;margin-bottom:0.5em">
+          Should a selected and confirmed company need to cancel its participation in the Trade Fair, this should be announced in writing before 2 months from the day of the trade fair. Cancellations after this date will only be considered in duly documented cases of “force majeure”. In any other case, the company will be excluded to participate to the SME Instrument- Support to commercialisation services (trade fairs, academy, etc.). To review our cancellation policy please have a look at the call for manifestation of interest SME Instrument - Overseas Trade Fairs Programme.
+        </p>
+      </blockquote>
+      <p xmlns="http://www.w3.org/1999/xhtml">
+        <label style="display:inline;vertical-align:middle;margin-right:10px">
+          Click here if you agree to the above acceptation and cancellation policy
+        </label>
+        <span data-binding="required" data-variable="terms">
+          <site:conditional avoid="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on" types="input"/>
+          </site:conditional>
+          <site:conditional meet="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on;name=cancellation;noedit=true" types="input"/>
+          </site:conditional>
+        </span>
+      </p>
+    </xt:component>
+  </Verbatim>
+
+  <site:conditional avoid="update" force="true">
+    <Row Class="no-export">
+      <Cell Gap="2.75" Tag="Initiated">
+        <Title Level="3">Confirmation form sent ...</Title>
+        <Field Key="email_addressee" Tag="Email" Gap="1.8" W="8">To SME Contact</Field>
+        <Field Key="date" Tag="Date" Gap="1.8" W="4">Date </Field>
+      </Cell>
+    </Row>
+    <Separator/>
+  </site:conditional>
+
+  <!--
+  <Row>
+    <xhtml:p>Please state the names and contact details of the company representatives present at the trade fair <Hint Appearance="mandatory">You must enter at least one company representative to be able to proceed to the next step</Hint></xhtml:p>
+    <xhtml:table class="table table-bordered" style="margin-bottom:0">
+      <xhtml:tr>
+        <xhtml:th style="width:20%">First Name <Hint Appearance="mandatory">You must complete this field</Hint></xhtml:th>
+        <xhtml:th style="width:20%">Last Name <Hint Appearance="mandatory">You must complete this field</Hint></xhtml:th>
+        <xhtml:th style="width:28%">Function</xhtml:th>
+        <xhtml:th style="width:25%;border-right:none">Email <Hint Appearance="mandatory">This field must be filled to be able to proceed to the next step</Hint></xhtml:th>
+        <xhtml:th style="width:6%;border-left:none"/>
+      </xhtml:tr>
+      </xhtml:table>
+      <Repeat Min="1" Tag="Representatives">
+        <Cell Tag="Representative">
+          <xhtml:table style="width:100%">
+            <xhtml:tr style="width:100%">
+              <xhtml:td style="width:20%"><label class="hide">First Name</label><Field Key="firstname" Tag="FirstName"/></xhtml:td>
+              <xhtml:td style="width:20%"><label class="hide">Last Name</label><Field Key="lastname" Tag="LastName"/></xhtml:td>
+              <xhtml:td style="width:28%"><label class="hide">Function</label><Field Key="function" Tag="Function"/></xhtml:td>
+              <xhtml:td style="width:25%"><label class="hide">Email</label><Field Key="email_representative" Tag="Email"/></xhtml:td>
+              <xhtml:td style="width:6%"><xhtml:span class="c-repeat-menu"><Menu/></xhtml:span></xhtml:td>
+            </xhtml:tr>
+          </xhtml:table>
+        </Cell>
+      </Repeat>
+  </Row>-->
+
+  <Row>
+    <Cell Tag="Preparation">
+      <Title>Section 1 : Information for the Promotional Material</Title>
+      <xhtml:p>Please fill-in carefully the required information here below as it will be used for the show case and presentation of your company to the target audience of the Trade fair.</xhtml:p>
+      <Row>
+        <Title>Company and Trade Fair Contact Person Information</Title>
+        <Use Tag="Company" TypeName="enterprise"/>
+      </Row>
+      <Row>
+        <Use Tag="Contact" TypeName="contact_person"/>
+      </Row>
+      <Cell Tag="Offering">
+        <Use TypeName="sec1-q1-q4"/>
+        <Use Tag="ExposingPrototype" TypeName="q5"/>
+        <Use TypeName="sec1-q6-q9"/>
+      </Cell>
+      <Cell Tag="SuccessStory">
+        <Title>Success Story</Title>
+        <Use TypeName="sec2-q1"/>
+        <Use Tag="ReceivedInvestment" TypeName="q11"/>
+        <Use Tag="ConcludedBusinessDeals" TypeName="q12"/>
+        <Field Key="text_13" Tag="PublicProcurement" W="12" L="0">4. Did you win any public procurement in the last years?</Field>
+      </Cell>
+    </Cell>
+    <Cell Tag="Expectation">
+      <Title>Section 2 : Expectations for the Matchmaking Activities</Title>
+      <Field Key="business-meeting-goals" Tag="BusinessMeetingGoals" W="12" L="0">1. What type of business partners would you like to meet during the trade fair and the business mission?</Field>
+      <Field Key="text_15" Tag="KeyPartners" W="12" L="0">2. What are the key attributes / competencies / circumstances of the type of business partner you are looking for?</Field>
+      <Field Key="text_16" Tag="BusinessProposition" W="12" L="0">3. Please detail your business proposition, i.e. your offer for these potential business partners.</Field>
+      <Field Key="text_17" Tag="IdentifiedCounterparts" W="12" L="0">4. Have you already identified specific counterparts you would like to meet during the trade fair and the business mission? If yes, please list their names, their contact details if available, the reasons you want to meet them, as well as any other relevant information (e.g. previous meeting, common partner, etc.)</Field>
+    </Cell>
+  </Row>
+  
+  <Row>
+    <Cell W="12">
+      <Title>Declaration</Title>
+      <Row>
+        <Use Tag="Term" TypeName="term"/>
+      </Row>
+    </Cell>
+  </Row>
+  <br/>
+  <Row>
+    <Cell W="12">
+      <Title>Acceptation and Cancellation Policy</Title>
+      <Row>
+        <Use Tag="Cancellation" TypeName="cancellation"/>
+      </Row>
+    </Cell>
+  </Row>
+  
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="email_contact" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <!-- FIXME: actually it is not possible to validate in a repetition because the feedback warning applies to all lines !-->
+    </Enforce>
+    <Condition Keys="yesno_05" Variable="yn05"/>
+    <Condition Keys="yesno_11" Variable="yn11"/>
+    <Condition Keys="yesno_12" Variable="yn12"/>
+  </Bindings>
+
+  <Hints>
+    <!-- FIXME: switch back to "border" feedback when compatible with Condition / RegExp ... -->
+    <Mandatory Feedback="none" Keys="email_contact" Tags="FirstName LastName Civility Phone WebSite Country YesNoScaleRef UniqueSellingPoint Comments ProductsOverview CompanyObjectives MainProductDescription LinkToOtherMaterial DropLogo DropPhotos PromotingMyCompany Awarded ReceivedInvestment ConcludedBusinessDeals PublicProcurement BusinessMeetingGoals KeyPartners BusinessProposition IdentifiedCounterparts">This field must be filled to be able to proceed to the next step</Mandatory>
+    <Hint Keys="droplogo" data-placement="right">minimum resolution 354x354 for printing up to 3x3cm size, accepted format JPEG, TIFF and PNG, maximum file size 1.5MB</Hint>
+    <Hint Keys="dropphoto" data-placement="right">minimum resolution 1062x1499 for printing up to 9x13cm size, accepted format JPEG, TIFF and PNG, maximum file size 3MB</Hint>
+  </Hints>
+  
+  <Plugins>
+    <Input Keys="firstname lastname function civility phone website email_contact"/>
+    <MultiText Prefix="text"/>
+    <Input Keys="total meaningful-total amount"/>
+    <MultiText Prefix="comments"/>
+    <Constant Keys="entname"/>
+  </Plugins>
+</Form>

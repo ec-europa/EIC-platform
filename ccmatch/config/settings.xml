@@ -1,0 +1,36 @@
+<Settings>
+  <SMTPServer>!localhost</SMTPServer>
+  <DefaultEmailSender>coach-match-no-reply@coachcom2020.eu</DefaultEmailSender>
+  <Sudoer>
+    <User>create-dba-user</User>
+    <Password>dba-user-password</Password>
+  </Sudoer>
+  <Media>
+    <Allow>
+      <Category>account</Category>
+    </Allow>
+    <Debug>
+      <Category>account</Category>
+      <Category>registration</Category>
+      <Category>workflow</Category>
+      <Category>action</Category>
+    </Debug>
+  </Media>
+  <Hold>
+     <Allow>admin</Allow>
+  </Hold>
+  <Module>
+    <Name>login</Name>
+    <Property>
+      <Key>ecas</Key>
+      <Value>on</Value>
+    </Property>
+  </Module>
+  <Module>
+    <Name>nonce</Name>
+    <Property>
+      <Key>log</Key>
+      <Value>on</Value>
+    </Property>
+  </Module>
+</Settings>

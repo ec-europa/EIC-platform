@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalInformation>
+	<Description Lang="en">
+		<Selector Name="InvestmentInvestors">
+			<Version>20180924-0</Version>
+			<Title>admission - Investment Investors</Title>
+			<Note>target investment type an Investor is looking to provide</Note>
+				<Option>
+					<Value>1</Value>
+					<Name>Seeds</Name>
+				</Option>
+				<Option>
+					<Value>2</Value>
+					<Name>Series A</Name>
+				</Option>
+				<Option>
+					<Value>3</Value>
+					<Name>Series B</Name>
+				</Option>
+				<Option>
+					<Value>4</Value>
+					<Name>Series C</Name>
+				</Option>
+				<Option>
+					<Value>5</Value>
+					<Name>Series D</Name>
+				</Option>
+				<Option>
+					<Value>6</Value>
+					<Name>Later Stage</Name>
+				</Option>
+			</Selector>
+	</Description>
+</GlobalInformation>

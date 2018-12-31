@@ -1,0 +1,21 @@
+<Form Tag="ManagingEntity" Layout="fluid" StartLevel="1" Width="800px"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Title>Regional entity assignment formular</Title>
+
+  <Row>
+    <Cell W="12" Gap="1.25">
+      <Title>EEN</Title>
+        <Field Key="assigned-eentity" Tag="RegionalEntityRef" Gap="2" W="12" L="0">Assigned</Field>
+        <Field Key="suggested-eentity" Tag="SuggestedEntityRef" Gap="2" W="12" L="0">Suggestions</Field>
+        <xhtml:p class="text-hint" style="clear:both">Select the regional entity that will be in charge of the case either from the <i>Assigned</i> list, or from the <i>Suggestions</i> list. The entity selected in the suggestions, if any, will have priority over the other one when saving.</xhtml:p>
+    </Cell>
+  </Row>
+  <Hints>
+    <Hint Keys="assigned-eentity" data-placement="right">Use this list to select an EEN regional entity from the list of all EEN regional entities in the database</Hint>
+    <Hint Keys="suggested-eentity" data-placement="right">Use this list to select an EEN regional entity amongst the suggestions; suggestions use a matching algorithm based on postal code to nuts code conversion with a fallback to all the regional entities in the country of the SME beneficiary</Hint>
+  </Hints>
+</Form>

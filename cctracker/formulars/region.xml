@@ -1,0 +1,58 @@
+<Form xmlns:site="http://oppidoc.com/oppidum/site" xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  Tag="RegionalEntity" Layout="fluid" Width="540px" Orientation="horizontal">
+  <Row>
+    <site:conditional meet="create" force="true">
+      <xhtml:div class="text-info well" style="display:relative">
+        <xhtml:button class="close" onclick="javascript:$(event.target).parent().hide()" type="button" style="position:relative;top:-15px;right:-10px">×</xhtml:button>
+        <xhtml:span>In order to avoid duplicating an existing region, the Acronym input field shows you existing regional entities with similar letters.</xhtml:span>
+      </xhtml:div>
+    </site:conditional>
+    <Cell Gap="1">
+      <Title>EEN Entity</Title>
+      <Field Key="acronym" Tag="Acronym" Gap="1">Acronym</Field>
+      <Field Key="nuts" Tag="NutsCodes" Gap="1">Nutscodes</Field>
+      <Field Key="region" Tag="Region" Gap="1">Region</Field>
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row>
+    <Cell Gap="1">
+      <Title>Team</Title>
+      <site:conditional meet="read" force="true">
+        <Field Key="coordinators" Tag="Coordinators" Gap="1">Coordinator</Field>
+        <Field Key="kams" Tag="KeyAccountManagers" Gap="1">KAM</Field>
+      </site:conditional>
+      <site:conditional avoid="read" force="true">
+        <Field Key="members" Tag="Coordinators" Gap="1">Coordinator</Field>
+        <Field Key="members" Tag="KeyAccountManagers" Gap="1">KAM</Field>
+      </site:conditional>      
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row>
+    <Cell Gap="1" Tag="Address">
+      <Title loc="form.legend.address">Adresse</Title>
+      <Field Key="street" Tag="StreetNameAndNo" W="12" Gap="1">Street &amp; no</Field>
+      <Field Key="box" Tag="PO-Box" Gap="1">Box number</Field>
+      <Field Key="careof" Tag="Co" Gap="1">c/o</Field>
+      <Field Key="npa" Tag="PostalCode" Gap="1">Postcode</Field>
+      <Field Key="town" Tag="Town" Gap="1">City</Field>
+      <Field Key="country" Tag="Country" Gap="1">Country</Field>
+    </Cell>
+    <Cell Gap="1">
+      <Field Key="website" Tag="WebSite" Gap="1">Website</Field>
+    </Cell>
+  </Row>
+  <Bindings>
+    <Require Keys="acronym country"/>
+  </Bindings>
+  <Plugins>
+    <Input Keys="region street box careof npa town"/>
+    <Input Keys="website" Media="url"/>
+    <Input Keys="nuts" Filter="list" Tag="Nuts"/>
+  </Plugins>
+  <Hints>
+    <Hint Keys="enterprise" meet="create">Enter the name of the EEN regional entity to create, the drop down list will show you if it already exists</Hint>
+    <Hint Keys="nuts" avoid="read">Please type directly the list of nuts codes as a comma separated list</Hint>
+  </Hints>
+</Form>

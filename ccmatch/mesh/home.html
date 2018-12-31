@@ -1,0 +1,91 @@
+<html xmlns:site="http://oppidoc.com/oppidum/site" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Oppidoc: solutions pour l'édition et la publication sur le Web" />
+    <meta name="keywords" content="éditeur, web, développement, xml, javascript, xquery, xslt" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="generator" content="Oppidum by Oppidoc" />
+    <site:title>
+      <title>Coachcom 2020 Coach Match Platform</title>
+    </site:title>
+    <site:skin force="true">
+      <link href="../resources/bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css" />
+      <link href="../resources/css/site.css" rel="stylesheet" type="text/css" />
+    </site:skin>
+  </head>
+  <body id="c-skip-header">
+    <div class="fixed-top">
+      <div id="banner" class="container">
+        <div class="row-fluid">
+          <div class="span3">
+            <div id="ccm-logo">
+              <site:img src="images/cc20-logo.png" style="max-height:90px" force="true">
+                <img src="../resources/images/cc20-logo.png" />
+              </site:img>
+            </div>
+          </div>
+          <div class="span5" id="ccm-title">
+            <h1>Coach Match Platform</h1>
+          </div>
+          <div class="span4">
+            <div class="row">
+              <div class="span12">
+                <site:login force="true">LOGIN</site:login>
+              </div>
+              <div class="span12" style="margin-left:0">
+                <site:commands force="true">MENU</site:commands>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container" style="margin-top: 0">
+      <div class="row-fluid">
+        <div id="error" class="span12 green" condition="has-error">
+          <span class="ui-close" onclick="javascript:document.errorOff()">X</span>
+          <site:error force="true">
+            <p>ERROR</p>
+          </site:error>
+        </div>
+        <div id="message" class="span12 green" style="margin-left:0" condition="has-message">
+          <span class="ui-close" onclick="javascript:document.messageOff()">X</span>
+          <site:message force="true">
+            <p>MESSAGE</p>
+          </site:message>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <site:content>CONTENT</site:content>
+        </div>
+      </div>
+      <div class="row-fluid">
+        <div class="span12">
+          <div class="row">
+            <div class="span6 offset3">
+              <fieldset>
+                <legend loc="login.organisations.title">Participating coaching organisations</legend>
+              </fieldset>
+              <div style="display: flex; flex-direction:column; max-height:100px; font-size:18px;">
+                <div style="display: flex; margin-left:130px; margin-right:130px">
+                  <site:img src="images/Iuz_df24.jpg" force="true" style="width:50px;margin:auto;" />
+                  <p style="margin:auto;">SME Instrument</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr class="a-separator" />
+      <div class="row-fluid">
+        <div style="display: flex; flex-direction: row; -webkit-justify-content: flex-end; justify-content: flex-end; max-height:100px;">
+          <div style="display: flex; margin-left:20px; margin-right:20px">
+            <site:footer force="true"></site:footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

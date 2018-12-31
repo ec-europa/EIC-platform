@@ -1,0 +1,654 @@
+<!-- 
+Cockpit - EIC SME Dashboard Application
+
+Creation: Franck Leplé <franck.leple@amplexor.com>
+  Contributor:     
+  
+  Description:
+  Templates used by EIC Community services:
+    - Bootstrapping process for EIC Community
+      - Organisation
+      - User
+    - TO DO events, ...
+  
+  Notes:
+  - Organisations are SME Benificiary companies stored in SMEDashboard
+  - Users are members of the company
+  
+  June 2018 - European Union Public Licence EUPL
+-->
+  
+<Templates>
+
+  <!-- Read templates
+    used for fill the Commuity's services payloads
+    Abstraction layer between Dashboard model and EIC community model
+  -->
+  <!-- 
+    Get the name of the company
+    ShortName (Name if ShortName is empty)
+    -->
+  <Template Name="community_company_name" Mode="read" Subject="Enterprise">
+    <![CDATA[
+    <title>{ 
+      if (exists($subject/Information/ShortName) and ($subject/Information/ShortName/text() ne '')) then
+        $subject/Information/ShortName/text()
+      else
+        $subject/Information/Name/text() }
+    </title>
+    ]]>
+  </Template>
+
+  <!-- 
+    Get the id of the company
+    c4m_organisation_type drupal's data type 
+    -->
+  <Template Name="community_company_organisation_type" Mode="read" Subject="Enterprise">
+    <![CDATA[
+      <type>organisation</type>
+    ]]>
+  </Template>
+
+  <!-- 
+    Get the id of the company
+    c4m_organisation_dashboard_id drupal's data type 
+    -->
+  <Template Name="community_company_id" Mode="read" Subject="Enterprise">
+    <![CDATA[
+    <c4m_organisation_dashboard_id>
+      <und is_array="true">
+        <item>
+          <value>{ $subject/Id/text() }</value>
+        </item>
+      </und>
+    </c4m_organisation_dashboard_id>
+    ]]>
+  </Template>
+  
+  <!-- 
+    Get the type of the company
+    c4m_organisations_type  drupal's data type 
+    -->
+  <Template Name="community_company_type" Mode="read" Subject="Enterprise">
+    <![CDATA[
+     let $orgaType := enterprise:organisationType($subject/Id)
+     return
+     <c4m_organisations_type>
+       <und is_array="true">
+       {
+          if ($orgaType != '-') then 
+          (
+            if(contains($orgaType,'Corporate')) then
+              <tid>{ (custom:get-selector-value("EICOrganisationTypes", "Corporate", $lang))/text() }</tid>
+            else (),
+            if(contains($orgaType,'Investor')) then
+              <tid>{ (custom:get-selector-value("OrganisationInterests", "Offering investment (Investor)", $lang))/text() }</tid>
+            else (),
+            if(contains($orgaType,'Beneficiary')) then
+              <tid>{ (custom:get-selector-value("EICOrganisationTypes", "SME-Instrument", $lang))/text() }</tid>
+            else (),
+            if(contains($orgaType,'EEN')) then
+              <tid>{ (custom:get-selector-value("EICOrganisationTypes", "EEN Partner", $lang))/text() }</tid>
+            else (),
+             if(contains($orgaType,'EC')) then
+              <tid>{ (custom:get-selector-value("EICOrganisationTypes", "European Institutions", $lang))/text() }</tid>
+            else ()
+           )
+           else
+            <tid>Unknown</tid>     
+       }
+       </und>
+      </c4m_organisations_type>
+    ]]>
+  </Template> 
+   
+  <!-- 
+    Get the language of the company
+    c4m_organisation_size drupal's data type 
+    TODO display:gen-map-name-for
+    -->
+  <Template Name="community_company_size" Mode="read" Subject="Enterprise">
+    <![CDATA[
+      <c4m_organisation_size>
+        <und is_array="true">
+          <value>
+            {
+              if (exists($subject/Information/SizeRef[text() ne ''])) then
+                let $size := custom:get-selector-variant-value("Sizes", $subject/Information/SizeRef[1], "1", $lang)
+                return
+                  if (exists($size)) then $size/text() else ()
+              else ()
+            }
+          </value>
+        </und>
+      </c4m_organisation_size>
+    ]]>
+  </Template> 
+  
+  <!-- 
+    Get the url website of the company
+    c4m_link  drupal's data type 
+    -->
+  <Template Name="community_company_url" Mode="read" Subject="Enterprise">
+    <![CDATA[
+      <c4m_link>
+        <und is_array="true">
+          {
+            if (exists($subject/Information/WebSite[text() ne ''])) then
+              <item>
+                  <url>{ translate($subject/Information/WebSite/text(),' ','') }</url>
+              </item>
+            else
+              <item>           
+                  <url/>    
+              </item>
+          }
+        </und>
+      </c4m_link>
+    ]]>
+  </Template>
+
+  <!-- 
+    Get the address of the company
+    c4m_location_address  drupal's data type 
+  -->
+  <Template Name="community_company_adress" Mode="read" Subject="Enterprise">
+    <![CDATA[
+      <c4m_location_address>
+        <und is_array="true">
+          <item>
+            <country>
+              { custom:get-country-adress($subject/Information,'iso2')}
+            </country>
+            <locality>{ $subject/Information/Address/Town/text() }</locality>
+            <postal_code>{ $subject/Information/Address/PostalCode/text() }</postal_code>
+            <thoroughfare>{ $subject/Information/Address/StreetNameAndNo/text() }</thoroughfare>
+            <premise/>
+            <organisation_name>
+            { 
+              if (exists($subject/Information/ShortName) and ($subject/Information/ShortName/text() ne '')) then
+                $subject/Information/ShortName/text()
+              else
+                $subject/Information/Name/text() 
+            }
+            </organisation_name>
+          </item>
+        </und>
+      </c4m_location_address> 
+    ]]>
+  </Template>
+  
+  <!-- 
+   Other countries/Cities based in
+   c4m_vocab_geo  drupal's data type 
+   FIXME: TO Update When field is create in SMED
+    -->
+  <Template Name="community_company_countries_cities" Mode="read" Subject="Enterprise">
+    <![CDATA[
+      <c4m_vocab_geo>
+        <und is_array="true">
+          <tid>
+            { custom:get-country-adress($subject/Information,'iso3')}
+          </tid>     
+        </und>
+      </c4m_vocab_geo>
+    ]]>
+  </Template>   
+  
+  <!-- 
+   Countries selling = Geographical target markets
+   c4m_vocab_geo_selling drupal's data type 
+   FIXME: TO Update When SMEIMKT-893 is done
+   CountriesSellingTo/ISO3166Countries/ISO3166CountryRef	
+    -->
+  <Template Name="community_countries_selling_to" Mode="read" Subject="Enterprise">
+    <![CDATA[
+       <c4m_vocab_geo_selling>
+        <und is_array="true">
+          { 
+            if (exists($subject/Information/CountriesSellingTo/ISO3166Countries/ISO3166CountryRef)) then
+              for $countryRef in $subject/Information/CountriesSellingTo/ISO3166Countries/ISO3166CountryRef
+                let $country := custom:get-country-code-value($countryRef, 'iso3')
+              return
+                if (exists($country) and (local-name($country) ne 'error')) then <tid>{ $country/text() }</tid> 
+                else <tid></tid>
+            else <tid>{ custom:get-country-adress($subject/Information,'iso3')}</tid> 
+          }     
+        </und>
+      </c4m_vocab_geo_selling>
+    ]]>
+  </Template>   
+  
+  <!-- 
+    Get the contact person of the company
+    c4m_contact_persons  drupal's data type 
+    -->
+  <Template Name="community_company_contact" Mode="read" Subject="enterprise" Object="account">
+    <![CDATA[
+      <item>
+        <ecas_id>{ $object//Remote[@Name = 'ECAS']/text() }</ecas_id>
+        <first_name>{ $subject//Member[PersonRef/text() eq $object/Id/text()]/Information/Name/FirstName/text() }</first_name>
+        <last_name>{ $subject//Member[PersonRef/text() eq $object/Id/text()]/Information/Name/LastName/text() }</last_name>
+        <email>{ $object//Email[@Name eq 'ECAS']/text() }</email>
+      </item>
+    ]]>
+  </Template>  
+  
+  <!-- 
+    Get the contact email of the company
+    c4m_email  drupal's data type 
+    /Information/Contacts/Email
+    -->
+  <!-- <und is_array="true">
+    {
+    (if (exists($subject/Information/Contacts/Phone)) then
+    <item><value>{ $subject/Information/Contacts/Phone/text() }</value></item>
+    else ()
+    ,
+    if (exists($subject/Information/Contacts/Mobile)) then
+    <item><value>{ $subject/Information/Contacts/Mobile/text() }</value></item>
+    else ())
+    }
+  </und> -->
+  <Template Name="community_company_contact_email" Mode="read" Subject="enterprise">
+    <![CDATA[
+        <c4m_email>
+          <und is_array="true">
+            <item><email>
+            {
+              if (exists($subject/Information/Contacts/Email)) then
+                $subject/Information/Contacts/Email/text()
+              else ()
+            }
+            </email></item>
+          </und>     
+        </c4m_email>
+    ]]>
+  </Template>
+  
+  <!-- 
+    Get the contact phone of the company
+    c4m_phone  drupal's data type
+    /Information/Contacts/Phone
+    -->
+  <Template Name="community_company_contact_phone" Mode="read" Subject="enterprise">
+    <![CDATA[
+       <c4m_phone>
+          <und is_array="true">
+            {
+                (if (exists($subject/Information/Contacts/Phone)) then
+                  <item><value>{ $subject/Information/Contacts/Phone/text() }</value></item>
+                else ()
+                ,
+                if (exists($subject/Information/Contacts/Mobile)) then
+                  <item><value>{ $subject/Information/Contacts/Mobile/text() }</value></item>
+                else ())             
+            }
+          </und>
+        </c4m_phone>
+    ]]>
+  </Template>  
+
+  <!-- 
+      Date (year) of establishment
+      c4m_date_est drupal's data type
+  -->
+  <Template Name="community_company_date" Mode="read" Subject="Enterprise">
+    <![CDATA[
+      <c4m_date_est>
+        <und is_array="true">
+              <item>
+                <value>
+                  <date>
+                  { 
+                     if (exists($subject/Information/CreationYear) and ($subject/Information/CreationYear/text() ne '')) then
+                        $subject/Information/CreationYear/text() 
+                     else ()
+                  }
+                  </date>
+                </value>
+              </item>
+        </und>
+      </c4m_date_est>
+    ]]>
+  </Template> 
+
+  <!-- 
+    Get the customers service type of the company
+    Clients	ClientRef in SMED
+    c4m_product_service_type  drupal's data type  cf. SMEIMKT-893 
+    -->
+  <Template Name="community_company_product_service_type" Mode="read" Subject="Enterprise">
+    <![CDATA[
+      <c4m_product_service_type>
+        <und is_array="true">
+        {
+          for $cr in $subject/Information/Clients/ClientRef
+            let $variant := custom:get-selector-variant-value("Clients", $cr, "1", $lang)
+          return <value>{ $variant/text()  }</value> 
+        }
+        </und>
+    </c4m_product_service_type>
+    ]]>  
+  </Template>
+  
+  <!-- 
+    Get the targets markets of the company
+   c4m_target_markets  drupal's data type 
+    -->
+  <Template Name="community_company_target_market" Mode="read" Subject="Tmr">
+    <![CDATA[
+       <tid>{ $subject/text() }</tid>     
+    ]]>
+  </Template> 
+
+  <!-- 
+    Get the topic(s) of the company
+    c4m_vocab_topic  drupal's data type 
+    Enterprise//MainActivities ?
+    -->
+  <Template Name="community_company_topics" Mode="read" Subject="Enterprise">
+    <![CDATA[
+      <c4m_vocab_topic>
+        <und is_array="true">
+        {
+          for $tr in $subject/Information/ThematicsTopics/ThematicsTopicRef
+          return <tid>{ $tr/text() }</tid> 
+        }
+        </und>
+      </c4m_vocab_topic>
+    ]]>
+  </Template>
+
+  <!-- 
+    Get the content of a member of the company
+    c4m_organisation_members drupal's data type is constructed with the members 
+    -->
+  <Template Name="community_company_member" Mode="read" Subject="member" Object="account">
+    <![CDATA[
+      let $cie-ref := $subject/../../../Id/text()
+      let $isLear := $object[.//Role[EnterpriseRef/text() eq $cie-ref][FunctionRef eq '3']]
+      let $isEENOrga := exists($subject/../../../Settings/Teams[. = 'EEN'])
+      return
+        <item>
+          <ecas_id>{ $object//Remote[@Name = 'ECAS']/text() }</ecas_id>
+          <first_name>{ $subject/Information/Name/FirstName/text() }</first_name>
+          <last_name>{ $subject/Information/Name/LastName/text() }</last_name>
+          { 
+          if (exists($object//Email[@Name eq 'ECAS'])) then 
+            <email>{$object//Email[@Name eq 'ECAS']/text()}</email>
+          else 
+             <email>{$subject/Information/Contacts/Email/text()}</email>
+          }
+          <c4m_user_types>
+            <und is_array="true">
+              {
+              if ($isEENOrga) then 
+                if ($isLear) then (:kam co todo set the right code:)
+                    <tid>10</tid>
+                  else (:kam:)
+                   <tid>5</tid>
+              else
+              (
+              if ($isLear) then
+                  <tid>1</tid>
+                else (),
+              <tid>2</tid>
+              )
+              }
+            </und>
+          </c4m_user_types>
+          {
+            if (exists($subject/Information/CorporateFunctions)) then
+              <c4m_vocab_job_title>
+                <und is_array="true">
+                {
+                  for $function in $subject/Information/CorporateFunctions/CorporateFunctionRef
+                  return <tid>{ $function/text() }</tid> 
+                }
+                </und>
+              </c4m_vocab_job_title>
+            else ()
+          }
+          {
+            if (exists($subject/Information/Function)) then
+              <function>{ $subject/Information/Function/text() }</function>
+            else ()
+          }
+          {
+            if (exists($subject/Information/SpokenLanguages/SpokenLanguageRef)) then
+            <c4m_vocab_language>
+              <und is_array="true">
+              {
+                  for $language in $subject/Information/SpokenLanguages/SpokenLanguageRef
+                    return <value>{ $language/text() }</value> 
+              }
+              </und>
+            </c4m_vocab_language>
+            else ()
+          }
+        </item>
+    ]]>
+  </Template>  
+
+  <!-- 
+    Get the product offering / industry / NACE of the company
+    c4m_partners  drupal's data type 
+    -->
+  <Template Name="community_company_offering" Mode="read" Subject="Enterprise">
+    <![CDATA[
+      <c4m_offering>
+        <und is_array="true">
+        {
+          for $dr in $subject/Information/ServicesAndProductsOffered/DomainActivities/DomainActivityRef
+          return <tid>{ $dr/text() }</tid> 
+        }
+        </und>
+      </c4m_offering>
+    ]]>
+  </Template>
+
+  <!-- 
+    Get the purl of the company
+    URL slug for the new organisation in the community platform (e.g.
+    https://community-smei.easme-web.eu/new-organisation-title
+   <purl><value>amplexor2</value></purl> --> 
+    -->
+  <Template Name="community_company_purl" Mode="read" Subject="Enterprise">
+    <![CDATA[
+      <purl>
+        <value>{ 
+          if (exists($subject/Information/ShortName) and ($subject/Information/ShortName/text() ne '')) then
+          concat(lower-case(replace(normalize-space($subject/Information/ShortName/text()), '[^a-zA-Z]', '-')), '_', $subject/Id/text())
+        else
+          concat(lower-case(replace(normalize-space($subject/Information/Name/text()), '[^a-zA-Z]', '-')), '_', $subject/Id/text())
+        }</value>
+      </purl>
+    ]]>
+  </Template>  
+  
+  <!-- 
+    Get the about us of the company
+   <c4m_body>
+    <und is_array="true">
+      <item>
+        <value>CompanyDescription</value>
+        <summary><p>The about text</p></summary>
+        <format>filtered_html</format>
+      </item>
+    </und>
+  </c4m_body>
+  -->
+  <Template Name="community_company_aboutus" Mode="read" Subject="Enterprise">
+    <![CDATA[
+    <c4m_about_us>{
+      if (exists($subject//CompanyDescription) or exists($subject/Projects/Project/Summary)) then
+        <und is_array="true">
+          <item>
+            {(
+              if (exists($subject//CompanyDescription)) then (
+                <value>
+                  {
+                    for $elem in $subject//CompanyDescription/*
+                      return concat("&lt;p&gt;",$elem/text(),"&lt;/p&gt;")
+                  }   
+                </value>
+                )
+              else 
+                let $projIdMax :=  max(for $key in $subject/Projects/Project[Summary]/ProjectId
+                  return if ($key castable as xs:integer) then number($key) else 0)
+                return (
+                  <value>{
+                    for $elem in $subject/Projects/Project[number(ProjectId/text()) eq $projIdMax]/Summary/*
+                      return concat("&lt;p&gt;",$elem/text(),"&lt;/p&gt;")
+                    }  
+                  </value>
+                  )
+            ,
+          <format>filtered_html</format>
+          ) 
+          }
+          
+        </item>
+        </und>
+      else ()
+      }
+  </c4m_about_us>
+    ]]>
+  </Template>  
+  <!-- *********************************************** -->
+  <!-- Templates in progress/to be ignored             -->
+  <!-- *********************************************** -->
+  <!-- 
+    Get the customers of the company
+    ServicesAndProductsLookingFor/DomainActivities/DomainActivityRef
+    c4m_customers  drupal's data type 
+    -->
+  <Template Name="community_company_looking_for" Mode="read" Subject="Enterprise">
+    <![CDATA[
+      <c4m_looking_for>
+        <und is_array="true">
+        {
+          for $dr in $subject/Information/ServicesAndProductsLookingFor/DomainActivities/DomainActivityRef
+          return <tid>{ $dr/text() }</tid> 
+        }
+        </und>
+      </c4m_looking_for>
+    ]]>
+  </Template>
+  
+  <!-- 
+    Get the qualitative attributs  of the company
+    c4m_qualitative_attributes  drupal's data type 
+    -->
+  <Template Name="community_company_qualitative_attrs" Mode="read" Subject="Enterprise">
+    <![CDATA[
+    ]]>  
+  </Template> 
+ 
+  <!-- 
+    Get the customers of the company
+    c4m_customers  drupal's data type 
+    -->
+  <Template Name="community_company_customers" Mode="read" Subject="Enterprise">
+    <![CDATA[
+    ]]>
+  </Template>   
+
+  <!-- 
+    Get the partners of the company
+    c4m_partners  drupal's data type 
+    -->
+  <Template Name="community_company_partners" Mode="read" Subject="Enterprise">
+    <![CDATA[
+    ]]>
+  </Template>
+ 
+  <!-- *********************************************** -->
+  <!-- Update templates for companies                  -->
+  <!-- *********************************************** -->
+
+  <!-- Companies EICCommunity structure for a company - Keep the last one of each command
+        <EICCommunity @nid @uri>
+          <bootstrap @status @date><description xml structure depends on status code/>
+          </boostrap>
+          <update @status @date><description xml structure depends on status code/>
+          </update>
+        </EICCommunity>
+  -->
+
+  <!-- Create EICCommunity section -->
+  <Template Name="community-company-eiccommunity" Mode="create" Subject="enterprise">
+    <![CDATA[
+      <XAL _Prune="none">
+        <XALAction Type="insert" Pivot="$subject">
+          <EICCommunity/>
+        </XALAction>
+      </XAL>
+    ]]>
+  </Template>  
+
+  <!-- Create EICCommunity section -->
+  <Template Name="community-company-eiccommunity" Mode="delete" Subject="enterprise">
+    <![CDATA[
+      <XAL _Prune="none">
+        <XALAction Type="delete" Pivot="$subject/EICCommunity"/>
+      </XAL>
+    ]]>
+  </Template> 
+
+  <!-- Update companies with a boostrap stamp -->
+  <Template Name="community-company-bootstrap-success" Mode="update" Subject="enterprise" Object="response">
+    <![CDATA[
+      let $nid := $object/nid/text()
+      let $uri := replace($object/uri/text(), '/easme_dashboard/rest' ,'')
+      return
+      <XAL _Prune="none">
+        <XALAction Type="attribute" Name="nid" Pivot="$subject/EICCommunity">
+          <Value>{ $nid }</Value>
+        </XALAction>
+        <XALAction Type="attribute" Name="uri" Pivot="$subject/EICCommunity">
+          <Value>{ $uri }</Value>
+        </XALAction>
+        <XALAction Type="replace" Pivot="$subject/EICCommunity">
+          <Bootstrap status="success" date="{ $date }">{ $object/* }</Bootstrap>
+        </XALAction>
+      </XAL>
+    ]]>
+  </Template>  
+  
+  <!-- Update companies with a boostrap stamp -->
+  <Template Name="community-company-bootstrap-error" Mode="update" Subject="enterprise" Object="response">
+    <![CDATA[
+      <XAL _Prune="none">
+        <XALAction Type="replace" Pivot="$subject/EICCommunity">
+          <Bootstrap status="error" date="{ $date }">{ $object/. }</Bootstrap>
+        </XALAction>
+      </XAL>
+    ]]>
+  </Template>  
+
+  <!-- Update companies with a update stamp -->
+  <Template Name="community-company-update-success" Mode="update" Subject="enterprise" Object="response">
+    <![CDATA[     
+      <XAL _Prune="none">
+        <XALAction Type="replace" Pivot="$subject/EICCommunity">
+          <Update status="success" date="{ $date }">{ $object/* }</Update>
+        </XALAction>
+      </XAL>
+    ]]>
+  </Template>  
+  
+  <!-- Update companies with a boostrap stamp -->
+  <Template Name="community-company-update-error" Mode="update" Subject="enterprise" Object="response">
+    <![CDATA[
+      <XAL _Prune="none">
+        <XALAction Type="replace" Pivot="$subject/EICCommunity">
+          <Update status="error" date="{ $date }">{ $object/. }</Update>
+        </XALAction>
+      </XAL>
+    ]]>
+  </Template>  
+
+ 
+</Templates>

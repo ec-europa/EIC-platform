@@ -1,0 +1,12 @@
+<Form Tag="CoachesFilter" StartLevel="2" Wrapper="none"
+      xmlns:xt="http://ns.inria.org/xtiger" xmlns:site="http://oppidoc.com/oppidum/site">
+  <Title Render="h2" style="text-align:center">Coach related selection criteria</Title>
+  <Row>
+    <SearchMask FirstColumnWidth="15%" ThirdColumnWidth="40%">
+      <Include src="stats.xml" Name="host"/>
+      <Include src="stats.xml" Name="coach"/>
+      <Include src="stats.xml" Name="experiences"/>
+      <Include src="stats.xml" Name="competences"/>
+    </SearchMask>
+  </Row>
+</Form>

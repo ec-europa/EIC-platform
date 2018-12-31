@@ -1,0 +1,162 @@
+<Form Tag="Admission" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site" xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <Verbatim>
+    <xt:component name="t_participant_information">
+      <Field Key="gender" Tag="Gender" W="2" Gap="1.5" L="0">Gender</Field>
+      <Field Key="firstname" Tag="FirstName" W="4" Gap="1.5">First Name</Field>
+      <Field Key="lastname" Tag="LastName" W="4" Gap="1.5" loc="term.surname">Last Name</Field>
+      <Field Key="corporate" Tag="CorporateFunctions" Gap="1.5" W="12" L="0">Function</Field>
+      <xhtml:div data-avoid-corporate="~10" data-on-class="hide" class="hide feedback-sub">
+        <Field Key="function" Tag="Function" Gap="2" W="12" L="0">Please specify</Field>
+      </xhtml:div>
+      <Row>
+        <Field Key="phone" Tag="Phone" Gap="1.5" W="6">Direct Phone</Field>
+        <Field Key="email" Tag="Email" Gap="1.5" W="6">Email</Field>
+      </Row>
+      <Row>
+        <Field Key="linkedIn" Tag="LinkedIn" W="6" Gap="1.5">LinkedIn profile</Field>
+        <Field Key="twitter" Tag="Twitter" W="6" Gap="1.5">Twitter account</Field>
+      </Row>
+    </xt:component>
+    
+    <xt:component name="t_company_profile">
+        <Field Key="companyName" Tag="CompanyName" Gap="1.5" W="6" L="0">Company Name</Field>
+        <Row>
+          <Field Key="companyDescription" Tag="CompanyDescription" W="12" Gap="1.5">Description </Field>
+          <Field Key="investorTypes" Tag="InvestorTypes" Gap="1.5" W="12" L="0">Investor type</Field>
+        </Row>
+    </xt:component>
+
+    <xt:component name="t_companies_sought">
+        <Row>
+          <Field Key="investmentInvestors" Tag="InvestmentInvestors" Gap="1.5" W="5">Target investment</Field>
+          <Field Key="investmentInvestorTickets" Tag="InvestmentInvestorTickets" Gap="2" W="5">Target investment ticket</Field>
+        </Row>
+        <Row>
+          <Field Key="targetedMarkets" Tag="TargetedMarkets" Gap="1.5" W="12">Target markets</Field>
+        </Row>
+        <Row>
+          <Field Key="geonomenclature" Tag="GeographicalMarkets" Gap="1.5" W="12">Geographical target markets</Field>
+        </Row>
+    </xt:component>
+
+    <xt:component name="t_EICEvent">
+      <p style="font-size:15px;margin-bottom:0.5em">Business networking is at the core of the event and will be ensured through a matchmaking app active before and through the event. You will be able to download this app once your registration is confirmed. Participants will be able to search and be searchable.</p>
+      <Use Tag="Networking" TypeName="networking"/>
+      <xhtml:h4>I would like to attend the following workshop(s) and pitching session(s)</xhtml:h4>
+      <Use Tag="Workshop" TypeName="workshop"/>
+      <Row>
+        <Use Tag="DataTransfer" TypeName="transfer"/>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_networking">
+      <Field Key="yesno_networking" Tag="YesNoScaleRef" Gap="0">I want to be visible on the app for networking with other participants</Field>
+    </xt:component>
+
+    <xt:component name="t_workshop">
+      <xhtml:label class="control-label" style="font-weight:500;margin-bottom:0">Day 1 - Afternoon session I (14:30-16:00)</xhtml:label>
+      <Field Key="questionWorkshop11s" Tag="QuestionWorkshop11Ref" Gap="0">Workshops :</Field>
+      <Field Key="pitching11" Tag="PitchingSessions11" Gap="0">Pitching sessions :</Field>
+      <xhtml:label class="control-label" style="font-weight:500;margin-bottom:0">Day 1 - Afternoon session II (16:30-18:00)</xhtml:label>
+      <Field Key="questionWorkshop21s" Tag="QuestionWorkshop21Ref" Gap="0">Workshops :</Field>
+      <Field Key="pitching12" Tag="PitchingSessions12" Gap="0">Pitching sessions :</Field>
+      <xhtml:label class="control-label" style="font-weight:500;margin-bottom:0">Day 2 - Morning session I (9:30-11:00)</xhtml:label>
+      <Field Key="questionWorkshop31s" Tag="QuestionWorkshop31Ref" Gap="0">Workshops :</Field>
+      <Field Key="pitching21" Tag="PitchingSessions21" Gap="0">Pitching sessions :</Field>
+      <xhtml:label class="control-label" style="font-weight:500;margin-bottom:0">Day 2 - Morning session II (11:30-13:00)</xhtml:label>
+      <Field Key="questionWorkshop41s" Tag="QuestionWorkshop41Ref" Gap="0">Workshops :</Field>
+      <Field Key="pitching22" Tag="PitchingSessions22" Gap="0">Pitching sessions :</Field>
+    </xt:component>
+
+    <xt:component name="t_transfer">
+      <Row>
+        <xhtml:p>
+          <xhtml:label style="display:inline;margin-right:10px;">I allow the transfer of my data to the app for the time before and during the Event <Hint>The transfer is mandatory to get the ticket for the event</Hint></xhtml:label>
+            <!-- <span data-binding="required" data-variable="terms"> -->
+            <site:conditional avoid="read" force="true">
+              <xt:use param="type=checkbox;filter=event;value=on" types="input"/>
+            </site:conditional>
+            <site:conditional meet="read" force="true">
+              <xt:use param="type=checkbox;filter=event;value=on;name=term;noedit=true" types="input"/>
+            </site:conditional>
+            <!-- </span> -->
+        </xhtml:p>
+      </Row>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+      <Title loc="form.legend.participant.information">Participant Information</Title>
+      <Use Tag="ParticipantInformation" TypeName="participant_information"/>
+  </Row>
+
+  <Separator/>
+
+  <Row>
+    <Title>Company Profile</Title>
+    <Use Tag="CompanyProfile" TypeName="company_profile"/>
+  </Row>
+
+  <Separator/>
+  <Row>
+    <Title loc="form.legend.companies.sought">Companies Sought</Title>
+    <Use Tag="CompaniesSought" TypeName="companies_sought"/>
+  </Row>
+
+  <Row>
+    <xhtml:hr class="a-separator"/>
+      <Title>EIC event -Berlin</Title>
+      <Use Tag="EICEvent" TypeName="EICEvent"/>
+  </Row>
+
+  <Separator/>
+  <Row>
+      <Title>Acceleration services</Title>
+      <Field Key="acceleration" Tag="AccelerationServices" Gap="13">I want to benefit from the following Business acceleration services and allow the re-use of my above provided data there</Field>
+  </Row>
+
+  <Include src="consent.xml" TypeName="footer"/>
+
+  <Bindings>
+    <Condition Keys="corporate" Variable="corporate"/>
+    <Condition Keys="organisation" Variable="organisation"/>
+    <Condition Keys="yesno_eic" Variable="yneic"/>
+    <Condition Keys="yesno_networking" Variable="ynnet"/>
+    <Condition Keys="yesno_service" Variable="ynser"/>
+    <Require Keys="firstname lastname corporate phone email companyName companyDescription investorTypes investmentInvestors investmentInvestorTickets targetedMarkets geonomenclature"/>
+    <Enforce>
+      <!-- LinkedIn www.linkedin.com/in/franck-leple-8ba63a5 -->
+      <RegExp Keys="linkedIn" Message="The LinkedIn account must be well formed">^\s*$|^https://[a-z]{2,3}[.]linkedin[.]com/.*$</RegExp>
+      <RegExp Keys="twitter" Message="The Twitter account must be well formed">^\s*$|^https://twitter[.]com/.*$</RegExp>
+      <RegExp Keys="email eulogin" Message-loc="validation.email"
+        Message="The EMail adress must be well formed (name@server.domain)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <!-- <RegExp Keys="phone mobile" Message-loc="validation.phone" Message="digits only"
+        >^\+?\s*[\d ]{2,}$</RegExp> -->
+      <RegExp Keys="creation" Message-loc="validation.year"
+        Message="Enter a year as a number with 4 digits">^\s*$|^\d{4}$</RegExp>
+      <RegExp Keys="companyDescription" Message="Description must be up to 500 characters"
+        >^(.?){1,500}$</RegExp>
+    </Enforce>
+  </Bindings>
+
+  <Hints>
+    <Hint Keys="yesno_networking">The data provided in this form will be visible for the other participants of the event</Hint>
+    <Hint Keys="linkedIn" data-placement="right">https://www.linkedin.com/in/[profile]</Hint>
+    <Hint Keys="twitter" data-placement="right">https://twitter.com/[profile]</Hint>
+    <Hint Keys="companyDescription" data-placement="right">Please give a short description (up to 500 characters).</Hint>
+    <Mandatory Feedback="border" Keys="firstname lastname corporate phone email companyName companyDescription investorTypes investmentInvestors investmentInvestorTickets targetedMarkets geonomenclature investedEIC">This field must be filled to be able to submit</Mandatory>
+    <Mandatory Feedback="border" Tags="Organisation">This field must be filled to be able to submit</Mandatory>
+  </Hints>
+
+  <Plugins>
+    <Input Keys="lastname firstname function phone linkedIn twitter companyName  investedEIC"/>
+    <Input Keys="email" Media="email"/>
+    <Input Keys="website" Media="url"/>
+    <MultiText Keys="companyDescription"/>
+  </Plugins>
+
+</Form>

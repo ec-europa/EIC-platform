@@ -1,0 +1,5182 @@
+<GlobalInformation>
+  <Description Lang="en">
+    <Selector Name="FETTopics" Value="Code" Label="V+Name" Test="FET RIA Topics for Proposals">
+      <Group>
+        <Code>31073207</Code>
+        <Name>Mathematics</Name>
+        <Brief>Mathematics</Brief>
+        <Selector>
+          <Group>
+            <Code>31073208</Code>
+            <Name>Pure mathematics</Name>
+            <Brief>Pure mathematics</Brief>
+            <Selector>
+              <Option>
+                <Code>31048367</Code>
+                <Name>Logic and foundations</Name>
+                <Brief>Logic and foundations</Brief>
+              </Option>
+              <Option>
+                <Code>31048368</Code>
+                <Name>Algebra</Name>
+                <Brief>Algebra</Brief>
+              </Option>
+              <Option>
+                <Code>31048369</Code>
+                <Name>Number theory</Name>
+                <Brief>Number theory</Brief>
+              </Option>
+              <Option>
+                <Code>31048370</Code>
+                <Name>Algorithms and complexity</Name>
+                <Brief>Algorithms and complexity</Brief>
+              </Option>
+              <Option>
+                <Code>31048371</Code>
+                <Name>Algebraic and complex geometry</Name>
+                <Brief>Algebraic and complex geometry</Brief>
+              </Option>
+              <Option>
+                <Code>31048372</Code>
+                <Name>Geometry</Name>
+                <Brief>Geometry</Brief>
+              </Option>
+              <Option>
+                <Code>31048373</Code>
+                <Name>Topology</Name>
+                <Brief>Topology</Brief>
+              </Option>
+              <Option>
+                <Code>31048374</Code>
+                <Name>Lie groups, Lie algebras</Name>
+                <Brief>Lie groups, Lie algebras</Brief>
+              </Option>
+              <Option>
+                <Code>31048375</Code>
+                <Name>Analysis</Name>
+                <Brief>Analysis</Brief>
+              </Option>
+              <Option>
+                <Code>31048376</Code>
+                <Name>Operator algebras and functional analysis</Name>
+                <Brief>Operator algebras and functional analysis</Brief>
+              </Option>
+              <Option>
+                <Code>31048377</Code>
+                <Name>ODE and dynamical systems</Name>
+                <Brief>ODE and dynamical systems</Brief>
+              </Option>
+              <Option>
+                <Code>31048378</Code>
+                <Name>Theoretical aspects of partial differential equations</Name>
+                <Brief>Theoretical aspects of partial differential equations</Brief>
+              </Option>
+              <Option>
+                <Code>31048379</Code>
+                <Name>Mathematical physics</Name>
+                <Brief>Mathematical physics</Brief>
+              </Option>
+              <Option>
+                <Code>31048380</Code>
+                <Name>Discrete mathematics and combinatorics</Name>
+                <Brief>Discrete mathematics and combinatorics</Brief>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Code>31073209</Code>
+            <Name>Applied mathematics</Name>
+            <Brief>Applied mathematics</Brief>
+            <Selector>
+              <Option>
+                <Code>31048381</Code>
+                <Name>Mathematical aspects of computer science</Name>
+                <Brief>Mathematical aspects of computer science</Brief>
+              </Option>
+              <Option>
+                <Code>31048382</Code>
+                <Name>Numerical analysis</Name>
+                <Brief>Numerical analysis</Brief>
+              </Option>
+              <Option>
+                <Code>31048383</Code>
+                <Name>Scientific computing and data processing</Name>
+                <Brief>Scientific computing and data processing</Brief>
+              </Option>
+              <Option>
+                <Code>31048384</Code>
+                <Name>Numerical analysis and scientific computing</Name>
+                <Brief>Numerical analysis and scientific computing</Brief>
+              </Option>
+              <Option>
+                <Code>31048385</Code>
+                <Name>Control theory and optimization</Name>
+                <Brief>Control theory and optimization</Brief>
+              </Option>
+              <Option>
+                <Code>31048386</Code>
+                <Name>Application of mathematics in sciences</Name>
+                <Brief>Application of mathematics in sciences</Brief>
+              </Option>
+              <Option>
+                <Code>31048387</Code>
+                <Name>Application of mathematics in industry and society</Name>
+                <Brief>Application of mathematics in industry and society</Brief>
+              </Option>
+              <Option>
+                <Code>31048391</Code>
+                <Name>Probability</Name>
+                <Brief>Probability</Brief>
+              </Option>
+              <Option>
+                <Code>31048392</Code>
+                <Name>Statistics</Name>
+                <Brief>Statistics</Brief>
+              </Option>
+              <Option>
+                <Code>31073210</Code>
+                <Name>Multivariate statistics</Name>
+                <Brief>Multivariate statistics</Brief>
+              </Option>
+              <Option>
+                <Code>31073211</Code>
+                <Name>Factor analysis</Name>
+                <Brief>Factor analysis</Brief>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073212</Code>
+        <Name>Computer sciences, information science and bioinformatics</Name>
+        <Brief>Computer sciences, information science and bioinformatics</Brief>
+        <Selector>
+          <Group>
+            <Name>Software engineering, operating systems, computer languages</Name>
+            <Code>31073213</Code>
+            <Selector>
+              <Option>
+                <Name>Requirements Analysis</Name>
+                <Code>31053772</Code>
+              </Option>
+              <Option>
+                <Name>Software Design &amp; Development</Name>
+                <Code>31053773</Code>
+              </Option>
+              <Option>
+                <Name>Software Architectures</Name>
+                <Code>31053774</Code>
+              </Option>
+              <Option>
+                <Name>Software notation &amp; tools</Name>
+                <Code>31053775</Code>
+              </Option>
+              <Option>
+                <Name>Open Source Software</Name>
+                <Code>31053776</Code>
+              </Option>
+              <Option>
+                <Name>System Software</Name>
+                <Code>31053777</Code>
+              </Option>
+              <Option>
+                <Name>Software quality Management</Name>
+                <Code>31053778</Code>
+              </Option>
+              <Option>
+                <Name>Open hardware</Name>
+                <Code>31053779</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Bio-informatics</Name>
+            <Code>31073214</Code>
+            <Selector>
+              <Option>
+                <Name>Clinical bioinformatics</Name>
+                <Code>31048424</Code>
+              </Option>
+              <Option>
+                <Name>Translational bioinformatics</Name>
+                <Code>31048425</Code>
+              </Option>
+              <Option>
+                <Name>Computational neuroscience</Name>
+                <Code>31073215</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Theoretical computer science, formal methods, quantum computing</Name>
+            <Code>31073216</Code>
+            <Selector>
+              <Option>
+                <Name>Computational geometry, theorem proving, symbolic, algebraic computations</Name>
+                <Code>31048398</Code>
+              </Option>
+              <Option>
+                <Name>Geo-information and spatial data analysis</Name>
+                <Code>31048418</Code>
+              </Option>
+              <Option>
+                <Name>Very large data bases</Name>
+                <Code>31053790</Code>
+              </Option>
+              <Option>
+                <Name>Data stream analysis</Name>
+                <Code>31053791</Code>
+              </Option>
+              <Option>
+                <Name>Scalability</Name>
+                <Code>31053792</Code>
+              </Option>
+              <Option>
+                <Name>Real time data analytics</Name>
+                <Code>31053793</Code>
+              </Option>
+              <Option>
+                <Name>Quantum computing</Name>
+                <Code>31056679</Code>
+              </Option>
+              <Option>
+                <Name>Software verification and validation</Name>
+                <Code>31073217</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Cryptology, security, privacy, quantum cryptography</Name>
+            <Code>31073218</Code>
+            <Selector>
+              <Option>
+                <Name>Privacy</Name>
+                <Code>31051046</Code>
+              </Option>
+              <Option>
+                <Name>Cybersecurity</Name>
+                <Code>31053795</Code>
+              </Option>
+              <Option>
+                <Name>Trustworthy ICT</Name>
+                <Code>31053796</Code>
+              </Option>
+              <Option>
+                <Name>IT Security</Name>
+                <Code>31053797</Code>
+              </Option>
+              <Option>
+                <Name>Trust</Name>
+                <Code>31053798</Code>
+              </Option>
+              <Option>
+                <Name>Network Security</Name>
+                <Code>31053799</Code>
+              </Option>
+              <Option>
+                <Name>Information Security</Name>
+                <Code>31053800</Code>
+              </Option>
+              <Option>
+                <Name>Anonymity</Name>
+                <Code>31053802</Code>
+              </Option>
+              <Option>
+                <Name>Digital identity</Name>
+                <Code>31053803</Code>
+              </Option>
+              <Option>
+                <Name>Digital forensics</Name>
+                <Code>31073219</Code>
+              </Option>
+              <Option>
+                <Name>Quantum cryptography</Name>
+                <Code>31073220</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Computer graphics, computer vision, multi media, computer games</Name>
+            <Code>31073221</Code>
+            <Selector>
+              <Option>
+                <Name>Computer games, multi-media, augmented and virtual reality</Name>
+                <Code>31048401</Code>
+              </Option>
+              <Option>
+                <Name>Computer graphics</Name>
+                <Code>31053804</Code>
+              </Option>
+              <Option>
+                <Name>Computer vision</Name>
+                <Code>31053805</Code>
+              </Option>
+              <Option>
+                <Name>Multi media</Name>
+                <Code>31053806</Code>
+              </Option>
+              <Option>
+                <Name>Imaging</Name>
+                <Code>31055764</Code>
+              </Option>
+              <Option>
+                <Name>Computer Aided Geometric Modelling (CAGM)</Name>
+                <Code>31073222</Code>
+              </Option>
+              <Option>
+                <Name>3D image informatics</Name>
+                <Code>31073223</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Human computer interaction and interface, visualization and natural language processing</Name>
+            <Code>31073224</Code>
+            <Selector>
+              <Option>
+                <Name>Human computer interaction</Name>
+                <Code>31053808</Code>
+              </Option>
+              <Option>
+                <Name>Mobile devices</Name>
+                <Code>31053810</Code>
+              </Option>
+              <Option>
+                <Name>Non mobile interactive devices</Name>
+                <Code>31053811</Code>
+              </Option>
+              <Option>
+                <Name>Accessibility</Name>
+                <Code>31053812</Code>
+              </Option>
+              <Option>
+                <Name>Smart objects and interaction design</Name>
+                <Code>31053813</Code>
+              </Option>
+              <Option>
+                <Name>Users and interactive retrieval</Name>
+                <Code>31053814</Code>
+              </Option>
+              <Option>
+                <Name>Natural language processing</Name>
+                <Code>31053815</Code>
+              </Option>
+              <Option>
+                <Name>Machine translation</Name>
+                <Code>31053816</Code>
+              </Option>
+              <Option>
+                <Name>Wearable technologies</Name>
+                <Code>31053817</Code>
+              </Option>
+              <Option>
+                <Name>Interaction, Multimodal, Brain-Computer-Interfaces, Assistive Technologies</Name>
+                <Code>31053828</Code>
+              </Option>
+              <Option>
+                <Name>Ubiquitous Computing</Name>
+                <Code>31073225</Code>
+              </Option>
+              <Option>
+                <Name>Multimodal Interaction</Name>
+                <Code>31073226</Code>
+              </Option>
+              <Option>
+                <Name>Multimodal interfaces</Name>
+                <Code>31073227</Code>
+              </Option>
+              <Option>
+                <Name>Multilingual interfaces</Name>
+                <Code>31073228</Code>
+              </Option>
+              <Option>
+                <Name>Man-Machine safety - interfaces and standardization</Name>
+                <Code>31073229</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Web and information systems, database systems, information retrieval and digital libraries, data fusion</Name>
+            <Code>31073230</Code>
+            <Selector>
+              <Option>
+                <Name>Internet and semantic web, database systems and libraries</Name>
+                <Code>31048429</Code>
+              </Option>
+              <Option>
+                <Name>Semantic web technologies</Name>
+                <Code>31053818</Code>
+              </Option>
+              <Option>
+                <Name>Linked open data</Name>
+                <Code>31053819</Code>
+              </Option>
+              <Option>
+                <Name>Data visualization</Name>
+                <Code>31053820</Code>
+              </Option>
+              <Option>
+                <Name>Data curation</Name>
+                <Code>31053821</Code>
+              </Option>
+              <Option>
+                <Name>Open data</Name>
+                <Code>31053822</Code>
+              </Option>
+              <Option>
+                <Name>Data management and data interoperability</Name>
+                <Code>31073231</Code>
+              </Option>
+              <Option>
+                <Name>Repositories, federation of repositories and metadata</Name>
+                <Code>31073232</Code>
+              </Option>
+              <Option>
+                <Name>Social networks - technologies and analytics</Name>
+                <Code>31073233</Code>
+              </Option>
+              <Option>
+                <Name>Learning and training, open learning and learning analylics</Name>
+                <Code>31073234</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Artificial intelligence, intelligent systems, multi agent systems</Name>
+            <Code>31073235</Code>
+            <Selector>
+              <Option>
+                <Name>E-commerce, e-business, computational finance</Name>
+                <Code>31048402</Code>
+              </Option>
+              <Option>
+                <Name>Scientific computing, simulation and modelling tools</Name>
+                <Code>31048416</Code>
+              </Option>
+              <Option>
+                <Name>Ontologies, neural networks, genetic programming, fuzzy logic</Name>
+                <Code>31048430</Code>
+              </Option>
+              <Option>
+                <Name>Digital games, gamification, applied games, serious games</Name>
+                <Code>31053827</Code>
+              </Option>
+              <Option>
+                <Name>Data mining</Name>
+                <Code>31053954</Code>
+              </Option>
+              <Option>
+                <Name>Artificial intelligence</Name>
+                <Code>31056542</Code>
+              </Option>
+              <Option>
+                <Name>Machine learning</Name>
+                <Code>31056602</Code>
+              </Option>
+              <Option>
+                <Name>Intelligent Computer Aided Design (iCAD)</Name>
+                <Code>31073236</Code>
+              </Option>
+              <Option>
+                <Name>Multi-agent systems</Name>
+                <Code>31073237</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Communication networks, media, information society</Name>
+            <Code>31073238</Code>
+            <Selector>
+              <Option>
+                <Name>Sensor networks, embedded systems, hardware platforms</Name>
+                <Code>31048400</Code>
+              </Option>
+              <Option>
+                <Name>Optical Communications</Name>
+                <Code>31049731</Code>
+              </Option>
+              <Option>
+                <Name>Crowdsourcing</Name>
+                <Code>31051324</Code>
+              </Option>
+              <Option>
+                <Name>Distributed Social Networks</Name>
+                <Code>31053780</Code>
+              </Option>
+              <Option>
+                <Name>Internet architectures</Name>
+                <Code>31053823</Code>
+              </Option>
+              <Option>
+                <Name>Internet of Things</Name>
+                <Code>31053824</Code>
+              </Option>
+              <Option>
+                <Name>Mobile Sensor devices</Name>
+                <Code>31053825</Code>
+              </Option>
+              <Option>
+                <Name>Collective Awareness Platforms</Name>
+                <Code>31053832</Code>
+              </Option>
+              <Option>
+                <Name>Knowledge co-creation networks</Name>
+                <Code>31053833</Code>
+              </Option>
+              <Option>
+                <Name>Social networks - business applications</Name>
+                <Code>31073239</Code>
+              </Option>
+              <Option>
+                <Name>Peer-to-peer-technologies and applications</Name>
+                <Code>31073240</Code>
+              </Option>
+              <Option>
+                <Name>Collaborative learning, collaborative working</Name>
+                <Code>31073241</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Cyber-physical systems</Name>
+            <Code>31073242</Code>
+            <Selector>
+              <Option>
+                <Name>Embedded systems</Name>
+                <Code>31053760</Code>
+              </Option>
+              <Option>
+                <Name>Systems of systems</Name>
+                <Code>31053762</Code>
+              </Option>
+              <Option>
+                <Name>Co-habited environments</Name>
+                <Code>31053763</Code>
+              </Option>
+              <Option>
+                <Name>Critical infrastructure</Name>
+                <Code>31057842</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Advanced computing</Name>
+            <Code>31073243</Code>
+            <Selector>
+              <Option>
+                <Name>High performance computing</Name>
+                <Code>31053757</Code>
+              </Option>
+              <Option>
+                <Name>Embedded computing</Name>
+                <Code>31053765</Code>
+              </Option>
+              <Option>
+                <Name>Computing for servers, data centres</Name>
+                <Code>31053766</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Smart manufacturing</Name>
+            <Code>31073244</Code>
+            <Selector>
+              <Option>
+                <Name>Smart factories</Name>
+                <Code>31053768</Code>
+              </Option>
+              <Option>
+                <Name>Digital factories</Name>
+                <Code>31053769</Code>
+              </Option>
+              <Option>
+                <Name>Virtual factories</Name>
+                <Code>31053770</Code>
+              </Option>
+              <Option>
+                <Name>Unconventional Manufacturing</Name>
+                <Code>31053771</Code>
+              </Option>
+              <Option>
+                <Name>Additive Manufacturing</Name>
+                <Code>31073245</Code>
+              </Option>
+              <Option>
+                <Name>3D Printing</Name>
+                <Code>31073246</Code>
+              </Option>
+              <Option>
+                <Name>Advanced Manufacturing Technology</Name>
+                <Code>31073247</Code>
+              </Option>
+              <Option>
+                <Name>Computer Integrated Manufacturing (CIM)</Name>
+                <Code>31073248</Code>
+              </Option>
+              <Option>
+                <Name>Virtual product development</Name>
+                <Code>31073249</Code>
+              </Option>
+              <Option>
+                <Name>Virtual testing</Name>
+                <Code>31073250</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Cloud computing</Name>
+            <Code>31073251</Code>
+            <Selector>
+              <Option>
+                <Name>Cloud Computing models</Name>
+                <Code>31053785</Code>
+              </Option>
+              <Option>
+                <Name>Cloud trust &amp; security</Name>
+                <Code>31053786</Code>
+              </Option>
+              <Option>
+                <Name>Cloud Services</Name>
+                <Code>31053787</Code>
+              </Option>
+              <Option>
+                <Name>Cloud Infrastructures</Name>
+                <Code>31053788</Code>
+              </Option>
+              <Option>
+                <Name>Cloud Architectures</Name>
+                <Code>31053789</Code>
+              </Option>
+              <Option>
+                <Name>Cloud systems</Name>
+                <Code>31073252</Code>
+              </Option>
+              <Option>
+                <Name>Fog computing</Name>
+                <Code>31073253</Code>
+              </Option>
+              <Option>
+                <Name>Edge computing</Name>
+                <Code>31073254</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Technology-enhanced learning</Name>
+            <Code>31073255</Code>
+            <Selector>
+              <Option>
+                <Name>Learning analytics</Name>
+                <Code>31073256</Code>
+              </Option>
+              <Option>
+                <Name>Context-aware systems</Name>
+                <Code>31073257</Code>
+              </Option>
+              <Option>
+                <Name>Personalization</Name>
+                <Code>31073258</Code>
+              </Option>
+              <Option>
+                <Name>Social learning networks</Name>
+                <Code>31073259</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073260</Code>
+        <Name>Physical sciences</Name>
+        <Brief>Physical sciences</Brief>
+        <Selector>
+          <Group>
+            <Name>Atomic, molecular and chemical physics</Name>
+            <Code>31073261</Code>
+            <Selector>
+              <Option>
+                <Name>Chemical physics</Name>
+                <Code>31048435</Code>
+              </Option>
+              <Option>
+                <Name>Ultra-cold atoms and molecules</Name>
+                <Code>31048436</Code>
+              </Option>
+              <Option>
+                <Name>Quantum optics and quantum information</Name>
+                <Code>31048437</Code>
+              </Option>
+              <Option>
+                <Name>Molecular electronics</Name>
+                <Code>31048439</Code>
+              </Option>
+              <Option>
+                <Name>Atomic physics</Name>
+                <Code>31073262</Code>
+              </Option>
+              <Option>
+                <Name>Molecular physics</Name>
+                <Code>31073263</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Condensed matter physics</Name>
+            <Code>31073264</Code>
+            <Selector>
+              <Option>
+                <Name>Mechanical and acoustical properties of condensed matter, Lattice dynamics</Name>
+                <Code>31048444</Code>
+              </Option>
+              <Option>
+                <Name>Electronic properties of materials, surfaces, interfaces, nanostructures, etc.</Name>
+                <Code>31048447</Code>
+              </Option>
+              <Option>
+                <Name>Semiconductors and insulators: material growth, physical properties</Name>
+                <Code>31048450</Code>
+              </Option>
+              <Option>
+                <Name>Superconductivity</Name>
+                <Code>31048451</Code>
+              </Option>
+              <Option>
+                <Name>Superfluids</Name>
+                <Code>31048452</Code>
+              </Option>
+              <Option>
+                <Name>Spintronics</Name>
+                <Code>31048454</Code>
+              </Option>
+              <Option>
+                <Name>Magnetism and strongly correlated systems</Name>
+                <Code>31048455</Code>
+              </Option>
+              <Option>
+                <Name>Soft condensed matter</Name>
+                <Code>31048456</Code>
+              </Option>
+              <Option>
+                <Name>Condensed matter - beam interactions (photons, electrons, etc.)</Name>
+                <Code>31048457</Code>
+              </Option>
+              <Option>
+                <Name>Structure and dynamics of disordered systems: soft matter (gels, colloids, liquid crystals, etc.), glasses, defects, etc.</Name>
+                <Code>31048460</Code>
+              </Option>
+              <Option>
+                <Name>Phase transitions, phase equilibria</Name>
+                <Code>31048464</Code>
+              </Option>
+              <Option>
+                <Name>Structure of solids</Name>
+                <Code>31073265</Code>
+              </Option>
+              <Option>
+                <Name>Structure of liquids</Name>
+                <Code>31073266</Code>
+              </Option>
+              <Option>
+                <Name>Electronic transport properties of condensed matter</Name>
+                <Code>31073267</Code>
+              </Option>
+              <Option>
+                <Name>Thermal transport properties of condensed matter</Name>
+                <Code>31073268</Code>
+              </Option>
+              <Option>
+                <Name>Phononics</Name>
+                <Code>31073269</Code>
+              </Option>
+              <Option>
+                <Name>Plasmonics</Name>
+                <Code>31073270</Code>
+              </Option>
+              <Option>
+                <Name>Topological insulators</Name>
+                <Code>31073271</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Nanophysics: nanoelectronics, nanophotonics, nanomagnetism, nanoelectromechanics, etc.</Name>
+            <Code>31073272</Code>
+            <Selector>
+              <Option>
+                <Name>Nanophotonics</Name>
+                <Code>31053848</Code>
+              </Option>
+              <Option>
+                <Name>Nanoelectronics</Name>
+                <Code>31056842</Code>
+              </Option>
+              <Option>
+                <Name>Nanomagnetism</Name>
+                <Code>31073273</Code>
+              </Option>
+              <Option>
+                <Name>Nanoelectromechanics</Name>
+                <Code>31073274</Code>
+              </Option>
+              <Option>
+                <Name>Organic nanoparticles</Name>
+                <Code>31073275</Code>
+              </Option>
+              <Option>
+                <Name>Inorganic nanoparticles</Name>
+                <Code>31073276</Code>
+              </Option>
+              <Option>
+                <Name>Semiconducting nanowires</Name>
+                <Code>31073277</Code>
+              </Option>
+              <Option>
+                <Name>Metallic nanowires</Name>
+                <Code>31073278</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Fundamental physics</Name>
+            <Code>31073279</Code>
+            <Selector>
+              <Option>
+                <Name>Metrology and measurement</Name>
+                <Code>31048438</Code>
+              </Option>
+              <Option>
+                <Name>Thermodynamics</Name>
+                <Code>31048461</Code>
+              </Option>
+              <Option>
+                <Name>Statistical physics (condensed matter)</Name>
+                <Code>31048463</Code>
+              </Option>
+              <Option>
+                <Name>Fundamental interactions and fields</Name>
+                <Code>31048467</Code>
+              </Option>
+              <Option>
+                <Name>Relativity</Name>
+                <Code>31048468</Code>
+              </Option>
+              <Option>
+                <Name>Electromagnetism</Name>
+                <Code>31048470</Code>
+              </Option>
+              <Option>
+                <Name>Classical physics</Name>
+                <Code>31048471</Code>
+              </Option>
+              <Option>
+                <Name>Acoustics</Name>
+                <Code>31048484</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Nuclear and particle physics</Name>
+            <Code>31073280</Code>
+            <Selector>
+              <Option>
+                <Name>Particle physics</Name>
+                <Code>31048469</Code>
+              </Option>
+              <Option>
+                <Name>Nuclear physics</Name>
+                <Code>31048472</Code>
+              </Option>
+              <Option>
+                <Name>Nuclear astrophysics</Name>
+                <Code>31048473</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Fluids and plasma physics</Name>
+            <Code>31073281</Code>
+            <Selector>
+              <Option>
+                <Name>Fluid dynamics (physics)</Name>
+                <Code>31048475</Code>
+              </Option>
+              <Option>
+                <Name>Gas and plasma physics</Name>
+                <Code>31048478</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Optics</Name>
+            <Code>31073282</Code>
+            <Selector>
+              <Option>
+                <Name>Optics, non-linear optics and nano-optics</Name>
+                <Code>31048480</Code>
+              </Option>
+              <Option>
+                <Name>Lasers, ultra-short lasers and laser physics</Name>
+                <Code>31048481</Code>
+              </Option>
+              <Option>
+                <Name>Laser beam forming &amp; delivery</Name>
+                <Code>31073283</Code>
+              </Option>
+              <Option>
+                <Name>Hyperspectral Imaging</Name>
+                <Code>31073284</Code>
+              </Option>
+              <Option>
+                <Name>Machine vision</Name>
+                <Code>31073285</Code>
+              </Option>
+              <Option>
+                <Name>Optical fibre (fiber)</Name>
+                <Code>31073286</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Astronomy and astrophysics</Name>
+            <Code>31073287</Code>
+            <Selector>
+              <Option>
+                <Name>Solar and interplanetary physics</Name>
+                <Code>31048486</Code>
+              </Option>
+              <Option>
+                <Name>Planetary systems sciences</Name>
+                <Code>31048491</Code>
+              </Option>
+              <Option>
+                <Name>Gaseous planets</Name>
+                <Code>31048492</Code>
+              </Option>
+              <Option>
+                <Name>Interstellar medium</Name>
+                <Code>31048497</Code>
+              </Option>
+              <Option>
+                <Name>Formation of stars and planets</Name>
+                <Code>31048498</Code>
+              </Option>
+              <Option>
+                <Name>Astrophysics</Name>
+                <Code>31048499</Code>
+              </Option>
+              <Option>
+                <Name>Astrobiology</Name>
+                <Code>31048500</Code>
+              </Option>
+              <Option>
+                <Name>Astrochemistry</Name>
+                <Code>31048501</Code>
+              </Option>
+              <Option>
+                <Name>Stars and stellar systems</Name>
+                <Code>31048502</Code>
+              </Option>
+              <Option>
+                <Name>Formation and evolution of galaxies</Name>
+                <Code>31048507</Code>
+              </Option>
+              <Option>
+                <Name>Clusters of galaxies and large scale structures</Name>
+                <Code>31048508</Code>
+              </Option>
+              <Option>
+                <Name>High energy and particles astronomy - X-rays, cosmic rays, gamma rays, neutrinos</Name>
+                <Code>31048509</Code>
+              </Option>
+              <Option>
+                <Name>Relativistic astrophysics</Name>
+                <Code>31048510</Code>
+              </Option>
+              <Option>
+                <Name>Dark matter, dark energy</Name>
+                <Code>31048511</Code>
+              </Option>
+              <Option>
+                <Name>Cosmology</Name>
+                <Code>31048513</Code>
+              </Option>
+              <Option>
+                <Name>Observational astronomy: cosmic rays, neutrinos, and other particles</Name>
+                <Code>31048520</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073288</Code>
+        <Name>Chemical sciences</Name>
+        <Brief>Chemical sciences</Brief>
+        <Selector>
+          <Group>
+            <Name>Organic chemistry</Name>
+            <Code>31073289</Code>
+            <Selector>
+              <Option>
+                <Name>Carbonhydrates</Name>
+                <Code>31048536</Code>
+              </Option>
+              <Option>
+                <Name>Macromolecular chemistry</Name>
+                <Code>31048537</Code>
+              </Option>
+              <Option>
+                <Name>Organometallic chemistry</Name>
+                <Code>31048538</Code>
+              </Option>
+              <Option>
+                <Name>Polymer chemistry</Name>
+                <Code>31048539</Code>
+              </Option>
+              <Option>
+                <Name>Synthetic Organic chemistry</Name>
+                <Code>31048540</Code>
+              </Option>
+              <Option>
+                <Name>Heterocyclic chemistry</Name>
+                <Code>31048541</Code>
+              </Option>
+              <Option>
+                <Name>Peptide chemistry</Name>
+                <Code>31048542</Code>
+              </Option>
+              <Option>
+                <Name>Natural product synthesis</Name>
+                <Code>31048543</Code>
+              </Option>
+              <Option>
+                <Name>Molecular chemistry</Name>
+                <Code>31048544</Code>
+              </Option>
+              <Option>
+                <Name>Supramolecular chemistry</Name>
+                <Code>31048545</Code>
+              </Option>
+              <Option>
+                <Name>Organic reaction mechanism</Name>
+                <Code>31048546</Code>
+              </Option>
+              <Option>
+                <Name>Stereochemistry</Name>
+                <Code>31048547</Code>
+              </Option>
+              <Option>
+                <Name>Combinatorial chemistry</Name>
+                <Code>31048548</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Inorganic and nuclear chemistry</Name>
+            <Code>31073290</Code>
+            <Selector>
+              <Option>
+                <Name>Radiation and Nuclear chemistry</Name>
+                <Code>31048440</Code>
+              </Option>
+              <Option>
+                <Name>Inorganic Synthesis</Name>
+                <Code>31048551</Code>
+              </Option>
+              <Option>
+                <Name>Carbon chemistry</Name>
+                <Code>31048552</Code>
+              </Option>
+              <Option>
+                <Name>Ionic solids</Name>
+                <Code>31048553</Code>
+              </Option>
+              <Option>
+                <Name>Ionic liquids</Name>
+                <Code>31048554</Code>
+              </Option>
+              <Option>
+                <Name>Molecular geometry</Name>
+                <Code>31048557</Code>
+              </Option>
+              <Option>
+                <Name>Electronic Configurations</Name>
+                <Code>31048558</Code>
+              </Option>
+              <Option>
+                <Name>Coordination chemistry</Name>
+                <Code>31048559</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Physical chemistry, Polymer science</Name>
+            <Code>31073291</Code>
+            <Selector>
+              <Option>
+                <Name>Photochemistry</Name>
+                <Code>31048441</Code>
+              </Option>
+              <Option>
+                <Name>Acids and bases</Name>
+                <Code>31048555</Code>
+              </Option>
+              <Option>
+                <Name>Physical chemistry</Name>
+                <Code>31048561</Code>
+              </Option>
+              <Option>
+                <Name>Nuclear chemistry</Name>
+                <Code>31048563</Code>
+              </Option>
+              <Option>
+                <Name>Theoretical and computational chemistry</Name>
+                <Code>31048571</Code>
+              </Option>
+              <Option>
+                <Name>Nanochemistry</Name>
+                <Code>31048575</Code>
+              </Option>
+              <Option>
+                <Name>Surface chemistry</Name>
+                <Code>31048576</Code>
+              </Option>
+              <Option>
+                <Name>Electrochemistry, electrodialysis, microfluidics, sensors</Name>
+                <Code>31048578</Code>
+              </Option>
+              <Option>
+                <Name>Chemistry of condensed matter</Name>
+                <Code>31048581</Code>
+              </Option>
+              <Option>
+                <Name>Homogeneous catalysis (under catalysis)</Name>
+                <Code>31048582</Code>
+              </Option>
+              <Option>
+                <Name>Colloid chemistry</Name>
+                <Code>31048583</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Analytical chemistry</Name>
+            <Code>31073292</Code>
+            <Selector>
+              <Option>
+                <Name>Molecular architecture and structure</Name>
+                <Code>31048465</Code>
+              </Option>
+              <Option>
+                <Name>Analytical chemistry</Name>
+                <Code>31048584</Code>
+              </Option>
+              <Option>
+                <Name>Forensic chemistry</Name>
+                <Code>31048585</Code>
+              </Option>
+              <Option>
+                <Name>Chemical reactions: mechanisms, dynamics, kinetics and catalytic reactions</Name>
+                <Code>31048586</Code>
+              </Option>
+              <Option>
+                <Name>Qualitative analysis</Name>
+                <Code>31048587</Code>
+              </Option>
+              <Option>
+                <Name>Quantitative analysis</Name>
+                <Code>31048588</Code>
+              </Option>
+              <Option>
+                <Name>Spectroscopic and spectrometric techniques</Name>
+                <Code>31048589</Code>
+              </Option>
+              <Option>
+                <Name>Chemical instrumentation</Name>
+                <Code>31048590</Code>
+              </Option>
+              <Option>
+                <Name>Method development in chemistry</Name>
+                <Code>31048591</Code>
+              </Option>
+              <Option>
+                <Name>Spectroscopy</Name>
+                <Code>31048592</Code>
+              </Option>
+              <Option>
+                <Name>Chromatography</Name>
+                <Code>31048594</Code>
+              </Option>
+              <Option>
+                <Name>Fsensor</Name>
+                <Code>31048596</Code>
+              </Option>
+              <Option>
+                <Name>Isotope Ratio Analysis</Name>
+                <Code>31048602</Code>
+              </Option>
+              <Option>
+                <Name>Trace Analysis</Name>
+                <Code>31048603</Code>
+              </Option>
+              <Option>
+                <Name>Extraction methods</Name>
+                <Code>31048604</Code>
+              </Option>
+              <Option>
+                <Name>Proteomics</Name>
+                <Code>31048606</Code>
+              </Option>
+              <Option>
+                <Name>Electrochemical Methods</Name>
+                <Code>31048608</Code>
+              </Option>
+              <Option>
+                <Name>Crystallography and X-ray diffraction</Name>
+                <Code>31048611</Code>
+              </Option>
+              <Option>
+                <Name>Translational chemistry</Name>
+                <Code>31048612</Code>
+              </Option>
+              <Option>
+                <Name>Coupled and hybride analytical techniques</Name>
+                <Code>31073293</Code>
+              </Option>
+              <Option>
+                <Name>Bioanalytical chemistry</Name>
+                <Code>31073294</Code>
+              </Option>
+              <Option>
+                <Name>Chemometrics</Name>
+                <Code>31073295</Code>
+              </Option>
+              <Option>
+                <Name>Paper-based Microfluidic Devices</Name>
+                <Code>31073296</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Applied and industrial chemistry</Name>
+            <Code>31073297</Code>
+            <Selector>
+              <Option>
+                <Name>Corrosion</Name>
+                <Code>31048579</Code>
+              </Option>
+              <Option>
+                <Name>Clinical chemistry</Name>
+                <Code>31048614</Code>
+              </Option>
+              <Option>
+                <Name>Enzymes</Name>
+                <Code>31048616</Code>
+              </Option>
+              <Option>
+                <Name>Vitamins</Name>
+                <Code>31048617</Code>
+              </Option>
+              <Option>
+                <Name>Process Chemistry</Name>
+                <Code>31048618</Code>
+              </Option>
+              <Option>
+                <Name>Atmospheric chemistry</Name>
+                <Code>31048620</Code>
+              </Option>
+              <Option>
+                <Name>Petrochemicals</Name>
+                <Code>31048621</Code>
+              </Option>
+              <Option>
+                <Name>Lubrication abd lubricants</Name>
+                <Code>31048622</Code>
+              </Option>
+              <Option>
+                <Name>Electrochemistry, batteries and fuel cells</Name>
+                <Code>31048623</Code>
+              </Option>
+              <Option>
+                <Name>Polymers and plastics</Name>
+                <Code>31048624</Code>
+              </Option>
+              <Option>
+                <Name>Paint and coatings</Name>
+                <Code>31048625</Code>
+              </Option>
+              <Option>
+                <Name>Explosives</Name>
+                <Code>31048626</Code>
+              </Option>
+              <Option>
+                <Name>Carbon-based polymers and activated carbons</Name>
+                <Code>31048628</Code>
+              </Option>
+              <Option>
+                <Name>Cement, Ceramics and composites</Name>
+                <Code>31048629</Code>
+              </Option>
+              <Option>
+                <Name>Instrumentation and Instrumental techniques</Name>
+                <Code>31048631</Code>
+              </Option>
+              <Option>
+                <Name>Adhesion and Adhesives</Name>
+                <Code>31048632</Code>
+              </Option>
+              <Option>
+                <Name>Environmental chemistry</Name>
+                <Code>31048633</Code>
+              </Option>
+              <Option>
+                <Name>Food chemistry</Name>
+                <Code>31048634</Code>
+              </Option>
+              <Option>
+                <Name>Industrial chemistry</Name>
+                <Code>31048635</Code>
+              </Option>
+              <Option>
+                <Name>Catalysis</Name>
+                <Code>31048636</Code>
+              </Option>
+              <Option>
+                <Name>Reaction mechanisms ands dynamics</Name>
+                <Code>31048640</Code>
+              </Option>
+              <Option>
+                <Name>Inks, pastes and printing techniques</Name>
+                <Code>31073298</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073299</Code>
+        <Name>Environmental sciences</Name>
+        <Brief>Environmental sciences</Brief>
+        <Selector>
+          <Group>
+            <Name>Geosciences</Name>
+            <Code>31073300</Code>
+            <Selector>
+              <Option>
+                <Name>Paleoclimatology, paleoecology</Name>
+                <Code>31048643</Code>
+              </Option>
+              <Option>
+                <Name>Biogeochemistry, biogeochemical cycles, environmental chemistry</Name>
+                <Code>31048645</Code>
+              </Option>
+              <Option>
+                <Name>Mineralogy, petrology, igneous petrology, metamorphic petrology</Name>
+                <Code>31048646</Code>
+              </Option>
+              <Option>
+                <Name>Earth observations from space/remote sensing</Name>
+                <Code>31048647</Code>
+              </Option>
+              <Option>
+                <Name>Physical geography</Name>
+                <Code>31048662</Code>
+              </Option>
+              <Option>
+                <Name>Geographical information systems, cartography</Name>
+                <Code>31048663</Code>
+              </Option>
+              <Option>
+                <Name>Geo-information and spatial data analysis in geosciences</Name>
+                <Code>31073301</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Mineralogy and palaeontology</Name>
+            <Code>31073302</Code>
+            <Selector>
+              <Option>
+                <Name>Mineralogy</Name>
+                <Code>31048649</Code>
+              </Option>
+              <Option>
+                <Name>Petrology</Name>
+                <Code>31048650</Code>
+              </Option>
+              <Option>
+                <Name>Igneous petrology</Name>
+                <Code>31048651</Code>
+              </Option>
+              <Option>
+                <Name>Metamorphic petrology</Name>
+                <Code>31048652</Code>
+              </Option>
+              <Option>
+                <Name>Palaeontology</Name>
+                <Code>31048653</Code>
+              </Option>
+              <Option>
+                <Name>Sedimentology</Name>
+                <Code>31048654</Code>
+              </Option>
+              <Option>
+                <Name>Sedimentology, soil science, palaeontology, earth evolution</Name>
+                <Code>31048655</Code>
+              </Option>
+              <Option>
+                <Name>Soil science</Name>
+                <Code>31048656</Code>
+              </Option>
+              <Option>
+                <Name>Earth evolution</Name>
+                <Code>31048657</Code>
+              </Option>
+              <Option>
+                <Name>Paleobiomarkers</Name>
+                <Code>31073303</Code>
+              </Option>
+              <Option>
+                <Name>Hopanoids</Name>
+                <Code>31073304</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Geochemistry, geophysics, geology and volcanology</Name>
+            <Code>31073305</Code>
+            <Selector>
+              <Option>
+                <Name>Geochemistry, crystal chemistry, isotope geochemistry, thermodynamics</Name>
+                <Code>31048659</Code>
+              </Option>
+              <Option>
+                <Name>Physics of earth's interior, seismology, volcanology</Name>
+                <Code>31048660</Code>
+              </Option>
+              <Option>
+                <Name>Environment chemistry</Name>
+                <Code>31048661</Code>
+              </Option>
+              <Option>
+                <Name>Geology, tectonics, volcanology</Name>
+                <Code>31048665</Code>
+              </Option>
+              <Option>
+                <Name>Geomagnetism, paleomagnetism</Name>
+                <Code>31048666</Code>
+              </Option>
+              <Option>
+                <Name>Cryosphere, dynamics of snow and ice cover, sea ice, permafrosts and ice sheets</Name>
+                <Code>31048667</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Meteorology and atmospheric sciences</Name>
+            <Code>31073306</Code>
+            <Selector>
+              <Option>
+                <Name>Ozone, upper atmosphere, ionosphere</Name>
+                <Code>31048644</Code>
+              </Option>
+              <Option>
+                <Name>Atmospheric chemistry, atmospheric composition, air pollution</Name>
+                <Code>31048674</Code>
+              </Option>
+              <Option>
+                <Name>Meteorology, atmospheric physics and dynamics</Name>
+                <Code>31048675</Code>
+              </Option>
+              <Option>
+                <Name>Climatology and climate change</Name>
+                <Code>31048678</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Oceanography</Name>
+            <Code>31073307</Code>
+            <Selector>
+              <Option>
+                <Name>Oceanography (physical, chemical, biological, geological)</Name>
+                <Code>31048681</Code>
+              </Option>
+              <Option>
+                <Name>Hydrology, water and soil pollution</Name>
+                <Code>31048682</Code>
+              </Option>
+              <Option>
+                <Name>Ocean observing systems and operational forecasting</Name>
+                <Code>31048683</Code>
+              </Option>
+              <Option>
+                <Name>Biological oceanography</Name>
+                <Code>31048684</Code>
+              </Option>
+              <Option>
+                <Name>Chemical oceanography</Name>
+                <Code>31048685</Code>
+              </Option>
+              <Option>
+                <Name>Geological oceanography</Name>
+                <Code>31048686</Code>
+              </Option>
+              <Option>
+                <Name>Physical oceanography</Name>
+                <Code>31048687</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Hydrology</Name>
+            <Code>31073308</Code>
+            <Selector>
+              <Option>
+                <Name>Water resources</Name>
+                <Code>31048690</Code>
+              </Option>
+              <Option>
+                <Name>Aquaculture, fisheries</Name>
+                <Code>31048692</Code>
+              </Option>
+              <Option>
+                <Name>Environment, fisheries and aquaculture interactions</Name>
+                <Code>31048708</Code>
+              </Option>
+              <Option>
+                <Name>Fisheries science</Name>
+                <Code>31048718</Code>
+              </Option>
+              <Option>
+                <Name>Seafood quality and safety</Name>
+                <Code>31048728</Code>
+              </Option>
+              <Option>
+                <Name>Seafood economy</Name>
+                <Code>31048734</Code>
+              </Option>
+              <Option>
+                <Name>Marine Biotechnology</Name>
+                <Code>31048743</Code>
+              </Option>
+              <Option>
+                <Name>Drinking water treatment</Name>
+                <Code>31048760</Code>
+              </Option>
+              <Option>
+                <Name>Flood forecasting</Name>
+                <Code>31048761</Code>
+              </Option>
+              <Option>
+                <Name>Freshwater ecology</Name>
+                <Code>31048762</Code>
+              </Option>
+              <Option>
+                <Name>Hydrology (Water science)</Name>
+                <Code>31048763</Code>
+              </Option>
+              <Option>
+                <Name>Integrated management of water</Name>
+                <Code>31048764</Code>
+              </Option>
+              <Option>
+                <Name>Urban water management</Name>
+                <Code>31048765</Code>
+              </Option>
+              <Option>
+                <Name>Wastewater treatment</Name>
+                <Code>31048766</Code>
+              </Option>
+              <Option>
+                <Name>Pollution (water, soil), waste disposal and treatment</Name>
+                <Code>31048767</Code>
+              </Option>
+              <Option>
+                <Name>Water quality monitoring</Name>
+                <Code>31048772</Code>
+              </Option>
+              <Option>
+                <Name>Water scarsity management</Name>
+                <Code>31048775</Code>
+              </Option>
+              <Option>
+                <Name>Water-climate interactions</Name>
+                <Code>31048778</Code>
+              </Option>
+              <Option>
+                <Name>Wastewater management</Name>
+                <Code>31048779</Code>
+              </Option>
+              <Option>
+                <Name>Bathymetry</Name>
+                <Code>31073309</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073310</Code>
+        <Name>Biological sciences</Name>
+        <Brief>Biological sciences</Brief>
+        <Selector>
+          <Group>
+            <Name>Cell biology, Microbiology</Name>
+            <Code>31073311</Code>
+            <Selector>
+              <Option>
+                <Name>Microbiology</Name>
+                <Code>31048789</Code>
+              </Option>
+              <Option>
+                <Name>Bacteriology</Name>
+                <Code>31048790</Code>
+              </Option>
+              <Option>
+                <Name>Morphology and functional imaging of cells</Name>
+                <Code>31048792</Code>
+              </Option>
+              <Option>
+                <Name>Stem cell biology</Name>
+                <Code>31048793</Code>
+              </Option>
+              <Option>
+                <Name>Cell biology and molecular transport mechanisms</Name>
+                <Code>31048794</Code>
+              </Option>
+              <Option>
+                <Name>Cell cycle and division</Name>
+                <Code>31048795</Code>
+              </Option>
+              <Option>
+                <Name>Apoptosis</Name>
+                <Code>31048796</Code>
+              </Option>
+              <Option>
+                <Name>Cell differentiation, physiology and dynamics</Name>
+                <Code>31048797</Code>
+              </Option>
+              <Option>
+                <Name>Organelle biology</Name>
+                <Code>31048798</Code>
+              </Option>
+              <Option>
+                <Name>Cell signalling and cellular interactions</Name>
+                <Code>31048799</Code>
+              </Option>
+              <Option>
+                <Name>Signal transduction</Name>
+                <Code>31048800</Code>
+              </Option>
+              <Option>
+                <Name>Microbial ecology and evolution</Name>
+                <Code>31048801</Code>
+              </Option>
+              <Option>
+                <Name>Histology</Name>
+                <Code>31048802</Code>
+              </Option>
+              <Option>
+                <Name>Tissue culture</Name>
+                <Code>31048803</Code>
+              </Option>
+              <Option>
+                <Name>Algology</Name>
+                <Code>31048804</Code>
+              </Option>
+              <Option>
+                <Name>Medical microbiology</Name>
+                <Code>31048805</Code>
+              </Option>
+              <Option>
+                <Name>Parasitology</Name>
+                <Code>31048806</Code>
+              </Option>
+              <Option>
+                <Name>Prokaryotic biology</Name>
+                <Code>31048810</Code>
+              </Option>
+              <Option>
+                <Name>Symbiosis</Name>
+                <Code>31048811</Code>
+              </Option>
+              <Option>
+                <Name>Protozoology</Name>
+                <Code>31048812</Code>
+              </Option>
+              <Option>
+                <Name>Serology</Name>
+                <Code>31048813</Code>
+              </Option>
+              <Option>
+                <Name>Toxicology</Name>
+                <Code>31048814</Code>
+              </Option>
+              <Option>
+                <Name>Virology</Name>
+                <Code>31048816</Code>
+              </Option>
+              <Option>
+                <Name>Endocrine Disruptors, Endocrine Disrupting compounds</Name>
+                <Code>31073312</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Biochemistry and molecular biology</Name>
+            <Code>31073313</Code>
+            <Selector>
+              <Option>
+                <Name>Biochemistry</Name>
+                <Code>31048818</Code>
+              </Option>
+              <Option>
+                <Name>Molecular biology</Name>
+                <Code>31048824</Code>
+              </Option>
+              <Option>
+                <Name>Transcriptomics</Name>
+                <Code>31048829</Code>
+              </Option>
+              <Option>
+                <Name>Metabolomics</Name>
+                <Code>31048830</Code>
+              </Option>
+              <Option>
+                <Name>Glycomics</Name>
+                <Code>31048831</Code>
+              </Option>
+              <Option>
+                <Name>Molecular biology and interactions</Name>
+                <Code>31048833</Code>
+              </Option>
+              <Option>
+                <Name>General biochemistry and metabolism</Name>
+                <Code>31048834</Code>
+              </Option>
+              <Option>
+                <Name>Lipid synthesis, modification and turnover</Name>
+                <Code>31048835</Code>
+              </Option>
+              <Option>
+                <Name>Carbohydrate synthesis, modification and turnover</Name>
+                <Code>31048836</Code>
+              </Option>
+              <Option>
+                <Name>Structural biology (crystallography and EM)</Name>
+                <Code>31048837</Code>
+              </Option>
+              <Option>
+                <Name>Structural biology (NMR)</Name>
+                <Code>31048838</Code>
+              </Option>
+              <Option>
+                <Name>Biochemistry and molecular mechanisms of signal transduction</Name>
+                <Code>31048839</Code>
+              </Option>
+              <Option>
+                <Name>Biological chemistry</Name>
+                <Code>31048840</Code>
+              </Option>
+              <Option>
+                <Name>Physical chemistry of biological systems</Name>
+                <Code>31048841</Code>
+              </Option>
+              <Option>
+                <Name>DNA synthesis, modification, repair, recombination and degradation</Name>
+                <Code>31048842</Code>
+              </Option>
+              <Option>
+                <Name>RNA synthesis, processing, modification and degradation</Name>
+                <Code>31048843</Code>
+              </Option>
+              <Option>
+                <Name>Protein synthesis, modification and turnover</Name>
+                <Code>31048844</Code>
+              </Option>
+              <Option>
+                <Name>Neurochemistry</Name>
+                <Code>31050320</Code>
+              </Option>
+              <Option>
+                <Name>Proteomics in biochemistry</Name>
+                <Code>31073314</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Biophysics</Name>
+            <Code>31073315</Code>
+            <Selector>
+              <Option>
+                <Name>Bioinformatics, biocomputing, and DNA and molecular computation</Name>
+                <Code>31048417</Code>
+              </Option>
+              <Option>
+                <Name>Functional biology</Name>
+                <Code>31048850</Code>
+              </Option>
+              <Option>
+                <Name>Biomechanics</Name>
+                <Code>31048851</Code>
+              </Option>
+              <Option>
+                <Name>Molecular biophysics</Name>
+                <Code>31048852</Code>
+              </Option>
+              <Option>
+                <Name>Physiological biophysics</Name>
+                <Code>31048853</Code>
+              </Option>
+              <Option>
+                <Name>Computational biology</Name>
+                <Code>31048854</Code>
+              </Option>
+              <Option>
+                <Name>Physiological modelling</Name>
+                <Code>31048857</Code>
+              </Option>
+              <Option>
+                <Name>Biomodelling</Name>
+                <Code>31048858</Code>
+              </Option>
+              <Option>
+                <Name>Systems biology</Name>
+                <Code>31048859</Code>
+              </Option>
+              <Option>
+                <Name>Physics of biological systems</Name>
+                <Code>31048860</Code>
+              </Option>
+              <Option>
+                <Name>Biophysics (e.g. transport mechanisms, bioenergetics, fluorescence)</Name>
+                <Code>31048861</Code>
+              </Option>
+              <Option>
+                <Name>in-silico experiments</Name>
+                <Code>31073316</Code>
+              </Option>
+              <Option>
+                <Name>Multidimensional bioinformatics</Name>
+                <Code>31073317</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Genetics and heredity</Name>
+            <Code>31073318</Code>
+            <Selector>
+              <Option>
+                <Name>Clinical genetics</Name>
+                <Code>31048864</Code>
+              </Option>
+              <Option>
+                <Name>Cytogenetics</Name>
+                <Code>31048865</Code>
+              </Option>
+              <Option>
+                <Name>Ecological genetics</Name>
+                <Code>31048866</Code>
+              </Option>
+              <Option>
+                <Name>Environmental genomics</Name>
+                <Code>31048867</Code>
+              </Option>
+              <Option>
+                <Name>Gene therapy</Name>
+                <Code>31048868</Code>
+              </Option>
+              <Option>
+                <Name>Genomics</Name>
+                <Code>31048871</Code>
+              </Option>
+              <Option>
+                <Name>Medical genetics</Name>
+                <Code>31048872</Code>
+              </Option>
+              <Option>
+                <Name>Molecular genetics</Name>
+                <Code>31048873</Code>
+              </Option>
+              <Option>
+                <Name>Plant genetics</Name>
+                <Code>31048874</Code>
+              </Option>
+              <Option>
+                <Name>Population genetics</Name>
+                <Code>31048875</Code>
+              </Option>
+              <Option>
+                <Name>Genetic mapping</Name>
+                <Code>31048876</Code>
+              </Option>
+              <Option>
+                <Name>Genetic selection</Name>
+                <Code>31048877</Code>
+              </Option>
+              <Option>
+                <Name>Genomics, comparative genomics, functional genomics</Name>
+                <Code>31048878</Code>
+              </Option>
+              <Option>
+                <Name>Molecular genetics, reverse genetics and RNAi</Name>
+                <Code>31048879</Code>
+              </Option>
+              <Option>
+                <Name>Epigenetics and gene regulation</Name>
+                <Code>31048881</Code>
+              </Option>
+              <Option>
+                <Name>Genetic epidemiology</Name>
+                <Code>31048882</Code>
+              </Option>
+              <Option>
+                <Name>Ageing</Name>
+                <Code>31050378</Code>
+              </Option>
+              <Option>
+                <Name>Cell genetics</Name>
+                <Code>31053872</Code>
+              </Option>
+              <Option>
+                <Name>General quantitative genetics</Name>
+                <Code>31073319</Code>
+              </Option>
+              <Option>
+                <Name>MultiOmics</Name>
+                <Code>31073320</Code>
+              </Option>
+              <Option>
+                <Name>Cancer Genomics</Name>
+                <Code>31073321</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Reproductive and developmental biology</Name>
+            <Code>31073322</Code>
+            <Selector>
+              <Option>
+                <Name>Animal reproduction</Name>
+                <Code>31048885</Code>
+              </Option>
+              <Option>
+                <Name>Human reproduction</Name>
+                <Code>31048889</Code>
+              </Option>
+              <Option>
+                <Name>Human fertility</Name>
+                <Code>31048890</Code>
+              </Option>
+              <Option>
+                <Name>Animal embryology</Name>
+                <Code>31048891</Code>
+              </Option>
+              <Option>
+                <Name>Animal growth</Name>
+                <Code>31048892</Code>
+              </Option>
+              <Option>
+                <Name>Animal ontogeny</Name>
+                <Code>31048893</Code>
+              </Option>
+              <Option>
+                <Name>Human embryology</Name>
+                <Code>31048895</Code>
+              </Option>
+              <Option>
+                <Name>Human ontogeny</Name>
+                <Code>31048896</Code>
+              </Option>
+              <Option>
+                <Name>Animal-related development, development genetics, pattern formation and embryology</Name>
+                <Code>31059220</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Plant sciences, botany</Name>
+            <Code>31073323</Code>
+            <Selector>
+              <Option>
+                <Name>Gardening</Name>
+                <Code>31048899</Code>
+              </Option>
+              <Option>
+                <Name>Noxious plants</Name>
+                <Code>31048902</Code>
+              </Option>
+              <Option>
+                <Name>Palaeobotany</Name>
+                <Code>31048903</Code>
+              </Option>
+              <Option>
+                <Name>Palynology</Name>
+                <Code>31048904</Code>
+              </Option>
+              <Option>
+                <Name>Phytogeography</Name>
+                <Code>31048905</Code>
+              </Option>
+              <Option>
+                <Name>Phytopathology</Name>
+                <Code>31048906</Code>
+              </Option>
+              <Option>
+                <Name>Plant physiology</Name>
+                <Code>31048918</Code>
+              </Option>
+              <Option>
+                <Name>Plant propagation</Name>
+                <Code>31048926</Code>
+              </Option>
+              <Option>
+                <Name>Plant toxicology</Name>
+                <Code>31048927</Code>
+              </Option>
+              <Option>
+                <Name>Systematic botany</Name>
+                <Code>31048928</Code>
+              </Option>
+              <Option>
+                <Name>Plant biology</Name>
+                <Code>31048929</Code>
+              </Option>
+              <Option>
+                <Name>Development, developmental genetics, pattern formation and embryology in plants</Name>
+                <Code>31073324</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Zoology, Ornithology, Entomology, Behavioural sciences biology</Name>
+            <Code>31073325</Code>
+            <Selector>
+              <Option>
+                <Name>Animal behaviour</Name>
+                <Code>31048931</Code>
+              </Option>
+              <Option>
+                <Name>Biomimetics</Name>
+                <Code>31048932</Code>
+              </Option>
+              <Option>
+                <Name>Zoology</Name>
+                <Code>31048933</Code>
+              </Option>
+              <Option>
+                <Name>Animal anatomy</Name>
+                <Code>31048934</Code>
+              </Option>
+              <Option>
+                <Name>Animal biology</Name>
+                <Code>31048935</Code>
+              </Option>
+              <Option>
+                <Name>Animal endocrinology</Name>
+                <Code>31048936</Code>
+              </Option>
+              <Option>
+                <Name>Animal ethology</Name>
+                <Code>31048937</Code>
+              </Option>
+              <Option>
+                <Name>Animal morphology</Name>
+                <Code>31048939</Code>
+              </Option>
+              <Option>
+                <Name>Animal physiology</Name>
+                <Code>31048940</Code>
+              </Option>
+              <Option>
+                <Name>Applied zoology</Name>
+                <Code>31048941</Code>
+              </Option>
+              <Option>
+                <Name>Entomology</Name>
+                <Code>31048942</Code>
+              </Option>
+              <Option>
+                <Name>Other invertebrate culture</Name>
+                <Code>31048943</Code>
+              </Option>
+              <Option>
+                <Name>Palaeozoology</Name>
+                <Code>31048944</Code>
+              </Option>
+              <Option>
+                <Name>Systematic zoology</Name>
+                <Code>31048945</Code>
+              </Option>
+              <Option>
+                <Name>Zoogeography</Name>
+                <Code>31048946</Code>
+              </Option>
+              <Option>
+                <Name>Behavioural biology</Name>
+                <Code>31048947</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Marine biology</Name>
+            <Code>31073326</Code>
+            <Selector>
+              <Option>
+                <Name>Environmental and marine biology</Name>
+                <Code>31048949</Code>
+              </Option>
+              <Option>
+                <Name>Aquatic biology, Hydrobiology</Name>
+                <Code>31048950</Code>
+              </Option>
+              <Option>
+                <Name>Marine biodiversity</Name>
+                <Code>31048952</Code>
+              </Option>
+              <Option>
+                <Name>Marine ecosystems and processes</Name>
+                <Code>31048957</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Biodiversity conservation</Name>
+            <Code>31073327</Code>
+            <Selector>
+              <Option>
+                <Name>Biodiversity characterisation</Name>
+                <Code>31048991</Code>
+              </Option>
+              <Option>
+                <Name>Biodiversity monitoring</Name>
+                <Code>31048998</Code>
+              </Option>
+              <Option>
+                <Name>Ecosystem management</Name>
+                <Code>31049002</Code>
+              </Option>
+              <Option>
+                <Name>Habitat and species restoration and rehabilitation</Name>
+                <Code>31049003</Code>
+              </Option>
+              <Option>
+                <Name>Nature conservation</Name>
+                <Code>31049004</Code>
+              </Option>
+              <Option>
+                <Name>Population biology, population dynamics, population genetics</Name>
+                <Code>31049005</Code>
+              </Option>
+              <Option>
+                <Name>Population dynamics</Name>
+                <Code>31049006</Code>
+              </Option>
+              <Option>
+                <Name>Biodiversity, conservation biology, conservation genetics, invasion biology</Name>
+                <Code>31049007</Code>
+              </Option>
+              <Option>
+                <Name>Conservation biology, ecology, genetics</Name>
+                <Code>31049008</Code>
+              </Option>
+              <Option>
+                <Name>Biogeography, macro-ecology</Name>
+                <Code>31049009</Code>
+              </Option>
+              <Option>
+                <Name>Biodiversity, comparative biology</Name>
+                <Code>31049010</Code>
+              </Option>
+              <Option>
+                <Name>Species interactions (e.g. food-webs, symbiosis, parasitism, mutualism)</Name>
+                <Code>31049011</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>General biology</Name>
+            <Code>31073328</Code>
+            <Selector>
+              <Option>
+                <Name>Evolutionary biology</Name>
+                <Code>31049014</Code>
+              </Option>
+              <Option>
+                <Name>Biostatistics</Name>
+                <Code>31049016</Code>
+              </Option>
+              <Option>
+                <Name>Biological systems analysis, modelling and simulation</Name>
+                <Code>31049017</Code>
+              </Option>
+              <Option>
+                <Name>Systems evolution, biological adaptation, phylogenetics, systematics, comparative biology</Name>
+                <Code>31049018</Code>
+              </Option>
+              <Option>
+                <Name>Evolutionary biology: evolutionary ecology and genetics, co-evolution</Name>
+                <Code>31049019</Code>
+              </Option>
+              <Option>
+                <Name>Bioinformatics</Name>
+                <Code>31053873</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073329</Code>
+        <Name>Civil engineering</Name>
+        <Brief>Civil engineering</Brief>
+        <Selector>
+          <Group>
+            <Name>Civil engineering</Name>
+            <Code>31073329</Code>
+            <!-- ID DUPLICATED -->
+            <Selector>
+              <Option>
+                <Name>Industrial design (product design, ergonomics, man-machine interfaces, etc.)</Name>
+                <Code>31049046</Code>
+              </Option>
+              <Option>
+                <Name>Road infrastructure</Name>
+                <Code>31049047</Code>
+              </Option>
+              <Option>
+                <Name>Rail infrastructure</Name>
+                <Code>31049049</Code>
+              </Option>
+              <Option>
+                <Name>Port and infrastructure</Name>
+                <Code>31049052</Code>
+              </Option>
+              <Option>
+                <Name>Intermodal station</Name>
+                <Code>31049054</Code>
+              </Option>
+              <Option>
+                <Name>Urban distribution center</Name>
+                <Code>31049055</Code>
+              </Option>
+              <Option>
+                <Name>Waterworks and coastal engineering</Name>
+                <Code>31049056</Code>
+              </Option>
+              <Option>
+                <Name>Airport infrastructure</Name>
+                <Code>31049057</Code>
+              </Option>
+              <Option>
+                <Name>Architecture, smart buildings, smart cities, urban engineering</Name>
+                <Code>31049058</Code>
+              </Option>
+              <Option>
+                <Name>Inland Waterways (IWW)</Name>
+                <Code>31049059</Code>
+              </Option>
+              <Option>
+                <Name>Architectural engineering</Name>
+                <Code>31049062</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Transport engineering</Name>
+            <Code>31073330</Code>
+            <Selector>
+              <Option>
+                <Name>Networks (communication networks, sensor networks, networks of robots, etc.)</Name>
+                <Code>31048421</Code>
+              </Option>
+              <Option>
+                <Name>Rail Transport</Name>
+                <Code>31049072</Code>
+              </Option>
+              <Option>
+                <Name>Waterborne transport</Name>
+                <Code>31049076</Code>
+              </Option>
+              <Option>
+                <Name>Maritime services</Name>
+                <Code>31049081</Code>
+              </Option>
+              <Option>
+                <Name>Road transport</Name>
+                <Code>31049088</Code>
+              </Option>
+              <Option>
+                <Name>Logistics</Name>
+                <Code>31049089</Code>
+              </Option>
+              <Option>
+                <Name>Motorways of the Seas (MoS)</Name>
+                <Code>31049095</Code>
+              </Option>
+              <Option>
+                <Name>Multimodality</Name>
+                <Code>31049104</Code>
+              </Option>
+              <Option>
+                <Name>Decarbonisation</Name>
+                <Code>31049110</Code>
+              </Option>
+              <Option>
+                <Name>Decarbonisation in maritime</Name>
+                <Code>31049113</Code>
+              </Option>
+              <Option>
+                <Name>Urban transport</Name>
+                <Code>31049284</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073331</Code>
+        <Name>Electrical and electronic engineering</Name>
+        <Brief>Electrical and electronic engineering</Brief>
+        <Selector>
+          <Group>
+            <Name>Electrical and electronic engineering</Name>
+            <Code>31073331</Code>
+            <!-- DUPLICATE ID -->
+            <Selector>
+              <Option>
+                <Name>Electrical and electronic engineering: semiconductors, components, systems</Name>
+                <Code>31049119</Code>
+              </Option>
+              <Option>
+                <Name>Electronics, photonics</Name>
+                <Code>31049120</Code>
+              </Option>
+              <Option>
+                <Name>Intelligent robotics, cybernetics</Name>
+                <Code>31049121</Code>
+              </Option>
+              <Option>
+                <Name>Industrial Automation and Robotics, mechatronics</Name>
+                <Code>31049122</Code>
+              </Option>
+              <Option>
+                <Name>Micro (system) engineering</Name>
+                <Code>31049123</Code>
+              </Option>
+              <Option>
+                <Name>Optoelectronics</Name>
+                <Code>31049727</Code>
+              </Option>
+              <Option>
+                <Name>Photonic integration, photonic integrated circuits</Name>
+                <Code>31053855</Code>
+              </Option>
+              <Option>
+                <Name>Photonics</Name>
+                <Code>31053870</Code>
+              </Option>
+              <Option>
+                <Name>Organic electronics</Name>
+                <Code>31053877</Code>
+              </Option>
+              <Option>
+                <Name>Semiconductor lasers</Name>
+                <Code>31053878</Code>
+              </Option>
+              <Option>
+                <Name>Memristors</Name>
+                <Code>31073332</Code>
+              </Option>
+              <Option>
+                <Name>Chip design</Name>
+                <Code>31073333</Code>
+              </Option>
+              <Option>
+                <Name>Laser diodes</Name>
+                <Code>31073334</Code>
+              </Option>
+              <Option>
+                <Name>Fibre lasers (fiber lasers)</Name>
+                <Code>31073335</Code>
+              </Option>
+              <Option>
+                <Name>Measurement, terahertz (THz) technology, THz measurement, THz applications</Name>
+                <Code>31073336</Code>
+              </Option>
+              <Option>
+                <Name>Hardware design and integration</Name>
+                <Code>31073337</Code>
+              </Option>
+              <Option>
+                <Name>Storade design</Name>
+                <Code>31073338</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Robotics and automatic control</Name>
+            <Code>31073339</Code>
+            <Selector>
+              <Option>
+                <Name>Machine learning, statistical data processing and applications using signal processing (e.g. speech, image, video)</Name>
+                <Code>31048415</Code>
+              </Option>
+              <Option>
+                <Name>Robotics</Name>
+                <Code>31049125</Code>
+              </Option>
+              <Option>
+                <Name>Robotic system development</Name>
+                <Code>31053879</Code>
+              </Option>
+              <Option>
+                <Name>Mechatronics</Name>
+                <Code>31053885</Code>
+              </Option>
+              <Option>
+                <Name>Human robot interaction</Name>
+                <Code>31053892</Code>
+              </Option>
+              <Option>
+                <Name>Robotic perception</Name>
+                <Code>31053896</Code>
+              </Option>
+              <Option>
+                <Name>Robot navigation</Name>
+                <Code>31053899</Code>
+              </Option>
+              <Option>
+                <Name>Robotic cognition</Name>
+                <Code>31053903</Code>
+              </Option>
+              <Option>
+                <Name>Robotics for manufacturing</Name>
+                <Code>31053909</Code>
+              </Option>
+              <Option>
+                <Name>Robotics for healthcare</Name>
+                <Code>31053914</Code>
+              </Option>
+              <Option>
+                <Name>Robotics for agriculture, forestry and fishing</Name>
+                <Code>31053919</Code>
+              </Option>
+              <Option>
+                <Name>Robotics for civil applications</Name>
+                <Code>31053924</Code>
+              </Option>
+              <Option>
+                <Name>Robotics for commercial applications</Name>
+                <Code>31053931</Code>
+              </Option>
+              <Option>
+                <Name>Robotics for transport and logistics</Name>
+                <Code>31053937</Code>
+              </Option>
+              <Option>
+                <Name>Robotics for consumer applications</Name>
+                <Code>31053941</Code>
+              </Option>
+              <Option>
+                <Name>Unmanned mobile systems (aerial, ground, surface, underwater)</Name>
+                <Code>31073340</Code>
+              </Option>
+              <Option>
+                <Name>Human robot interaction, safety</Name>
+                <Code>31073341</Code>
+              </Option>
+              <Option>
+                <Name>Human robot interaction, standardisation</Name>
+                <Code>31073342</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Automation and control systems</Name>
+            <Code>31073343</Code>
+            <Selector>
+              <Option>
+                <Name>Systems engineering, sensorics, actorics, automation</Name>
+                <Code>31049128</Code>
+              </Option>
+              <Option>
+                <Name>Rail Traffic Management</Name>
+                <Code>31049129</Code>
+              </Option>
+              <Option>
+                <Name>Air Traffic Management (ATM)</Name>
+                <Code>31049135</Code>
+              </Option>
+              <Option>
+                <Name>River Information Services (RIS)</Name>
+                <Code>31049137</Code>
+              </Option>
+              <Option>
+                <Name>Monitoring and control systems</Name>
+                <Code>31053761</Code>
+              </Option>
+              <Option>
+                <Name>System of systems</Name>
+                <Code>31053876</Code>
+              </Option>
+              <Option>
+                <Name>Embedded systems in automation and control</Name>
+                <Code>31073344</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Communication engineering and systems telecommunications</Name>
+            <Code>31073345</Code>
+            <Selector>
+              <Option>
+                <Name>Communication technology, high-frequency technology</Name>
+                <Code>31049067</Code>
+              </Option>
+              <Option>
+                <Name>Rail Communication Technology</Name>
+                <Code>31049141</Code>
+              </Option>
+              <Option>
+                <Name>Wireless communications, communication, high frequency, mobile technology</Name>
+                <Code>31049143</Code>
+              </Option>
+              <Option>
+                <Name>Radio Frequency / Microwave Communications</Name>
+                <Code>31049667</Code>
+              </Option>
+              <Option>
+                <Name>Network technologies / Internetworking</Name>
+                <Code>31049668</Code>
+              </Option>
+              <Option>
+                <Name>Internet Science</Name>
+                <Code>31053946</Code>
+              </Option>
+              <Option>
+                <Name>5G</Name>
+                <Code>31056397</Code>
+              </Option>
+              <Option>
+                <Name>Radar technology</Name>
+                <Code>31057796</Code>
+              </Option>
+              <Option>
+                <Name>Internet architectures in communication engineering</Name>
+                <Code>31073346</Code>
+              </Option>
+              <Option>
+                <Name>Radio transmission / network architecture</Name>
+                <Code>31073347</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073348</Code>
+        <Name>Mechanical engineering</Name>
+        <Brief>Mechanical engineering</Brief>
+        <Selector>
+          <Group>
+            <Name>Mechanical engineering</Name>
+            <Code>31073348</Code>
+            <!-- Duplicate ID -->
+            <Selector>
+              <Option>
+                <Name>Mechanical and manufacturing engineering (shaping, mounting, joining, separation)</Name>
+                <Code>31049148</Code>
+              </Option>
+              <Option>
+                <Name>Fluid mechanics, hydraulic-, turbo-, and piston engines</Name>
+                <Code>31049149</Code>
+              </Option>
+              <Option>
+                <Name>Automotive engineering</Name>
+                <Code>31049150</Code>
+              </Option>
+              <Option>
+                <Name>Electromechanical engineering</Name>
+                <Code>31049163</Code>
+              </Option>
+              <Option>
+                <Name>Metallurgy</Name>
+                <Code>31049164</Code>
+              </Option>
+              <Option>
+                <Name>Metallurgy engineering</Name>
+                <Code>31049165</Code>
+              </Option>
+              <Option>
+                <Name>Propulsion systems engineering</Name>
+                <Code>31049166</Code>
+              </Option>
+              <Option>
+                <Name>Vehicle engineering</Name>
+                <Code>31049167</Code>
+              </Option>
+              <Option>
+                <Name>Aerospace engineering</Name>
+                <Code>31049175</Code>
+              </Option>
+              <Option>
+                <Name>Nuclear related engineering</Name>
+                <Code>31049176</Code>
+              </Option>
+              <Option>
+                <Name>Concurrent Engineering</Name>
+                <Code>31073349</Code>
+              </Option>
+              <Option>
+                <Name>Product Development</Name>
+                <Code>31073350</Code>
+              </Option>
+              <Option>
+                <Name>Engineering Design Methodology (Design for 'X') etc</Name>
+                <Code>31073351</Code>
+              </Option>
+              <Option>
+                <Name>Building Services (Air conditioning etc.)</Name>
+                <Code>31073352</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Ocean engineering</Name>
+            <Code>31073353</Code>
+            <Selector>
+              <Option>
+                <Name>Cables and pipelines</Name>
+                <Code>31049152</Code>
+              </Option>
+              <Option>
+                <Name>Drilling</Name>
+                <Code>31049153</Code>
+              </Option>
+              <Option>
+                <Name>Oil and gas exploitation</Name>
+                <Code>31049154</Code>
+              </Option>
+              <Option>
+                <Name>Ocean energies</Name>
+                <Code>31049155</Code>
+              </Option>
+              <Option>
+                <Name>Subsea technologies and diving</Name>
+                <Code>31049156</Code>
+              </Option>
+              <Option>
+                <Name>Seismic research</Name>
+                <Code>31049157</Code>
+              </Option>
+              <Option>
+                <Name>Construction of offshore platforms and installations</Name>
+                <Code>31049158</Code>
+              </Option>
+              <Option>
+                <Name>Seabed mining and minerals extraction</Name>
+                <Code>31049159</Code>
+              </Option>
+              <Option>
+                <Name>Desalination</Name>
+                <Code>31049160</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073354</Code>
+        <Name>Materials engineering</Name>
+        <Brief>Materials engineering</Brief>
+        <Selector>
+          <Group>
+            <Name>Materials engineering</Name>
+            <Code>31073354</Code>
+            <!-- duplicate id -->
+            <Selector>
+              <Option>
+                <Name>Lightweight construction, textile technology</Name>
+                <Code>31049065</Code>
+              </Option>
+              <Option>
+                <Name>Porous Materials</Name>
+                <Code>31049184</Code>
+              </Option>
+              <Option>
+                <Name>Reference Materials</Name>
+                <Code>31049186</Code>
+              </Option>
+              <Option>
+                <Name>Intelligent materials, self-assembled materials</Name>
+                <Code>31049187</Code>
+              </Option>
+              <Option>
+                <Name>Biomaterials, biomaterials synthesis</Name>
+                <Code>31049188</Code>
+              </Option>
+              <Option>
+                <Name>Solid state materials</Name>
+                <Code>31049189</Code>
+              </Option>
+              <Option>
+                <Name>Materials engineering (biomaterials, metals, ceramics, polymers, composites, etc.)</Name>
+                <Code>31049190</Code>
+              </Option>
+              <Option>
+                <Name>Structural properties of materials</Name>
+                <Code>31049191</Code>
+              </Option>
+              <Option>
+                <Name>New materials: oxides, alloys, composite, organic-inorganic hybrid, nanoparticles</Name>
+                <Code>31049199</Code>
+              </Option>
+              <Option>
+                <Name>Paper and wood</Name>
+                <Code>31049200</Code>
+              </Option>
+              <Option>
+                <Name>Textiles including synthetic dyes, colours, fibres</Name>
+                <Code>31049201</Code>
+              </Option>
+              <Option>
+                <Name>Graphene, layered material</Name>
+                <Code>31053952</Code>
+              </Option>
+              <Option>
+                <Name>Nanotechnology</Name>
+                <Code>31058353</Code>
+              </Option>
+              <Option>
+                <Name>Molecular electronics in materials engineering</Name>
+                <Code>31073355</Code>
+              </Option>
+              <Option>
+                <Name>Nano-materials</Name>
+                <Code>31073356</Code>
+              </Option>
+              <Option>
+                <Name>Nano engineering</Name>
+                <Code>31073357</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Coating and films</Name>
+            <Code>31073358</Code>
+            <Selector>
+              <Option>
+                <Name>Micro- and nanoelectronics, optoelectronics</Name>
+                <Code>31048580</Code>
+              </Option>
+              <Option>
+                <Name>Thin films</Name>
+                <Code>31049194</Code>
+              </Option>
+              <Option>
+                <Name>Surface science and nanostructures</Name>
+                <Code>31049195</Code>
+              </Option>
+              <Option>
+                <Name>Surface modification</Name>
+                <Code>31049196</Code>
+              </Option>
+              <Option>
+                <Name>Surface physics</Name>
+                <Code>31049197</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073359</Code>
+        <Name>Medical engineering</Name>
+        <Brief>Medical engineering</Brief>
+        <Selector>
+          <Group>
+            <Name>Medical engineering</Name>
+            <Code>31073359</Code>
+            <!-- DUPLICATE -->
+            <Selector>
+              <Option>
+                <Name>Medical engineering, biomedical engineering and technology</Name>
+                <Code>31049202</Code>
+              </Option>
+              <Option>
+                <Name>Man-machine-interfaces</Name>
+                <Code>31049204</Code>
+              </Option>
+              <Option>
+                <Name>Medical engineering and technology</Name>
+                <Code>31049205</Code>
+              </Option>
+              <Option>
+                <Name>Artificial organs</Name>
+                <Code>31049206</Code>
+              </Option>
+              <Option>
+                <Name>Robotics in medical engineering</Name>
+                <Code>31073360</Code>
+              </Option>
+              <Option>
+                <Name>Magnetic resonanse imaging (MRI) and functional MRI (fMRI)</Name>
+                <Code>31073361</Code>
+              </Option>
+              <Option>
+                <Name>Optogenetics</Name>
+                <Code>31073362</Code>
+              </Option>
+              <Option>
+                <Name>Biohybrid interfaces and technologies</Name>
+                <Code>31073363</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Medical laboratory technology</Name>
+            <Code>31073364</Code>
+            <Selector>
+              <Option>
+                <Name>Signal processing</Name>
+                <Code>31048388</Code>
+              </Option>
+              <Option>
+                <Name>Medical devices</Name>
+                <Code>31049210</Code>
+              </Option>
+              <Option>
+                <Name>Diagnostic and implantable devices, environmental monitoring</Name>
+                <Code>31049211</Code>
+              </Option>
+              <Option>
+                <Name>Diagnostic tools (e.g. genetic, imaging)</Name>
+                <Code>31049212</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073365</Code>
+        <Name>Biotechnology</Name>
+        <Brief>Biotechnology</Brief>
+        <Selector>
+          <Group>
+            <Name>Environmental biotechnology</Name>
+            <Code>31073366</Code>
+            <Selector>
+              <Option>
+                <Name>Environmental biotechnology, bioremediation, biodegradation</Name>
+                <Code>31048847</Code>
+              </Option>
+              <Option>
+                <Name>Industrial biofuel production</Name>
+                <Code>31049418</Code>
+              </Option>
+              <Option>
+                <Name>Bioremediation, biodegradation</Name>
+                <Code>31049420</Code>
+              </Option>
+              <Option>
+                <Name>Diagnostic biotechnologies (DNA chips and biosensing devices) in environmental management</Name>
+                <Code>31073367</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Industrial biotechnology</Name>
+            <Code>31073368</Code>
+            <Selector>
+              <Option>
+                <Name>Industrial bioengineering</Name>
+                <Code>31049421</Code>
+              </Option>
+              <Option>
+                <Name>Biotechnology (non-medical), bioreactors, applied microbiology</Name>
+                <Code>31049425</Code>
+              </Option>
+              <Option>
+                <Name>Synthetic biology, chemical biology and new bio-engineering concepts</Name>
+                <Code>31049426</Code>
+              </Option>
+              <Option>
+                <Name>Bioprocessing technologies (industrial processes relying on biological agents to drive the process) biocatalysis, fermentation</Name>
+                <Code>31049427</Code>
+              </Option>
+              <Option>
+                <Name>Bioproducts (products that are manufactured using biological material as feedstock) biomaterials, bioplastics, biofuels, bioderived bulk and fine chemicals, bio-derived novel materials</Name>
+                <Code>31049428</Code>
+              </Option>
+              <Option>
+                <Name>Food biotechnology</Name>
+                <Code>31049429</Code>
+              </Option>
+              <Option>
+                <Name>In vitro culture of plant material</Name>
+                <Code>31049430</Code>
+              </Option>
+              <Option>
+                <Name>Biofuels</Name>
+                <Code>31049431</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073369</Code>
+        <Name>Aeronautics</Name>
+        <Brief>Aeronautics</Brief>
+        <Selector>
+          <Group>
+            <Name>Aeronautics technology</Name>
+            <Code>31073370</Code>
+            <Selector>
+              <Option>
+                <Name>Flight physics FLP</Name>
+                <Code>31049467</Code>
+              </Option>
+              <Option>
+                <Name>Aerostructures AST</Name>
+                <Code>31049479</Code>
+              </Option>
+              <Option>
+                <Name>Aircraft Avionics, Systems &amp; Equipment AVS</Name>
+                <Code>31049508</Code>
+              </Option>
+              <Option>
+                <Name>Flight Mechanics FLM</Name>
+                <Code>31049534</Code>
+              </Option>
+              <Option>
+                <Name>Integrated Design &amp; Validation (methods &amp; tools) IDV</Name>
+                <Code>31049541</Code>
+              </Option>
+              <Option>
+                <Name>Airports APT</Name>
+                <Code>31049584</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Aeronautics segments</Name>
+            <Code>31073371</Code>
+            <Selector>
+              <Option>
+                <Name>Manufacturing of aircrafts</Name>
+                <Code>31049611</Code>
+              </Option>
+              <Option>
+                <Name>Manufacturing of helicopters</Name>
+                <Code>31049612</Code>
+              </Option>
+              <Option>
+                <Name>Manufacturing of UMV</Name>
+                <Code>31049613</Code>
+              </Option>
+              <Option>
+                <Name>Regulation</Name>
+                <Code>31049614</Code>
+              </Option>
+              <Option>
+                <Name>Fuel certification</Name>
+                <Code>31049617</Code>
+              </Option>
+              <Option>
+                <Name>Vehicle certification</Name>
+                <Code>31049618</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073372</Code>
+        <Name>Space</Name>
+        <Brief>Space</Brief>
+        <Selector>
+          <Group>
+            <Name>Space technology</Name>
+            <Code>31073373</Code>
+            <Selector>
+              <Option>
+                <Name>On-Board Data Systems</Name>
+                <Code>31049634</Code>
+              </Option>
+              <Option>
+                <Name>Space System Software</Name>
+                <Code>31049638</Code>
+              </Option>
+              <Option>
+                <Name>Spacecraft Electrical Power</Name>
+                <Code>31049645</Code>
+              </Option>
+              <Option>
+                <Name>Spacecraft Environment &amp; Effects</Name>
+                <Code>31049650</Code>
+              </Option>
+              <Option>
+                <Name>Space System Control</Name>
+                <Code>31049654</Code>
+              </Option>
+              <Option>
+                <Name>RF Payload and Systems</Name>
+                <Code>31049657</Code>
+              </Option>
+              <Option>
+                <Name>Electromagnetic Technologies and Techniques</Name>
+                <Code>31049663</Code>
+              </Option>
+              <Option>
+                <Name>System Design &amp; verification</Name>
+                <Code>31049670</Code>
+              </Option>
+              <Option>
+                <Name>Mission Operation and Ground Data systems</Name>
+                <Code>31049675</Code>
+              </Option>
+              <Option>
+                <Name>Flight Dynamics / Position, Navigation, and Timing</Name>
+                <Code>31049679</Code>
+              </Option>
+              <Option>
+                <Name>Space Debris</Name>
+                <Code>31049690</Code>
+              </Option>
+              <Option>
+                <Name>Ground Station System and Networks</Name>
+                <Code>31049695</Code>
+              </Option>
+              <Option>
+                <Name>Automation, Telepresence &amp; Robotics</Name>
+                <Code>31049698</Code>
+              </Option>
+              <Option>
+                <Name>Human health, life support, habitation systems</Name>
+                <Code>31049708</Code>
+              </Option>
+              <Option>
+                <Name>Mechanisms &amp; Tribology</Name>
+                <Code>31049715</Code>
+              </Option>
+              <Option>
+                <Name>Science instruments and sensor systems</Name>
+                <Code>31049732</Code>
+              </Option>
+              <Option>
+                <Name>Aerothermodynamics &amp; Atmospheric entry</Name>
+                <Code>31049736</Code>
+              </Option>
+              <Option>
+                <Name>Launch propulsion systems</Name>
+                <Code>31049742</Code>
+              </Option>
+              <Option>
+                <Name>In-Space propulsion Technologies</Name>
+                <Code>31049748</Code>
+              </Option>
+              <Option>
+                <Name>Structures &amp; Pyrotechnics</Name>
+                <Code>31049755</Code>
+              </Option>
+              <Option>
+                <Name>Thermal</Name>
+                <Code>31049768</Code>
+              </Option>
+              <Option>
+                <Name>Human exploration destination systems</Name>
+                <Code>31049774</Code>
+              </Option>
+              <Option>
+                <Name>EEE Components and Quality</Name>
+                <Code>31049783</Code>
+              </Option>
+              <Option>
+                <Name>Materials &amp; Processes</Name>
+                <Code>31049786</Code>
+              </Option>
+              <Option>
+                <Name>Ground &amp; Launch Systems Processing</Name>
+                <Code>31049790</Code>
+              </Option>
+              <Option>
+                <Name>Space data exploitation</Name>
+                <Code>31049797</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Space segments</Name>
+            <Code>31073374</Code>
+            <Selector>
+              <Option>
+                <Name>Assembly, Integration and Verification / Testing (AIV / AIT)</Name>
+                <Code>31049615</Code>
+              </Option>
+              <Option>
+                <Name>Ground segment</Name>
+                <Code>31049616</Code>
+              </Option>
+              <Option>
+                <Name>Launchers</Name>
+                <Code>31049764</Code>
+              </Option>
+              <Option>
+                <Name>Space segments</Name>
+                <Code>31049801</Code>
+              </Option>
+              <Option>
+                <Name>Manufacturing of space products</Name>
+                <Code>31049802</Code>
+              </Option>
+              <Option>
+                <Name>Space Qualification</Name>
+                <Code>31049803</Code>
+              </Option>
+              <Option>
+                <Name>Satellites and Probes</Name>
+                <Code>31049804</Code>
+              </Option>
+              <Option>
+                <Name>Orbital transportation and re-entry systems</Name>
+                <Code>31049805</Code>
+              </Option>
+              <Option>
+                <Name>Space services and products</Name>
+                <Code>31049806</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Space activity domains</Name>
+            <Code>31073375</Code>
+            <Selector>
+              <Option>
+                <Name>Prelaunch operations</Name>
+                <Code>31049808</Code>
+              </Option>
+              <Option>
+                <Name>Space transportation</Name>
+                <Code>31049813</Code>
+              </Option>
+              <Option>
+                <Name>Telecommunications</Name>
+                <Code>31049821</Code>
+              </Option>
+              <Option>
+                <Name>Science / Robotic Exploration</Name>
+                <Code>31049830</Code>
+              </Option>
+              <Option>
+                <Name>Human Exploration Spaceflight</Name>
+                <Code>31049837</Code>
+              </Option>
+              <Option>
+                <Name>In-space multidisciplinary research and technology development</Name>
+                <Code>31049842</Code>
+              </Option>
+              <Option>
+                <Name>Meteorology</Name>
+                <Code>31049849</Code>
+              </Option>
+              <Option>
+                <Name>Earth Observation / Services and applications</Name>
+                <Code>31049852</Code>
+              </Option>
+              <Option>
+                <Name>Global Satellite Navigation System (GNSS) / Services &amp; Applications</Name>
+                <Code>31049890</Code>
+              </Option>
+              <Option>
+                <Name>Protection of assets in and from Space</Name>
+                <Code>31049924</Code>
+              </Option>
+              <Option>
+                <Name>Defence</Name>
+                <Code>31049930</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073376</Code>
+        <Name>Environmental engineering</Name>
+        <Brief>Environmental engineering</Brief>
+        <Selector>
+          <Group>
+            <Name>Environmental and geological engineering, geotechnics</Name>
+            <Code>31073377</Code>
+            <Selector>
+              <Option>
+                <Name>Geological engineering, geophysical engineering, mining, geotechnics</Name>
+                <Code>31049214</Code>
+              </Option>
+              <Option>
+                <Name>Environmental engineering and geotechnics</Name>
+                <Code>31049215</Code>
+              </Option>
+              <Option>
+                <Name>Sustainable design (for recycling, for environment, eco-design)</Name>
+                <Code>31049216</Code>
+              </Option>
+              <Option>
+                <Name>Rural and survey engineering</Name>
+                <Code>31049217</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Energy, fuels and petroleum engineering</Name>
+            <Code>31073378</Code>
+            <Selector>
+              <Option>
+                <Name>Energy storage</Name>
+                <Code>31049070</Code>
+              </Option>
+              <Option>
+                <Name>Energy systems (production, distribution, application)</Name>
+                <Code>31049174</Code>
+              </Option>
+              <Option>
+                <Name>Energy systems, smart energy, smart grids, wireless energy transfer</Name>
+                <Code>31049219</Code>
+              </Option>
+              <Option>
+                <Name>Energy collection, conversion and storage, renewable energy</Name>
+                <Code>31049220</Code>
+              </Option>
+              <Option>
+                <Name>Sustainable transport</Name>
+                <Code>31049275</Code>
+              </Option>
+              <Option>
+                <Name>Combined Heat &amp; Power</Name>
+                <Code>31049287</Code>
+              </Option>
+              <Option>
+                <Name>Renewable electricity</Name>
+                <Code>31049291</Code>
+              </Option>
+              <Option>
+                <Name>Renewable heating &amp; cooling</Name>
+                <Code>31049308</Code>
+              </Option>
+              <Option>
+                <Name>RES integration in buildings</Name>
+                <Code>31049318</Code>
+              </Option>
+              <Option>
+                <Name>Transport biofuels</Name>
+                <Code>31049325</Code>
+              </Option>
+              <Option>
+                <Name>Bioenergy</Name>
+                <Code>31049341</Code>
+              </Option>
+              <Option>
+                <Name>Financing sustainable energy</Name>
+                <Code>31049376</Code>
+              </Option>
+              <Option>
+                <Name>Sustainable energy policy</Name>
+                <Code>31049385</Code>
+              </Option>
+              <Option>
+                <Name>Fossil fuels</Name>
+                <Code>31049388</Code>
+              </Option>
+              <Option>
+                <Name>Carbon capture and sequestration</Name>
+                <Code>31049394</Code>
+              </Option>
+              <Option>
+                <Name>Nuclear</Name>
+                <Code>31049395</Code>
+              </Option>
+              <Option>
+                <Name>Renewable energy sources</Name>
+                <Code>31051378</Code>
+              </Option>
+              <Option>
+                <Name>Energy efficiency</Name>
+                <Code>31073379</Code>
+              </Option>
+              <Option>
+                <Name>Solar fuels (H2 production, CO2 reduction etc.)</Name>
+                <Code>31073380</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Marine engineering</Name>
+            <Code>31073381</Code>
+            <Selector>
+              <Option>
+                <Name>Marine engineering</Name>
+                <Code>31049401</Code>
+              </Option>
+              <Option>
+                <Name>Carriers (ROV, AOV, other autonomous vessels) and power supply</Name>
+                <Code>31049402</Code>
+              </Option>
+              <Option>
+                <Name>Deep-sea technology</Name>
+                <Code>31049403</Code>
+              </Option>
+              <Option>
+                <Name>Maritime safety</Name>
+                <Code>31049405</Code>
+              </Option>
+              <Option>
+                <Name>Offshore technology</Name>
+                <Code>31049408</Code>
+              </Option>
+              <Option>
+                <Name>Underwater technology</Name>
+                <Code>31049409</Code>
+              </Option>
+              <Option>
+                <Name>Marine renewable energies</Name>
+                <Code>31049413</Code>
+              </Option>
+              <Option>
+                <Name>Higher brain functions</Name>
+                <Code>31073382</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073383</Code>
+        <Name>Basic medicine</Name>
+        <Brief>Basic medicine</Brief>
+        <Selector>
+          <Group>
+            <Name>Toxicology</Name>
+            <Code>31073384</Code>
+            <Selector>
+              <Option>
+                <Name>Alcohol diseases</Name>
+                <Code>31050367</Code>
+              </Option>
+              <Option>
+                <Name>Drug diseases</Name>
+                <Code>31050368</Code>
+              </Option>
+              <Option>
+                <Name>Poisoning</Name>
+                <Code>31050369</Code>
+              </Option>
+              <Option>
+                <Name>Acute toxicity</Name>
+                <Code>31050370</Code>
+              </Option>
+              <Option>
+                <Name>Chronic toxicity</Name>
+                <Code>31050371</Code>
+              </Option>
+              <Option>
+                <Name>Developmental toxicity</Name>
+                <Code>31050372</Code>
+              </Option>
+              <Option>
+                <Name>Safety Pharmacology</Name>
+                <Code>31059663</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Anatomy and morphology</Name>
+            <Code>31073385</Code>
+            <Selector>
+              <Option>
+                <Name>Human morphology</Name>
+                <Code>31050295</Code>
+              </Option>
+              <Option>
+                <Name>Human anatomy</Name>
+                <Code>31050297</Code>
+              </Option>
+              <Option>
+                <Name>Auditive system</Name>
+                <Code>31050298</Code>
+              </Option>
+              <Option>
+                <Name>Cardiovascular system</Name>
+                <Code>31050299</Code>
+              </Option>
+              <Option>
+                <Name>Locomotion system</Name>
+                <Code>31050300</Code>
+              </Option>
+              <Option>
+                <Name>Respiratory system</Name>
+                <Code>31050301</Code>
+              </Option>
+              <Option>
+                <Name>Secreting systems</Name>
+                <Code>31050302</Code>
+              </Option>
+              <Option>
+                <Name>Neuroanatomy</Name>
+                <Code>31073386</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Human genetics</Name>
+            <Code>31073387</Code>
+            <Selector>
+              <Option>
+                <Name>Gene therapy, cell therapy, regenerative medicine</Name>
+                <Code>31050304</Code>
+              </Option>
+              <Option>
+                <Name>DNA therapy</Name>
+                <Code>31050305</Code>
+              </Option>
+              <Option>
+                <Name>Human genomics, comparative genomics, functional genomics</Name>
+                <Code>31073388</Code>
+              </Option>
+              <Option>
+                <Name>Human molecular genetics, reverse genetics and RNAi</Name>
+                <Code>31073389</Code>
+              </Option>
+              <Option>
+                <Name>Human quantitative genetics</Name>
+                <Code>31073390</Code>
+              </Option>
+              <Option>
+                <Name>Human epigenetics and gene regulation</Name>
+                <Code>31073391</Code>
+              </Option>
+              <Option>
+                <Name>Human genetic epidemiology</Name>
+                <Code>31073392</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Immunology</Name>
+            <Code>31073393</Code>
+            <Selector>
+              <Option>
+                <Name>Innate immunity and inflammation</Name>
+                <Code>31050307</Code>
+              </Option>
+              <Option>
+                <Name>Adaptive immunity</Name>
+                <Code>31050308</Code>
+              </Option>
+              <Option>
+                <Name>Phagocytosis and cellular immunity</Name>
+                <Code>31050309</Code>
+              </Option>
+              <Option>
+                <Name>Immunosignalling</Name>
+                <Code>31050310</Code>
+              </Option>
+              <Option>
+                <Name>Immunological memory and tolerance</Name>
+                <Code>31050311</Code>
+              </Option>
+              <Option>
+                <Name>Immunogenetics</Name>
+                <Code>31050312</Code>
+              </Option>
+              <Option>
+                <Name>Allergology</Name>
+                <Code>31050313</Code>
+              </Option>
+              <Option>
+                <Name>Vaccines</Name>
+                <Code>31050314</Code>
+              </Option>
+              <Option>
+                <Name>Biological basis of immunity related disorders</Name>
+                <Code>31050315</Code>
+              </Option>
+              <Option>
+                <Name>Activation immunotherapies</Name>
+                <Code>31050316</Code>
+              </Option>
+              <Option>
+                <Name>Suppression immunotherapies</Name>
+                <Code>31050317</Code>
+              </Option>
+              <Option>
+                <Name>In-silico modelling of immunity</Name>
+                <Code>31073394</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Neurosciences (including psychophysiology)</Name>
+            <Code>31073395</Code>
+            <Selector>
+              <Option>
+                <Name>Molecular and cellular neuroscience</Name>
+                <Code>31048791</Code>
+              </Option>
+              <Option>
+                <Name>Neurochemistry and neuropharmacology</Name>
+                <Code>31048832</Code>
+              </Option>
+              <Option>
+                <Name>Developmental neurobiology</Name>
+                <Code>31048894</Code>
+              </Option>
+              <Option>
+                <Name>Neuroanatomy and neurophysiology</Name>
+                <Code>31050294</Code>
+              </Option>
+              <Option>
+                <Name>Neurobiology</Name>
+                <Code>31050319</Code>
+              </Option>
+              <Option>
+                <Name>Neurochemistry</Name>
+                <Code>31050320</Code>
+              </Option>
+              <Option>
+                <Name>Neuroinformatics</Name>
+                <Code>31050321</Code>
+              </Option>
+              <Option>
+                <Name>Neurology</Name>
+                <Code>31050322</Code>
+              </Option>
+              <Option>
+                <Name>Neurophysiology</Name>
+                <Code>31050323</Code>
+              </Option>
+              <Option>
+                <Name>Neuropsychology</Name>
+                <Code>31050324</Code>
+              </Option>
+              <Option>
+                <Name>Brain research</Name>
+                <Code>31050325</Code>
+              </Option>
+              <Option>
+                <Name>Neurodegenerative disorders</Name>
+                <Code>31050326</Code>
+              </Option>
+              <Option>
+                <Name>Dementia</Name>
+                <Code>31050327</Code>
+              </Option>
+              <Option>
+                <Name>Higher brain functions</Name>
+                <Code>31050330</Code>
+              </Option>
+              <Option>
+                <Name>Psychiatric disorders</Name>
+                <Code>31050331</Code>
+              </Option>
+              <Option>
+                <Name>Motorneuron disorders</Name>
+                <Code>31050332</Code>
+              </Option>
+              <Option>
+                <Name>Neuroinflammatory disorders</Name>
+                <Code>31050333</Code>
+              </Option>
+              <Option>
+                <Name>Neurosurgical disorders</Name>
+                <Code>31050334</Code>
+              </Option>
+              <Option>
+                <Name>Neuroendocrinological disorders</Name>
+                <Code>31050335</Code>
+              </Option>
+              <Option>
+                <Name>Systems neuroscience</Name>
+                <Code>31050336</Code>
+              </Option>
+              <Option>
+                <Name>Behavioural neuroscience (e.g. sleep, consciousness, handedness)</Name>
+                <Code>31050337</Code>
+              </Option>
+              <Option>
+                <Name>Sensory systems (e.g. visual system, auditory system)</Name>
+                <Code>31050338</Code>
+              </Option>
+              <Option>
+                <Name>Mechanisms of pain</Name>
+                <Code>31050339</Code>
+              </Option>
+              <Option>
+                <Name>Cognition (e.g. learning, memory, emotions, speech)</Name>
+                <Code>31050340</Code>
+              </Option>
+              <Option>
+                <Name>Neurological disorders (e.g. Alzheimer's disease, Huntington's disease, Parkinson's disease)</Name>
+                <Code>31050341</Code>
+              </Option>
+              <Option>
+                <Name>Brain simulation and modeling</Name>
+                <Code>31053956</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Pharmacology and pharmacy</Name>
+            <Code>31073396</Code>
+            <Selector>
+              <Option>
+                <Name>Basic pharmacology</Name>
+                <Code>31050343</Code>
+              </Option>
+              <Option>
+                <Name>Cosmetology</Name>
+                <Code>31050344</Code>
+              </Option>
+              <Option>
+                <Name>Pharmacognosy</Name>
+                <Code>31050345</Code>
+              </Option>
+              <Option>
+                <Name>Pharmaceutical development</Name>
+                <Code>31050346</Code>
+              </Option>
+              <Option>
+                <Name>Clinical Pharmacology</Name>
+                <Code>31050347</Code>
+              </Option>
+              <Option>
+                <Name>Clinical trials</Name>
+                <Code>31050351</Code>
+              </Option>
+              <Option>
+                <Name>Pharmacology, pharmacogenomics, drug discovery and design, drug therapy</Name>
+                <Code>31050355</Code>
+              </Option>
+              <Option>
+                <Name>Translational medicine</Name>
+                <Code>31050356</Code>
+              </Option>
+              <Option>
+                <Name>Pharmaceutical chemistry</Name>
+                <Code>31050357</Code>
+              </Option>
+              <Option>
+                <Name>Drug development, clinical phases</Name>
+                <Code>31050358</Code>
+              </Option>
+              <Option>
+                <Name>Drug development, late phases</Name>
+                <Code>31050364</Code>
+              </Option>
+              <Option>
+                <Name>Neuropharmacology</Name>
+                <Code>31073397</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Physiology (including cytology)</Name>
+            <Code>31073398</Code>
+            <Selector>
+              <Option>
+                <Name>Neurophysiology</Name>
+                <Code>31050323</Code>
+              </Option>
+              <Option>
+                <Name>Organ physiology and pathophysiology</Name>
+                <Code>31050374</Code>
+              </Option>
+              <Option>
+                <Name>Comparative physiology and pathophysiology</Name>
+                <Code>31050375</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Pathology</Name>
+            <Code>31073399</Code>
+            <Selector>
+              <Option>
+                <Name>Pathological anatomy</Name>
+                <Code>31050296</Code>
+              </Option>
+              <Option>
+                <Name>Psychophysiology of ageing</Name>
+                <Code>31050377</Code>
+              </Option>
+              <Option>
+                <Name>General pathology</Name>
+                <Code>31050379</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073400</Code>
+        <Name>Clinical medicine</Name>
+        <Brief>Clinical medicine</Brief>
+        <Selector>
+          <Group>
+            <Name>Cardiac and Cardiovascular systems</Name>
+            <Code>31073401</Code>
+            <Selector>
+              <Option>
+                <Name>Cardiovascular diseases</Name>
+                <Code>31050387</Code>
+              </Option>
+              <Option>
+                <Name>Aortic disease</Name>
+                <Code>31050389</Code>
+              </Option>
+              <Option>
+                <Name>Arrhythmias</Name>
+                <Code>31050390</Code>
+              </Option>
+              <Option>
+                <Name>Biomarkers</Name>
+                <Code>31050392</Code>
+              </Option>
+              <Option>
+                <Name>Cardiac Imaging</Name>
+                <Code>31050393</Code>
+              </Option>
+              <Option>
+                <Name>Non-invasive</Name>
+                <Code>31050394</Code>
+              </Option>
+              <Option>
+                <Name>Invasive</Name>
+                <Code>31050395</Code>
+              </Option>
+              <Option>
+                <Name>Cardiac rehabilitation</Name>
+                <Code>31050396</Code>
+              </Option>
+              <Option>
+                <Name>Congenital heart disease</Name>
+                <Code>31050397</Code>
+              </Option>
+              <Option>
+                <Name>Interventional Cardiology</Name>
+                <Code>31050398</Code>
+              </Option>
+              <Option>
+                <Name>Heart failure</Name>
+                <Code>31050399</Code>
+              </Option>
+              <Option>
+                <Name>Hypertension</Name>
+                <Code>31050400</Code>
+              </Option>
+              <Option>
+                <Name>Arterial</Name>
+                <Code>31050401</Code>
+              </Option>
+              <Option>
+                <Name>Pulmonary</Name>
+                <Code>31050402</Code>
+              </Option>
+              <Option>
+                <Name>Myocardial and pericardial diseases</Name>
+                <Code>31050403</Code>
+              </Option>
+              <Option>
+                <Name>Percutaneous Cardiovascular Interventions</Name>
+                <Code>31050404</Code>
+              </Option>
+              <Option>
+                <Name>Pediatric cardiology</Name>
+                <Code>31050405</Code>
+              </Option>
+              <Option>
+                <Name>Prevention</Name>
+                <Code>31050406</Code>
+              </Option>
+              <Option>
+                <Name>Valvular heart diseases</Name>
+                <Code>31050408</Code>
+              </Option>
+              <Option>
+                <Name>Peripheral vascular disease</Name>
+                <Code>31050409</Code>
+              </Option>
+              <Option>
+                <Name>Hematology</Name>
+                <Code>31050410</Code>
+              </Option>
+              <Option>
+                <Name>Hyperbaric medicine</Name>
+                <Code>31073402</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Surgery</Name>
+            <Code>31073403</Code>
+            <Selector>
+              <Option>
+                <Name>Analgesia and Surgery</Name>
+                <Code>31050419</Code>
+              </Option>
+              <Option>
+                <Name>Abdominal surgery</Name>
+                <Code>31050420</Code>
+              </Option>
+              <Option>
+                <Name>Cardiovascular surgery</Name>
+                <Code>31050421</Code>
+              </Option>
+              <Option>
+                <Name>Microsurgery</Name>
+                <Code>31050422</Code>
+              </Option>
+              <Option>
+                <Name>Neurosurgery</Name>
+                <Code>31050423</Code>
+              </Option>
+              <Option>
+                <Name>Plastic surgery</Name>
+                <Code>31050424</Code>
+              </Option>
+              <Option>
+                <Name>Traumatology</Name>
+                <Code>31050425</Code>
+              </Option>
+              <Option>
+                <Name>Robotics in surgery</Name>
+                <Code>31073404</Code>
+              </Option>
+              <Option>
+                <Name>Nanosurgery</Name>
+                <Code>31073405</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Radiology, nuclear medicine and medical imaging</Name>
+            <Code>31073406</Code>
+            <Selector>
+              <Option>
+                <Name>Dosimetry</Name>
+                <Code>31050427</Code>
+              </Option>
+              <Option>
+                <Name>External dosimetry</Name>
+                <Code>31050428</Code>
+              </Option>
+              <Option>
+                <Name>Internal dosimetry</Name>
+                <Code>31050429</Code>
+              </Option>
+              <Option>
+                <Name>Retrospective dosimetry</Name>
+                <Code>31050430</Code>
+              </Option>
+              <Option>
+                <Name>Radiation therapy</Name>
+                <Code>31050431</Code>
+              </Option>
+              <Option>
+                <Name>Radiotherapy</Name>
+                <Code>31050432</Code>
+              </Option>
+              <Option>
+                <Name>Tomography</Name>
+                <Code>31050433</Code>
+              </Option>
+              <Option>
+                <Name>Low level laser therapy</Name>
+                <Code>31050434</Code>
+              </Option>
+              <Option>
+                <Name>Neuroimaging</Name>
+                <Code>31073407</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Dentistry, oral surgery and medicine</Name>
+            <Code>31073408</Code>
+            <Selector>
+              <Option>
+                <Name>Dental surgery</Name>
+                <Code>31050441</Code>
+              </Option>
+              <Option>
+                <Name>Stomatology</Name>
+                <Code>31050442</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Endocrinology and metabolism (including diabetes, hormones)</Name>
+            <Code>31073409</Code>
+            <Selector>
+              <Option>
+                <Name>Endocrinology</Name>
+                <Code>31050448</Code>
+              </Option>
+              <Option>
+                <Name>Metabolism, biological basis of metabolism related disorders</Name>
+                <Code>31050450</Code>
+              </Option>
+              <Option>
+                <Name>Obesity</Name>
+                <Code>31050451</Code>
+              </Option>
+              <Option>
+                <Name>Diabetology</Name>
+                <Code>31050455</Code>
+              </Option>
+              <Option>
+                <Name>Nephropathy</Name>
+                <Code>31050459</Code>
+              </Option>
+              <Option>
+                <Name>Neuropathy</Name>
+                <Code>31050460</Code>
+              </Option>
+              <Option>
+                <Name>Retinopathy</Name>
+                <Code>31050461</Code>
+              </Option>
+              <Option>
+                <Name>Ulcers</Name>
+                <Code>31050462</Code>
+              </Option>
+              <Option>
+                <Name>Policystic Ovarian Syndrome</Name>
+                <Code>31050463</Code>
+              </Option>
+              <Option>
+                <Name>Metabolomics in endocrinology</Name>
+                <Code>31073410</Code>
+              </Option>
+              <Option>
+                <Name>Glycomics in endocrinology</Name>
+                <Code>31073411</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Other clinical medicine subjects</Name>
+            <Code>31073412</Code>
+            <Selector>
+              <Option>
+                <Name>Respiratory systems</Name>
+                <Code>31050411</Code>
+              </Option>
+              <Option>
+                <Name>Anaesthesiology</Name>
+                <Code>31050415</Code>
+              </Option>
+              <Option>
+                <Name>Orthopaedics</Name>
+                <Code>31050416</Code>
+              </Option>
+              <Option>
+                <Name>Allergy</Name>
+                <Code>31050444</Code>
+              </Option>
+              <Option>
+                <Name>Rheumatology</Name>
+                <Code>31050446</Code>
+              </Option>
+              <Option>
+                <Name>Urology and nephrology</Name>
+                <Code>31050467</Code>
+              </Option>
+              <Option>
+                <Name>Oncology</Name>
+                <Code>31050470</Code>
+              </Option>
+              <Option>
+                <Name>Ophthalmology</Name>
+                <Code>31050475</Code>
+              </Option>
+              <Option>
+                <Name>Psychiatry</Name>
+                <Code>31050481</Code>
+              </Option>
+              <Option>
+                <Name>Clinical neurology</Name>
+                <Code>31050486</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073413</Code>
+        <Name>Health sciences</Name>
+        <Brief>Health sciences</Brief>
+        <Selector>
+          <Group>
+            <Name>Parasitology</Name>
+            <Code>31073414</Code>
+            <Selector>
+              <Option>
+                <Name>Virology</Name>
+                <Code>31048816</Code>
+              </Option>
+              <Option>
+                <Name>Prevention and treatment of infection by pathogens (e.g. vaccination, antibiotics, fungicide)</Name>
+                <Code>31050608</Code>
+              </Option>
+              <Option>
+                <Name>Veterinary medicine and infectious diseases in animals</Name>
+                <Code>31050609</Code>
+              </Option>
+              <Option>
+                <Name>Microbiology in health sciences</Name>
+                <Code>31073415</Code>
+              </Option>
+              <Option>
+                <Name>Bacteriology in health sciences</Name>
+                <Code>31073416</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Epidemiology</Name>
+            <Code>31073417</Code>
+            <Selector>
+              <Option>
+                <Name>Surveillance</Name>
+                <Code>31050017</Code>
+              </Option>
+              <Option>
+                <Name>Radiological epidemiology</Name>
+                <Code>31050658</Code>
+              </Option>
+              <Option>
+                <Name>Early warning systems</Name>
+                <Code>31050659</Code>
+              </Option>
+              <Option>
+                <Name>Preparedness</Name>
+                <Code>31050660</Code>
+              </Option>
+              <Option>
+                <Name>Disease control</Name>
+                <Code>31050661</Code>
+              </Option>
+              <Option>
+                <Name>Cohort studies</Name>
+                <Code>31050662</Code>
+              </Option>
+              <Option>
+                <Name>Impact of genetic engineering</Name>
+                <Code>31050669</Code>
+              </Option>
+              <Option>
+                <Name>Invasion</Name>
+                <Code>31050670</Code>
+              </Option>
+              <Option>
+                <Name>Metapopulations</Name>
+                <Code>31050671</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Nutrition, Dietetics</Name>
+            <Code>31073418</Code>
+            <Selector>
+              <Option>
+                <Name>Therapeutic nutrition</Name>
+                <Code>31050537</Code>
+              </Option>
+              <Option>
+                <Name>Nutrition related disorders</Name>
+                <Code>31050538</Code>
+              </Option>
+              <Option>
+                <Name>Space food</Name>
+                <Code>31050539</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Sport and fitness sciences</Name>
+            <Code>31073420</Code>
+            <Selector>
+              <Option>
+                <Name>Sport medicine</Name>
+                <Code>31050681</Code>
+              </Option>
+              <Option>
+                <Name>Kinesitherapy</Name>
+                <Code>31050683</Code>
+              </Option>
+              <Option>
+                <Name>Physiotherapy</Name>
+                <Code>31050684</Code>
+              </Option>
+              <Option>
+                <Name>Rehabilitation</Name>
+                <Code>31050685</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Infectious diseases</Name>
+            <Code>31073419</Code>
+            <Selector>
+              <Option>
+                <Name>Transmission</Name>
+                <Code>31050611</Code>
+              </Option>
+              <Option>
+                <Name>Virulence</Name>
+                <Code>31050616</Code>
+              </Option>
+              <Option>
+                <Name>Venereology</Name>
+                <Code>31050617</Code>
+              </Option>
+              <Option>
+                <Name>Pathogen agents</Name>
+                <Code>31050618</Code>
+              </Option>
+              <Option>
+                <Name>Neglected Infectious Diseases</Name>
+                <Code>31050625</Code>
+              </Option>
+              <Option>
+                <Name>Emerging Epidemics</Name>
+                <Code>31050639</Code>
+              </Option>
+              <Option>
+                <Name>Antimicrobial resistance</Name>
+                <Code>31050648</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073421</Code>
+        <Name>Medical biotechnology</Name>
+        <Brief>Medical biotechnology</Brief>
+        <Selector>
+          <Group>
+            <Name>Technologies involving the manipulation of cells, tissues, organs or the whole organism</Name>
+            <Code>31073422</Code>
+            <Selector>
+              <Option>
+                <Name>Biomaterial engineering</Name>
+                <Code>31050703</Code>
+              </Option>
+              <Option>
+                <Name>Biomedical engineering</Name>
+                <Code>31050704</Code>
+              </Option>
+              <Option>
+                <Name>Tissue engineering</Name>
+                <Code>31050705</Code>
+              </Option>
+              <Option>
+                <Name>Animal biotechnology</Name>
+                <Code>31050706</Code>
+              </Option>
+              <Option>
+                <Name>Regenerative medicine</Name>
+                <Code>31050707</Code>
+              </Option>
+              <Option>
+                <Name>Stem cell therapy</Name>
+                <Code>31050708</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Other medical biotechnology</Name>
+            <Code>31073423</Code>
+            <Selector>
+              <Option>
+                <Name>Pharmacogenomics</Name>
+                <Code>31050710</Code>
+              </Option>
+              <Option>
+                <Name>Tissue banks</Name>
+                <Code>31050714</Code>
+              </Option>
+              <Option>
+                <Name>Biomedical software</Name>
+                <Code>31050715</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Forensic science</Name>
+            <Code>31073424</Code>
+            <Selector>
+              <Option>
+                <Name>Fingerprinting</Name>
+                <Code>31050719</Code>
+              </Option>
+              <Option>
+                <Name>DNA analysis</Name>
+                <Code>31050720</Code>
+              </Option>
+              <Option>
+                <Name>Drugs analysis</Name>
+                <Code>31050721</Code>
+              </Option>
+              <Option>
+                <Name>Explosives in forensic science</Name>
+                <Code>31073425</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073426</Code>
+        <Name>Agriculture, Forestry, and Fisheries</Name>
+        <Brief>Agriculture, Forestry, and Fisheries</Brief>
+        <Selector>
+          <Group>
+            <Name>Soil science</Name>
+            <Code>31073427</Code>
+            <Selector>
+              <Option>
+                <Name>Soil biology</Name>
+                <Code>31050759</Code>
+              </Option>
+              <Option>
+                <Name>Soil conservation</Name>
+                <Code>31050763</Code>
+              </Option>
+              <Option>
+                <Name>Soil ecology</Name>
+                <Code>31050766</Code>
+              </Option>
+              <Option>
+                <Name>Soil erosion</Name>
+                <Code>31050767</Code>
+              </Option>
+              <Option>
+                <Name>Soil fertility</Name>
+                <Code>31050768</Code>
+              </Option>
+              <Option>
+                <Name>Soil management</Name>
+                <Code>31050770</Code>
+              </Option>
+              <Option>
+                <Name>Soil morphology</Name>
+                <Code>31050773</Code>
+              </Option>
+              <Option>
+                <Name>Soil pollution (FN/I3)</Name>
+                <Code>31050775</Code>
+              </Option>
+              <Option>
+                <Name>Soil protection</Name>
+                <Code>31050776</Code>
+              </Option>
+              <Option>
+                <Name>Soil remediation</Name>
+                <Code>31050777</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Forestry</Name>
+            <Code>31073428</Code>
+            <Selector>
+              <Option>
+                <Name>Forestry, biomass production (e.g. for biofuels)</Name>
+                <Code>31050737</Code>
+              </Option>
+              <Option>
+                <Name>Carbon sequestration in forest (mitigation)</Name>
+                <Code>31050738</Code>
+              </Option>
+              <Option>
+                <Name>Forest adaptation to climate change</Name>
+                <Code>31050739</Code>
+              </Option>
+              <Option>
+                <Name>Forest biodiversity</Name>
+                <Code>31050740</Code>
+              </Option>
+              <Option>
+                <Name>Forest ecosystem services</Name>
+                <Code>31050741</Code>
+              </Option>
+              <Option>
+                <Name>Forest fauna</Name>
+                <Code>31050742</Code>
+              </Option>
+              <Option>
+                <Name>Forest flora</Name>
+                <Code>31050743</Code>
+              </Option>
+              <Option>
+                <Name>Non-wood forest products</Name>
+                <Code>31050744</Code>
+              </Option>
+              <Option>
+                <Name>Silviculture</Name>
+                <Code>31050745</Code>
+              </Option>
+              <Option>
+                <Name>Forest management planning</Name>
+                <Code>31050747</Code>
+              </Option>
+              <Option>
+                <Name>Wood harvesting</Name>
+                <Code>31050748</Code>
+              </Option>
+              <Option>
+                <Name>Forestry biomass for energy production</Name>
+                <Code>31050749</Code>
+              </Option>
+              <Option>
+                <Name>Tropical forestry</Name>
+                <Code>31050750</Code>
+              </Option>
+              <Option>
+                <Name>Tree health</Name>
+                <Code>31050753</Code>
+              </Option>
+              <Option>
+                <Name>Forest genetic resources</Name>
+                <Code>31050754</Code>
+              </Option>
+              <Option>
+                <Name>Forest soils</Name>
+                <Code>31050755</Code>
+              </Option>
+              <Option>
+                <Name>Forest resilience</Name>
+                <Code>31050756</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Horticulture, viticulture</Name>
+            <Code>31073429</Code>
+            <Selector>
+              <Option>
+                <Name>Fruit trees/crops</Name>
+                <Code>31050780</Code>
+              </Option>
+              <Option>
+                <Name>Glasshouse management</Name>
+                <Code>31050781</Code>
+              </Option>
+              <Option>
+                <Name>Open field horticulture</Name>
+                <Code>31050782</Code>
+              </Option>
+              <Option>
+                <Name>Ornamental plants</Name>
+                <Code>31050783</Code>
+              </Option>
+              <Option>
+                <Name>Protected horticulture</Name>
+                <Code>31050784</Code>
+              </Option>
+              <Option>
+                <Name>Hydroponics</Name>
+                <Code>31050785</Code>
+              </Option>
+              <Option>
+                <Name>Vegetables</Name>
+                <Code>31050786</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Agronomy</Name>
+            <Code>31073430</Code>
+            <Selector>
+              <Option>
+                <Name>Plant nutrition</Name>
+                <Code>31048922</Code>
+              </Option>
+              <Option>
+                <Name>Agroindustry</Name>
+                <Code>31050789</Code>
+              </Option>
+              <Option>
+                <Name>Agrobiodiversity</Name>
+                <Code>31050790</Code>
+              </Option>
+              <Option>
+                <Name>Agroecology</Name>
+                <Code>31050791</Code>
+              </Option>
+              <Option>
+                <Name>Agro-forestry</Name>
+                <Code>31050792</Code>
+              </Option>
+              <Option>
+                <Name>Food crops</Name>
+                <Code>31050793</Code>
+              </Option>
+              <Option>
+                <Name>Feed crops</Name>
+                <Code>31050794</Code>
+              </Option>
+              <Option>
+                <Name>Fertilisation</Name>
+                <Code>31050795</Code>
+              </Option>
+              <Option>
+                <Name>Crop rotations</Name>
+                <Code>31050796</Code>
+              </Option>
+              <Option>
+                <Name>Ecological intensification</Name>
+                <Code>31050797</Code>
+              </Option>
+              <Option>
+                <Name>Farm machinery</Name>
+                <Code>31050798</Code>
+              </Option>
+              <Option>
+                <Name>Field crops</Name>
+                <Code>31050799</Code>
+              </Option>
+              <Option>
+                <Name>Forage crops</Name>
+                <Code>31050800</Code>
+              </Option>
+              <Option>
+                <Name>Grassland management</Name>
+                <Code>31050801</Code>
+              </Option>
+              <Option>
+                <Name>Industrial crops</Name>
+                <Code>31050802</Code>
+              </Option>
+              <Option>
+                <Name>Irrigation management</Name>
+                <Code>31050803</Code>
+              </Option>
+              <Option>
+                <Name>Medicinal plants</Name>
+                <Code>31050805</Code>
+              </Option>
+              <Option>
+                <Name>Oil plants</Name>
+                <Code>31050806</Code>
+              </Option>
+              <Option>
+                <Name>Organic farming</Name>
+                <Code>31050807</Code>
+              </Option>
+              <Option>
+                <Name>Plant breeding</Name>
+                <Code>31050808</Code>
+              </Option>
+              <Option>
+                <Name>Plant cropping systems</Name>
+                <Code>31050809</Code>
+              </Option>
+              <Option>
+                <Name>Precision agriculture</Name>
+                <Code>31050810</Code>
+              </Option>
+              <Option>
+                <Name>Sugar crops</Name>
+                <Code>31050812</Code>
+              </Option>
+              <Option>
+                <Name>Temperate agriculture</Name>
+                <Code>31050813</Code>
+              </Option>
+              <Option>
+                <Name>Textile plants</Name>
+                <Code>31050814</Code>
+              </Option>
+              <Option>
+                <Name>Tropical agriculture</Name>
+                <Code>31050815</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Veterinary science</Name>
+            <Code>31073431</Code>
+            <Selector>
+              <Option>
+                <Name>Animal diagnostics</Name>
+                <Code>31050853</Code>
+              </Option>
+              <Option>
+                <Name>Animal genetics</Name>
+                <Code>31050854</Code>
+              </Option>
+              <Option>
+                <Name>Animal health</Name>
+                <Code>31050855</Code>
+              </Option>
+              <Option>
+                <Name>Animal hygiene</Name>
+                <Code>31050856</Code>
+              </Option>
+              <Option>
+                <Name>Animal immunology</Name>
+                <Code>31050857</Code>
+              </Option>
+              <Option>
+                <Name>Animal surgery</Name>
+                <Code>31050858</Code>
+              </Option>
+              <Option>
+                <Name>Animal toxicology</Name>
+                <Code>31050859</Code>
+              </Option>
+              <Option>
+                <Name>Veterinary pharmacology</Name>
+                <Code>31050860</Code>
+              </Option>
+              <Option>
+                <Name>Arthropod pathogens of animals</Name>
+                <Code>31050861</Code>
+              </Option>
+              <Option>
+                <Name>Bacterial pathogens of animals</Name>
+                <Code>31050862</Code>
+              </Option>
+              <Option>
+                <Name>Fungal pathogens of animals</Name>
+                <Code>31050863</Code>
+              </Option>
+              <Option>
+                <Name>Non-drug therapy of animals</Name>
+                <Code>31050864</Code>
+              </Option>
+              <Option>
+                <Name>Parasite pathogens of animals</Name>
+                <Code>31050865</Code>
+              </Option>
+              <Option>
+                <Name>Prion pathogens of animals</Name>
+                <Code>31050866</Code>
+              </Option>
+              <Option>
+                <Name>Veterinary anaesthesiology</Name>
+                <Code>31050867</Code>
+              </Option>
+              <Option>
+                <Name>Viral pathogens of animals</Name>
+                <Code>31050868</Code>
+              </Option>
+              <Option>
+                <Name>Zoonosis</Name>
+                <Code>31050869</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Agricultural biotechnology</Name>
+            <Code>31073432</Code>
+            <Selector>
+              <Option>
+                <Name>Applied biotechnology (non-medical), bioreactors, applied microbiology</Name>
+                <Code>31048477</Code>
+              </Option>
+              <Option>
+                <Name>GM technologies</Name>
+                <Code>31050876</Code>
+              </Option>
+              <Option>
+                <Name>Marker assisted selection</Name>
+                <Code>31050877</Code>
+              </Option>
+              <Option>
+                <Name>Plant genetic resources</Name>
+                <Code>31050878</Code>
+              </Option>
+              <Option>
+                <Name>Plant genomics</Name>
+                <Code>31050879</Code>
+              </Option>
+              <Option>
+                <Name>Animal genetic resources</Name>
+                <Code>31050880</Code>
+              </Option>
+              <Option>
+                <Name>Livestock cloning</Name>
+                <Code>31050881</Code>
+              </Option>
+              <Option>
+                <Name>Genetic mapping in agriculture</Name>
+                <Code>31073433</Code>
+              </Option>
+              <Option>
+                <Name>DNA therapy in agriculture</Name>
+                <Code>31073434</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073435</Code>
+        <Name>Social sciences</Name>
+        <Brief>Social sciences</Brief>
+        <Selector>
+          <Group>
+            <Name>Psychology</Name>
+            <Code>31073436</Code>
+            <Selector>
+              <Option>
+                <Name>Mental disorders</Name>
+                <Code>31050328</Code>
+              </Option>
+              <Option>
+                <Name>Mental health</Name>
+                <Code>31050329</Code>
+              </Option>
+              <Option>
+                <Name>Evolution of mind and cognitive functions, animal communication</Name>
+                <Code>31050913</Code>
+              </Option>
+              <Option>
+                <Name>Cognitive and experimental psychology: perception, action, and higher cognitive processes</Name>
+                <Code>31050916</Code>
+              </Option>
+              <Option>
+                <Name>Social psychology</Name>
+                <Code>31050917</Code>
+              </Option>
+              <Option>
+                <Name>Clinical psychology</Name>
+                <Code>31050918</Code>
+              </Option>
+              <Option>
+                <Name>Addiction sciences</Name>
+                <Code>31050922</Code>
+              </Option>
+              <Option>
+                <Name>Behavioural sciences</Name>
+                <Code>31050923</Code>
+              </Option>
+              <Option>
+                <Name>Cognitive science</Name>
+                <Code>31050926</Code>
+              </Option>
+              <Option>
+                <Name>Developmental psychology</Name>
+                <Code>31050932</Code>
+              </Option>
+              <Option>
+                <Name>Differential psychology</Name>
+                <Code>31050933</Code>
+              </Option>
+              <Option>
+                <Name>Educational psychology</Name>
+                <Code>31050934</Code>
+              </Option>
+              <Option>
+                <Name>Psychonomics</Name>
+                <Code>31050936</Code>
+              </Option>
+              <Option>
+                <Name>Psychotherapy</Name>
+                <Code>31050937</Code>
+              </Option>
+              <Option>
+                <Name>Social and clinical psychology</Name>
+                <Code>31050942</Code>
+              </Option>
+              <Option>
+                <Name>Psycholinguistics and neurolinguistics: acquisition and knowledge of language, language pathologies</Name>
+                <Code>31050943</Code>
+              </Option>
+              <Option>
+                <Name>Behavioural neuroscience in psychology</Name>
+                <Code>31073437</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Economics and Business</Name>
+            <Code>31073438</Code>
+            <Selector>
+              <Option>
+                <Name>Econometrics, statistical methods</Name>
+                <Code>31050947</Code>
+              </Option>
+              <Option>
+                <Name>Microeconomics, behavioural economics</Name>
+                <Code>31050948</Code>
+              </Option>
+              <Option>
+                <Name>Political economy, institutional economics, law and economics</Name>
+                <Code>31050949</Code>
+              </Option>
+              <Option>
+                <Name>Financial markets, asset prices, international finance</Name>
+                <Code>31050950</Code>
+              </Option>
+              <Option>
+                <Name>Banking, corporate finance, accounting</Name>
+                <Code>31050951</Code>
+              </Option>
+              <Option>
+                <Name>Labour economics, income distribution and poverty</Name>
+                <Code>31050952</Code>
+              </Option>
+              <Option>
+                <Name>Macroeconomics</Name>
+                <Code>31050955</Code>
+              </Option>
+              <Option>
+                <Name>International trade</Name>
+                <Code>31050956</Code>
+              </Option>
+              <Option>
+                <Name>Economic geography</Name>
+                <Code>31050957</Code>
+              </Option>
+              <Option>
+                <Name>Economic history, development</Name>
+                <Code>31050959</Code>
+              </Option>
+              <Option>
+                <Name>Development, economic growth</Name>
+                <Code>31050960</Code>
+              </Option>
+              <Option>
+                <Name>Urban and regional economics</Name>
+                <Code>31050961</Code>
+              </Option>
+              <Option>
+                <Name>Economics of innovation</Name>
+                <Code>31050962</Code>
+              </Option>
+              <Option>
+                <Name>Organization studies: theory &amp; strategy, industrial organization</Name>
+                <Code>31050965</Code>
+              </Option>
+              <Option>
+                <Name>Entrepreneurship</Name>
+                <Code>31050968</Code>
+              </Option>
+              <Option>
+                <Name>Human resource management</Name>
+                <Code>31050969</Code>
+              </Option>
+              <Option>
+                <Name>Research management</Name>
+                <Code>31050970</Code>
+              </Option>
+              <Option>
+                <Name>Social economics</Name>
+                <Code>31050971</Code>
+              </Option>
+              <Option>
+                <Name>Marketing</Name>
+                <Code>31050977</Code>
+              </Option>
+              <Option>
+                <Name>Competitiveness, innovation, research and development</Name>
+                <Code>31050978</Code>
+              </Option>
+              <Option>
+                <Name>Industrial policy</Name>
+                <Code>31050980</Code>
+              </Option>
+              <Option>
+                <Name>Data value chains</Name>
+                <Code>31053960</Code>
+              </Option>
+              <Option>
+                <Name>Data markets</Name>
+                <Code>31053962</Code>
+              </Option>
+              <Option>
+                <Name>Beyond GDP</Name>
+                <Code>31053963</Code>
+              </Option>
+              <Option>
+                <Name>Web Entrepreneurship</Name>
+                <Code>31053965</Code>
+              </Option>
+              <Option>
+                <Name>Innovation</Name>
+                <Code>31053970</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Sociology</Name>
+            <Code>31073439</Code>
+            <Selector>
+              <Option>
+                <Name>Social structure, inequalities, social mobility, interethnic relations</Name>
+                <Code>31050695</Code>
+              </Option>
+              <Option>
+                <Name>Social policies, work and welfare</Name>
+                <Code>31051001</Code>
+              </Option>
+              <Option>
+                <Name>Kinship, cultural dimensions of classification and cognition, identity, gender</Name>
+                <Code>31051003</Code>
+              </Option>
+              <Option>
+                <Name>Demography</Name>
+                <Code>31051009</Code>
+              </Option>
+              <Option>
+                <Name>Ethnography</Name>
+                <Code>31051012</Code>
+              </Option>
+              <Option>
+                <Name>Medical anthropology</Name>
+                <Code>31051013</Code>
+              </Option>
+              <Option>
+                <Name>Social anthropology</Name>
+                <Code>31051014</Code>
+              </Option>
+              <Option>
+                <Name>Cultural anthropology</Name>
+                <Code>31051016</Code>
+              </Option>
+              <Option>
+                <Name>Historical anthropology</Name>
+                <Code>31051017</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Law, criminology, penology</Name>
+            <Code>31073440</Code>
+            <Selector>
+              <Option>
+                <Name>Legal studies, constitutions, comparative law</Name>
+                <Code>31051026</Code>
+              </Option>
+              <Option>
+                <Name>Trafficking in human beings</Name>
+                <Code>31051027</Code>
+              </Option>
+              <Option>
+                <Name>History of law</Name>
+                <Code>31051028</Code>
+              </Option>
+              <Option>
+                <Name>International relations</Name>
+                <Code>31051029</Code>
+              </Option>
+              <Option>
+                <Name>Human rights</Name>
+                <Code>31051030</Code>
+              </Option>
+              <Option>
+                <Name>Legal systems, constitutions, foundations of law</Name>
+                <Code>31051032</Code>
+              </Option>
+              <Option>
+                <Name>Private, public and social law</Name>
+                <Code>31051033</Code>
+              </Option>
+              <Option>
+                <Name>Cybercrime</Name>
+                <Code>31057843</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Political science</Name>
+            <Code>31073441</Code>
+            <Selector>
+              <Option>
+                <Name>Global and transnational governance, international law, human rights</Name>
+                <Code>31051034</Code>
+              </Option>
+              <Option>
+                <Name>Transformation of societies, democratization, social movements</Name>
+                <Code>31051036</Code>
+              </Option>
+              <Option>
+                <Name>Violence, conflict and conflict resolution</Name>
+                <Code>31051037</Code>
+              </Option>
+              <Option>
+                <Name>Political systems and institutions, governance</Name>
+                <Code>31051038</Code>
+              </Option>
+              <Option>
+                <Name>Environmental regulations and climate negotiations</Name>
+                <Code>31051039</Code>
+              </Option>
+              <Option>
+                <Name>Political theory</Name>
+                <Code>31051040</Code>
+              </Option>
+              <Option>
+                <Name>Organisation theory</Name>
+                <Code>31051042</Code>
+              </Option>
+              <Option>
+                <Name>micro</Name>
+                <Code>31053975</Code>
+              </Option>
+              <Option>
+                <Name>New participatory democracy models</Name>
+                <Code>31053976</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Media and communications</Name>
+            <Code>31073442</Code>
+            <Selector>
+              <Option>
+                <Name>Library science</Name>
+                <Code>31051099</Code>
+              </Option>
+              <Option>
+                <Name>Media and socio-cultural communication</Name>
+                <Code>31051100</Code>
+              </Option>
+              <Option>
+                <Name>Media and communication strategies, campaigns, outreach activities</Name>
+                <Code>31051102</Code>
+              </Option>
+              <Option>
+                <Name>Behavioural change campaigns</Name>
+                <Code>31051106</Code>
+              </Option>
+              <Option>
+                <Name>Cultural studies in media and communications</Name>
+                <Code>31073443</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31073444</Code>
+        <Name>Humanities</Name>
+        <Brief>Humanities</Brief>
+        <Selector>
+          <Group>
+            <Name>History and archeology</Name>
+            <Code>31073445</Code>
+            <Selector>
+              <Option>
+                <Name>Archaeology, archaeometry, landscape archaeology</Name>
+                <Code>31051122</Code>
+              </Option>
+              <Option>
+                <Name>Prehistory and protohistory</Name>
+                <Code>31051123</Code>
+              </Option>
+              <Option>
+                <Name>Ancient history</Name>
+                <Code>31051124</Code>
+              </Option>
+              <Option>
+                <Name>Medieval history</Name>
+                <Code>31051126</Code>
+              </Option>
+              <Option>
+                <Name>Early modern history</Name>
+                <Code>31051127</Code>
+              </Option>
+              <Option>
+                <Name>Modern and contemporary history</Name>
+                <Code>31051128</Code>
+              </Option>
+              <Option>
+                <Name>Colonial and post-colonial history, global and transnational history, entangled histories</Name>
+                <Code>31051129</Code>
+              </Option>
+              <Option>
+                <Name>Social and economic history</Name>
+                <Code>31051130</Code>
+              </Option>
+              <Option>
+                <Name>History of ideas, intellectual history, history of science and techniques</Name>
+                <Code>31051132</Code>
+              </Option>
+              <Option>
+                <Name>Cultural history, history of collective identities and memories</Name>
+                <Code>31051133</Code>
+              </Option>
+              <Option>
+                <Name>History of science and technology</Name>
+                <Code>31051135</Code>
+              </Option>
+              <Option>
+                <Name>Military history</Name>
+                <Code>31051136</Code>
+              </Option>
+              <Option>
+                <Name>Social, economic, cultural and political history</Name>
+                <Code>31051137</Code>
+              </Option>
+              <Option>
+                <Name>Historiography, theory and methods of history</Name>
+                <Code>31051139</Code>
+              </Option>
+              <Option>
+                <Name>Cultural heritage, cultural memory</Name>
+                <Code>31051149</Code>
+              </Option>
+              <Option>
+                <Name>Historical geography</Name>
+                <Code>31051150</Code>
+              </Option>
+              <Option>
+                <Name>Collective memories, identities, lieux de mémoire, oral history</Name>
+                <Code>31073446</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Languages and Literature</Name>
+            <Code>31073447</Code>
+            <Selector>
+              <Option>
+                <Name>Textual philology, palaeography and epigraphy</Name>
+                <Code>31051166</Code>
+              </Option>
+              <Option>
+                <Name>Numismatics, epigraphy</Name>
+                <Code>31051167</Code>
+              </Option>
+              <Option>
+                <Name>Classics, ancient Greek and Latin literature and art</Name>
+                <Code>31051169</Code>
+              </Option>
+              <Option>
+                <Name>General literature studies</Name>
+                <Code>31051170</Code>
+              </Option>
+              <Option>
+                <Name>Literary theory and comparative literature, literary styles</Name>
+                <Code>31051172</Code>
+              </Option>
+              <Option>
+                <Name>Formal, cognitive, functional and computational linguistics</Name>
+                <Code>31051176</Code>
+              </Option>
+              <Option>
+                <Name>Typological, historical and comparative linguistics</Name>
+                <Code>31051177</Code>
+              </Option>
+              <Option>
+                <Name>Use of language: pragmatics, sociolinguistics, discourse analysis, second language teaching and learning, lexicography, terminology</Name>
+                <Code>31051178</Code>
+              </Option>
+              <Option>
+                <Name>Multilingualism, language diversity</Name>
+                <Code>31051179</Code>
+              </Option>
+              <Option>
+                <Name>Psycholinguistics</Name>
+                <Code>31051180</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Philosophy, Ethics and Religion</Name>
+            <Code>31073448</Code>
+            <Selector>
+              <Option>
+                <Name>Research integrity and research misconduct</Name>
+                <Code>31049041</Code>
+              </Option>
+              <Option>
+                <Name>Myth, ritual, symbolic representations, religious studies</Name>
+                <Code>31051004</Code>
+              </Option>
+              <Option>
+                <Name>Cultural studies, cultural diversity</Name>
+                <Code>31051101</Code>
+              </Option>
+              <Option>
+                <Name>Philosophy of mind, epistemology and logic</Name>
+                <Code>31051183</Code>
+              </Option>
+              <Option>
+                <Name>Philosophy, history of philosophy</Name>
+                <Code>31051184</Code>
+              </Option>
+              <Option>
+                <Name>Epistemology, logic, philosophy of science</Name>
+                <Code>31051185</Code>
+              </Option>
+              <Option>
+                <Name>Ethics (except ethics related to specific subfields)</Name>
+                <Code>31051186</Code>
+              </Option>
+              <Option>
+                <Name>Theology</Name>
+                <Code>31051187</Code>
+              </Option>
+              <Option>
+                <Name>History of religions</Name>
+                <Code>31051189</Code>
+              </Option>
+            </Selector>
+          </Group>
+          <Group>
+            <Name>Arts (arts, history of arts, performing arts, music)</Name>
+            <Code>31073449</Code>
+            <Selector>
+              <Option>
+                <Name>Visual arts, performing arts, design</Name>
+                <Code>31051192</Code>
+              </Option>
+              <Option>
+                <Name>History of art and architecture</Name>
+                <Code>31051193</Code>
+              </Option>
+              <Option>
+                <Name>Museums and exhibitions</Name>
+                <Code>31051194</Code>
+              </Option>
+              <Option>
+                <Name>Architectural design</Name>
+                <Code>31051200</Code>
+              </Option>
+              <Option>
+                <Name>Performing arts studies (Musicology, Theater science, Dramaturgy)</Name>
+                <Code>31051201</Code>
+              </Option>
+              <Option>
+                <Name>Music and musicology, history of music</Name>
+                <Code>31051202</Code>
+              </Option>
+              <Option>
+                <Name>Folklore studies</Name>
+                <Code>31051203</Code>
+              </Option>
+              <Option>
+                <Name>Studies on Film, Radio and Television</Name>
+                <Code>31051204</Code>
+              </Option>
+              <Option>
+                <Name>ICT &amp; art</Name>
+                <Code>31053980</Code>
+              </Option>
+            </Selector>
+          </Group>
+        </Selector>
+      </Group>
+    </Selector>
+  </Description>
+</GlobalInformation>

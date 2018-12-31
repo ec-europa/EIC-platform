@@ -1,0 +1,243 @@
+<Emails>
+  <!-- ======================================================================
+         Workflow alerts
+       ======================================================================
+   -->
+  <Alert Name="ask-for-confirmation" Lang="en">
+    <Subject>SME Instrument Overseas Trade Fairs - Outcome of your application to @@Event_Name@@</Subject>
+    <From>contact@phase3-services.eu</From>
+    <Message>
+      <Text>Dear @@Applicant_FullName@@,</Text>
+      <Text>Thank you very much for your interest and application in the SME Instrument Overseas Trade Fairs Participation programme.</Text>
+      <Text>Following the final assessment of all applications, we are very pleased to inform you that @@Applicant_CompanyName@@ has been selected to participate to the @@Event_Name@@ taking place on @@Event_DateFrom@@ in @@Event_City@@, @@Event_Country@@.</Text>
+      <Text>Your SME will be one of 15 from across the EU, which have the opportunity to gain first-hand experience of dynamic markets and establish business contacts with local companies via the trade fair and business meetings in @@Event_City@@. Our experts truly believe that your company and your technology have the potential to deliver an impactful experience at the @@Event_Name@@, and that you would make an excellent SME Instrument Ambassador.</Text>
+      <Text>To confirm your participation and officially launch our joint preparation for the @@Event_Name@@, we kindly ask you to provide us with a little bit more information at @@Application_URL@@@@Link_To_Event@@</Text>
+      <Text>We shall use the provided data to start building your company profile, which will allow us to proceed with the matchmaking activities for the pre-set business meetings at the trade fair, as well as with promotional activities. This company profile will be further discussed during individual sessions at the pre-departure briefing day in Brussels on @@PDB_Date@@ (more details will follow the reception of your company profile). As thorough preparation for the fair is crucial for a successful outcome, all participating companies are expected to join this meeting.</Text>
+      <Text>We would be grateful if you would confirm to accept to participate to the Trade Fair programme under the conditions explained in the call for manifestation of interest by filling and submitting the company profile form within the next @@Event_Confirmation_Delay@@ working days through the link @@Application_URL@@@@Link_To_Event@@.</Text>
+      <Text>In case of no submission of the form within the deadline, we will consider you have withdrawn your application and will offer the opportunity to another SME Instrument Champion on the waiting list.
+      </Text>
+      <Text>We look forward to meeting you soon and wish you a successful trade fair!</Text>
+      <Text>Kind regards,</Text>
+      <Block>
+        <Line>Bernd Reichert</Line>
+        <Line>Head of Unit "SME Instrument"</Line>
+        <Line>Executive Agency for SMEs, European Commission</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <Alert Name="notification-waiting-list" Lang="en">
+    <Subject>SME Instrument Overseas Trade Fairs - Outcome of your application to @@Event_Name@@</Subject>
+    <From>contact@phase3-services.eu</From>
+    <Message>
+      <Text>Dear @@Applicant_FullName@@,</Text>
+      <Text>Thank you very much for your interest and application in the SME Instrument Overseas Trade Fairs Participation programme.</Text>
+      <Text>We have received a high-level of interest, with more successful applications than anticipated. We are trying to accommodate as many of the successful applicants as possible.</Text>
+      <Text>Following the final assessment of all applications, it appears @@Applicant_CompanyName@@ has received a sufficiently high score to be considered for the selection to @@Event_Name@@ taking place on @@Event_DateFrom@@ in @@Event_City@@, @@Event_Country@@.</Text>
+      <Text>At present, @@Applicant_CompanyName@@ is on waiting list. Should a place become available, we will contact you immediately. We hope that you are still motivated to participate and would be grateful if you would confirm your interest within the next @@Event_Confirmation_Delay@@ working days.</Text>
+      <Text>To do so we kindly ask you to provide us with a little bit more information through the link @@Application_URL@@@@Link_To_Event@@.</Text>
+      <Text>We will update you if the waiting list is activated, hope to meet you at our following SME Instrument events, and encourage you to apply to any other of our SME Instrument business acceleration services!</Text>
+      <Text>In case of no submission of the form within the deadline, we will consider you have withdrawn your application.</Text>
+      <Text>Kind regards,</Text>
+      <Block>
+        <Line>Bernd Reichert</Line>
+        <Line>Head of Unit "SME Instrument"</Line>
+        <Line>Executive Agency for SMEs, European Commission</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <Alert Name="notification-rejected-list" Lang="en">
+    <Subject>SME Instrument Overseas Trade Fairs - Outcome of your application to @@Event_Name@@</Subject>
+    <From>contact@phase3-services.eu</From>
+    <Message>
+      <Text>Dear @@Applicant_FullName@@,</Text>
+      <Text>Thank you very much for your interest and application in the SME Instrument Overseas Trade Fairs Participation programme.</Text>
+      <Text>Following the final assessment of all applications, we regret to inform you that @@Applicant_CompanyName@@ did not fall into the group of applicants selected to participate to @@Event_Name@@ taking place on @@Event_DateFrom@@ in @@Event_City@@, @@Event_Country@@.</Text>
+      <Text>While we are convinced you would make an excellent SME Instrument Ambassador, on the basis of the data entered in your application, your company @@Applicant_CompanyName@@ does not present suitable opportunities for your company and your technology to deliver an impactful experience at the trade fair.</Text>
+      <Text>We still hope to meet you very soon at our following SME Instrument events, and encourage you to apply to any other of our SME Instrument business acceleration services!</Text>
+      <Text>Kind regards,</Text>
+      <Block>
+        <Line>Bernd Reichert</Line>
+        <Line>Head of Unit "SME Instrument"</Line>
+        <Line>Executive Agency for SMEs, European Commission</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <Alert Name="acknowledgment-receipt-main-list" Lang="en">
+    <Subject>SME Instrument Overseas Trade Fairs - Receipt of your confirmation for @@Event_Name@@</Subject>
+    <From>contact@phase3-services.eu</From>
+    <Message>
+      <Text>Dear @@Confirm_FullName@@,</Text>
+      <Text>Thanks for confirming your participation to the @@Event_Name@@.</Text>
+      <Text>We look forward to seeing you at the pre-departure briefing day in Brussels on @@PDB_Date@@ and will contact you shortly with any other next steps in the process.</Text>
+      <Text>Kind regards,</Text>
+      <Block>
+        <Line>The SME Instrument - Overseas Trade Fairs Team</Line>
+        <Line>Executive Agency for SMEs, European Commission</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <Alert Name="acknowledgment-receipt-waiting-list" Lang="en">
+    <Subject>SME Instrument Overseas Trade Fairs - Receipt of your confirmation for @@Event_Name@@</Subject>
+    <From>contact@phase3-services.eu</From>
+    <Message>
+      <Text>Dear @@Confirm_FullName@@,</Text>
+      <Text>Thanks for confirming your waitlisting for the @@Event_Name@@.</Text>
+      <Text>At present, @@Confirm_CompanyName@@ is waitlisted.</Text>
+      <Text>We will notify you with the next steps in the process should a place become available.</Text>
+      <Text>Kind regards,</Text>
+      <Block>
+        <Line>The SME Instrument - Overseas Trade Fairs Team</Line>
+        <Line>Executive Agency for SMEs, European Commission</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Generic Satisfaction feedback e-mail notification -->
+  <Alert Name="ask-for-satisfaction" Lang="en">
+    <Subject>@@Event_Name@@ - satisfaction survey</Subject>
+    <From>contact@phase3-services.eu</From>
+    <Message>
+      <Text>Dear @@Applicant_FirstName@@,</Text>
+      <Text>We would like to thank you for your active participation in our EIC Instrument Business Acceleration service:</Text>
+      <Block>
+        <Line>@@Event_Name@@</Line>
+        <Line>@@Event_City@@, @@Event_Country@@</Line>
+      </Block>
+      <Text>We hope you enjoyed it and you have benefited from opportunities and learnings to develop your company further!</Text>
+      <Text>In order to further fine-tune our services and to make them even more impactful for your business, we kindly ask for your feedback by answering a few questions: @@Application_URL@@@@Link_To_Event@@</Text>
+      <Text>Thank you again for your time, and please make sure to check out what we have planned for the coming months: @@EASME_Event_Website@@</Text>
+      <Text>Should you have additional questions or remarks, feel free to contact us under the following address contact@phase3-services.eu</Text>
+      <Text>The EIC INSTRUMENT Business Acceleration team</Text>
+    </Message>
+  </Alert> 
+  <!-- Satisfaction survey Cocom V2 -->
+  <Alert Name="ask-for-satisfaction-v2" Lang="en">
+    <Subject>@@Event_Name@@ - satisfaction survey</Subject>
+    <From>contact@phase3-services.eu</From>
+    <Message>
+      <Text>Dear @@Applicant_FirstName@@,</Text>
+      <Text>We would like to thank you for your active participation in our EIC Instrument Business Acceleration service:</Text>
+      <Block>
+        <Line>@@Event_Name@@</Line>
+        <Line>@@Event_City@@, @@Event_Country@@</Line>
+      </Block>
+      <Text>We hope you enjoyed it and you have benefited from opportunities and learnings to develop your company further!</Text>
+      <Text>In order to further fine-tune our services and to make them even more impactful for your business, we kindly ask for your feedback by answering a few questions: @@Application_URL@@@@Link_To_Event@@</Text>
+      <Text>Thank you again for your time, and please make sure to check out what we have planned for the coming months: @@EASME_Event_Website@@</Text>
+      <Text>Should you have any other suggestions or questions, please contact us under the following address contact@phase3-services.eu</Text>
+      <Text>Best regards,</Text>
+      <Text>The EIC INSTRUMENT Business Acceleration team</Text>
+    </Message>
+  </Alert>  
+  <!-- (not used, maybe REMOVED soon) OTF Satisfaction survey notification -->
+  <Alert Name="ask-for-otf-satisfaction" Lang="en">
+    <Subject>@@Event_Name@@ re-imbursement proceedure and satisfaction survey</Subject>
+    <From>OverseasTradeFairs@sme-instrument-otfs.eu</From>
+    <Message>
+      <Text>Dear @@Applicant_FullName@@,</Text>
+      <Text>You recently took part in @@Event_Name@@, under the SME Instrument Overseas Trade Fairs (OTF) programme. We would really appreciate your feedback on the exhibition week and its outcomes, as well as the OTF programme.</Text>
+      <Text>The direct link to your feedback form on SMEi Dashboard is @@Application_URL@@@@Link_To_Event@@</Text>
+      <Text>Please fill in this feedback form and submit it before @@Date_Plus_14@@.</Text>
+      <Text>Note that submission of this feedback survey is required to launch the reimbursement process of travel and accommodation expenses and/or customised services. We would really appreciate your feedback on the exhibition week and its outcomes, as well as on the OTF programme in general.</Text>
+    </Message>
+  </Alert>
+  <!-- Impact survey notification -->
+  <Alert Name="ask-for-otf-impact" Lang="en">
+    <Subject>@@Event_Name@@ - Impact survey</Subject>
+    <From>OverseasTradeFairs@sme-instrument-otfs.eu</From>
+    <Message>
+      <Text>Dear @@Applicant_FullName@@,</Text>
+      <Text>It has been six months since you participated in the OTF business mission at @@Event_Name@@ in @@Event_City@@.</Text>
+      <Text>We hope this experience has lived up to your expectations and allowed you to increase your knowledge about, network, and business in @@Event_Country@@.</Text>
+      <Text>Continuing our follow-up, and with the benefit of hindsight, we would be delighted to collect your feedback about the mission, any resulting success stories, concrete business deals sealed as well as your suggestions regarding the OTF programme as a whole. For this, please complete the following brief survey (@@Application_URL@@@@Link_To_Event@@) by the @@Date_Plus_7@@. This will allow us to further improve the programme and its services for subsequent missions, and to better cater to the needs of the SME Instrument community of innovators.</Text>
+      <Text>Finally, please note that applications are still open for further SME instrument events (@@Application_URL@@@@Link_To_Events@@). You may apply and participate to an unlimited number of trade fairs included in the OTF programme.</Text>
+      <Text>Thank you for your collaboration!</Text>
+      <Text>Best regards,</Text>
+      <Text>The SME Instrument - Overseas Trade Fairs Team</Text>
+    </Message>
+  </Alert>
+  <Alert Name="ask-for-pitching-impact" Lang="en">
+    <Subject>EIC | @@Event_Name@@ - @@Event_City@@</Subject>
+    <From>contact@phase3-services.eu</From>
+    <Message>
+      <Text>Dear @@Applicant_FirstName@@,</Text>
+      <Text>Thank you for being part of the European innovation council (EIC)! We're planning new events as part of our Business Acceleration Services, so we're reaching out to previous participants to gather some thoughts. Simply put, we'd like to understand more about what's important to you when it comes to how these events impact your business.</Text>
+      <Text>We'd love it if you could take 5 minutes to give us some feedback and share your input about the event:</Text>
+      <Block>
+        <Line>@@Event_Name@@</Line>
+        <Line>@@Event_City@@, @@Event_Country@@</Line>
+      </Block>
+      <Text>Take survey: @@Application_URL@@@@Link_To_Event@@</Text>
+      <Text>Thank you again for your time, and please make sure to check out what we have planned for the coming months: @@EASME_Event_Website@@</Text>
+      <Text>Should you have any other suggestions or questions, please contact us under the following address: contact@phase3-services.eu</Text>
+      <Text>Best regards,</Text>
+      <Text>The EIC Business Acceleration team</Text>
+    </Message>
+  </Alert>
+  <!-- ======================================================================
+         Reminders (checks.xml)
+       ======================================================================
+   -->
+  
+  <!-- ======================================================================
+         User account messages
+       ======================================================================
+   -->
+  <Email Name="login-created" Lang="en">
+    <Subject>Creation of your SMEi cockpit user account</Subject>
+    <Message>
+      <Text>Dear @@User_First_Name@@ @@User_Last_Name@@,</Text>
+      <Text>Welcome to the SMEi cockpit service.</Text>
+      <Block>
+        <Line>Your login has this ID : @@Login@@</Line>
+        <Line>and this password : @@Password@@</Line>
+      </Block>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>SMEi cockpit team</Line>
+      </Block>
+    </Message>
+  </Email>
+  <!-- *************************************** -->
+  <Email Name="login-updated" Lang="en">
+    <Subject>Modification of your SMEi cockpit user account</Subject>
+    <Message>
+      <Text>Dear @@User_First_Name@@ @@User_Last_Name@@,</Text>
+      <Text>Your SMEi cockpit user account has been modified</Text>
+      <Block>
+        <Line>Your new login has this ID : @@Login@@</Line>
+        <Line>and this password : @@Password@@</Line>
+      </Block>
+      <Text>To change your password connect to the application then click on your login name on the top right corner of the screen</Text>
+      <Text>The Case Tracker is designed to run with Firefox, select About in the top menu for more information</Text>
+      <Block>
+        <Line>Warmest regards,</Line>
+        <Line>@@Admin_First_Name@@ @@Admin_Last_Name@@</Line>
+        <Line>SMEi cockpit Administrator</Line>
+      </Block>
+    </Message>
+  </Email>
+  <!-- *************************************** -->
+  <Email Name="new-password-by-admin" Lang="en">
+    <Subject>Modification of your SMEi cockpit user account</Subject>
+    <Message>
+      <Text>Your new password to access the SMEi cockpit is : @@Password@@</Text>
+      <Text>Use it from now to connect</Text>
+      <Text>To change your password connect to the application then click on your login name on the top right corner of the screen</Text>
+      <Block>
+        <Line>Warmest regards,</Line>
+        <Line>@@Admin_First_Name@@ @@Admin_Last_Name@@</Line>
+        <Line>SMEi cockpit Administrator</Line>
+      </Block>
+    </Message>
+  </Email>
+  <!-- *************************************** -->
+  <Email Name="new-password-by-user" Lang="en">
+    <Subject>Modification of your SMEi cockpit user account</Subject>
+    <Message>
+      <Text>Your new password to access the SMEi cockpit is : @@Password@@</Text>
+      <Text>Use it from now to connect</Text>
+      <Text>To change your password connect to the application then click on your login name on the top right corner of the screen</Text>
+      <Text>This message has been automatically generated, please do not answer</Text>
+    </Message>
+  </Email>
+</Emails>

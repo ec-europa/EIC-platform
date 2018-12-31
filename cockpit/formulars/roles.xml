@@ -1,0 +1,318 @@
+<Form Tag="UserProfile" xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <Title>User profile</Title>
+
+  <Verbatim>
+    <xt:component name="t_static_role">
+      <Row>
+        <Field Key="function-ro" Tag="Function" Gap="1">Name</Field>
+        <Field Key="company" Tag="Company" Gap="1">Company</Field>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_facilitator_content">
+     <Row>
+       <Cell W="24" Tag="BusinessSegmentationFacilitator">          
+         <Use TypeName="facilitator"/>
+         <Row>
+           <Cell Tag="TargetGroupsFacilitator">
+             <Cell Tag="TargetGroupFacilitatorCompanies">
+               <Use Tag="TargetGroupFacilitatorCompaniesSelector" TypeName="facilitator_companies"/>
+               <xhtml:div data-avoid-facilitator_companies="~on" data-on-class="hide"
+                 class="hide">
+                 <xhtml:table style="width:100%">
+                   <xhtml:tr style="width:100%">
+                     <xhtml:td style="width:100%">
+                       <Use TypeName="new_target_group"/>
+                     </xhtml:td>
+                   </xhtml:tr>
+                 </xhtml:table>
+               </xhtml:div>
+             </Cell>
+             <Cell Tag="TargetGroupFacilitatorInvestors">
+               <Use Tag="TargetGroupFacilitatorInvestorsSelector" TypeName="facilitator_investors"/>
+               <xhtml:div data-avoid-facilitator_investors="~on" data-on-class="hide"
+                 class="hide">
+                 <xhtml:table style="width:100%">
+                   <xhtml:tr style="width:100%">
+                     <xhtml:td style="width:100%">
+                       <Use TypeName="new_target_group"/>
+                     </xhtml:td>
+                   </xhtml:tr>
+                 </xhtml:table>
+               </xhtml:div>
+             </Cell>
+           </Cell>
+         </Row>
+       </Cell>
+     </Row>
+    </xt:component>
+    <xt:component name="t_monitor_content">
+      <Row>
+        <Cell W="24" Tag="BusinessSegmentationMonitor">          
+          <Use TypeName="monitor"/>
+          <Row>
+            <Cell Tag="TargetGroupsMonitor">
+              <Cell Tag="TargetGroupMonitorCompanies">
+                <Use Tag="TargetGroupMonitorCompaniesSelector" TypeName="monitor_companies"/>
+                <xhtml:div data-avoid-monitor_companies="~on" data-on-class="hide" class="hide">
+                  <xhtml:table style="width:100%">
+                    <xhtml:tr style="width:100%">
+                      <xhtml:td style="width:100%">
+                        <Use TypeName="new_target_group"/>
+                      </xhtml:td>
+                    </xhtml:tr>
+                  </xhtml:table>
+                </xhtml:div>
+              </Cell>
+              <Cell Tag="TargetGroupMonitorInvestors">
+                <Use Tag="TargetGroupMonitorInvestorsSelector" TypeName="monitor_investors"/>
+                <xhtml:div data-avoid-monitor_investors="~on" data-on-class="hide" class="hide">
+                  <xhtml:table style="width:100%">
+                    <xhtml:tr style="width:100%">
+                      <xhtml:td style="width:100%">
+                        <Use TypeName="new_target_group"/>
+                      </xhtml:td>
+                    </xhtml:tr>
+                  </xhtml:table>
+                </xhtml:div>
+              </Cell>
+            </Cell>
+          </Row> 
+        </Cell>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_facilitator_monitor_selection">
+      <Row>
+        <xhtml:p>
+          <xhtml:table style="width:100%">
+            <xhtml:tr style="width:100%">
+              <xhtml:td><Title level="2">Scale up invidual roles</Title></xhtml:td></xhtml:tr>
+          </xhtml:table>
+        </xhtml:p>
+      </Row>
+      <Row>
+        <Cell Tag="FacilitatorMonitorSelector">
+          <xhtml:p data-binding="switch" data-variable="facilitator_monitor_selector">          
+            <xt:use types="choice" param="filter=event;appearance=full;multiple=no;class=c-inline-choice" values="0 1 2" i18n="None Facilitator Monitor">0</xt:use>        
+          </xhtml:p>   
+        </Cell>
+      </Row>
+      <!-- conditional on "1" -->
+      <xhtml:div data-avoid-facilitator_monitor_selector="1" data-on-class="hide" class="hide feedback-sub">
+        <Use TypeName="facilitator_content"/>
+      </xhtml:div>
+      <!-- conditional on "2" -->
+      <xhtml:div data-avoid-facilitator_monitor_selector="2" data-on-class="hide" class="hide feedback-sub">
+        <Use TypeName="monitor_content"/>
+      </xhtml:div>  
+    </xt:component>
+
+    <xt:component name="t_roles">
+      <Row>
+        <xhtml:p data-binding="switch" data-variable="roles">
+          <xhtml:table style="width:100%">
+            <xhtml:tr style="width:100%">
+              <xhtml:td style="width:25px"><xhtml:p style="font-size:15px;margin-bottom:1em"><xt:use param="type=checkbox;filter=event;value=on" types="input"/></xhtml:p></xhtml:td>
+              <xhtml:td><Title level="2">Generic user roles</Title></xhtml:td></xhtml:tr>
+          </xhtml:table>
+        </xhtml:p>
+      </Row>
+    </xt:component>
+    <xt:component name="t_facilitator">
+      <Row>
+        <xhtml:p>
+          <xhtml:table style="width:100%">
+            <xhtml:tr style="width:100%">
+              <!--xhtml:td style="width:25px"><xhtml:p style="font-size:15px;margin-bottom:1em"><xt:use param="type=checkbox;filter=event;value=on" types="input"/></xhtml:p></xhtml:td-->
+              <xhtml:td><Title level="3">Facilitator role administration</Title></xhtml:td></xhtml:tr>
+          </xhtml:table>
+        </xhtml:p>
+      </Row>
+    </xt:component>
+    <xt:component name="t_facilitator_companies">
+      <Row>
+        <xhtml:p data-binding="switch" data-variable="facilitator_companies">
+          <xhtml:table style="width:100%">
+            <xhtml:tr style="width:100%">
+              <xhtml:td style="width:25px"/>
+              <xhtml:td style="width:25px"><xhtml:p style="font-size:15px;margin-bottom:1em"><xt:use param="type=checkbox;filter=event;value=on" types="input"/></xhtml:p></xhtml:td>
+              <xhtml:td><xhtml:p style="font-size:15px;">Target group selection scope regarding Companies</xhtml:p></xhtml:td></xhtml:tr>
+          </xhtml:table>
+        </xhtml:p>
+      </Row>
+    </xt:component>
+    <xt:component name="t_facilitator_investors">
+      <Row>
+        <xhtml:p data-binding="switch" data-variable="facilitator_investors">
+          <xhtml:table style="width:100%">
+            <xhtml:tr style="width:100%">
+              <xhtml:td style="width:25px"/>
+              <xhtml:td style="width:25px"><xhtml:p style="font-size:15px;margin-bottom:1em"><xt:use param="type=checkbox;filter=event;value=on" types="input"/></xhtml:p></xhtml:td>
+              <xhtml:td><xhtml:p style="font-size:15px;">Target group selection scope regarding Investors</xhtml:p></xhtml:td></xhtml:tr>
+          </xhtml:table>
+        </xhtml:p>
+      </Row>
+    </xt:component>
+    <xt:component name="t_monitor">
+      <Row>
+        <xhtml:p>
+          <xhtml:table style="width:100%">
+            <xhtml:tr style="width:100%">
+              <!--xhtml:td style="width:25px"><xhtml:p style="font-size:15px;margin-bottom:1em"><xt:use param="type=checkbox;filter=event;value=on" types="input"/></xhtml:p></xhtml:td-->
+              <xhtml:td><Title level="3">Monitor role administration</Title></xhtml:td></xhtml:tr>
+          </xhtml:table>
+        </xhtml:p>
+      </Row>
+    </xt:component>
+    <xt:component name="t_monitor_companies">
+      <Row>
+        <xhtml:p data-binding="switch" data-variable="monitor_companies">
+          <xhtml:table style="width:100%">
+            <xhtml:tr style="width:100%">
+              <xhtml:td style="width:25px"/>
+              <xhtml:td style="width:25px"><xhtml:p style="font-size:15px;margin-bottom:1em"><xt:use param="type=checkbox;filter=event;value=on" types="input"/></xhtml:p></xhtml:td>
+              <xhtml:td><xhtml:p style="font-size:15px;">Target group selection scope regarding Companies</xhtml:p></xhtml:td></xhtml:tr>
+          </xhtml:table>
+        </xhtml:p>
+      </Row>
+    </xt:component>
+    <xt:component name="t_monitor_investors">
+      <Row>
+        <xhtml:p data-binding="switch" data-variable="monitor_investors">
+          <xhtml:table style="width:100%">
+            <xhtml:tr style="width:100%">
+              <xhtml:td style="width:25px"/>
+              <xhtml:td style="width:25px"><xhtml:p style="font-size:15px;margin-bottom:1em"><xt:use param="type=checkbox;filter=event;value=on" types="input"/></xhtml:p></xhtml:td>
+              <xhtml:td><xhtml:p style="font-size:15px;">Target group selection scope regarding Investors</xhtml:p></xhtml:td></xhtml:tr>
+          </xhtml:table>
+        </xhtml:p>
+      </Row>
+    </xt:component>
+
+    <xt:component name="t_service-product-offered">
+      <xhtml:label>Industrial sectors</xhtml:label>
+      <Field Key="service-product-offered" Tag="DomainActivities" Gap="2" loc="term.domainActivity" Placeholder-loc="content.any"/>
+    </xt:component>
+    
+    <xt:component name="t_activities">
+      <xhtml:td style="width:50%">
+        <xhtml:table style="width:100%">
+          <xhtml:tr style="width:100%">
+            <xhtml:td style="width:33%">
+              <xhtml:label>Company Names</xhtml:label>
+              <Field Key="enterprises" Tag="Enterprises" Placeholder-loc="content.any"/>
+            </xhtml:td>
+          </xhtml:tr>
+          <xhtml:tr style="width:33%">
+            <xhtml:td style="width:100%">
+              <Use Tag="ServicesAndProductsOffered" TypeName="service-product-offered"/>
+            </xhtml:td>
+          </xhtml:tr>
+          <xhtml:tr style="width:33%">
+            <xhtml:td style="width:100%">
+              <xhtml:label>Target markets</xhtml:label>
+              <Field Key="targeted-markets" Tag="TargetedMarkets" Placeholder-loc="content.any"/>
+            </xhtml:td>
+          </xhtml:tr>
+        </xhtml:table>
+      </xhtml:td>
+    </xt:component>
+
+    <xt:component name="t_new_target_group">
+      <Repeat Min="1" Tag="Locations">
+        <Cell Tag="Location">
+          <xhtml:table style="width:100%">
+            <xhtml:tr style="width:100%">
+              <xhtml:table style="width:100%">
+                <xhtml:tr style="width:100%">
+                  <xhtml:td style="width:50%">
+                    <xhtml:label>Countries</xhtml:label>
+                    <Field Key="countries" Tag="Countries" Placeholder-loc="content.any"/>
+                  </xhtml:td>
+                  <xhtml:td style="width:50%">
+                    <xhtml:label>Regions</xhtml:label>
+                    <Field Key="regions" Tag="Regions" Placeholder-loc="content.any"/>
+                  </xhtml:td>
+                </xhtml:tr>
+                <xhtml:tr style="width:100%">
+                  <Use Tag="Activities" TypeName="activities"/>
+                </xhtml:tr>
+              </xhtml:table>
+              <site:conditional avoid="read" force="true">
+                <xhtml:td style="width:6%">
+                  <xhtml:span class="c-repeat-menu">
+                    <Menu/>
+                  </xhtml:span>
+                </xhtml:td>
+              </site:conditional>
+            </xhtml:tr>
+          </xhtml:table>
+        </Cell>
+      </Repeat>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <Cell W="24" Tag="Tokens">
+      <xhtml:td style="width:50%">
+        <Row>
+          <Cell W="24">
+            <Title level="2">Token or pending admission (not editable here)</Title>
+            <xhtml:table class="a-repeat-table">
+              <xt:repeat pseudoLabel="Role" label="Static" minOccurs="0" maxOccurs="*">
+                <xhtml:tr>
+                  <xhtml:td class="a-repeat-row">
+                    <Cell Gap="0.75">
+                      <Title level="3">Role</Title>
+                      <Use Tag="Role" TypeName="static_role"/>
+                      <xhtml:div style="display:none">
+                        <Menu/>
+                      </xhtml:div>
+                    </Cell>
+                  </xhtml:td>
+                </xhtml:tr>
+              </xt:repeat>
+            </xhtml:table>
+          </Cell>
+        </Row>
+      </xhtml:td>
+    </Cell>
+    <Cell W="24" Tag="GenericRoles">
+      <Use Tag="GenericRolesSelector" TypeName="roles"/>
+      <xhtml:td style="width:50%" data-avoid-roles="on" data-on-class="hide" class="hide">
+        <Row>
+          <Cell W="24">
+            <Title level="2">User roles (editable here)</Title>
+            <Repeat Tag="Roles" Min="0">
+              <Cell Tag="Role" Gap="0.75">
+                <Title level="3">Role</Title>
+                <Row>
+                  <Field Key="function" Tag="FunctionRef" Gap="1">Name</Field>
+                  <Field Key="enterprises" Tag="Enterprises" Gap="1">SME's</Field>                  
+                  <Field Key="program" Tag="Programs" Gap="1">Program</Field>                  
+                </Row>
+                <div xmlns="http://www.w3.org/1999/xhtml" style="float:right">
+                  <span class="text-info">Click on minus (resp. plus) to remove (resp. add) a
+                    role<Menu/></span>
+                </div>
+              </Cell>
+            </Repeat>
+          </Cell>
+        </Row>        
+      </xhtml:td>
+    </Cell>
+  </Row>
+  <Row>
+    <Cell W="24" Tag="BusinessSegmentation">
+      <Use TypeName="facilitator_monitor_selection"/>
+    </Cell>
+  </Row>
+  <Bindings>
+    <!--Condition Keys="facilitator_monitor_selector" Variable="facilitator_monitor_selector"/-->
+    <Require Keys="function"/>
+  </Bindings>
+  <Plugins> </Plugins>
+</Form>

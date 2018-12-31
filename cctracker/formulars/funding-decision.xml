@@ -1,0 +1,86 @@
+<!-- TODO: 
+     - replace Button with Command to avoid hidden button (?) 
+     - Button Id="coach-contracting-start" conditional flag to limit to EASME Coaching Manager
+-->
+<Form Tag="FundingDecision" StartLevel="2"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Title>Décision de financement</Title>
+
+  <Row Class="c-v-spacer">
+    <Title Level="1">EASME Coaching manager</Title>
+    <Field Key="decision" Tag="DecisionRef" W="4" Gap="0" L="0">Decision on coach and coaching plan</Field>
+    <Field Key="date" Tag="Date" W="2" Gap="0">Date</Field>
+    <Field Key="author" Tag="Author" W="6" Gap="0">Author</Field>
+    <Field Key="comment" Tag="Comment" W="12" Gap="0" L="0">Comment</Field>
+    <Button Id="coach-contracting-start" Key="cde.coach-contracting-start" Class="btn-small btn-primary hide" W="2" style="margin: 0px 0 0 10px">Send Email</Button>
+  </Row>
+  <site:conditional meet="read" force="true">
+    <Row>
+      <Cell W="12" Gap="1.5" Tag="Contract">
+        <Title Level="3">Grant agreement signed by EASME</Title>
+        <Field Key="signature" Tag="Date" Gap="1.85" W="4">Date of signature</Field>
+        <xhtml:div class="span7">
+          <site:conditional flag="warning" force="true">
+            <xhtml:p data-avoid-sig3="" data-on-class="hide" class="hide text-hint" style="color:red!important">The coach contract should not be signed</xhtml:p>
+            <xhtml:p data-avoid-sig3="" data-off-class="hide" class="hide text-hint">The coach contract can be signed</xhtml:p>
+          </site:conditional>
+        </xhtml:div>
+      </Cell>
+    </Row>
+    <Separator/>
+  </site:conditional>
+  <site:conditional force="true" flag="anx">
+    <Row>
+      <Cell W="12" Gap="1.5" Tag="Annex">
+        <Title Level="3">Coaching plan</Title>
+        <Button Key="btn.contract-annex" Class="btn-small btn-primary" W="2" style="margin:0 0 0 0px;float:left">Export</Button>
+      </Cell>
+    </Row>
+    <Separator/>
+  </site:conditional>
+  <site:conditional meet="read" force="true">
+    <Row>
+      <Cell Tag="CoachContract" Gap="1.5">
+        <Title Level="3">Coach contract</Title>
+        <Row>
+          <Field Key="date" Tag="Nature" Gap="1" W="4">Nature</Field>
+          <Field Key="pool" Tag="PoolNumber" Gap="1" W="3">Pool</Field>
+          <site:conditional force="true" flag="coaclst"><Button Key="btn.contract-list" Class="btn-small btn-primary" W="3" style="margin:0 0 0 10px;float:right">Show Contract List</Button></site:conditional><site:conditional force="true" flag="coac"><Button Key="btn.coach-contract" Class="btn-small btn-primary" W="2" style="margin:0 0 0 10px;float:right">Edit</Button></site:conditional>
+        </Row>
+        <Row>
+          <Field Key="date" Tag="Date" Gap="1.85" W="4">Date of signature</Field>
+          <Field Key="author" Tag="Author" Gap="1" W="8">Author</Field>
+        </Row>
+      </Cell>
+    </Row>
+  </site:conditional>
+
+  <Modals>
+    <!-- TODO: add 'c-editor-funding-decision' to the table head command counters  -->
+    <Modal Id="c-coach-contracting-email" Width="800px" EventTarget="c-editor-funding-decision" PrependerId="c-activity-alerts-list" SaveLabel="action.email">
+      <Title>Send notification about start of contracting process to Coach</Title>
+    </Modal>
+    <Modal Id="c-coach-contract" Width="620px" EventTarget="c-editor-funding-decision">
+      <Title>Date of coach contract signature</Title>
+    </Modal>
+  </Modals>
+
+  <Commands>
+    <Add Key="cde.coach-contracting-start" TargetEditor="c-coach-contracting-email" Template="templates/notification?goal=create&amp;auto=1" Resource="~/alerts?goal=init&amp;from=FundingDecision"/>
+    <Add Key="btn.coach-contract" TargetEditor="c-coach-contract" Template="^/templates/coach-contract?goal=update" Resource="~/funding-decision/CoachContract?goal=update"/>
+    <Open Key="btn.contract-list" Resource="~/funding-decision/contracts" Form="c-open-form"/>
+    <Open Key="btn.contract-annex" Resource="~/funding-decision/annex" Form="c-open-form"/>
+  </Commands>
+
+  <Plugins>
+    <MultiText Keys="comment"/>
+  </Plugins>
+  <Bindings>
+    <Condition Keys="signature" Variable="sig3"/>
+    <Require Keys="comment"/>
+  </Bindings>
+</Form>

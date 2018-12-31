@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalInformation>
+	<Description Lang="en">
+		<Selector Name="PartnerTypes">
+			<Version>20180924-0</Version>
+			<Title>Partner type</Title>
+			<Note>Type of business partnership my Organisation is looking for</Note>
+				<Option>
+					<Value>1</Value>
+					<Name>Sales distribution</Name>
+				</Option>
+				<Option>
+					<Value>2</Value>
+					<Name>Joint R&amp;D</Name>
+				</Option>
+				<Option>
+					<Value>3</Value>
+					<Name>Joint production</Name>
+				</Option>
+				<Option>
+					<Value>4</Value>
+					<Name>Joint-venture</Name>
+				</Option>
+				<Option>
+					<Value>5</Value>
+					<Name>Licensing</Name>
+				</Option>
+				<Option>
+					<Value>6</Value>
+					<Name>Franchising</Name>
+				</Option>
+				<Option>
+					<Value>6</Value>
+					<Name>None</Name>
+				</Option>
+				<Option>
+					<Value>7</Value>
+					<Name>Other</Name>
+				</Option>
+			</Selector>
+	</Description>
+</GlobalInformation>

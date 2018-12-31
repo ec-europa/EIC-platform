@@ -1,0 +1,78 @@
+<Services>
+  <Providers>
+    <Service>
+      <Id>cockpit</Id>
+      <Name Lang="en">SME Dashboard</Name>
+      <AuthorizationToken>COCKPIT-KEY</AuthorizationToken>
+      <EndPoint>
+        <Id>cockpit.events</Id>
+        <Name Lang="en">Events</Name>
+      </EndPoint>
+      <EndPoint>
+        <Id>cockpit.messages</Id>
+        <Name Lang="en">Messages</Name>
+      </EndPoint>
+    </Service>
+  </Providers>
+  <Consumers>
+    <Service>
+      <Id>invest</Id>
+      <Name Lang="en">Match Invest</Name>
+      <AuthorizationToken>CASE-TRACKER-KEY</AuthorizationToken>
+      <EndPoint>
+        <Id>invest.end-point</Id>
+        <Name Lang="en">Synchronize MatchInvest account</Name>
+        <URL>http://testmatchinvesteu.cdi.ch/Pages/DataTransfer/Process.aspx</URL>
+      </EndPoint>
+    </Service>
+    <Service>
+      <Id>cctracker</Id>
+      <Name Lang="en">Case Tracker</Name>
+      <AuthorizationToken>CASE-TRACKER-KEY</AuthorizationToken>
+      <EndPoint>
+        <Id>cctracker.enterprises</Id>
+        <Name Lang="en">Enterprises</Name>
+        <URL>http://localhost:8080/exist/projets/cctracker/enterprises/export</URL>
+      </EndPoint>
+      <EndPoint>
+        <Id>cctracker.coaches</Id>
+        <Name Lang="en">Coaches</Name>
+        <URL>http://localhost:8080/exist/projets/cctracker/coaches/export</URL>
+      </EndPoint>
+    </Service>
+    <Service>
+      <Id>community</Id>
+      <Name Lang="en">EIC Community</Name>
+      <!-- For the test environment only
+           Encode username/login in a 64 Base
+           send in http header : "Authorization: Basic QWxhZGRpbjpvcGVuIHNlc2FtZQ==""
+      -->
+      <AuthorizationBasic>COMMUNITY-BASIC-TOKEN</AuthorizationBasic>
+      <AuthorizationToken>COMMUNITY-KEY</AuthorizationToken>
+      <EndPoint>
+        <Id>bootstrap</Id>
+        <Name Lang="en">Bootstrap</Name>
+<!--        <URL>http://smeic-test.westeurope.cloudapp.azure.com/easme_dashboard/rest/node</URL>-->
+        <URL>http://192.168.203.84:8080/CrunchifyRESTServiceTutorials/api/crunchifyService</URL>
+      </EndPoint>
+    </Service>
+  </Consumers>
+  <Hooks>
+    <Service>
+        <Id>invest</Id>
+        <EndPoint>
+          <Id>ScaleupEU.open</Id>
+          <Name>ScaleupEU entry point for end user with token</Name>
+          <URL>http://testmatchinvesteu.cdi.ch</URL>
+        </EndPoint>
+    </Service>
+    <Service>
+      <Id>community</Id>
+      <EndPoint>
+        <Id>community.open</Id>
+        <Name>EIC Community homepage</Name>
+        <URL>http://smeic-test.westeurope.cloudapp.azure.com</URL>
+      </EndPoint>
+    </Service>    
+  </Hooks>
+</Services>

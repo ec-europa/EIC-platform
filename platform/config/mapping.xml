@@ -1,0 +1,19 @@
+<!-- ======================================================================
+                        Oppidum framework mapping
+     ====================================================================== -->
+<site startref="deploy" supported="" db="/db/www/platform" confbase="/db/www/platform" key="platform" mode="dev">
+  <item name="deploy">
+    <access>
+      <rule action="GET" role="all"/>
+    </access>
+    <model src="scripts/deploy.xql"/>
+    <view src="scripts/deploy.xsl"/>
+  </item>
+  <item name="cleanup">
+    <access>
+      <rule action="GET" role="all"/>
+    </access>
+    <model src="scripts/cleanup.xql"/>
+    <view src="scripts/deploy.xsl"/>
+  </item>  
+</site>

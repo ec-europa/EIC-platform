@@ -1,0 +1,19 @@
+<Person>
+  <Id>1</Id>
+  <UserProfile>
+    <Username>demo</Username>
+    <Email Name='ECAS'>s.sire@oppidoc.fr</Email>
+    <Roles>
+      <Role>
+        <FunctionRef>1</FunctionRef>
+      </Role>
+      <Role>
+        <FunctionRef>3</FunctionRef>
+        <EnterpriseRef>1</EnterpriseRef>
+      </Role>
+      <Role>
+        <FunctionRef>99</FunctionRef>
+      </Role>
+    </Roles>
+  </UserProfile>
+</Person>

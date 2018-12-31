@@ -1,0 +1,4 @@
+/* Module level CSS for persons */
+th.mobile, th.phone {
+  min-width: 7em;
+}

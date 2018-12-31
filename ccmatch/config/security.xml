@@ -1,0 +1,87 @@
+<Realms>
+  <Realm Name="ECAS">
+    <Label>EU login</Label>
+    <Surrogate>
+      <User>_ecas_</User>
+      <Password>PASSWORD</Password>
+      <Groups>
+        <Group>users</Group>
+      </Groups>
+    </Surrogate>
+    <Variables>
+      <Variable>
+        <Name>Session</Name>
+        <Expression>element remote { attribute name { $realm-name }, element key {$uid} }</Expression>
+      </Variable>
+      <Variable>
+        <Name>RemoteUser</Name>
+        <Expression>element Remote { attribute Name { $realm-name }, $remote}</Expression>
+      </Variable>
+      <Variable>
+        <Name>Exists</Name>
+        <Expression>exists(fn:collection('/db/sites/ccmatch/persons')//Person/UserProfile[Remote[@Name eq $realm] eq $key])</Expression>
+      </Variable>
+      <Variable>
+        <Name>Groups</Name>
+        <Expression>let $profile := fn:collection('/db/sites/ccmatch/persons')//Person/UserProfile[Remote[@Name eq $realm] eq $key] return for $fref in $profile//FunctionRef let $fdef := fn:collection('/db/sites/ccmatch/global-information')//Description[@Lang eq 'en']/Functions/Function[Id = $fref] where $fdef[@Role] return string($fdef/@Role) </Expression>
+      </Variable>
+    </Variables>
+    <Base>https://ecas.ec.europa.eu</Base>
+    <EndPoint>
+      <Id>ecas.init</Id>
+      <Name>Login Initialization Request</Name>
+      <Suffix>/cas/login/init</Suffix>
+      <Parameters>
+        <Mandatory>service</Mandatory>
+        <!-- used as callback whenever login attempt succeeds -->
+        <Mandatory>acceptStrengths</Mandatory>
+        <!-- for specifying authentication methods allowed by the client -->
+      </Parameters>
+      <Result Http="200">
+        <!-- HTTP result context (OK) -->
+        <Failure Context="loginRequestFailure">
+          <Trigger On="$Context/@code = ('INVALID_REQUEST', 'INVALID_STRENGTH')">CAS-INVALID-INIT</Trigger>
+        </Failure>
+        <Success Context="loginRequestSuccess">
+          <Return>loginRequestId</Return>
+        </Success>
+      </Result>
+      <Result Http="500">
+        <!-- HTTP result context (No response at all) -->
+        <Failure>
+          <!-- no @Context/@Base whenever @Http contains the failure -->
+          <Trigger>SERVICE-NOT-RESPONDING</Trigger>
+        </Failure>
+      </Result>
+    </EndPoint>
+    <EndPoint>
+      <Id>ecas.login</Id>
+      <Name>Login</Name>
+      <Suffix>/cas/login</Suffix>
+      <Parameters>
+        <Mandatory>loginRequestId</Mandatory>
+      </Parameters>
+    </EndPoint>
+    <EndPoint>
+      <Id>ecas.validation</Id>
+      <Name>Ticket Validation</Name>
+      <Suffix>/cas/laxValidate</Suffix>
+      <Parameters>
+        <Mandatory>service</Mandatory>
+        <Mandatory>ticket</Mandatory>
+        <Optional>userDetails</Optional>
+      </Parameters>
+      <Result Http="200">
+        <Failure Context="authenticationFailure">
+          <Trigger On="$Context/@code = ('INVALID_REQUEST', 'INVALID_STRENGTH', 'INVALID_TICKET', 'INVALID_SERVICE')">CAS-INVALID-VAL</Trigger>
+        </Failure>
+        <Success Context="authenticationSuccess">
+          <Combine Root="ECAS">
+            <Mapping Target="uid">username</Mapping>
+            <Mapping Target="email">email</Mapping>
+          </Combine>
+        </Success>
+      </Result>
+    </EndPoint>
+  </Realm>
+</Realms>

@@ -1,0 +1,74 @@
+<!-- Event workflow e-mail notification variables assumptions :
+     - $subject is the enterprise (eventually decorated with extra elements)
+     - $object is the event application data
+     - not retro-compatible with imported legacy events -->
+<Variables>
+  <Variable>
+    <Name>Application_URL</Name>
+    <Expression>globals:doc('settings-uri')/Settings/Module[Name eq 'application']/Property[Key eq 'URL']/Value/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>Event_Name</Name>
+    <Expression>custom:gen-event-name(globals:collection('events-uri')//Event[Id eq $object/Id])</Expression>
+  </Variable>
+  <Variable>
+    <Name>Event_DateFrom</Name>
+    <Expression>display:gen-display-date(globals:collection('events-uri')//Event[Id eq $object/Id]/Information/Date/From, 'en')</Expression>
+  </Variable>
+  <Variable>
+    <Name>Event_City</Name>
+    <Expression>globals:collection('events-uri')//Event[Id eq $object/Id]/Information/Location/Town/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>Event_Country</Name>
+    <Expression>globals:collection('events-uri')//Event[Id eq $object/Id]/Information/Location/Country/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>PDB_Date</Name>
+    <Expression>display:gen-display-date(globals:collection('events-uri')//Event[Id eq $object/Id]/Rankings[@Iteration eq 'cur']/PreDepartureDate/text(), 'en')</Expression>
+  </Variable>
+  <Variable>
+    <Name>Event_Confirmation_Delay</Name>
+    <Expression>7</Expression>
+  </Variable>
+  <Variable>
+    <Name>Link_To_Event</Name>
+    <Expression>concat("/events/", $subject/Id, "/form/", $object/Id)</Expression>
+  </Variable>
+  <Variable>
+    <Name>Link_To_Events</Name>
+    <Expression>concat("/events/", $subject/Id)</Expression>
+  </Variable>
+  <Variable>
+    <Name>Applicant_FullName</Name>
+    <Expression>concat($object/Data/Application/Contact/FirstName, ' ', $object/Data/Application/Contact/LastName)</Expression>
+  </Variable>
+  <Variable>
+    <Name>Applicant_FirstName</Name>
+    <Expression>$object/Data/Application/Contact/FirstName/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>Applicant_CompanyName</Name>
+    <Expression>$object/Data/Application/Company/Name/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>Confirm_FullName</Name>
+    <Expression>concat($object/Data/Confirmation/Preparation/Contact/FirstName, ' ', $object/Data/Confirmation/Preparation/Contact/LastName)</Expression>
+  </Variable>
+  <Variable>
+    <Name>Confirm_CompanyName</Name>
+    <Expression>$object/Data/Confirmation/Preparation/Company/Name/text()</Expression>
+  </Variable>
+  <Variable>
+    <Name>Date_Plus_14</Name>
+    <Expression>let $d := current-date() + xs:dayTimeDuration("P14D") return concat(substring($d,9,2), '/', substring($d,6,2), '/', substring($d,1,4))</Expression>
+  </Variable>
+  <Variable>
+    <Name>Date_Plus_7</Name>
+    <Expression>let $d := current-date() + xs:dayTimeDuration("P7D") return concat(substring($d,9,2), '/', substring($d,6,2), '/', substring($d,1,4))</Expression>
+  </Variable>
+  <Variable>
+    <Name>EASME_Event_Website</Name>
+    <Expression>"https://ec.europa.eu/easme/en/matchmaking-events-investors-and-business-partners"</Expression>
+  </Variable>
+</Variables>

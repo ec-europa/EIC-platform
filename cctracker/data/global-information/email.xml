@@ -1,0 +1,501 @@
+<Emails>
+  <Alert Name="project-spontaneous-alert" Lang="en">
+    <Subject>Message about project @@Project_Acronym@@</Subject>
+    <Message>
+      <Text>Edit your own message here...</Text>
+      <Text>Direct link to Company case on Case Tracker: @@Link_To_Project@@</Text>
+      <Text>@@User_First_Name@@ @@User_Last_Name@@</Text>
+    </Message>
+  </Alert>
+  <Alert Name="case-spontaneous-alert" Lang="en">
+    <Subject>Message about project @@Project_Acronym@@ of @@Beneficiary@@</Subject>
+    <Message>
+      <Text>Edit your own message here...</Text>
+      <Text>Direct link to Company case on Case Tracker: @@Link_To_Case@@</Text>
+      <Text>@@User_First_Name@@ @@User_Last_Name@@</Text>
+    </Message>
+  </Alert>
+  <Alert Name="activity-spontaneous-alert" Lang="en">
+    <Subject>Message about @@Activity_Title@@ coaching activity</Subject>
+    <Message>
+      <Text>Enter your own message here...</Text>
+      <Text>Direct link to Company coaching activity on Case Tracker: @@Link_To_Activity@@</Text>
+      <Text>@@User_First_Name@@ @@User_Last_Name@@</Text>
+    </Message>
+  </Alert>
+  <!-- ======================================================================
+                       Transition alerts (application.xml)
+         Includes manual notifications and direct or automatic notifications
+       ======================================================================
+   -->
+  <!-- Default for case workflow transition -->
+  <Alert Name="case-workflow-alert" Lang="en">
+    <Subject>The case @@Project_Acronym@@ has moved to a new status</Subject>
+    <Message>
+      <Text>I inform you that the case @@Project_Acronym@@ of @@Beneficiary@@ has @@Action_Verb@@ to @@Status_Name@@</Text>
+      <Text>Direct link to Company case on Case Tracker: @@Link_To_Case@@</Text>
+      <Text>@@User_First_Name@@ @@User_Last_Name@@</Text>
+    </Message>
+  </Alert>
+  <!-- Default for activity workflow transition -->
+  <Alert Name="activity-workflow-alert" Lang="en">
+    <Subject>The coaching activity @@Activity_Title@@ has moved to a new status</Subject>
+    <Message>
+      <Text>I inform you that the coaching activity has @@Action_Verb@@ to @@Status_Name@@</Text>
+      <Text>Direct link to Company coaching activity on Case Tracker: @@Link_To_Activity@@</Text>
+      <Text>@@User_First_Name@@ @@User_Last_Name@@</Text>
+    </Message>
+  </Alert>
+  <!-- Manual (or batch assignment in assign.xql) -->
+  <Alert Name="een-coordinator-notification" Lang="en">
+    <From>EASME-SME-COACHING@ec.europa.eu</From>
+    <Subject>KAM assignment: The case @@Project_Acronym@@ is ready for your input</Subject>
+    <Message>
+      <Block>
+        <Line Repeat="*">Dear @@Coordinator_First_Name@@ @@Coordinator_Last_Name@@,</Line>
+      </Block>
+      <Text>This is to inform you that an SME Instrument grant for a company in your region will be prepared: @@Beneficiary@@.</Text>
+      <Text>Please assign this case to one of your KAMs and comment on a possible conflict of interest, by using this link within 5 days : @@Link_To_Case@@</Text>
+      <Text>Please go to the next step after your KAM assignment, or if you believe you are not responsible for this case, please reject and return to "EEN assignment (EASME)" in the Case Tracker.</Text>
+      <Block>
+        <Line>Thanks in advance,</Line>
+        <Line>Best regards,</Line>
+        <Line>@@User_First_Name@@ @@User_Last_Name@@</Line>
+        <Line>EASME</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Manual -->
+  <Alert Name="kam-notification" Lang="en">
+    <Subject>KAM assignment: The case @@Project_Acronym@@ is ready for your input</Subject>
+    <Message>
+      <Text>Dear @@KAM_First_Name@@ @@KAM_Last_Name@@,</Text>
+      <Text>This is to inform you that you have been assigned as KAM for @@Beneficiary@@.</Text>
+      <Text>Please contact the company and enter the needs analysis within 30 days using this link: @@Link_To_Case@@</Text>
+      <Text>Your KAM coordinator has commented on any potential conflict of interest between yourself and the company. Please review this information to confirm it is accurate.</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>@@User_First_Name@@ @@User_Last_Name@@</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Manual (not different from previous one, should we keep it ?) -->
+  <Alert Name="kam-notification-nologin" Lang="en">
+    <Subject>KAM assignment: The case @@Project_Acronym@@ is ready for your input</Subject>
+    <Message>
+      <Text>Dear @@KAM_First_Name@@ @@KAM_Last_Name@@,</Text>
+      <Text>This is to inform you that you have been assigned as KAM for @@Beneficiary@@.</Text>
+      <Text>Please contact the company and enter the needs analysis within 30 days using this link: @@Link_To_Case@@</Text>
+      <Text>Your KAM coordinator has commented on any potential conflict of interest between yourself and the company. Please review this information to confirm it is accurate.</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>@@User_First_Name@@ @@User_Last_Name@@</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Automatic -->
+  <Alert Name="sme-notification" Lang="en">
+    <From>EASME-SME-COACHING@ec.europa.eu</From>
+    <To>@@SME_Contact@@</To>
+    <Subject>The Coaching activity for your project @@Project_Acronym@@</Subject>
+    <Message>
+      <Text>Dear @@Contact_First_Name@@ @@Contact_Last_Name@@,</Text>
+      <Text>Congratulations and welcome to the SME Champions League! You are now close to getting your grant. EASME is committed to the successful commercialisation of your project and the growth of your company. That is why your grant is combined with professional business coaching (see
+        https://ec.europa.eu/easme/sites/easme-site/files/basic-principles.pdf) paid directly by us.</Text>
+      <Text>The coaching offer links you up with experienced business innovation coaches. They will bring perspective and confidence during the challenging times to help you navigate through complicated business development matters. Our coaching approach has a proven track record and a very high
+        satisfaction rate with high growth SME clients. We will cover the costs for three days of coaching for phase 1 and twelve days in phase 2 beneficiaries.</Text>
+      <Text>As a first step, you will be contacted by @@KAM_First_Name@@ @@KAM_Last_Name@@, from the Enterprise Europe Network (EEN) team in your region (see http://een.ec.europa.eu/about/branches). They will work with you to establish your coaching priorities and help you identify a suitable coach.
+        And then you are off! Our aim is to start the coaching as soon as the grant is signed.</Text>
+      <Text>Please be assured that we take the confidentiality of your project very seriously, therefore EEN and the coaches have received only publicly available project data.</Text>
+      <Text>Should you have any questions on coaching, please do not hesitate to contact us at EASME-SME-COACHING@ec.europa.eu</Text>
+      <Text>I wish you good work, good luck and success.</Text>
+      <Block>
+        <Line>Best Regards,</Line>
+        <Line>Bernd Reichert</Line>
+        <Line>EASME, Head of Unit H2020 SME Instrument</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Automatic -->
+  <Alert Name="sme-anonymous-notification" Lang="en">
+    <From>EASME-SME-COACHING@ec.europa.eu</From>
+    <To>@@SME_Contact@@</To>
+    <Subject>The Coaching activity for your project @@Project_Acronym@@</Subject>
+    <Message>
+      <Text>Dear @@Contact_First_Name@@ @@Contact_Last_Name@@,</Text>
+      <Text>Congratulations and welcome to the SME Champions League! You are now close to getting your grant. EASME is committed to the successful commercialisation of your project and the growth of your company. That is why your grant is combined with professional business coaching paid directly by
+        us (see https://ec.europa.eu/easme/sites/easme-site/files/basic-principles.pdf).</Text>
+      <Text>The coaching offer links you up with experienced business innovation coaches. They will bring perspective and confidence during the challenging times to help you navigate through complicated business development matters. Our coaching approach has a proven track record and a very high
+        satisfaction rate with high growth SME clients. We will cover the costs for three days of coaching for phase 1 and twelve days in phase 2.</Text>
+      <Text>As a first step, you will be contacted by the Enterprise Europe Network (EEN) team in your region (see http://een.ec.europa.eu/about/branches). They will work with you to establish your coaching priorities and help you identify a suitable coach. And then you are off! Our aim is to start
+        the coaching as soon as the grant is signed.</Text>
+      <Text>Please be assured that we take the confidentiality of your project very seriously, therefore EEN and the coaches have received only publicly available project data.</Text>
+      <Text>Should you have any questions on coaching, please do not hesitate to contact us at EASME-SME-COACHING@ec.europa.eu</Text>
+      <Text>I wish you good work, good luck and success.</Text>
+      <Block>
+        <Line>Best Regards,</Line>
+        <Line>Bernd Reichert</Line>
+        <Line>EASME, Head of Unit H2020 SME Instrument</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Manual -->
+  <Alert Name="coach-assignment-coach-notification" Lang="en">
+    <Subject>Case @@Project_Acronym@@ (@@Beneficiary@@) awaits your coaching plan</Subject>
+    <Message>
+      <Line>Dear Coach,</Line>
+      <Text>You have been selected to coach @@Beneficiary@@.</Text>
+      <Text>Please enter the coaching plan in the Case Tracker within 10 days using this link: @@Link_To_Activity@@</Text>
+      <Block>
+        <Line>For a first contract:</Line>
+        <Line>Please register as an individual expert (not as a company) in the official EU experts database Participant Portal (link: http://ec.europa.eu/research/participants/portal/desktop/en/home.html) to be able to receive a coaching contract.</Line>
+      </Block>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>@@User_First_Name@@ @@User_Last_Name@@</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Direct (in parallel with "coach-assignment-coach-notification") -->
+  <Alert Name="coach-assignment-easme-notification" Lang="en">
+    <Subject>Coach assigned for project @@Project_Acronym@@</Subject>
+    <To>EASME-SME-COACHING@ec.europa.eu</To>
+    <Message>
+      <Text>I have just assigned @@Coach_First_Name@@ @@Coach_Last_Name@@ to coach @@Beneficiary@@</Text>
+      <Text>The coaching plan should be available in the Case Tracker within 10 days at this link: @@Link_To_Activity@@</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>@@User_First_Name@@ @@User_Last_Name@@</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Direct  -->
+  <Alert Name="coaching-plan-consultation" Lang="en">
+    <Subject>Coaching plan for @@Beneficiary@@ awaits your comment</Subject>
+    <Message>
+      <Text>Dear @@KAM_First_Name@@ @@KAM_Last_Name@@,</Text>
+      <Text>Please comment on the coaching plan</Text>
+      <Text>@@Link_To_Activity@@</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>@@User_First_Name@@ @@User_Last_Name@@</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Automatic -->
+  <Alert Name="coaching-plan-submission" Lang="en">
+    <Subject>@@Beneficiary@@ coaching plan awaits approval</Subject>
+    <From>EASME-SME-COACHING@ec.europa.eu</From>
+    <CC>EASME-SME-COACHING@ec.europa.eu</CC>
+    <Message>
+      <Text>Dear @@Coach_First_Name@@ @@Coach_Last_Name@@,</Text>
+      <Text>Your coaching plan is now awaiting EASME approval, after which we will start contract preparation.</Text>
+      <Text>Be aware that you must be registered as an individual expert (not as a company) in the Participant Portal, the official EU experts database (http://ec.europa.eu/research/participants/portal/desktop/en/home.html).</Text>
+      <Text>Please note that only coaching activities occurred after the signature of the contract both by the coach and the European Commission and within the dates referred to in Art.3 of the contract are eligible for reimbursement.</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>EASME Coaching Team</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Manual -->
+  <Alert Name="coach-contracting-start" Lang="en">
+    <Subject>The coaching plan for @@Beneficiary@@ has been approved</Subject>
+    <From>EASME-SME-COACHING@ec.europa.eu</From>
+    <Message>
+      <Text>Dear Coach,</Text>
+      <Text>This is to inform you that the coaching contract preparation has started.</Text>
+      <Text>If your registration as individual expert in the Participant Portal is fully validated, this will normally take a week. If the registration is not yet validated this will take several weeks.</Text>
+      <Text>Please note that only coaching activities occurred after the signature of the contract both by the coach and the European Commission and within the dates referred to in Art.3 of the contract are eligible for reimbursement.</Text>
+      <Text>Please download the mandatory time sheet for your activities from the button below your coaching plan in the Case Tracker.</Text>
+      <Text>Direct link to Company coaching activity on Case Tracker: @@Link_To_Activity@@</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>@@User_First_Name@@ @@User_Last_Name@@</Line>
+        <Line>EASME Coaching Team</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Manual -->
+  <Alert Name="coaching-start" Lang="en">
+    <Subject>Start coaching for @@Beneficiary@@</Subject>
+    <Message>
+      <Text>Dear @@Coach_First_Name@@ @@Coach_Last_Name@@,</Text>
+      <Text>This is to inform you that your contract for the coaching of @@Beneficiary@@ has been signed.</Text>
+      <Text>Please note that only coaching activities occurred after the signature of the contract both by the coach and the European Commission and within the dates referred to in Art.3 of the contract are eligible for reimbursement.</Text>
+      <Text>You may start the activities and enter the coaching report on: @@Link_To_Activity@@</Text>
+      <Text>Please remember to let the client sign your time sheet.</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>@@User_First_Name@@ @@User_Last_Name@@</Line>
+        <Line>EASME Coaching Team</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Manual (to be renamed to "coach-report-approved" and sent on saving report approval)-->
+  <Alert Name="coach-submit-report" Lang="en">
+    <Subject>The case @@Project_Acronym@@ is ready for your feedback</Subject>
+    <Message>
+      <Line>Dear @@KAM_First_Name@@ @@KAM_Last_Name@@,</Line>
+      <Text>We invite you to provide your feedback about the coaching of the project @@Project_Acronym@@ within 5 days using this link: @@Link_To_Activity@@</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>@@User_First_Name@@ @@User_Last_Name@@</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Direct (NOT YET ENABLED - to be exchanged with previous one) -->
+  <Alert Name="coach-report-approved" Lang="en">
+    <Subject>The coaching report of [@@Project_Acronym@@] – [@@Project_ID@@] has been submitted</Subject>
+    <To>EASME-SME-COACHING@ec.europa.eu</To>
+    <Message>
+      <Text>I inform you that the coaching activity has moved forward to Report approval.</Text>
+      <Text>Direct link to Company coaching activity on Case Tracker: @@Link_To_Activity@@</Text>
+      <Line>@@User_First_Name@@ @@User_Last_Name@@</Line>
+    </Message>
+  </Alert>
+  <!-- ======================================================================
+                             Reminders (checks.xml)
+       ======================================================================
+   -->
+  <Alert Name="een-coordinator-kam-reminder" Lang="en">
+    <Subject>REMINDER: KAM assignment: The case @@Project_Acronym@@ is ready for your input</Subject>
+    <Message>
+      <Block>
+        <Line Repeat="*">Dear @@Coordinator_First_Name@@ @@Coordinator_Last_Name@@,</Line>
+      </Block>
+      <Text>This is to remind you to assign this case to a KAM. Please take action today by using this link : @@Link_To_Case@@</Text>
+      <Text>Please go to the next step after your KAM assignment, or if you believe you are not responsible for this case, please reject and return to "EEN assignment (EASME)" in the Case Tracker.</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>EASME coaching team</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- *************************************** -->
+  <Alert Name="kam-notification-reminder" Lang="en">
+    <Subject>REMINDER: The case @@Project_Acronym@@ is ready for your input</Subject>
+    <Message>
+      <Block>
+        <Line>Dear @@KAM_First_Name@@ @@KAM_Last_Name@@,</Line>
+      </Block>
+      <Text>This is to inform you there is now 20 days since you have been assigned as KAM for @@Beneficiary@@.</Text>
+      <Text>Please enter the needs analysis within 10 days using this link: @@Link_To_Case@@</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>EASME Coaching Team</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- *************************************** -->
+  <Alert Name="coach-assignment-reminder" Lang="en">
+    <Subject>REMINDER: Case @@Project_Acronym@@ (@@Beneficiary@@) awaits your coaching plan</Subject>
+    <Message>
+      <Line>Dear @@Coach_First_Name@@ @@Coach_Last_Name@@,</Line>
+      <Text>You have been selected to coach @@Beneficiary@@.</Text>
+      <Text>Please enter the coaching plan in the Case Tracker using this link: @@Link_To_Activity@@</Text>
+      <Block>
+        <Line>For a first contract:</Line>
+        <Line>Please register as an individual expert (not as a company) in the official EU experts Participant Portal to be able to receive a coaching contract (link: http://ec.europa.eu/research/participants/portal/desktop/en/home.html).</Line>
+      </Block>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>EASME Coaching Team</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- ======================================================================
+                                Explicit messages
+                            Sent upon special events
+       ======================================================================
+   -->
+  <!--  Manual and pre-filled from alert.xql (button click)-->
+  <Email Name="sme-agreement" Lang="en">
+    <From>@@Mail_From@@</From>
+    <To>@@Mail_To@@</To>
+    <Subject>Your confirmation of the coaching plan for @@Project_Acronym@@ needed</Subject>
+    <Message>
+      <Text>Dear @@First_Name@@ @@Last_Name@@,</Text>
+      <Text>This message contains a coaching proposition to accompany your project "@@Project_Title@@" under the Horizon 2020 coaching support program.</Text>
+      <Text>This proposition follows the needs analysis performed by @@KAM_First_Name@@ @@KAM_Last_Name@@ on @@Needs_Analysis_Date@@.</Text>
+      <Text>By replying to my message that your agree with the coaching plan, I will contact you as soon as possible to start the coaching activity.</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>@@Coach_First_Name@@ @@Coach_Last_Name@@</Line>
+      </Block>
+    </Message>
+  </Email>
+  <!-- Automatic from funding-decision.xql (upon saving) -->
+  <Email Name="coach-plan-approved" Lang="en">
+    <Subject>Coaching plan for project @@Project_Acronym@@ approved</Subject>
+    <To>EASME-SME-COACHING@ec.europa.eu</To>
+    <Message>
+      <Text>The coaching plan of coaching activity @@Activity_Title@@ for the SME beneficiary @@Beneficiary@@ is approved. The coach @@Coach_First_Name@@ @@Coach_Last_Name@@ has @@Nb_Of_Hours@@ hours of coaching.</Text>
+      <Text>Please compile the coach contract and confirm once it is signed by the coach.</Text>
+      <Text>Direct link to Company case on Case Tracker: @@Link_To_Activity@@</Text>
+      <Text>@@User_First_Name@@ @@User_Last_Name@@</Text>
+    </Message>
+  </Email>
+  <!-- Automatic (upon evaluation order successfully received by polling service) in evaluation.xqm 
+       when coaching manager advances to Evaluation -->
+  <Email Name="sme-feedback" Lang="en">
+    <Subject>Your feedback of the coaching for  @@Beneficiary@@ (@@Project_Acronym@@) needed</Subject>
+    <Message>
+      <Text>Dear @@NA_Contact_First_Name@@ @@NA_Contact_Last_Name@@,</Text>
+      <Text>May we kindly invite you to give your opinion about the coaching that was organised by @@KAM_First_Name@@ @@KAM_Last_Name@@ and @@Coach_First_Name@@ @@Coach_Last_Name@@.</Text>
+      <Text>Your feedback will help us to improve the quality of the coaching scheme.</Text>
+      <Text>Please use this link :</Text>
+      <Text Visibility="obfuscate">@@Link_To_Form@@</Text>
+      <Block>
+        <Line>Thanks for your contribution,</Line>
+        <Line>@@User_First_Name@@ @@User_Last_Name@@</Line>
+        <Line>EASME Coaching Team</Line>
+      </Block>
+    </Message>
+  </Email>
+  <!-- Automatic (upon evaluation order successfully received by polling service) in evaluation.xqm 
+       when coaching manager advances to Evaluation -->
+  <Email Name="kam-feedback" Lang="en">
+    <Subject>Your opinion on the coaching for @@Beneficiary@@ (@@Project_Acronym@@)</Subject>
+    <To>@@KAM_Email@@</To>
+    <Message>
+      <Text>Dear @@KAM_Name@@,</Text>
+      <Text>May we kindly invite you to give your opinion about the coaching that you organised.</Text>
+      <Text>Your feedback will help us to improve the quality of the coaching scheme.</Text>
+      <Text Visibility="obfuscate">@@Link_To_Form@@</Text>
+      <Block>
+        <Line>Thanks for your contribution,</Line>
+        <Line>EASME Coaching Team</Line>
+      </Block>
+    </Message>
+  </Email>
+  <!-- Automatic -->
+  <Alert Name="sme-feedback-reminder" Lang="en">
+    <Subject>REMINDER: Your opinion on the coaching for @@Beneficiary@@ (@@Project_Acronym@@)</Subject>
+    <To>@@NA_Contact_Email@@</To>
+    <Message>
+      <Text>Dear @@NA_Contact_First_Name@@ @@NA_Contact_Last_Name@@,</Text>
+      <Text>May we kindly remind you to give your opinion about the coaching that was organised by @@KAM_First_Name@@ @@KAM_Last_Name@@ and @@Coach_First_Name@@ @@Coach_Last_Name@@.</Text>
+      <Text>Your feedback will help us to improve the quality of the coaching scheme.</Text>
+      <Text>Please note that this link will close within 2 weeks</Text>
+      <Text>Please use this link :</Text>
+      <Text Visibility="obfuscate">@@Link_To_SME_Form@@</Text>
+      <Block>
+        <Line>Thanks for your contribution,</Line>
+        <Line>EASME Coaching Team</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- Automatic -->
+  <Alert Name="kam-feedback-reminder" Lang="en">
+    <Subject>REMINDER: Your opinion on the coaching for @@Beneficiary@@ (@@Project_Acronym@@)</Subject>
+    <To>@@KAM_Email@@</To>
+    <Message>
+      <Text>Dear @@KAM_Name@@,</Text>
+      <Text>May we kindly remind you to give your opinion about the coaching that you organised.</Text>
+      <Text>Your feedback will help us to improve the quality of the coaching scheme.</Text>
+      <Text>Please note that this link will close within 2 weeks</Text>
+      <Text>Please use this link :</Text>
+      <Text Visibility="obfuscate">@@Link_To_KAM_Form@@</Text>
+      <Block>
+        <Line>Thanks for your contribution,</Line>
+        <Line>EASME Coaching Team</Line>
+      </Block>
+    </Message>
+  </Alert>
+  <!-- ======================================================================
+                            User account management
+       ======================================================================
+   -->
+  <Email Name="remote-login-added" Lang="en">
+    <Subject>Creation of your Case Tracker user account</Subject>
+    <Message>
+      <Text>Dear @@Remote_Key@@,</Text>
+      <Text>Welcome to the Case Tracker of the SME Instrument coaching service.</Text>
+      <Block>
+        <Line>Your can now access to the application with your 'EU Login' username and password</Line>
+      </Block>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>EASME Coaching Team</Line>
+      </Block>
+    </Message>
+  </Email>
+  <Email Name="remote-login-added-coach" Lang="en">
+    <Subject>Creation of your Case Tracker user account</Subject>
+    <Message>
+      <Text>Dear @@Remote_Key@@,</Text>
+      <Text>Welcome to the Case Tracker of the SME Instrument coaching service.</Text>
+      <Block>
+        <Line>Your can now access to the application with your 'EU Login' username and password</Line>
+      </Block>
+      <Text>When you are selected by a company you will be notified to contribute to the coaching plan.</Text>
+      <Text>Please be aware that to be able to receive a coaching contract you must be registered as an individual expert (not as a company) in the Participant Portal, the official EU experts database (http://ec.europa.eu/research/participants/portal/desktop/en/home.html).</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>EASME Coaching Team</Line>
+      </Block>
+    </Message>
+  </Email>
+  <Email Name="login-created" Lang="en">
+    <Subject>Creation of your Case Tracker user account</Subject>
+    <Message>
+      <Text>Dear @@User_First_Name@@ @@User_Last_Name@@,</Text>
+      <Text>Welcome to the Case Tracker of the SME Instrument coaching service.</Text>
+      <Block>
+        <Line>Your login has this ID : @@Login@@</Line>
+        <Line>and this password : @@Password@@</Line>
+      </Block>
+      <Text>When you are selected by a company you will be notified to contribute to the coaching plan.</Text>
+      <Text>Please be aware that to be able to receive a coaching contract you must be registered as an individual expert (not as a company) in the Participant Portal, the official EU experts database (http://ec.europa.eu/research/participants/portal/desktop/en/home.html).</Text>
+      <Block>
+        <Line>Best regards,</Line>
+        <Line>EASME Coaching Team</Line>
+      </Block>
+    </Message>
+  </Email>
+  <!-- *************************************** -->
+  <Email Name="login-updated" Lang="en">
+    <Subject>Modification of your Case Tracker user account</Subject>
+    <Message>
+      <Text>Dear @@User_First_Name@@ @@User_Last_Name@@,</Text>
+      <Text>Your Case Tracker user account has been modified</Text>
+      <Block>
+        <Line>Your new login has this ID : @@Login@@</Line>
+        <Line>and this password : @@Password@@</Line>
+      </Block>
+      <Text>Use it from now to connect to https://casetracker-smei.easme-web.eu</Text>
+      <Text>To change your password connect to the application then click on your login name on the top right corner of the screen</Text>
+      <Text>The Case Tracker is designed to run with Firefox, select About in the top menu for more information</Text>
+      <Block>
+        <Line>Warmest regards,</Line>
+        <Line>@@Admin_First_Name@@ @@Admin_Last_Name@@</Line>
+        <Line>Case Tracker Administrator</Line>
+      </Block>
+    </Message>
+  </Email>
+  <!-- *************************************** -->
+  <Email Name="new-password-by-admin" Lang="en">
+    <Subject>Modification of your Case Tracker user account</Subject>
+    <Message>
+      <Text>Your new password to access the Case Tracker is : @@Password@@</Text>
+      <Text>Use it from now to connect to https://casetracker-smei.easme-web.eu</Text>
+      <Text>To change your password connect to the application then click on your login name on the top right corner of the screen</Text>
+      <Block>
+        <Line>Warmest regards,</Line>
+        <Line>@@Admin_First_Name@@ @@Admin_Last_Name@@</Line>
+        <Line>Case Tracker Administrator</Line>
+      </Block>
+    </Message>
+  </Email>
+  <!-- *************************************** -->
+  <Email Name="new-password-by-user" Lang="en">
+    <Subject>Modification of your Case Tracker user account</Subject>
+    <Message>
+      <Text>Your new password to access the Case Tracker is : @@Password@@</Text>
+      <Text>Use it from now to connect to https://casetracker-smei.easme-web.eu</Text>
+      <Text>To change your password connect to the application then click on your login name on the top right corner of the screen</Text>
+      <Text>This message has been automatically generated, please do not answer</Text>
+    </Message>
+  </Email>
+</Emails>

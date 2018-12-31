@@ -1,0 +1,55 @@
+<Form Tag="UserProfile" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <Title>User Profile</Title>
+  <Row>
+    <Cell W="12" Gap="0" Tag="Contacts">
+      <Title>Pre-registration of an external user (EU login)</Title>
+      <Row>
+        <Field Key="name" Tag="Name" loc="term.name" Gap="1">Name</Field>
+      </Row>
+      <Row>
+        <Field Key="email" Tag="Mail" loc="term.email" Gap="1">Email</Field>
+      </Row>
+      <Row>
+        <Field Key="key" Tag="Key" loc="term.key" Gap="1">Key</Field>
+      </Row>
+      <Row>
+        <Field Key="realm" Tag="Realm" loc="term.realm" Gap="1">Realm</Field>
+      </Row>
+    </Cell>
+    <Cell W="12">
+      <Title level="2">Roles to assign to user</Title>
+      <Repeat Tag="Roles" Min="0">
+          <Cell Tag="Role" Gap="0.75">
+              <Title level="3">Role</Title>
+              <Row>
+                <Field Key="function" Tag="FunctionRef" Gap="1">Name</Field>
+                <Field Key="services" Gap="1">Services</Field>
+                <Field Key="cantonal-antenna" Tag="RegionalEntityRef" Gap="2">EEN Regional Entity</Field>
+                <Field Key="projectid" Tag="ProjectId" Gap="2">Project Officer Id.</Field>
+              </Row>
+              <xhtml:div xmlns="http://www.w3.org/1999/xhtml" style="float:right">
+                <xhtml:span class="text-info">Click on minus (resp. plus) to remove (resp. add) a role <Menu/></xhtml:span>
+              </xhtml:div>
+          </Cell>
+      </Repeat>
+    </Cell>
+  </Row>
+  <Bindings>
+    <Require Keys="function"/>
+    <Require Keys="key"/>
+    <Require Keys="realm"/>
+    <Require Keys="email"/>
+    <Enforce>
+      <RegExp Keys="email" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <!-- <RegExp Keys="phone mobile" Message-loc="validation.phone"
+        Message="Vous devez saisir un numéro de téléphone composé de chiffres uniquement séparés par des espaces"
+        >^\+?\s*[\d ]{2,}$</RegExp> -->
+    </Enforce>
+  </Bindings>
+  <Plugins>
+    <Input Keys="administrative-entity collaborative-entity projectid key name"/>
+    <Input Keys="email" Media="email"/>
+  </Plugins>
+</Form>

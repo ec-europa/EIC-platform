@@ -1,0 +1,1165 @@
+<Templates>
+  <Template Name="test" Mode="create">
+    <![CDATA[
+  <XAL Debug="on" _Prune="none">
+    <XALAction Type="create" Entity="test" Key="{ $id }" Debug="on">
+      <Test Creation="{ $date }">
+        <TestId>{ $id }</TestId>
+        <Category>{ $form/Category/text() }</Category>
+        <Logs/>
+      </Test>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="test" Mode="update">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="replace">
+      <Category LastModification="{ $date }">
+        { $form/Category/text() }
+      </Category>
+    </XALAction>
+    <XALAction Type="timestamp" Pivot="$subject">LastModification</XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="test-insert" Mode="update">
+    <![CDATA[
+  <XAL>
+    {
+    for $i at $j in 1 to xs:integer($form/Repeat)
+    return
+      <XALAction Type="insert" Pivot="$subject/Logs">
+        <Message Rank="{$j}" LastModification="{ $date }">
+          <Id>{{ xal:auto-increment($subject, 'LastIndex') }}</Id>
+          <Text>{ $form/Message/text() }</Text>
+        </Message>
+      </XALAction>
+    }
+    <XALAction Type="timestamp" Pivot="$subject/Logs">LastInsert</XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="test-update" Mode="update" Subject="Test">
+    <![CDATA[
+  <XAL>
+    {
+    let $persists := $subject/Logs/Message[Id = $id]
+    return
+      if ($persists) then
+        <XALAction Type="update" Source="$subject" Pivot="$subject/Logs/Message[Id = '{$id}']">
+          <Message LastModification="{ $date }">
+            { $persists/Id }
+            <Text>{ concat($persists/Text, ', ', $form/Message) }</Text>
+          </Message>
+        </XALAction>
+      else
+        oppidum:throw-error('CUSTOM', concat('Message ', $id, ' not found '))
+    }
+    <XALAction Type="timestamp" Pivot="$subject/Logs">LastUpdate</XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="enterprise" Mode="create">
+    <![CDATA[
+  <XAL Mode="{ $mode }">
+    <XALAction Type="create" Entity="enterprise" Key="{ $id }">
+      <Enterprise Creation="{ $date }">
+        <Id>{ $id }</Id>
+        { $form/Information }
+        <Team LastModification="{ $date }" _Prune="none">
+          <Members/>
+        </Team>
+        <Projects LastModification="{ $date }" _Prune="none">
+          { $form/Projects/Project }
+        </Projects>
+      </Enterprise>
+    </XALAction>
+    <XALAction Type="invalidate" Lang="en"><Cache>enterprise</Cache><Cache>town</Cache></XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- create an Investor company profile
+       such profile is restricted to hold a team of investor(s) members -->
+  <Template Name="investor-company" Mode="create">
+    <![CDATA[
+  <XAL Mode="{ $mode }">
+    <XALAction Type="create" Entity="enterprise" Key="{ $id }">
+      <Enterprise Creation="{ $date }">
+        { $form/@EnterpriseId }
+        <Id>{ $id }</Id>
+        <Settings>
+          <Teams>Investor</Teams>
+        </Settings>
+        <Information>
+          <Name>Please complete company { $id } name</Name>
+          <ShortName>Investor's company { $id }</ShortName>
+        </Information>
+        <Team LastModification="{ $date }" _Prune="none">
+          <Members/>
+        </Team>
+      </Enterprise>
+    </XALAction>
+    <XALAction Type="invalidate" Lang="en"><Cache>enterprise</Cache><Cache>town</Cache></XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- Adds a project to an Enterprise - actually CommissionSignature is imported by LEAR import -->
+  <Template Name="project" Mode="create">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="insert" Pivot="$subject/Projects">
+      <Project>
+        <ProjectId>{ string($form/@ProjectId) }</ProjectId>
+        { $form/Acronym }
+        { $form/Summary }
+        { $form/Call }
+        { $form/Role }
+        { $form/ProjectOfficerKey }
+      </Project>
+    </XALAction>
+    <XALAction Type="timestamp" Pivot="$subject/Projects">LastModification</XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="cie-address" Mode="read">
+    <![CDATA[
+    <Enterprise>
+      {
+      $subject/Information/Name,
+      $subject/Information/ShortName,
+      $subject/Information/WebSite,
+      $subject/Information/Address
+      }
+    </Enterprise>
+]]>
+  </Template>
+  <!-- WARNING: be carful to persist all the Tag names which are not part of the statistics formular ! -->
+  <Template Name="cie-address" Mode="update" Subject="Enterprise">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="replace">
+      <Information LastModification="{ $date }">
+        {
+        $form/Name,
+        $form/ShortName,
+        $form/WebSite,
+        $form/Address,
+        $subject/Information/*[local-name(.) = ('CreationYear', 'SizeRef', 'DomainActivityRef', 'TargetedMarkets', 'DomainNames', 'MainActivities', 'ThematicsTopics', 'CountriesSellingTo', 'Clients', 'ServicesAndProductsOffered', 'ServicesAndProductsLookingFor')]
+        }
+      </Information>
+    </XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+    <XALAction Type="invalidate" Lang="en"><Cache>enterprise</Cache><Cache>town</Cache></XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="cie-statistics" Mode="read">
+    <![CDATA[
+    <Enterprise>
+      {
+      $subject/Information/CreationYear,
+      $subject/Information/SizeRef,
+      $subject/Information/TargetedMarkets,
+      $subject/Information/DomainNames,
+      $subject/Information/MainActivities,
+      $subject/Information/ThematicsTopics,
+      $subject/Information/CountriesSellingTo,
+      $subject/Information/Clients,
+      $subject/Information/ServicesAndProductsOffered,
+      $subject/Information/ServicesAndProductsLookingFor
+      }
+    </Enterprise>
+]]>
+  </Template>
+  <!-- WARNING: be carful to persist all the Tag names which are not part of the statistics formular ! -->
+  <Template Name="cie-statistics" Mode="update">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="replace">
+      <Information LastModification="{ $date }">
+        {
+        $subject/Information/*[local-name(.) = ('Name', 'ShortName', 'WebSite', 'Address', 'DomainNames', 'DomainActivityRef')],
+        $form/CreationYear,
+        $form/SizeRef,     
+        $form/TargetedMarkets,
+        $form/MainActivities,
+        $form/ThematicsTopics,
+        $form/CountriesSellingTo,
+        $form/Clients,
+        $form/ServicesAndProductsOffered,
+        $form/ServicesAndProductsLookingFor
+        }
+      </Information>
+    </XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="cie-status" Mode="read">
+    <![CDATA[
+    <Enterprise>
+      {
+      <YesNoScaleRef>{ ('1', $subject/ValidationStatus/CompanyTypeRef/text())[last()] }</YesNoScaleRef>,
+      if (exists($subject/Status/StatusFlagRef)) then
+        $subject/Status/StatusFlagRef
+      else
+        <StatusFlagRef>2</StatusFlagRef>,
+      if (exists($subject/Projects/Project)) then
+        <Projects>
+          {
+          for $project in $subject/Projects/Project
+          return
+            <Project>
+              {
+              $project/Acronym,
+              $project/ProjectId,
+              <ProjectOfficerByRef>{ collection('/db/sites/cockpit/persons')//Person[UserProfile/Remote eq $project/ProjectOfficerKey]/Id/text() }</ProjectOfficerByRef>,
+              <BackupProjectOfficerByRef>{ collection('/db/sites/cockpit/persons')//Person[UserProfile/Remote eq $project/BackupProjectOfficerKey]/Id/text() }</BackupProjectOfficerByRef>,
+              <Call>
+                { $project/Call/FundingProgramRef }
+                <Funding>{ misc:unreference($project/Call/(SMEiFundingRef|FETActionRef))/@_Display }</Funding>
+                <CutOff>{ misc:unreference($project/Call/(SMEiCallRef|FETCallRef|FTICallRef))/@_Display }</CutOff>
+              </Call>,
+              $project/(ProjectStartDate | ProjectEndDate),
+              if (exists($project/GAP/CommissionSignature)) then
+                <Date>{ $project/GAP/CommissionSignature/text() }</Date>
+              else
+                (),
+              $project/TerminationFlagRef,
+              $project/Comments
+              }
+            </Project>
+          }
+        </Projects>
+      else 
+          ()
+      } 
+    </Enterprise>
+]]>
+  </Template>
+  <Template Name="cie-status" Mode="update">
+    <![CDATA[
+<XAL _Prune="none">
+  <XALAction Type="align" Check="children">
+    <ValidationStatus LastModification="{ $date }">
+      <CompanyTypeRef>
+        { $form/YesNoScaleRef/text() }
+      </CompanyTypeRef>
+    </ValidationStatus>
+    <Status LastModification="{ $date }">
+      { $form/StatusFlagRef }
+    </Status>
+  </XALAction>
+  {
+  for $project in $subject/Projects/Project
+  let $project-id := $project/ProjectId
+  let $submitted := $form//Project[ProjectId eq $project-id]
+  return
+    <XALAction Type="align" Pivot="$subject/Projects/Project[ProjectId eq '{$project-id}']" Check="children" _Prune="none">
+      <TerminationFlagRef LastModification="{ $date }">
+        { $submitted/TerminationFlagRef/text() }
+      </TerminationFlagRef>
+      <Comments LastModification="{ $date }">
+        { $submitted/Comments/* }
+      </Comments>
+      <GAP>
+        { 
+        if (exists($submitted/Date)) then 
+          <CommissionSignature>{ $submitted/Date/text() }</CommissionSignature>
+        else
+          ()
+        }
+      </GAP>
+    </XALAction>
+  }
+</XAL>
+]]>
+  </Template>
+  <Template Name="import-status" Mode="update">
+    <![CDATA[
+<XAL _Prune="none">
+  {
+    <XALAction Type="align" Pivot="$subject" _Prune="none">
+      { if (exists($form/Summary)) then $form/Summary else () }
+      { if (exists($form/ProjectOfficerKey)) then $form/ProjectOfficerKey else () }
+      { if (exists($form/BackupProjectOfficerKey)) then $form/BackupProjectOfficerKey else () }
+      { if (exists($form/ProjectStartDate)) then $form/ProjectStartDate else () }
+      {
+      let $start := ($form/ProjectStartDate | $subject/ProjectStartDate)[1]
+      return
+      if (exists($form/ProjectEndDate)) then
+        $form/ProjectEndDate
+      else if (exists($form/ProjectDuration) and exists($start)) then
+        let $int := try { xs:integer($form/ProjectDuration) } catch * { -1 }
+        return
+          if ($int ne -1) then
+            <ProjectEndDate>{ xs:date($start) + xs:yearMonthDuration(concat('P', $int,'M')) - xs:dayTimeDuration('P1D') }</ProjectEndDate>
+          else
+            ()
+      else
+        ()
+      }
+      <GAP>{ if (exists($form/CommissionSignature)) then $form/CommissionSignature else $subject/GAP/CommissionSignature }</GAP>
+    </XALAction>
+  }
+</XAL>
+]]>
+  </Template>
+  <Template Name="team-member" Mode="read" Subject="Enterprise">
+    <![CDATA[
+    <Member>
+      {
+      $subject/Team/Members/Member[Id eq $id]/Information/*
+      }
+    </Member>
+]]>
+  </Template>
+  <!-- Add Member record for a user, take input from a team-member compatible data model -->
+  <Template Name="team-member" Mode="create" Subject="Enterprise" Form="team-member">
+    <![CDATA[
+    <XAL>
+      <XALAction Type="insert" Pivot="$subject/Team/Members">
+        <Member LastModification="{ $date }">
+          <Id>{{ xal:auto-increment($subject, 'LastIndex') }}</Id>
+          <CreatedByRef>{ $uid }</CreatedByRef>
+          { $form/PersonRef }
+          <Information>
+          {
+          $form/Sex,
+          $form/Civility,
+          $form/Name,
+          $form/Contacts,
+          $form/CorporateFunctions,
+          $form/Function,
+          $form/SpokenLanguages
+          }
+          </Information>
+        </Member>
+      </XALAction>
+      <XALAction Type="timestamp" Pivot="$subject/Team">LastModification</XALAction>
+      <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+        <Task context="EICCommunity" enterprise="{ $subject/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+      </XALAction>
+    </XAL>
+]]>
+  </Template>
+  <Template Name="team-member" Mode="update" Subject="Enterprise">
+    <![CDATA[
+  <XAL>
+    {
+    let $persists := $subject/Team/Members/Member[Id eq $id]
+    return
+      <XALAction Type="update" Source="$subject/Team/Members/Member[Id eq '{$id}']">
+        <Member LastModification="{ $date }">
+          { $persists/(Id|CreatedByRef|AdmissionKey|PersonRef) }
+          <Information>
+          {
+          $form/Sex,
+          $form/Civility,
+          $form/Name,
+          $form/Contacts,
+          $form/CorporateFunctions,
+          if ($form/CorporateFunctions/CorporateFunctionRef = '10') then
+            $form/Function
+          else
+            (),
+          $form/SpokenLanguages
+          }
+          </Information>
+        </Member>
+      </XALAction>
+    }
+    <XALAction Type="timestamp" Pivot="$subject/Team">LastModification</XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="project-officer" Mode="create" Subject="Enterprise">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="create" Entity="person" Key="{ $id }">
+      <Person>
+        <Id>{ $id }</Id>
+        <UserProfile>
+          { $form//Remote }
+          <Roles>
+            <Role>
+              <FunctionRef>2</FunctionRef>
+            </Role>
+          </Roles>
+        </UserProfile>
+      </Person>
+    </XALAction>
+    <XALAction Type="insert" Pivot="$subject/Team/Members">
+      <Member LastModification="{ $date }">
+        <Id>{{ xal:auto-increment($subject, 'LastIndex') }}</Id>
+        <CreatedByRef>{ $uid }</CreatedByRef>
+        <PersonRef>{ $id }</PersonRef>
+        <Information>
+        {
+        $form/Sex,
+        $form/Civility,
+        $form/Name,
+        $form/Contacts,
+        $form/CorporateFunctions,
+        $form/Function
+        }
+        </Information>
+      </Member>
+    </XALAction>
+    <XALAction Type="timestamp" Pivot="$subject/Team">LastModification</XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- <Description>Create an unaffiliated project officer: same as unaffiliated but the static role.</Description> -->
+  <Template Name="unaffiliated-project-officer" Mode="create" Subject="Enterprise">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="create" Entity="person" Key="{ $id }">
+      <Person>
+        <Id>{ $id }</Id>
+        <UserProfile>
+          { $form//Remote }
+          <Roles>
+            <Role>
+              <FunctionRef>2</FunctionRef>
+            </Role>
+          </Roles>
+        </UserProfile>
+        <Information>
+          {
+          $form/Sex,
+          $form/Civility,
+          $form/Name,
+          $form/Contacts,
+          $form/CorporateFunctions,
+          $form/Function
+          }
+        </Information>
+      </Person>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- <Description>Promote someone as project officer if already in the system</Description>-->
+  <Template Name="project-officer-promote" Mode="update" Subject="Person">
+    <![CDATA[
+  <XAL>
+    {
+    let $new-role := $subject/UserProfile/Roles/Role[FunctionRef eq '2']
+    return
+      if (exists($new-role)) then
+        ()
+      else
+        <XALAction Type="insert" Pivot="$subject/UserProfile/Roles">
+          <Role>
+            <FunctionRef>2</FunctionRef>
+          </Role>
+        </XALAction>
+    }
+  </XAL>
+]]>
+  </Template>
+  <!-- Creates a LEAR directly inside an Enterprise with access to the application :
+       - creates the Person entity first (with generated ID in $id)
+       - adds the Member record second (with auto-increment ID)
+       Could be splitted using "team-member" create followed by "accredit-lear" create ?
+       -->
+  <Template Name="lear" Mode="create" Subject="Enterprise">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="create" Entity="person" Key="{ $id }">
+      <Person>
+        <Id>{ $id }</Id>
+        <UserProfile>
+          <Email Name='ECAS'>{ normalize-space($form/Contacts/Email) }</Email>
+          <Roles>
+            <Role>
+              <FunctionRef>3</FunctionRef>
+              <EnterpriseRef>{ $subject/Id/text() }</EnterpriseRef>
+            </Role>
+          </Roles>
+        </UserProfile>
+      </Person>
+    </XALAction>
+    <XALAction Type="insert" Pivot="$subject/Team/Members">
+      <Member LastModification="{ $date }">
+        <Id>{{ xal:auto-increment($subject, 'LastIndex') }}</Id>
+        <CreatedByRef>{ $uid }</CreatedByRef>
+        <PersonRef>{ $id }</PersonRef>
+        <Information>
+        {
+        $form/Sex,
+        $form/Civility,
+        $form/Name,
+        $form/Contacts,
+        $form/CorporateFunctions,
+        $form/Function
+        }
+        </Information>
+      </Member>
+    </XALAction>
+    <XALAction Type="timestamp" Pivot="$subject/Team">LastModification</XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="DG" Mode="create" Subject="Enterprise">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="create" Entity="person" Key="{ $id }">
+      <Person>
+        <Id>{ $id }</Id>
+        <UserProfile>
+          <Email Name='ECAS'>{ normalize-space($form/Contacts/Email) }</Email>
+          <Roles>
+            <Role>
+              <FunctionRef>6</FunctionRef>
+              <EnterpriseRef>{ $subject/Id/text() }</EnterpriseRef>
+            </Role>
+          </Roles>
+        </UserProfile>
+      </Person>
+    </XALAction>
+    <XALAction Type="insert" Pivot="$subject/Team/Members">
+      <Member LastModification="{ $date }">
+        <Id>{{ xal:auto-increment($subject, 'LastIndex') }}</Id>
+        <CreatedByRef>{ $uid }</CreatedByRef>
+        <PersonRef>{ $id }</PersonRef>
+        <Information>
+        {
+        $form/Sex,
+        $form/Civility,
+        $form/Name,
+        $form/Contacts,
+        $form/CorporateFunctions,
+        $form/Function
+        }
+        </Information>
+      </Member>
+    </XALAction>
+    <XALAction Type="timestamp" Pivot="$subject/Team">LastModification</XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- Accredit an investor (i.e. create a new account) and register him inside an investor company
+       Pre-condition= the e-mail address must not be already associated with another account
+       or you should use "investor-template" instead
+       TODO: merge with "DG" creation (only different is FunctionRef)
+  -->
+  <Template Name="investor" Mode="create" Subject="Enterprise" Object="FunctionRef">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="create" Entity="person" Key="{ $id }">
+      <Person>
+        <Id>{ $id }</Id>
+        <UserProfile>
+          <Email Name='ECAS'>{ normalize-space($form/Contacts/Email) }</Email>
+          <Roles>
+            <Role>
+              <FunctionRef>{ $object/text() }</FunctionRef>
+              <EnterpriseRef>{ $subject/Id/text() }</EnterpriseRef>
+            </Role>
+          </Roles>
+        </UserProfile>
+      </Person>
+    </XALAction>
+    <XALAction Type="insert" Pivot="$subject/Team/Members">
+      <Member LastModification="{ $date }">
+        <Id>{{ xal:auto-increment($subject, 'LastIndex') }}</Id>
+        <CreatedByRef>{ $uid }</CreatedByRef>
+        <PersonRef>{ $id }</PersonRef>
+        <Information>
+        {
+        $form/Sex,
+        $form/Civility,
+        $form/Name,
+        $form/Contacts,
+        $form/CorporateFunctions,
+        $form/Function
+        }
+        </Information>
+      </Member>
+    </XALAction>
+    <XALAction Type="timestamp" Pivot="$subject/Team">LastModification</XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- Add an Investor role to an existing account and register him inside an investor company
+  -->
+  <Template Name="investor-member" Mode="update" Subject="Enterprise" Object="Person">
+    <![CDATA[
+  <XAL>
+    {
+    let $new-role := $object/UserProfile/Roles/Role[FunctionRef eq '7']
+    let $enterprise-ref := $subject/Id/text()
+    return
+      if (exists($new-role)) then
+        if (not($new-role/EnterpriseRef = $enterprise-ref)) then
+          <XALAction Type="insert" Pivot="$object/UserProfile/Roles/Role[FunctionRef eq '7']">
+            <EnterpriseRef>{ $enterprise-ref }</EnterpriseRef>
+          </XALAction>
+        else
+          ()
+      else
+        <XALAction Type="insert" Pivot="$object/UserProfile/Roles">
+          <Role>
+            <FunctionRef>7</FunctionRef>
+            <EnterpriseRef>{ $enterprise-ref }</EnterpriseRef>
+          </Role>
+        </XALAction>
+    }
+    <XALAction Type="insert" Pivot="$subject/Team/Members">
+      <Member LastModification="{ $date }">
+        <Id>{{ xal:auto-increment($subject, 'LastIndex') }}</Id>
+        <CreatedByRef>{ $uid }</CreatedByRef>
+        <PersonRef>{ $id }</PersonRef>
+        <Information>
+        {
+        $form/Sex,
+        $form/Civility,
+        $form/Name,
+        $form/Contacts,
+        $form/CorporateFunctions,
+        $form/Function
+        }
+        </Information>
+      </Member>
+    </XALAction>
+    <XALAction Type="timestamp" Pivot="$subject/Team">LastModification</XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>    
+  <!-- Creates a LEAR directly inside an Enterprise with access to the application :
+       - creates the Person entity first (with generated ID in $id)
+       - adds the Member record second (with auto-increment ID)
+       Could be splitted using "team-member" create followed by "accredit-lear" update ?
+       -->
+  <Template Name="lear" Mode="update" Subject="Enterprise" Object="Person">
+    <![CDATA[
+  <XAL>
+    {
+    let $new-role := $object/UserProfile/Roles/Role[FunctionRef eq '3']
+    let $enterprise-ref := $subject/Id/text()
+    return
+      if (exists($new-role)) then
+        if (not($new-role/EnterpriseRef = $enterprise-ref)) then
+          <XALAction Type="insert" Pivot="$object/UserProfile/Roles/Role[FunctionRef eq '3']">
+            <EnterpriseRef>{ $enterprise-ref }</EnterpriseRef>
+          </XALAction>
+        else
+          ()
+      else
+        <XALAction Type="insert" Pivot="$object/UserProfile/Roles">
+          <Role>
+            <FunctionRef>3</FunctionRef>
+            <EnterpriseRef>{ $enterprise-ref }</EnterpriseRef>
+          </Role>
+        </XALAction>
+    }
+    <XALAction Type="insert" Pivot="$subject/Team/Members">
+      <Member LastModification="{ $date }">
+        <Id>{{ xal:auto-increment($subject, 'LastIndex') }}</Id>
+        <CreatedByRef>{ $uid }</CreatedByRef>
+        <PersonRef>{ $id }</PersonRef>
+        <Information>
+        {
+        $form/Sex,
+        $form/Civility,
+        $form/Name,
+        $form/Contacts,
+        $form/CorporateFunctions,
+        $form/Function
+        }
+        </Information>
+      </Member>
+    </XALAction>
+    <XALAction Type="timestamp" Pivot="$subject/Team">LastModification</XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- Creates an accredited person with access to the application (LEAR or PCOCO Delegate see $form/FunctionRef) 
+       Used by import-lear.xql 
+       FIXME: we do not update LastModification timestamp on Member when accrediting it if already there -->
+  <!-- DEPRECATED - to be replaced by POD Web Service -->
+  <Template Name="import-person" Mode="create" Object="Enterprises">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="create" Entity="person" Key="{ $id }">
+      <Person>
+        <Id>{ $id }</Id>
+        <UserProfile>
+          <Email Name='ECAS'>{ $form/Information/Contacts/Email/text() }</Email>
+          <Roles>
+            <Role>
+              <FunctionRef>{ $form/FunctionRef/text() }</FunctionRef>
+              {
+              for $e in $form/Enterprises/EnterpriseRef
+              return
+                <EnterpriseRef>{ $e/text() }</EnterpriseRef>
+              }
+            </Role>
+          </Roles>
+        </UserProfile>
+      </Person>
+    </XALAction>
+    {
+    for $e in $form/Enterprises/EnterpriseRef
+    let $enterprise := $object//Enterprise[Id eq $e]
+    let $already-member := $enterprise//Member[.//Email eq $form/Information/Contacts/Email]
+    return (
+      if (exists($already-member)) then
+        <XALAction Type="replace" Pivot="$object//Enterprise[Id eq '{$e}']/Team/Members/Member[.//Email eq '{$form/Information/Contacts/Email}']">
+          <PersonRef>{ $id }</PersonRef>
+        </XALAction>
+      else
+        <XALAction Type="insert" Pivot="$object//Enterprise[Id eq '{$e}']/Team/Members">
+          <Member LastModification="{ $date }">
+            <Id>{{ xal:auto-increment($subject, 'LastIndex') }}</Id>
+            <CreatedByRef>{ $uid }</CreatedByRef>
+            <PersonRef>{ $id }</PersonRef>
+            <Information>
+            {
+            $form/Information/Name,
+            $form/Information/Contacts
+            }
+            </Information>
+          </Member>
+        </XALAction>,
+      <XALAction Type="attribute" Pivot="$object//Enterprise[Id eq '{$e}']" Name="MasterId">
+        <Value>{ string($e/@MasterId) }</Value>
+      </XALAction>,
+      <XALAction Type="timestamp" Pivot="$object//Enterprise[Id eq '{$e}']/Team">LastModification</XALAction>
+      )
+    }
+  </XAL>
+]]>
+  </Template>
+  <!-- Accredits an existing person with access to the application (LEAR or PCOCO Delegate see $form/FunctionRef)
+       Used by import-lear.xql -->
+  <!-- DEPRECATED - to be replaced by POD Web Service -->
+  <Template Name="import-person" Mode="update" Subject="Person" Object="Enterprises">
+    <![CDATA[
+  <XAL>
+    {
+    let $target-role := $subject/UserProfile/Roles/Role[FunctionRef eq $form/FunctionRef]
+    return
+      if (exists($target-role)) then
+        for $enterprise-ref in $form/Enterprises/EnterpriseRef
+        where not($enterprise-ref = $target-role/EnterpriseRef)
+        return
+          <XALAction Type="insert" Pivot="$subject/UserProfile/Roles/Role[FunctionRef eq '{$form/FunctionRef}']">
+            <EnterpriseRef>{ $enterprise-ref/text() }</EnterpriseRef>
+          </XALAction>
+      else
+        <XALAction Type="insert" Pivot="$subject/UserProfile/Roles">
+          <Role>
+            <FunctionRef>{ $form/FunctionRef/text() }</FunctionRef>
+            {
+            for $e in $form/Enterprises/EnterpriseRef
+            return
+              <EnterpriseRef>{ $e/text() }</EnterpriseRef>
+            }
+          </Role>
+        </XALAction>
+    }
+    {
+    for $e in $form/Enterprises/EnterpriseRef
+    let $enterprise := $object//Enterprise[Id eq $e]
+    return
+      (
+      if (not($enterprise//Member/PersonRef = $form/Id)) then (
+        <XALAction Type="insert" Pivot="$object//Enterprise[Id eq '{$e}']/Team/Members">
+          <Member LastModification="{ $date }">
+            <Id>{{ xal:auto-increment($subject, 'LastIndex') }}</Id>
+            <CreatedByRef>{ $uid }</CreatedByRef>
+            <PersonRef>{ $id }</PersonRef>
+            <Information>
+            {
+            $form/Information/Name,
+            $form/Information/Contacts
+            }
+            </Information>
+          </Member>
+        </XALAction>,
+        <XALAction Type="timestamp" Pivot="$object//Enterprise[Id eq '{$e}']/Team">LastModification</XALAction>
+        )
+      else
+        (),
+      <XALAction Type="attribute" Pivot="$object//Enterprise[Id eq '{$e}']" Name="MasterId">
+        <Value>{ string($e/@MasterId) }</Value>
+      </XALAction>
+      )
+    }
+  </XAL>
+]]>
+  </Template>
+  <Template Name="import-signature" Mode="update" Subject="Project">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="replace">
+      <GAP>
+        <CommissionSignature>{ $form/Date/text() }</CommissionSignature>
+      </GAP>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- <Description>Turns a Member into a Person as a delegate : creates the Person entity. Use this template when the candidate delegate has never had access to the application before.</Description> -->
+  <Template Name="accredit-delegate" Mode="create" Subject="Member">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="create" Entity="person" Key="{ $id }">
+      <Person>
+        <Id>{ $id }</Id>
+        <UserProfile>
+          <Email Name='ECAS'>{ normalize-space($subject/Information/Contacts/Email) }</Email>
+          <Roles>
+            <Role>
+              <FunctionRef>4</FunctionRef>
+              <EnterpriseRef>{ $subject/ancestor::Enterprise/Id/text() }</EnterpriseRef>
+            </Role>
+          </Roles>
+        </UserProfile>
+      </Person>
+    </XALAction>
+    <XALAction Type="insert">
+      <PersonRef>{ $id }</PersonRef>
+    </XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/ancestor::Enterprise/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/ancestor::Enterprise/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/ancestor::Enterprise/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- <Description>Links a Member to an existing Person as a delegate : adds the delegate role to the Person entity. Use this template to give the delegate Role to a Member who already had access to the application (e.g. a delegate who is delegate for several enterprises or a LEAR who is also a delegate for another enterprise).</Description>-->
+  <Template Name="accredit-delegate" Mode="update" Subject="Member" Object="Person">
+    <![CDATA[
+  <XAL _Prune="none">
+    {
+    let $delegate-role := $object/UserProfile/Roles/Role[FunctionRef eq '4']
+    let $enterprise-ref := $subject/ancestor::Enterprise/Id/text()
+    return
+      if (exists($delegate-role)) then
+        if (not($delegate-role/EnterpriseRef = $enterprise-ref)) then
+          <XALAction Type="insert" Pivot="$object/UserProfile/Roles/Role[FunctionRef eq '4']">
+            <EnterpriseRef>{ $enterprise-ref }</EnterpriseRef>
+          </XALAction>
+        else
+          ()
+      else
+        <XALAction Type="insert" Pivot="$object/UserProfile/Roles">
+          <Role>
+            <FunctionRef>4</FunctionRef>
+            <EnterpriseRef>{ $enterprise-ref }</EnterpriseRef>
+          </Role>
+        </XALAction>
+    }
+    <XALAction Type="replace">
+      <PersonRef>{ $object/Id/text()}</PersonRef>
+    </XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/ancestor::Enterprise/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/ancestor::Enterprise/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/ancestor::Enterprise/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="reject-delegate" Mode="update" Subject="Member">
+    <![CDATA[
+  <XAL _Prune="none">
+    <XALAction Type="replace">
+      <Rejected Date="{ $date }" ByPersonRef="{ $uid }"/>
+    </XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/ancestor::Enterprise/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/ancestor::Enterprise/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/ancestor::Enterprise/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- TODO: Generate a set of XALAction type="task" to prepagate change to EICCommunity
+             One task per enterprise of the Person
+             Target: Community v3
+  -->
+  <Template Name="block-delegate" Mode="update" Subject="Member" Object="Person">
+    <![CDATA[
+  <XAL _Prune="none">
+    <XALAction Type="replace" Pivot="$object/UserProfile">
+      <Blocked Date="{ $date }" ByPersonRef="{ $uid }"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- Adds $form/Add/FunctionRef roles to the subject Person linked to the object Member
+       Removes $form/Remove/FunctionRef roles to the subject Person linked to the object Member 
+       Called from deprecated LEAR import
+       Called when nominating a LEAR directly from the team page after "lear" update or create 
+       FIXME: Team timestamp ?
+  -->
+  <Template Name="roles" Mode="update" Subject="Person" Object="Member">
+    <![CDATA[
+  <XAL _Prune="none">
+    {
+    let $enterprise-ref := $object/ancestor::Enterprise/Id/text()
+    return (
+      for $function-ref in $form/Add/FunctionRef/text()
+      let $has-role := $subject/UserProfile/Roles/Role[FunctionRef eq $function-ref]
+      return
+        if (exists($has-role)) then
+          if (not($has-role/EnterpriseRef = $enterprise-ref)) then
+            <XALAction Type="insert" Pivot="$subject/UserProfile/Roles/Role[FunctionRef eq '{ $function-ref }']">
+              <EnterpriseRef>{ $enterprise-ref }</EnterpriseRef>
+            </XALAction>
+          else
+            ()
+        else
+          <XALAction Type="insert" Pivot="$subject/UserProfile/Roles">
+            <Role>
+              <FunctionRef>{ $function-ref }</FunctionRef>
+              <EnterpriseRef>{ $enterprise-ref }</EnterpriseRef>
+            </Role>
+          </XALAction>,
+      for $function-ref in $form/Remove/FunctionRef/text()
+      let $has-role := $subject/UserProfile/Roles/Role[FunctionRef eq $function-ref]
+      return
+        if ($has-role/EnterpriseRef = $enterprise-ref) then
+          if (count($has-role/EnterpriseRef) > 1) then
+            <XALAction Type="delete" Pivot="$subject/UserProfile/Roles/Role[FunctionRef eq '{ $function-ref }']/EnterpriseRef[. eq '{ $enterprise-ref }']"/>
+          else
+            <XALAction Type="delete" Pivot="$subject/UserProfile/Roles/Role[FunctionRef eq '{ $function-ref }' ]"/>
+        else
+          ()
+      )
+    }
+  </XAL>
+]]>
+  </Template>
+  <!-- Add one role (linked to enterprise) from user account -->
+  <!-- Used for SCALEUP Token allocation -->
+  <Template Name="remove-role" Mode="update" Subject="Person" Object="Enterprise">
+  <![CDATA[
+    <XAL _Prune="none">
+      {
+      let $enterprise-ref := $object/Id/text()
+      let $function-ref := $form/text()
+      let $has-role := $subject/UserProfile/Roles/Role[FunctionRef eq $function-ref]
+      return
+        if ($has-role/EnterpriseRef = $enterprise-ref) then
+          if (count($has-role/EnterpriseRef) > 1) then
+            <XALAction Type="delete" Pivot="$subject/UserProfile/Roles/Role[FunctionRef eq '{ $function-ref }']/EnterpriseRef[. eq '{ $enterprise-ref }']"/>
+          else
+            <XALAction Type="delete" Pivot="$subject/UserProfile/Roles/Role[FunctionRef eq '{ $function-ref }' ]"/>
+        else
+          ()
+      }
+    </XAL>
+  ]]>
+  </Template>
+  <!-- Add single role (linked to enterprise) to user account -->
+  <!-- Used for SCALEUP Token allocation -->
+  <Template Name="add-role" Mode="update" Subject="Person" Object="Enterprise">
+  <![CDATA[
+    <XAL _Prune="none">
+      {
+      let $enterprise-ref := $object/Id/text()
+      let $function-ref := $form/text()
+      let $has-role := $subject/UserProfile/Roles/Role[FunctionRef eq $function-ref]
+      return
+        if (exists($has-role)) then
+          if (not($has-role/EnterpriseRef = $enterprise-ref)) then
+            <XALAction Type="insert" Pivot="$subject/UserProfile/Roles/Role[FunctionRef eq '{ $function-ref }']">
+              <EnterpriseRef>{ $enterprise-ref }</EnterpriseRef>
+            </XALAction>
+          else
+            ()
+        else
+          <XALAction Type="insert" Pivot="$subject/UserProfile/Roles">
+            <Role>
+              <FunctionRef>{ $function-ref }</FunctionRef>
+              <EnterpriseRef>{ $enterprise-ref }</EnterpriseRef>
+            </Role>
+          </XALAction>
+      }
+    </XAL>
+  ]]>
+  </Template>
+  <!-- 
+    Delete the roles associated with the company from the person account
+    or delete the person account if it does not contain more roles
+    Update or create the master person account Information block 
+    if removing the last role associated with a company from the person account
+    Delete the member record from the company
+    Pre-condition: member is not scaleup token holder for the company
+    FIXME: Team timestamp ?
+  -->
+  <Template Name="member" Mode="delete" Subject="Member" Object="Person">
+<![CDATA[
+let $cie-ref := $subject/ancestor::Enterprise/Id
+let $name := $subject/Information/Name
+return
+  <XAL _Prune="none">
+    {
+    if (exists($object//Role[EnterpriseRef and EnterpriseRef ne $cie-ref])
+        or exists($object//Role[not(FunctionRef = custom:get-roles-in-scope('enterprise'))])) then
+     (
+     for $role in $object//Role[EnterpriseRef eq $cie-ref]
+     return
+       if (count($role/EnterpriseRef) > 1) then
+         <XALAction Type="delete" Pivot="$object//Role[FunctionRef eq '{ $role/FunctionRef }']/EnterpriseRef[. eq '{ $cie-ref }']"/>
+       else
+         <XALAction Type="delete" Pivot="$object//Role[FunctionRef eq '{ $role/FunctionRef }']"/>,
+     if (empty($object//Role[EnterpriseRef and EnterpriseRef ne $cie-ref])
+        and exists($object//Role[not(FunctionRef = custom:get-roles-in-scope('enterprise'))])) then 
+        (
+        <XALAction Type="replace" Pivot="$object">
+         { template:gen-document('person-information', 'create', $subject/Information) }
+        </XALAction>,
+        <XALAction Type="message" Info="UPDATE-UNAFFILIATED-SUCCESS" Output="flash">
+          <parameters>
+            <param>{ concat($name/FirstName, ' ', $name/LastName) }</param>
+          </parameters>
+        </XALAction>
+        )
+     else
+        ()
+    )
+    else if (exists($object)) then (
+      <XALAction Type="remove" Key="{ $object/Id }">person</XALAction>,
+      <XALAction Type="message" Info="DELETE-USER-SUCCESS" Output="flash">
+        <parameters>
+          <param>{ concat($name/FirstName, ' ', $name/LastName) }</param>
+        </parameters>
+      </XALAction>
+      )
+    else
+      ()
+    } 
+    <XALAction Type="delete"/>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/ancestor::Enterprise/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/ancestor::Enterprise/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/ancestor::Enterprise/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="member-simple" Mode="delete" Subject="Member" Object="Enterprise">
+<![CDATA[
+  <XAL _Prune="none">
+    <XALAction Type="delete"/>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($object/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $object/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $object/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- Template to create or duplicate an event pre-initialized with $form meta data
+       Optional Subject is the event it is duplicated from -->
+  <Template Name="event" Mode="create" Subject="Event">
+    <![CDATA[
+  <XAL Mode="{ $mode }">
+    <XALAction Type="create" Entity="event" Key="{ $id }">
+      <Event Creation="{ $date }" _Prune="none">
+        <Id>{ $id }</Id>
+        <CreatedByRef>{ $uid }</CreatedByRef>
+        {
+        if (exists($subject)) then
+          <CreatedFromKey>{ $subject/Id/text() }</CreatedFromKey>
+        else
+          (),
+        $form/*,
+        $subject/Processing
+        }
+      </Event>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="import-application-event" Mode="update" Subject="Enterprise">
+<![CDATA[
+  <XAL _Prune="none">
+    {
+    let $proj-key :=  $form/*[@Key][1]
+    return
+      (
+      if (not($subject/Events)) then
+        <XALAction Type="insert">
+          <Events/>
+        </XALAction>
+      else
+        (),
+      let $event := $subject/Events/Event[Id eq $id]
+      let $today := <Date>{ substring(string(fn:current-date()), 1, 10) }</Date>
+      let $current := $subject/Events/Event[Id eq $id]/StatusHistory/CurrentStatusRef/text()
+      return
+        if (not($event)) then
+          <XALAction Type="insert" Source="$subject" Pivot="$subject/Events">
+            <Event>
+              <Id>{ $id }</Id>
+              <StatusHistory>
+                <CurrentStatusRef>2</CurrentStatusRef>
+                <PreviousStatusRef>1</PreviousStatusRef>
+                <Status>
+                  { $today }
+                  <ValueRef>2</ValueRef>
+                </Status>
+                <Status>
+                  { $today }
+                  <ValueRef>1</ValueRef>
+                </Status>
+              </StatusHistory>
+              <Data/>
+            </Event>
+          </XALAction>
+        else if ($current eq '1') then
+          let $status := $subject/Events/Event[Id eq $id]//Status
+          return
+            <XALAction Type="replace" Source="$subject" Pivot="$subject/Events/Event[Id eq '{$id}']">
+              <StatusHistory>
+                <CurrentStatusRef>2</CurrentStatusRef>
+                <PreviousStatusRef>1</PreviousStatusRef>
+                <Status>
+                  { $today }
+                  <ValueRef>2</ValueRef>
+                </Status>
+                { $status }
+              </StatusHistory>
+            </XALAction>
+        else
+          (),
+      <XALAction Type="replace" Source="$subject" Pivot="$subject/Events/Event[Id eq '{$id}']/Data">
+        <Application LastModification="{ $date }" ImportDate="{ $date }">
+        {
+          element { local-name($proj-key) } { $proj-key/text() },
+          $form/*[not(local-name(.) = local-name($proj-key))] 
+        }
+        </Application>
+      </XALAction>
+      )
+    }
+  </XAL>
+]]>
+  </Template>
+</Templates>

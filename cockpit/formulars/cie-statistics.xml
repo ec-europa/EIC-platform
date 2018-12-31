@@ -1,0 +1,38 @@
+<Form xmlns:site="http://oppidoc.com/oppidum/site" xmlns:xt="http://ns.inria.org/xtiger"
+  Tag="Enterprise" Layout="fluid"  Orientation="horizontal">
+  
+  <Verbatim>
+    <xt:component name="t_countries-selling-to">
+      <Field Key="countries-selling-to" Tag="ISO3166Countries" Gap="2">Countries selling to</Field>
+    </xt:component>
+    <xt:component name="t_service-product-offered">
+      <Field Key="service-product-offered" Tag="DomainActivities" Gap="2">Services and products offered</Field>
+    </xt:component>
+    <xt:component name="t_services-and-products-looking-for">
+      <Field Key="services-and-products-looking-for" Tag="DomainActivities" Gap="2">Services and products looking for</Field>
+    </xt:component>    
+  </Verbatim>
+  <Row>
+    <Field Key="creation" Tag="CreationYear" Gap="2">Year of establishment</Field>
+    <Field Key="size" Tag="SizeRef" Gap="2">Company size</Field>
+    <!--Field Key="domain-activity" Tag="ServicesAndProductsOffered" Gap="2">Services and products offered</Field-->
+    <Use Tag="ServicesAndProductsOffered" TypeName="service-product-offered"/>
+    <Use Tag="ServicesAndProductsLookingFor" TypeName="services-and-products-looking-for"/>
+    <Field Key="targeted-markets" Tag="TargetedMarkets" Gap="2">Markets</Field>
+    <Field Key="activities" Tag="MainActivities" Gap="2">Main activities</Field>
+    <Field Key="thematics-topics" Tag="ThematicsTopics" Gap="2">Topics of interest</Field>
+    <Use Tag="CountriesSellingTo" TypeName="countries-selling-to"/>
+    <Field Key="clients" Tag="Clients" Gap="2">Clients</Field>
+  </Row>
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="creation" Message-loc="validation.year"
+        Message="Enter a year as a number with 4 digits"
+        >^\s*$|^\d{4}$</RegExp>
+    </Enforce>
+  </Bindings>
+  <Plugins>
+    <Input Keys="creation"/>
+    <Text Keys="activities"/>
+  </Plugins>
+</Form>

@@ -1,0 +1,15 @@
+<Form Tag="ImportEnterprisesRequest" Width="680px" Wrapper="none">
+  <Row>
+    <Field Key="call" Tag="Call" Gap="2" W="5">Call date</Field>
+  </Row>
+  <Row>
+    <Field Key="letter" Tag="Letter" Gap="2" W="4" Placeholder-loc="content.any.f">First letter</Field>
+  </Row>
+  <Row>
+    <Field Key="mode" Tag="Mode" Gap="2">Mode</Field>
+  </Row>
+  <Plugins>
+    <Input Keys="letter"/>
+  </Plugins>
+</Form>
+

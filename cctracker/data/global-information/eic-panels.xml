@@ -1,0 +1,2019 @@
+<GlobalInformation>
+  <Description Lang="en">
+    <Selector Name="EICPanels" Value="Code" Label="V+Name" Test="EIC Panels for Proposals Evaluation">
+      <Group>
+        <Code>31049345</Code>
+        <Name>Agriculture / Rural Development / Fisheries</Name>
+        <Brief>Agriculture / Rural Development / Fisheries</Brief>
+        <Selector>
+          <Option>
+            <Code>31050788</Code>
+            <Name>Agronomy</Name>
+            <Brief>Agronomy</Brief>
+          </Option>
+          <Option>
+            <Code>31050825</Code>
+            <Name>Animal and Dairy science</Name>
+            <Brief>Animal and Dairy science</Brief>
+          </Option>
+          <Option>
+            <Code>31048950</Code>
+            <Name>Aquatic biology, Hydrobiology</Name>
+            <Brief>Aquatic biology, Hydrobiology</Brief>
+          </Option>
+          <Option>
+            <Code>31050758</Code>
+            <Name>Fishery</Name>
+            <Brief>Fishery</Brief>
+          </Option>
+          <Option>
+            <Code>31049346</Code>
+            <Name>Forestry</Name>
+            <Brief>Forestry</Brief>
+          </Option>
+          <Option>
+            <Code>31050779</Code>
+            <Name>Horticulture, viticulture</Name>
+            <Brief>Horticulture, viticulture</Brief>
+          </Option>
+          <Option>
+            <Code>31050849</Code>
+            <Name>Husbandry</Name>
+            <Brief>Husbandry</Brief>
+          </Option>
+          <Option>
+            <Code>31049200</Code>
+            <Name>Paper and Wood</Name>
+            <Brief>Paper and Wood</Brief>
+          </Option>
+          <Option>
+            <Code>31050817</Code>
+            <Name>Plant breeding and plant protection</Name>
+            <Brief>Plant breeding and plant protection</Brief>
+          </Option>
+          <Option>
+            <Code>31050770</Code>
+            <Name>Soil management</Name>
+            <Brief>Soil management</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31049976</Code>
+        <Name>Biotechnology</Name>
+        <Brief>Biotechnology</Brief>
+        <Selector>
+          <Option>
+            <Code>31055287</Code>
+            <Name>Bioeconomy</Name>
+            <Brief>Bioeconomy</Brief>
+          </Option>
+          <Option>
+            <Code>31048790</Code>
+            <Name>Bacteriology</Name>
+            <Brief>Bacteriology</Brief>
+          </Option>
+          <Option>
+            <Code>31048818</Code>
+            <Name>Biochemistry</Name>
+            <Brief>Biochemistry</Brief>
+          </Option>
+          <Option>
+            <Code>31048992</Code>
+            <Name>Biodiversity</Name>
+            <Brief>Biodiversity</Brief>
+          </Option>
+          <Option>
+            <Code>31049431</Code>
+            <Name>Biofuels</Name>
+            <Brief>Biofuels</Brief>
+          </Option>
+          <Option>
+            <Code>31049022</Code>
+            <Name>Biohazards, biological containment, biosafety, biosecurity</Name>
+            <Brief>Biohazards, biological containment, biosafety, biosecurity</Brief>
+          </Option>
+          <Option>
+            <Code>31049427</Code>
+            <Name>Bioprocessing technologies (industrial processes relying on biological agents to drive the process) biocatalysis, fermentation</Name>
+            <Brief>Bioprocessing technologies (industrial processes relying on biological agents to drive the process) biocatalysis, fermentation</Brief>
+          </Option>
+          <Option>
+            <Code>31049428</Code>
+            <Name>Bioproducts (products that are manufactured using biological material as feedstock) biomaterials, bioplastics, biofuels, bioderived bulk and fine chemicals, bio-derived novel materials</Name>
+            <Brief>Bioproducts (products that are manufactured using biological material as feedstock) biomaterials, bioplastics, biofuels, bioderived bulk and fine chemicals, bio-derived novel materials</Brief>
+          </Option>
+          <Option>
+            <Code>31049425</Code>
+            <Name>Biotechnology (non-medical), bioreactors, applied microbiology</Name>
+            <Brief>Biotechnology (non-medical), bioreactors, applied microbiology</Brief>
+          </Option>
+          <Option>
+            <Code>31048788</Code>
+            <Name>Cell biology, Microbiology</Name>
+            <Brief>Cell biology, Microbiology</Brief>
+          </Option>
+          <Option>
+            <Code>31048842</Code>
+            <Name>DNA synthesis, modification, repair, recombination, degradation</Name>
+            <Brief>DNA synthesis, modification, repair, recombination, degradation</Brief>
+          </Option>
+          <Option>
+            <Code>31048863</Code>
+            <Name>Genetics and heredity</Name>
+            <Brief>Genetics and heredity</Brief>
+          </Option>
+          <Option>
+            <Code>31049024</Code>
+            <Name>Human biology</Name>
+            <Brief>Human biology</Brief>
+          </Option>
+          <Option>
+            <Code>31048789</Code>
+            <Name>Microbiology</Name>
+            <Brief>Microbiology</Brief>
+          </Option>
+          <Option>
+            <Code>31048848</Code>
+            <Name>Mycology</Name>
+            <Brief>Mycology</Brief>
+          </Option>
+          <Option>
+            <Code>31048832</Code>
+            <Name>Neurochemistry and neuropharmacology</Name>
+            <Brief>Neurochemistry and neuropharmacology</Brief>
+          </Option>
+          <Option>
+            <Code>31048898</Code>
+            <Name>Plant sciences, botany</Name>
+            <Brief>Plant sciences, botany</Brief>
+          </Option>
+          <Option>
+            <Code>31048884</Code>
+            <Name>Reproductive biology</Name>
+            <Brief>Reproductive biology</Brief>
+          </Option>
+          <Option>
+            <Code>31048813</Code>
+            <Name>Serology</Name>
+            <Brief>Serology</Brief>
+          </Option>
+          <Option>
+            <Code>31048793</Code>
+            <Name>Stem cell biology</Name>
+            <Brief>Stem cell biology</Brief>
+          </Option>
+          <Option>
+            <Code>31049426</Code>
+            <Name>Synthetic biology, chemical biology and new bio-engineering concepts</Name>
+            <Brief>Synthetic biology, chemical biology and new bio-engineering concepts</Brief>
+          </Option>
+          <Option>
+            <Code>31048803</Code>
+            <Name>Tissue culture</Name>
+            <Brief>Tissue culture</Brief>
+          </Option>
+          <Option>
+            <Code>31048814</Code>
+            <Name>Toxicology</Name>
+            <Brief>Toxicology</Brief>
+          </Option>
+          <Option>
+            <Code>31048816</Code>
+            <Name>Virology</Name>
+            <Brief>Virology</Brief>
+          </Option>
+          <Option>
+            <Code>31048974</Code>
+            <Name>Waste management</Name>
+            <Brief>Waste management</Brief>
+          </Option>
+          <Option>
+            <Code>31048933</Code>
+            <Name>Zoology</Name>
+            <Brief>Zoology</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31086157</Code>
+        <Name>Construction and Transport</Name>
+        <Brief>Construction and Transport</Brief>
+        <Selector>
+          <Option>
+            <Code>31049465</Code>
+            <Name>Aeronautics</Name>
+            <Brief>Aeronautics</Brief>
+          </Option>
+          <Option>
+            <Code>31049479</Code>
+            <Name>Aerostructures AST</Name>
+            <Brief>Aerostructures AST</Brief>
+          </Option>
+          <Option>
+            <Code>31049135</Code>
+            <Name>Air Traffic Management (ATM)</Name>
+            <Brief>Air Traffic Management (ATM)</Brief>
+          </Option>
+          <Option>
+            <Code>31057690</Code>
+            <Name>Aircraft</Name>
+            <Brief>Aircraft</Brief>
+          </Option>
+          <Option>
+            <Code>31049508</Code>
+            <Name>Aircraft Avionics, Systems &amp; Equipment AVS</Name>
+            <Brief>Aircraft Avionics, Systems &amp; Equipment AVS</Brief>
+          </Option>
+          <Option>
+            <Code>31049584</Code>
+            <Name>Airports APT</Name>
+            <Brief>Airports APT</Brief>
+          </Option>
+          <Option>
+            <Code>31049058</Code>
+            <Name>Architecture, smart buildings, smart cities, urban engineering</Name>
+            <Brief>Architecture, smart buildings, smart cities, urban engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31049460</Code>
+            <Name>Automation</Name>
+            <Brief>Automation</Brief>
+          </Option>
+          <Option>
+            <Code>31049458</Code>
+            <Name>Automotive</Name>
+            <Brief>Automotive</Brief>
+          </Option>
+          <Option>
+            <Code>31049044</Code>
+            <Name>Civil engineering</Name>
+            <Brief>Civil engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31049067</Code>
+            <Name>Communication technology, high-frequency technology</Name>
+            <Brief>Communication technology, high-frequency technology</Brief>
+          </Option>
+          <Option>
+            <Code>31049063</Code>
+            <Name>Construction engineering, Municipal and structural engineering</Name>
+            <Brief>Construction engineering, Municipal and structural engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31049132</Code>
+            <Name>European Railway Traffic Management System (ERTMS)</Name>
+            <Brief>European Railway Traffic Management System (ERTMS)</Brief>
+          </Option>
+          <Option>
+            <Code>31049059</Code>
+            <Name>Inland Waterways (IWW)</Name>
+            <Brief>Inland Waterways (IWW)</Brief>
+          </Option>
+          <Option>
+            <Code>31049054</Code>
+            <Name>Intermodal station</Name>
+            <Brief>Intermodal station</Brief>
+          </Option>
+          <Option>
+            <Code>31049089</Code>
+            <Name>Logistics</Name>
+            <Brief>Logistics</Brief>
+          </Option>
+          <Option>
+            <Code>31051369</Code>
+            <Name>Low/nearly zero &amp;-energy positive buildings</Name>
+            <Brief>Low/nearly zero &amp;-energy positive buildings</Brief>
+          </Option>
+          <Option>
+            <Code>31049081</Code>
+            <Name>Maritime services</Name>
+            <Brief>Maritime services</Brief>
+          </Option>
+          <Option>
+            <Code>31049095</Code>
+            <Name>Motorways of the Seas (MoS)</Name>
+            <Brief>Motorways of the Seas (MoS)</Brief>
+          </Option>
+          <Option>
+            <Code>31049104</Code>
+            <Name>Multimodality</Name>
+            <Brief>Multimodality</Brief>
+          </Option>
+          <Option>
+            <Code>31073724</Code>
+            <Name>Network infrastructures</Name>
+            <Brief>Network infrastructures</Brief>
+          </Option>
+          <Option>
+            <Code>31049493</Code>
+            <Name>Propulsion PRO</Name>
+            <Brief>Propulsion PRO</Brief>
+          </Option>
+          <Option>
+            <Code>31051353</Code>
+            <Name>Railway</Name>
+            <Brief>Railway</Brief>
+          </Option>
+          <Option>
+            <Code>31049047</Code>
+            <Name>Road infrastructure</Name>
+            <Brief>Road infrastructure</Brief>
+          </Option>
+          <Option>
+            <Code>31049415</Code>
+            <Name>Sea vessels</Name>
+            <Brief>Sea vessels</Brief>
+          </Option>
+          <Option>
+            <Code>31058575</Code>
+            <Name>Smart cities</Name>
+            <Brief>Smart cities</Brief>
+          </Option>
+          <Option>
+            <Code>31049064</Code>
+            <Name>Transport engineering, intelligent transport systems</Name>
+            <Brief>Transport engineering, intelligent transport systems</Brief>
+          </Option>
+          <Option>
+            <Code>31049284</Code>
+            <Name>Urban transport</Name>
+            <Brief>Urban transport</Brief>
+          </Option>
+          <Option>
+            <Code>31058737</Code>
+            <Name>Vehicles</Name>
+            <Brief>Vehicles</Brief>
+          </Option>
+          <Option>
+            <Code>31049076</Code>
+            <Name>Waterborne transport</Name>
+            <Brief>Waterborne transport</Brief>
+          </Option>
+          <Option>
+            <Code>31049056</Code>
+            <Name>Waterworks and coastal engineering</Name>
+            <Brief>Waterworks and coastal engineering</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31087971</Code>
+        <Name>Consumer products and services</Name>
+        <Brief>Consumer products and services</Brief>
+        <Selector>
+          <Option>
+            <Code>31051269</Code>
+            <Name>Distribution and logistics</Name>
+            <Brief>Distribution and logistics</Brief>
+          </Option>
+          <Option>
+            <Code>31049873</Code>
+            <Name>Leisure services</Name>
+            <Brief>Leisure services</Brief>
+          </Option>
+          <Option>
+            <Code>31086159</Code>
+            <Name>Household Products</Name>
+            <Brief>Household Products</Brief>
+          </Option>
+          <Option>
+            <Code>31073713</Code>
+            <Name>Electronic commerce (eCommerce)</Name>
+            <Brief>Electronic commerce (eCommerce)</Brief>
+          </Option>
+          <Option>
+            <Code>31086161</Code>
+            <Name>Leisure products</Name>
+            <Brief>Leisure products</Brief>
+          </Option>
+          <Option>
+            <Code>31088007</Code>
+            <Name>Personal products and services</Name>
+            <Brief>Personal products and services</Brief>
+          </Option>
+          <Option>
+            <Code>31071524</Code>
+            <Name>Retail, wholesale or distribution</Name>
+            <Brief>Retail, wholesale or distribution</Brief>
+          </Option>
+          <Option>
+            <Code>31086153</Code>
+            <Name>Specialty Retail</Name>
+            <Brief>Specialty Retail</Brief>
+          </Option>
+          <Option>
+            <Code>31086158</Code>
+            <Name>Textiles, Apparel and Luxury Goods</Name>
+            <Brief>Textiles, Apparel and Luxury Goods</Brief>
+          </Option>
+          <Option>
+            <Code>31049885</Code>
+            <Name>Tourism / Travel</Name>
+            <Brief>Tourism / Travel</Brief>
+          </Option>
+          <Option>
+            <Code>31086152</Code>
+            <Name>Cultural and Creative Economy</Name>
+            <Brief>Cultural and Creative Economy</Brief>
+          </Option>
+          <Option>
+            <Code>31051190</Code>
+            <Name>Arts (arts, history of arts, performing arts, music)</Name>
+            <Brief>Arts (arts, history of arts, performing arts, music)</Brief>
+          </Option>
+          <Option>
+            <Code>31049362</Code>
+            <Name>Behavioural change</Name>
+            <Brief>Behavioural change</Brief>
+          </Option>
+          <Option>
+            <Code>31051149</Code>
+            <Name>Cultural heritage, cultural memory</Name>
+            <Brief>Cultural heritage, cultural memory</Brief>
+          </Option>
+          <Option>
+            <Code>31051101</Code>
+            <Name>Cultural studies, cultural diversity</Name>
+            <Brief>Cultural studies, cultural diversity</Brief>
+          </Option>
+          <Option>
+            <Code>31051328</Code>
+            <Name>Design innovation</Name>
+            <Brief>Design innovation</Brief>
+          </Option>
+          <Option>
+            <Code>31051120</Code>
+            <Name>History and Archaeology</Name>
+            <Brief>History and Archaeology</Brief>
+          </Option>
+          <Option>
+            <Code>31049367</Code>
+            <Name>Informal education</Name>
+            <Brief>Informal education</Brief>
+          </Option>
+          <Option>
+            <Code>31051164</Code>
+            <Name>Languages and Literature</Name>
+            <Brief>Languages and Literature</Brief>
+          </Option>
+          <Option>
+            <Code>31049368</Code>
+            <Name>Life long learning</Name>
+            <Brief>Life long learning</Brief>
+          </Option>
+          <Option>
+            <Code>31051096</Code>
+            <Name>Media and communications</Name>
+            <Brief>Media and communications</Brief>
+          </Option>
+          <Option>
+            <Code>31051181</Code>
+            <Name>Philosophy, Ethics and Religion</Name>
+            <Brief>Philosophy, Ethics and Religion</Brief>
+          </Option>
+          <Option>
+            <Code>31049366</Code>
+            <Name>Post-secondary education</Name>
+            <Brief>Post-secondary education</Brief>
+          </Option>
+          <Option>
+            <Code>31049365</Code>
+            <Name>Primary and secondary education</Name>
+            <Brief>Primary and secondary education</Brief>
+          </Option>
+          <Option>
+            <Code>31050910</Code>
+            <Name>Psychology</Name>
+            <Brief>Psychology</Brief>
+          </Option>
+          <Option>
+            <Code>31051021</Code>
+            <Name>Social issues</Name>
+            <Brief>Social issues</Brief>
+          </Option>
+          <Option>
+            <Code>31058576</Code>
+            <Name>Social media</Name>
+            <Brief>Social media</Brief>
+          </Option>
+          <Option>
+            <Code>31051000</Code>
+            <Name>Sociology</Name>
+            <Brief>Sociology</Brief>
+          </Option>
+          <Option>
+            <Code>31051272</Code>
+            <Name>Specific business types (mutual, cooperatives, family businesses, liberal professions, etc</Name>
+            <Brief>Specific business types (mutual, cooperatives, family businesses, liberal professions, etc</Brief>
+          </Option>
+          <Option>
+            <Code>31051204</Code>
+            <Name>Studies on Film, Radio and Television</Name>
+            <Brief>Studies on Film, Radio and Television</Brief>
+          </Option>
+          <Option>
+            <Code>31049370</Code>
+            <Name>Teaching materials</Name>
+            <Brief>Teaching materials</Brief>
+          </Option>
+          <Option>
+            <Code>31051192</Code>
+            <Name>Visual arts, performing arts, design</Name>
+            <Brief>Visual arts, performing arts, design</Brief>
+          </Option>
+          <Option>
+            <Code>31049238</Code>
+            <Name>Vocational training</Name>
+            <Brief>Vocational training</Brief>
+          </Option>
+          <Option>
+            <Code>31051019</Code>
+            <Name>Women and gender studies</Name>
+            <Brief>Women and gender studies</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31048641</Code>
+        <Name>Earth and related environmental sciences</Name>
+        <Brief>Earth and related environmental sciences</Brief>
+        <Selector>
+          <Option>
+            <Code>31048691</Code>
+            <Name>Aquaculture</Name>
+            <Brief>Aquaculture</Brief>
+          </Option>
+          <Option>
+            <Code>31048674</Code>
+            <Name>Atmospheric chemistry, atmospheric composition, air pollution</Name>
+            <Brief>Atmospheric chemistry, atmospheric composition, air pollution</Brief>
+          </Option>
+          <Option>
+            <Code>31048678</Code>
+            <Name>Climatology and climate change</Name>
+            <Brief>Climatology and climate change</Brief>
+          </Option>
+          <Option>
+            <Code>31048971</Code>
+            <Name>Ecology</Name>
+            <Brief>Ecology</Brief>
+          </Option>
+          <Option>
+            <Code>31048761</Code>
+            <Name>Flood forecasting</Name>
+            <Brief>Flood forecasting</Brief>
+          </Option>
+          <Option>
+            <Code>31048663</Code>
+            <Name>Geographical information systems, cartography</Name>
+            <Brief>Geographical information systems, cartography</Brief>
+          </Option>
+          <Option>
+            <Code>31048418</Code>
+            <Name>Geo-information and spatial data analysis</Name>
+            <Brief>Geo-information and spatial data analysis</Brief>
+          </Option>
+          <Option>
+            <Code>31048665</Code>
+            <Name>Geology, tectonics, volcanology</Name>
+            <Brief>Geology, tectonics, volcanology</Brief>
+          </Option>
+          <Option>
+            <Code>31048689</Code>
+            <Name>Hydrology</Name>
+            <Brief>Hydrology</Brief>
+          </Option>
+          <Option>
+            <Code>31048752</Code>
+            <Name>Integrated coastal zone management</Name>
+            <Brief>Integrated coastal zone management</Brief>
+          </Option>
+          <Option>
+            <Code>31048948</Code>
+            <Name>Marine biology</Name>
+            <Brief>Marine biology</Brief>
+          </Option>
+          <Option>
+            <Code>31048743</Code>
+            <Name>Marine Biotechnology</Name>
+            <Brief>Marine Biotechnology</Brief>
+          </Option>
+          <Option>
+            <Code>31048957</Code>
+            <Name>Marine ecosystems and processes</Name>
+            <Brief>Marine ecosystems and processes</Brief>
+          </Option>
+          <Option>
+            <Code>31049849</Code>
+            <Name>Meteorology</Name>
+            <Brief>Meteorology</Brief>
+          </Option>
+          <Option>
+            <Code>31048649</Code>
+            <Name>Mineralogy</Name>
+            <Brief>Mineralogy</Brief>
+          </Option>
+          <Option>
+            <Code>31048671</Code>
+            <Name>Natural Resources Exploration and Exploitation</Name>
+            <Brief>Natural Resources Exploration and Exploitation</Brief>
+          </Option>
+          <Option>
+            <Code>31048680</Code>
+            <Name>Oceanography</Name>
+            <Brief>Oceanography</Brief>
+          </Option>
+          <Option>
+            <Code>31048644</Code>
+            <Name>Ozone, upper atmosphere, ionosphere</Name>
+            <Brief>Ozone, upper atmosphere, ionosphere</Brief>
+          </Option>
+          <Option>
+            <Code>31048653</Code>
+            <Name>Palaeontology</Name>
+            <Brief>Palaeontology</Brief>
+          </Option>
+          <Option>
+            <Code>31048650</Code>
+            <Name>Petrology</Name>
+            <Brief>Petrology</Brief>
+          </Option>
+          <Option>
+            <Code>31049867</Code>
+            <Name>Environment, Pollution &amp; Climate</Name>
+            <Brief>Environment, Pollution &amp; Climate</Brief>
+          </Option>
+          <Option>
+            <Code>31048766</Code>
+            <Name>Wastewater treatment</Name>
+            <Brief>Wastewater treatment</Brief>
+          </Option>
+          <Option>
+            <Code>31048627</Code>
+            <Name>Water</Name>
+            <Brief>Water</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31049908</Code>
+        <Name>Energy</Name>
+        <Brief>Energy</Brief>
+        <Selector>
+          <Option>
+            <Code>31049326</Code>
+            <Name>Biodiesel</Name>
+            <Brief>Biodiesel</Brief>
+          </Option>
+          <Option>
+            <Code>31049341</Code>
+            <Name>Bioenergy</Name>
+            <Brief>Bioenergy</Brief>
+          </Option>
+          <Option>
+            <Code>31049327</Code>
+            <Name>Bioethanol</Name>
+            <Brief>Bioethanol</Brief>
+          </Option>
+          <Option>
+            <Code>31049329</Code>
+            <Name>Biogas</Name>
+            <Brief>Biogas</Brief>
+          </Option>
+          <Option>
+            <Code>31049309</Code>
+            <Name>Biomass</Name>
+            <Brief>Biomass</Brief>
+          </Option>
+          <Option>
+            <Code>31049330</Code>
+            <Name>Biomethane</Name>
+            <Brief>Biomethane</Brief>
+          </Option>
+          <Option>
+            <Code>31049393</Code>
+            <Name>Clean Coal</Name>
+            <Brief>Clean Coal</Brief>
+          </Option>
+          <Option>
+            <Code>31049257</Code>
+            <Name>Domestic appliances</Name>
+            <Brief>Domestic appliances</Brief>
+          </Option>
+          <Option>
+            <Code>31049303</Code>
+            <Name>Electricity Transmission/Distribution</Name>
+            <Brief>Electricity Transmission/Distribution</Brief>
+          </Option>
+          <Option>
+            <Code>31049246</Code>
+            <Name>Energy benchmarking</Name>
+            <Brief>Energy benchmarking</Brief>
+          </Option>
+          <Option>
+            <Code>31049301</Code>
+            <Name>Energy Economics</Name>
+            <Brief>Energy Economics</Brief>
+          </Option>
+          <Option>
+            <Code>31051364</Code>
+            <Name>Energy efficiency</Name>
+            <Brief>Energy efficiency</Brief>
+          </Option>
+          <Option>
+            <Code>31049253</Code>
+            <Name>Energy labels</Name>
+            <Brief>Energy labels</Brief>
+          </Option>
+          <Option>
+            <Code>31049244</Code>
+            <Name>Energy management</Name>
+            <Brief>Energy management</Brief>
+          </Option>
+          <Option>
+            <Code>31049174</Code>
+            <Name>Energy systems (production, distribution, application)</Name>
+            <Brief>Energy systems (production, distribution, application)</Brief>
+          </Option>
+          <Option>
+            <Code>31049388</Code>
+            <Name>Fossil Fuels</Name>
+            <Brief>Fossil Fuels</Brief>
+          </Option>
+          <Option>
+            <Code>31049333</Code>
+            <Name>Fuel Production &amp; Distribution</Name>
+            <Brief>Fuel Production &amp; Distribution</Brief>
+          </Option>
+          <Option>
+            <Code>31049255</Code>
+            <Name>Green procurement</Name>
+            <Brief>Green procurement</Brief>
+          </Option>
+          <Option>
+            <Code>31049349</Code>
+            <Name>Liquid Biofuels markets</Name>
+            <Brief>Liquid Biofuels markets</Brief>
+          </Option>
+          <Option>
+            <Code>31049360</Code>
+            <Name>Local &amp; Regional Energy Agencies</Name>
+            <Brief>Local &amp; Regional Energy Agencies</Brief>
+          </Option>
+          <Option>
+            <Code>31049356</Code>
+            <Name>Local sustainable energy supply</Name>
+            <Brief>Local sustainable energy supply</Brief>
+          </Option>
+          <Option>
+            <Code>31049353</Code>
+            <Name>Low/zero carbon communities</Name>
+            <Brief>Low/zero carbon communities</Brief>
+          </Option>
+          <Option>
+            <Code>31049389</Code>
+            <Name>Natural gas</Name>
+            <Brief>Natural gas</Brief>
+          </Option>
+          <Option>
+            <Code>31049395</Code>
+            <Name>Nuclear</Name>
+            <Brief>Nuclear</Brief>
+          </Option>
+          <Option>
+            <Code>31049392</Code>
+            <Name>Oil</Name>
+            <Brief>Oil</Brief>
+          </Option>
+          <Option>
+            <Code>31049295</Code>
+            <Name>Photovoltaics</Name>
+            <Brief>Photovoltaics</Brief>
+          </Option>
+          <Option>
+            <Code>31049328</Code>
+            <Name>Pure plant oil</Name>
+            <Brief>Pure plant oil</Brief>
+          </Option>
+          <Option>
+            <Code>31055011</Code>
+            <Name>Renewable energies</Name>
+            <Brief>Renewable energies</Brief>
+          </Option>
+          <Option>
+            <Code>31049331</Code>
+            <Name>Second Generation Biofuels</Name>
+            <Brief>Second Generation Biofuels</Brief>
+          </Option>
+          <Option>
+            <Code>31049311</Code>
+            <Name>Solar cooling</Name>
+            <Brief>Solar cooling</Brief>
+          </Option>
+          <Option>
+            <Code>31049310</Code>
+            <Name>Solar Thermal</Name>
+            <Brief>Solar Thermal</Brief>
+          </Option>
+          <Option>
+            <Code>31049350</Code>
+            <Name>Solid Biofuels markets</Name>
+            <Brief>Solid Biofuels markets</Brief>
+          </Option>
+          <Option>
+            <Code>31054796</Code>
+            <Name>Sustainable energy</Name>
+            <Brief>Sustainable energy</Brief>
+          </Option>
+          <Option>
+            <Code>31051382</Code>
+            <Name>Transport / Fuel Use</Name>
+            <Brief>Transport / Fuel Use</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31057627</Code>
+        <Brief>Finance</Brief>
+        <Name>Finance </Name>
+        <Selector>
+          <Option>
+            <Code>31050979</Code>
+            <Name>Clusters</Name>
+            <Brief>Clusters</Brief>
+          </Option>
+          <Option>
+            <Code>31053962</Code>
+            <Name>Data markets</Name>
+            <Brief>Data markets</Brief>
+          </Option>
+          <Option>
+            <Code>31053961</Code>
+            <Name>Data reuse</Name>
+            <Brief>Data reuse</Brief>
+          </Option>
+          <Option>
+            <Code>31053960</Code>
+            <Name>Data value chains</Name>
+            <Brief>Data value chains</Brief>
+          </Option>
+          <Option>
+            <Code>31050947</Code>
+            <Name>Econometrics, statistical methods</Name>
+            <Brief>Econometrics, statistical methods</Brief>
+          </Option>
+          <Option>
+            <Code>31050960</Code>
+            <Name>Development, economic growth</Name>
+            <Brief>Development, economic growth</Brief>
+          </Option>
+          <Option>
+            <Code>31050945</Code>
+            <Name>Economics and Business</Name>
+            <Brief>Economics and Business</Brief>
+          </Option>
+          <Option>
+            <Code>31050962</Code>
+            <Name>Economics of innovation</Name>
+            <Brief>Economics of innovation</Brief>
+          </Option>
+          <Option>
+            <Code>31050946</Code>
+            <Name>Economics, Econometrics</Name>
+            <Brief>Economics, Econometrics</Brief>
+          </Option>
+          <Option>
+            <Code>31050968</Code>
+            <Name>Entrepreneurship</Name>
+            <Brief>Entrepreneurship</Brief>
+          </Option>
+          <Option>
+            <Code>31050950</Code>
+            <Name>Financial markets, asset prices, international finance</Name>
+            <Brief>Financial markets, asset prices, international finance</Brief>
+          </Option>
+          <Option>
+            <Code>31086151</Code>
+            <Name>Fintech (Financial technology)</Name>
+            <Brief>Fintech (Financial technology)</Brief>
+          </Option>
+          <Option>
+            <Code>31050956</Code>
+            <Name>International trade</Name>
+            <Brief>International trade</Brief>
+          </Option>
+          <Option>
+            <Code>31050952</Code>
+            <Name>Labour economics, income distribution and poverty</Name>
+            <Brief>Labour economics, income distribution and poverty</Brief>
+          </Option>
+          <Option>
+            <Code>31050955</Code>
+            <Name>Macroeconomics</Name>
+            <Brief>Macroeconomics</Brief>
+          </Option>
+          <Option>
+            <Code>31050977</Code>
+            <Name>Marketing</Name>
+            <Brief>Marketing</Brief>
+          </Option>
+          <Option>
+            <Code>31050948</Code>
+            <Name>Microeconomics, behavioural economics</Name>
+            <Brief>Microeconomics, behavioural economics</Brief>
+          </Option>
+          <Option>
+            <Code>31050949</Code>
+            <Name>Political economy, institutional economics, law and economics</Name>
+            <Brief>Political economy, institutional economics, law and economics</Brief>
+          </Option>
+          <Option>
+            <Code>31050971</Code>
+            <Name>Social economics</Name>
+            <Brief>Social economics</Brief>
+          </Option>
+          <Option>
+            <Code>31050961</Code>
+            <Name>Urban and regional economics</Name>
+            <Brief>Urban and regional economics</Brief>
+          </Option>
+          <Option>
+            <Code>31053965</Code>
+            <Name>Web Entrepreneurship</Name>
+            <Brief>Web Entrepreneurship</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31049442</Code>
+        <Name>Food and Beverages</Name>
+        <Brief>Food and Beverages</Brief>
+        <Selector>
+          <Option>
+            <Code>31086150</Code>
+            <Name>Agricultural products</Name>
+            <Brief>Agricultural products</Brief>
+          </Option>
+          <Option>
+            <Code>31086154</Code>
+            <Name>Brewers</Name>
+            <Brief>Brewers</Brief>
+          </Option>
+          <Option>
+            <Code>31086155</Code>
+            <Name>Distillers and Vintners</Name>
+            <Brief>Distillers and Vintners</Brief>
+          </Option>
+          <Option>
+            <Code>31049447</Code>
+            <Name>Food additives</Name>
+            <Brief>Food additives</Brief>
+          </Option>
+          <Option>
+            <Code>31049448</Code>
+            <Name>Food contamination</Name>
+            <Brief>Food contamination</Brief>
+          </Option>
+          <Option>
+            <Code>31049449</Code>
+            <Name>Food packaging</Name>
+            <Brief>Food packaging</Brief>
+          </Option>
+          <Option>
+            <Code>31049450</Code>
+            <Name>Food preservation</Name>
+            <Brief>Food preservation</Brief>
+          </Option>
+          <Option>
+            <Code>31049451</Code>
+            <Name>Food quality</Name>
+            <Brief>Food quality</Brief>
+          </Option>
+          <Option>
+            <Code>31049452</Code>
+            <Name>Food safety</Name>
+            <Brief>Food safety</Brief>
+          </Option>
+          <Option>
+            <Code>31049453</Code>
+            <Name>Food storage</Name>
+            <Brief>Food storage</Brief>
+          </Option>
+          <Option>
+            <Code>31049454</Code>
+            <Name>Food technology</Name>
+            <Brief>Food technology</Brief>
+          </Option>
+          <Option>
+            <Code>31049455</Code>
+            <Name>Food toxicology</Name>
+            <Brief>Food toxicology</Brief>
+          </Option>
+          <Option>
+            <Code>31050175</Code>
+            <Name>Secure food chain and wealth products</Name>
+            <Brief>Secure food chain and wealth products</Brief>
+          </Option>
+          <Option>
+            <Code>31086156</Code>
+            <Name>Soft Drinks</Name>
+            <Brief>Soft Drinks</Brief>
+          </Option>
+          <Option>
+            <Code>31086164</Code>
+            <Name>Tobacco</Name>
+            <Brief>Tobacco</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31049869</Code>
+        <Name>Health</Name>
+        <Brief>Health</Brief>
+        <Selector>
+          <Option>
+            <Code>31050378</Code>
+            <Name>Ageing</Name>
+            <Brief>Ageing</Brief>
+          </Option>
+          <Option>
+            <Code>31050444</Code>
+            <Name>Allergy</Name>
+            <Brief>Allergy</Brief>
+          </Option>
+          <Option>
+            <Code>31050392</Code>
+            <Name>Biomarkers</Name>
+            <Brief>Biomarkers</Brief>
+          </Option>
+          <Option>
+            <Code>31050386</Code>
+            <Name>Cardiac and Cardiovascular systems</Name>
+            <Brief>Cardiac and Cardiovascular systems</Brief>
+          </Option>
+          <Option>
+            <Code>31050380</Code>
+            <Name>Clinical medicine</Name>
+            <Brief>Clinical medicine</Brief>
+          </Option>
+          <Option>
+            <Code>31050412</Code>
+            <Name>Critical care medicine and Emergency medicine</Name>
+            <Brief>Critical care medicine and Emergency medicine</Brief>
+          </Option>
+          <Option>
+            <Code>31050438</Code>
+            <Name>Dentistry, oral surgery and medicine</Name>
+            <Brief>Dentistry, oral surgery and medicine</Brief>
+          </Option>
+          <Option>
+            <Code>31050443</Code>
+            <Name>Dermatology and venereal diseases</Name>
+            <Brief>Dermatology and venereal diseases</Brief>
+          </Option>
+          <Option>
+            <Code>31056003</Code>
+            <Name>Diagnostic tools</Name>
+            <Brief>Diagnostic tools</Brief>
+          </Option>
+          <Option>
+            <Code>31050699</Code>
+            <Name>Drugs</Name>
+            <Brief>Drugs</Brief>
+          </Option>
+          <Option>
+            <Code>31073710</Code>
+            <Name>eHealth</Name>
+            <Brief>eHealth</Brief>
+          </Option>
+          <Option>
+            <Code>31050514</Code>
+            <Name>Electronic patient files</Name>
+            <Brief>Electronic patient files</Brief>
+          </Option>
+          <Option>
+            <Code>31048891</Code>
+            <Name>Animal embryology</Name>
+            <Brief>Animal embryology</Brief>
+          </Option>
+          <Option>
+            <Code>31048895</Code>
+            <Name>Human embryology</Name>
+            <Brief>Human embryology</Brief>
+          </Option>
+          <Option>
+            <Code>31048868</Code>
+            <Name>Gene therapy</Name>
+            <Brief>Gene therapy</Brief>
+          </Option>
+          <Option>
+            <Code>31050487</Code>
+            <Name>Geriatrics and gerontology</Name>
+            <Brief>Geriatrics and gerontology</Brief>
+          </Option>
+          <Option>
+            <Code>31050515</Code>
+            <Name>Healthcare system</Name>
+            <Brief>Healthcare system</Brief>
+          </Option>
+          <Option>
+            <Code>31050701</Code>
+            <Name>Health-related biotechnology</Name>
+            <Brief>Health-related biotechnology</Brief>
+          </Option>
+          <Option>
+            <Code>31050303</Code>
+            <Name>Human genetics</Name>
+            <Brief>Human genetics</Brief>
+          </Option>
+          <Option>
+            <Code>31050306</Code>
+            <Name>Immunology</Name>
+            <Brief>Immunology</Brief>
+          </Option>
+          <Option>
+            <Code>31050610</Code>
+            <Name>Infectious diseases</Name>
+            <Brief>Infectious diseases</Brief>
+          </Option>
+          <Option>
+            <Code>31049210</Code>
+            <Name>Medical devices</Name>
+            <Brief>Medical devices</Brief>
+          </Option>
+          <Option>
+            <Code>31050326</Code>
+            <Name>Neurodegenerative disorders</Name>
+            <Brief>Neurodegenerative disorders</Brief>
+          </Option>
+          <Option>
+            <Code>31050382</Code>
+            <Name>Obstetrics and gynaecology</Name>
+            <Brief>Obstetrics and gynaecology</Brief>
+          </Option>
+          <Option>
+            <Code>31050470</Code>
+            <Name>Oncology</Name>
+            <Brief>Oncology</Brief>
+          </Option>
+          <Option>
+            <Code>31050475</Code>
+            <Name>Ophthalmology</Name>
+            <Brief>Ophthalmology</Brief>
+          </Option>
+          <Option>
+            <Code>31050416</Code>
+            <Name>Orthopaedics</Name>
+            <Brief>Orthopaedics</Brief>
+          </Option>
+          <Option>
+            <Code>31050385</Code>
+            <Name>Paediatrics</Name>
+            <Brief>Paediatrics</Brief>
+          </Option>
+          <Option>
+            <Code>31050376</Code>
+            <Name>Pathology</Name>
+            <Brief>Pathology</Brief>
+          </Option>
+          <Option>
+            <Code>31050520</Code>
+            <Name>Patient care</Name>
+            <Brief>Patient care</Brief>
+          </Option>
+          <Option>
+            <Code>31050342</Code>
+            <Name>Pharmacology and pharmacy</Name>
+            <Brief>Pharmacology and pharmacy</Brief>
+          </Option>
+          <Option>
+            <Code>31050481</Code>
+            <Name>Psychiatry</Name>
+            <Brief>Psychiatry</Brief>
+          </Option>
+          <Option>
+            <Code>31050426</Code>
+            <Name>Radiology, nuclear medicine and medical imaging</Name>
+            <Brief>Radiology, nuclear medicine and medical imaging</Brief>
+          </Option>
+          <Option>
+            <Code>31050411</Code>
+            <Name>Respiratory systems</Name>
+            <Brief>Respiratory systems</Brief>
+          </Option>
+          <Option>
+            <Code>31050446</Code>
+            <Name>Rheumatology</Name>
+            <Brief>Rheumatology</Brief>
+          </Option>
+          <Option>
+            <Code>31053914</Code>
+            <Name>Robotics for healthcare</Name>
+            <Brief>Robotics for healthcare</Brief>
+          </Option>
+          <Option>
+            <Code>31050418</Code>
+            <Name>Surgery</Name>
+            <Brief>Surgery</Brief>
+          </Option>
+          <Option>
+            <Code>31050437</Code>
+            <Name>Transplantation</Name>
+            <Brief>Transplantation</Brief>
+          </Option>
+          <Option>
+            <Code>31050467</Code>
+            <Name>Urology and nephrology</Name>
+            <Brief>Urology and nephrology</Brief>
+          </Option>
+          <Option>
+            <Code>31050314</Code>
+            <Name>Vaccines</Name>
+            <Brief>Vaccines</Brief>
+          </Option>
+          <Option>
+            <Code>31050569</Code>
+            <Name>Wellbeing</Name>
+            <Brief>Wellbeing</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31049261</Code>
+        <Name>Information and Communication Technology (ICT)</Name>
+        <Brief>Information and Communication Technology (ICT)</Brief>
+        <Selector>
+          <Option>
+            <Code>31053764</Code>
+            <Name>Advanced computing</Name>
+            <Brief>Advanced computing</Brief>
+          </Option>
+          <Option>
+            <Code>31048370</Code>
+            <Name>Algorithms and complexity</Name>
+            <Brief>Algorithms and complexity</Brief>
+          </Option>
+          <Option>
+            <Code>31048410</Code>
+            <Name>Artificial intelligence, intelligent systems, multi agent systems</Name>
+            <Brief>Artificial intelligence, intelligent systems, multi agent systems</Brief>
+          </Option>
+          <Option>
+            <Code>31053873</Code>
+            <Name>Bioinformatics</Name>
+            <Brief>Bioinformatics</Brief>
+          </Option>
+          <Option>
+            <Code>31053784</Code>
+            <Name>Cloud computing</Name>
+            <Brief>Cloud computing</Brief>
+          </Option>
+          <Option>
+            <Code>31053831</Code>
+            <Name>Collaborative Systems</Name>
+            <Brief>Collaborative Systems</Brief>
+          </Option>
+          <Option>
+            <Code>31048423</Code>
+            <Name>Computational engineering</Name>
+            <Brief>Computational engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31048411</Code>
+            <Name>Computer graphics, computer vision, multi media, computer games</Name>
+            <Brief>Computer graphics, computer vision, multi media, computer games</Brief>
+          </Option>
+          <Option>
+            <Code>31048395</Code>
+            <Name>Computer sciences, information science and bioinformatics</Name>
+            <Brief>Computer sciences, information science and bioinformatics</Brief>
+          </Option>
+          <Option>
+            <Code>31048408</Code>
+            <Name>Cryptology, security, privacy, quantum crypto</Name>
+            <Brief>Cryptology, security, privacy, quantum crypto</Brief>
+          </Option>
+          <Option>
+            <Code>31053759</Code>
+            <Name>Cyber-physical systems</Name>
+            <Brief>Cyber-physical systems</Brief>
+          </Option>
+          <Option>
+            <Code>31048429</Code>
+            <Name>Internet and semantic web, database systems and libraries</Name>
+            <Brief>Internet and semantic web, database systems and libraries</Brief>
+          </Option>
+          <Option>
+            <Code>31073707</Code>
+            <Name>Digital services</Name>
+            <Brief>Digital services</Brief>
+          </Option>
+          <Option>
+            <Code>31049606</Code>
+            <Name>BTT5 unmanned aircraft (drone)</Name>
+            <Brief>BTT5 unmanned aircraft (drone)</Brief>
+          </Option>
+          <Option>
+            <Code>31048428</Code>
+            <Name>E-learning, user modelling, collaborative systems</Name>
+            <Brief>E-learning, user modelling, collaborative systems</Brief>
+          </Option>
+          <Option>
+            <Code>31053827</Code>
+            <Name>Digital games, gamification, applied games, serious games</Name>
+            <Brief>Digital games, gamification, applied games, serious games</Brief>
+          </Option>
+          <Option>
+            <Code>31048413</Code>
+            <Name>Human computer interaction and interface, visualization and natural language processing</Name>
+            <Brief>Human computer interaction and interface, visualization and natural language processing</Brief>
+          </Option>
+          <Option>
+            <Code>31048420</Code>
+            <Name>Communication networks, media, information society</Name>
+            <Brief>Communication networks, media, information society</Brief>
+          </Option>
+          <Option>
+            <Code>31053828</Code>
+            <Name>Interaction, Multimodal, Brain-Computer-Interfaces, Assistive Technologies</Name>
+            <Brief>Interaction, Multimodal, Brain-Computer-Interfaces, Assistive Technologies</Brief>
+          </Option>
+          <Option>
+            <Code>31053781</Code>
+            <Name>Internet Services &amp; Applications</Name>
+            <Brief>Internet Services &amp; Applications</Brief>
+          </Option>
+          <Option>
+            <Code>31048415</Code>
+            <Name>Machine learning, statistical data processing and applications using signal processing (e.g. speech, image, video)</Name>
+            <Brief>Machine learning, statistical data processing and applications using signal processing (e.g. speech, image, video)</Brief>
+          </Option>
+          <Option>
+            <Code>31048421</Code>
+            <Name>Networks (communication networks, sensor networks, networks of robots, etc.)</Name>
+            <Brief>Networks (communication networks, sensor networks, networks of robots, etc.)</Brief>
+          </Option>
+          <Option>
+            <Code>31048426</Code>
+            <Name>Neuroimaging and computational neuroscience</Name>
+            <Brief>Neuroimaging and computational neuroscience</Brief>
+          </Option>
+          <Option>
+            <Code>31048412</Code>
+            <Name>Numerical analysis, simulation, optimisation, modelling tools, data mining</Name>
+            <Brief>Numerical analysis, simulation, optimisation, modelling tools, data mining</Brief>
+          </Option>
+          <Option>
+            <Code>31048430</Code>
+            <Name>Ontologies, neural networks, genetic programming, fuzzy logic</Name>
+            <Brief>Ontologies, neural networks, genetic programming, fuzzy logic</Brief>
+          </Option>
+          <Option>
+            <Code>31048416</Code>
+            <Name>Scientific computing, simulation and modelling tools</Name>
+            <Brief>Scientific computing, simulation and modelling tools</Brief>
+          </Option>
+          <Option>
+            <Code>31053818</Code>
+            <Name>Semantic web technologies</Name>
+            <Brief>Semantic web technologies</Brief>
+          </Option>
+          <Option>
+            <Code>31049970</Code>
+            <Name>Simulation tools &amp; technologies</Name>
+            <Brief>Simulation tools &amp; technologies</Brief>
+          </Option>
+          <Option>
+            <Code>31048406</Code>
+            <Name>Software engineering, operating systems, computer languages</Name>
+            <Brief>Software engineering, operating systems, computer languages</Brief>
+          </Option>
+          <Option>
+            <Code>31048414</Code>
+            <Name>Web and information systems, database systems, information retrieval and digital libraries, data fusion</Name>
+            <Brief>Web and information systems, database systems, information retrieval and digital libraries, data fusion</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31051330</Code>
+        <Name>Public sector innovation</Name>
+        <Brief>Public sector innovation</Brief>
+        <Selector>
+          <Option>
+            <Code>31051227</Code>
+            <Name>Business management</Name>
+            <Brief>Business management</Brief>
+          </Option>
+          <Option>
+            <Code>31053990</Code>
+            <Name>Business model innovation</Name>
+            <Brief>Business model innovation</Brief>
+          </Option>
+          <Option>
+            <Code>31051232</Code>
+            <Name>Business models</Name>
+            <Brief>Business models</Brief>
+          </Option>
+          <Option>
+            <Code>31051242</Code>
+            <Name>Circular economy</Name>
+            <Brief>Circular economy</Brief>
+          </Option>
+          <Option>
+            <Code>31051270</Code>
+            <Name>Corporate social responsibility</Name>
+            <Brief>Corporate social responsibility</Brief>
+          </Option>
+          <Option>
+            <Code>31051034</Code>
+            <Name>Global and transnational governance, international law, human rights</Name>
+            <Brief>Global and transnational governance, international law, human rights</Brief>
+          </Option>
+          <Option>
+            <Code>31050969</Code>
+            <Name>Human resource management</Name>
+            <Brief>Human resource management</Brief>
+          </Option>
+          <Option>
+            <Code>31051319</Code>
+            <Name>Innovation management</Name>
+            <Brief>Innovation management</Brief>
+          </Option>
+          <Option>
+            <Code>31051334</Code>
+            <Name>Innovation strategies</Name>
+            <Brief>Innovation strategies</Brief>
+          </Option>
+          <Option>
+            <Code>31051333</Code>
+            <Name>Innovation systems</Name>
+            <Brief>Innovation systems</Brief>
+          </Option>
+          <Option>
+            <Code>31051239</Code>
+            <Name>New business opportunities</Name>
+            <Brief>New business opportunities</Brief>
+          </Option>
+          <Option>
+            <Code>31053822</Code>
+            <Name>Open data</Name>
+            <Brief>Open data</Brief>
+          </Option>
+          <Option>
+            <Code>31051323</Code>
+            <Name>Open innovation</Name>
+            <Brief>Open innovation</Brief>
+          </Option>
+          <Option>
+            <Code>31051373</Code>
+            <Name>Policy development</Name>
+            <Brief>Policy development</Brief>
+          </Option>
+          <Option>
+            <Code>31051038</Code>
+            <Name>Political systems and institutions, governance</Name>
+            <Brief>Political systems and institutions, governance</Brief>
+          </Option>
+          <Option>
+            <Code>31051379</Code>
+            <Name>Project management</Name>
+            <Brief>Project management</Brief>
+          </Option>
+          <Option>
+            <Code>31050954</Code>
+            <Name>Public administration</Name>
+            <Brief>Public administration</Brief>
+          </Option>
+          <Option>
+            <Code>31051331</Code>
+            <Name>Public administration Innovation</Name>
+            <Brief>Public administration Innovation</Brief>
+          </Option>
+          <Option>
+            <Code>31051327</Code>
+            <Name>Service innovation</Name>
+            <Brief>Service innovation</Brief>
+          </Option>
+          <Option>
+            <Code>31051271</Code>
+            <Name>Social enterprises</Name>
+            <Brief>Social enterprises</Brief>
+          </Option>
+          <Option>
+            <Code>31051022</Code>
+            <Name>Social innovation</Name>
+            <Brief>Social innovation</Brief>
+          </Option>
+          <Option>
+            <Code>31051264</Code>
+            <Name>Supply chain management</Name>
+            <Brief>Supply chain management</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31049043</Code>
+        <Name>Engineering and technology</Name>
+        <Brief>Engineering and technology</Brief>
+        <Selector>
+          <Option>
+            <Code>31058353</Code>
+            <Name>Nanotechnology</Name>
+            <Brief>Nanotechnology</Brief>
+          </Option>
+          <Option>
+            <Code>31055090</Code>
+            <Name>Manufacturing</Name>
+            <Brief>Manufacturing</Brief>
+          </Option>
+          <Option>
+            <Code>31055380</Code>
+            <Name>Advanced materials</Name>
+            <Brief>Advanced materials</Brief>
+          </Option>
+          <Option>
+            <Code>31048484</Code>
+            <Name>Acoustics</Name>
+            <Brief>Acoustics</Brief>
+          </Option>
+          <Option>
+            <Code>31049177</Code>
+            <Name>Audio engineering, reliability analysis</Name>
+            <Brief>Audio engineering, reliability analysis</Brief>
+          </Option>
+          <Option>
+            <Code>31049126</Code>
+            <Name>Automation and control systems</Name>
+            <Brief>Automation and control systems</Brief>
+          </Option>
+          <Option>
+            <Code>31049150</Code>
+            <Name>Automotive engineering</Name>
+            <Brief>Automotive engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31049421</Code>
+            <Name>Industrial bioengineering</Name>
+            <Brief>Industrial bioengineering</Brief>
+          </Option>
+          <Option>
+            <Code>31049180</Code>
+            <Name>Chemical engineering, technical chemistry</Name>
+            <Brief>Chemical engineering, technical chemistry</Brief>
+          </Option>
+          <Option>
+            <Code>31049045</Code>
+            <Name>Civil engineering, maritime/hydraulic engineering, geotechnics, waste treatment</Name>
+            <Brief>Civil engineering, maritime/hydraulic engineering, geotechnics, waste treatment</Brief>
+          </Option>
+          <Option>
+            <Code>31049140</Code>
+            <Name>Communication engineering and systems telecommunications</Name>
+            <Brief>Communication engineering and systems telecommunications</Brief>
+          </Option>
+          <Option>
+            <Code>31049127</Code>
+            <Name>Control engineering</Name>
+            <Brief>Control engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31049118</Code>
+            <Name>Electrical and electronic engineering</Name>
+            <Brief>Electrical and electronic engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31048470</Code>
+            <Name>Electromagnetism</Name>
+            <Brief>Electromagnetism</Brief>
+          </Option>
+          <Option>
+            <Code>31049163</Code>
+            <Name>Electromechanical engineering</Name>
+            <Brief>Electromechanical engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31049120</Code>
+            <Name>Electronics, photonics</Name>
+            <Brief>Electronics, photonics</Brief>
+          </Option>
+          <Option>
+            <Code>31053952</Code>
+            <Name>Graphene, layered material</Name>
+            <Brief>Graphene, layered material</Brief>
+          </Option>
+          <Option>
+            <Code>31048479</Code>
+            <Name>Optics (including laser optics and quantum optics)</Name>
+            <Brief>Optics (including laser optics and quantum optics)</Brief>
+          </Option>
+          <Option>
+            <Code>31049183</Code>
+            <Name>Materials engineering</Name>
+            <Brief>Materials engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31049147</Code>
+            <Name>Mechanical engineering</Name>
+            <Brief>Mechanical engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31049164</Code>
+            <Name>Metallurgy</Name>
+            <Brief>Metallurgy</Brief>
+          </Option>
+          <Option>
+            <Code>31048438</Code>
+            <Name>Metrology and measurement</Name>
+            <Brief>Metrology and measurement</Brief>
+          </Option>
+          <Option>
+            <Code>31049123</Code>
+            <Name>Micro (system) engineering</Name>
+            <Brief>Micro (system) engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31049151</Code>
+            <Name>Ocean engineering</Name>
+            <Brief>Ocean engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31053877</Code>
+            <Name>Organic electronics</Name>
+            <Brief>Organic electronics</Brief>
+          </Option>
+          <Option>
+            <Code>31053870</Code>
+            <Name>Photonics</Name>
+            <Brief>Photonics</Brief>
+          </Option>
+          <Option>
+            <Code>31049184</Code>
+            <Name>Porous Materials</Name>
+            <Brief>Porous Materials</Brief>
+          </Option>
+          <Option>
+            <Code>31049182</Code>
+            <Name>Production technology, process engineering</Name>
+            <Brief>Production technology, process engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31049166</Code>
+            <Name>Propulsion systems engineering</Name>
+            <Brief>Propulsion systems engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31049125</Code>
+            <Name>Robotics</Name>
+            <Brief>Robotics</Brief>
+          </Option>
+          <Option>
+            <Code>31048449</Code>
+            <Name>Semiconductors</Name>
+            <Brief>Semiconductors</Brief>
+          </Option>
+          <Option>
+            <Code>31049189</Code>
+            <Name>Solid state materials</Name>
+            <Brief>Solid state materials</Brief>
+          </Option>
+          <Option>
+            <Code>31048451</Code>
+            <Name>Superconductivity</Name>
+            <Brief>Superconductivity</Brief>
+          </Option>
+          <Option>
+            <Code>31048452</Code>
+            <Name>Superfluids</Name>
+            <Brief>Superfluids</Brief>
+          </Option>
+          <Option>
+            <Code>31048461</Code>
+            <Name>Thermodynamics</Name>
+            <Brief>Thermodynamics</Brief>
+          </Option>
+          <Option>
+            <Code>31049167</Code>
+            <Name>Vehicle engineering</Name>
+            <Brief>Vehicle engineering</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31049914</Code>
+        <Name>Security</Name>
+        <Brief>Security</Brief>
+        <Selector>
+          <Option>
+            <Code>31049969</Code>
+            <Name>Artificial Intelligence &amp; Decision support</Name>
+            <Brief>Artificial Intelligence &amp; Decision support</Brief>
+          </Option>
+          <Option>
+            <Code>31049981</Code>
+            <Name>Biometric equipment</Name>
+            <Brief>Biometric equipment</Brief>
+          </Option>
+          <Option>
+            <Code>31049982</Code>
+            <Name>Chemical, Biological, Radiological and Nuclear (CBRN) protection and decontamination equipment</Name>
+            <Brief>Chemical, Biological, Radiological and Nuclear (CBRN) protection and decontamination equipment</Brief>
+          </Option>
+          <Option>
+            <Code>31050216</Code>
+            <Name>Crisis management</Name>
+            <Brief>Crisis management</Brief>
+          </Option>
+          <Option>
+            <Code>31050031</Code>
+            <Name>Critical infrastructure, emergency systems, security, safety engineering</Name>
+            <Brief>Critical infrastructure, emergency systems, security, safety engineering</Brief>
+          </Option>
+          <Option>
+            <Code>31053954</Code>
+            <Name>Data mining</Name>
+            <Brief>Data mining</Brief>
+          </Option>
+          <Option>
+            <Code>31053955</Code>
+            <Name>Detection technology</Name>
+            <Brief>Detection technology</Brief>
+          </Option>
+          <Option>
+            <Code>31087952</Code>
+            <Name>Deterrence</Name>
+            <Brief>Deterrence</Brief>
+          </Option>
+          <Option>
+            <Code>31086149</Code>
+            <Name>Disarmament</Name>
+            <Brief>Disarmament</Brief>
+          </Option>
+          <Option>
+            <Code>31049988</Code>
+            <Name>Explosives removal</Name>
+            <Brief>Explosives removal</Brief>
+          </Option>
+          <Option>
+            <Code>31049990</Code>
+            <Name>Forensic technologies, others</Name>
+            <Brief>Forensic technologies, others</Brief>
+          </Option>
+          <Option>
+            <Code>31050012</Code>
+            <Name>Identification</Name>
+            <Brief>Identification</Brief>
+          </Option>
+          <Option>
+            <Code>31049972</Code>
+            <Name>Information Security Technologies</Name>
+            <Brief>Information Security Technologies</Brief>
+          </Option>
+          <Option>
+            <Code>31050019</Code>
+            <Name>Intelligence</Name>
+            <Brief>Intelligence</Brief>
+          </Option>
+          <Option>
+            <Code>31050024</Code>
+            <Name>Interoperable secured communications (Security systems architecture)</Name>
+            <Brief>Interoperable secured communications (Security systems architecture)</Brief>
+          </Option>
+          <Option>
+            <Code>31050021</Code>
+            <Name>Intervention and Neutralization</Name>
+            <Brief>Intervention and Neutralization</Brief>
+          </Option>
+          <Option>
+            <Code>31049964</Code>
+            <Name>Opto-electronics: Laser, optics and related device</Name>
+            <Brief>Opto-electronics: Laser, optics and related device</Brief>
+          </Option>
+          <Option>
+            <Code>31049983</Code>
+            <Name>Navigation, guidance, control and tracking</Name>
+            <Brief>Navigation, guidance, control and tracking</Brief>
+          </Option>
+          <Option>
+            <Code>31050146</Code>
+            <Name>Networks and information security systems</Name>
+            <Brief>Networks and information security systems</Brief>
+          </Option>
+          <Option>
+            <Code>31049986</Code>
+            <Name>Non lethal weapons</Name>
+            <Brief>Non lethal weapons</Brief>
+          </Option>
+          <Option>
+            <Code>31049963</Code>
+            <Name>Photonic/Optical Materials and Device Technology</Name>
+            <Brief>Photonic/Optical Materials and Device Technology</Brief>
+          </Option>
+          <Option>
+            <Code>31049961</Code>
+            <Name>Plasma technology</Name>
+            <Brief>Plasma technology</Brief>
+          </Option>
+          <Option>
+            <Code>31050003</Code>
+            <Name>Protection</Name>
+            <Brief>Protection</Brief>
+          </Option>
+          <Option>
+            <Code>31051286</Code>
+            <Name>Risk management</Name>
+            <Brief>Risk management</Brief>
+          </Option>
+          <Option>
+            <Code>31050011</Code>
+            <Name>Search and detection</Name>
+            <Brief>Search and detection</Brief>
+          </Option>
+          <Option>
+            <Code>31053852</Code>
+            <Name>Optical sensors</Name>
+            <Brief>Optical sensors</Brief>
+          </Option>
+          <Option>
+            <Code>31050017</Code>
+            <Name>Surveillance</Name>
+            <Brief>Surveillance</Brief>
+          </Option>
+          <Option>
+            <Code>31049987</Code>
+            <Name>Weapon systems (other than missiles and NLW)</Name>
+            <Brief>Weapon systems (other than missiles and NLW)</Brief>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Code>31049632</Code>
+        <Name>Space</Name>
+        <Brief>Space</Brief>
+        <Selector>
+          <Option>
+            <Code>31049736</Code>
+            <Name>Aerothermodynamics &amp; Atmospheric entry</Name>
+            <Brief>Aerothermodynamics &amp; Atmospheric entry</Brief>
+          </Option>
+          <Option>
+            <Code>31048500</Code>
+            <Name>Astrobiology</Name>
+            <Brief>Astrobiology</Brief>
+          </Option>
+          <Option>
+            <Code>31048501</Code>
+            <Name>Astrochemistry</Name>
+            <Brief>Astrochemistry</Brief>
+          </Option>
+          <Option>
+            <Code>31048485</Code>
+            <Name>Astronomy (including astrophysics, space science)</Name>
+            <Brief>Astronomy (including astrophysics, space science)</Brief>
+          </Option>
+          <Option>
+            <Code>31048499</Code>
+            <Name>Astrophysics</Name>
+            <Brief>Astrophysics</Brief>
+          </Option>
+          <Option>
+            <Code>31048513</Code>
+            <Name>Cosmology</Name>
+            <Brief>Cosmology</Brief>
+          </Option>
+          <Option>
+            <Code>31048511</Code>
+            <Name>Dark matter, dark energy</Name>
+            <Brief>Dark matter, dark energy</Brief>
+          </Option>
+          <Option>
+            <Code>31049930</Code>
+            <Name>Defence</Name>
+            <Brief>Defence</Brief>
+          </Option>
+          <Option>
+            <Code>31049852</Code>
+            <Name>Earth Observation / Services and applications</Name>
+            <Brief>Earth Observation / Services and applications</Brief>
+          </Option>
+          <Option>
+            <Code>31049679</Code>
+            <Name>Flight Dynamics / Position, Navigation, and Timing</Name>
+            <Brief>Flight Dynamics / Position, Navigation, and Timing</Brief>
+          </Option>
+          <Option>
+            <Code>31049890</Code>
+            <Name>Global Satellite Navigation System (GNSS) / Services &amp; Applications</Name>
+            <Brief>Global Satellite Navigation System (GNSS) / Services &amp; Applications</Brief>
+          </Option>
+          <Option>
+            <Code>31087954</Code>
+            <Name>Gravity</Name>
+            <Brief>Gravity</Brief>
+          </Option>
+          <Option>
+            <Code>31049790</Code>
+            <Name>Ground &amp; Launch Systems Processing</Name>
+            <Brief>Ground &amp; Launch Systems Processing</Brief>
+          </Option>
+          <Option>
+            <Code>31048519</Code>
+            <Name>Instrumentation - telescopes, detectors and techniques</Name>
+            <Brief>Instrumentation - telescopes, detectors and techniques</Brief>
+          </Option>
+          <Option>
+            <Code>31049764</Code>
+            <Name>Launchers</Name>
+            <Brief>Launchers</Brief>
+          </Option>
+          <Option>
+            <Code>31049634</Code>
+            <Name>On-Board Data Systems</Name>
+            <Brief>On-Board Data Systems</Brief>
+          </Option>
+          <Option>
+            <Code>31049723</Code>
+            <Name>Optics</Name>
+            <Brief>Optics</Brief>
+          </Option>
+          <Option>
+            <Code>31049805</Code>
+            <Name>Orbital transportation and re-entry systems</Name>
+            <Brief>Orbital transportation and re-entry systems</Brief>
+          </Option>
+          <Option>
+            <Code>31049808</Code>
+            <Name>Prelaunch operations</Name>
+            <Brief>Prelaunch operations</Brief>
+          </Option>
+          <Option>
+            <Code>31049746</Code>
+            <Name>Supporting Propulsion Technologies and Tools</Name>
+            <Brief>Supporting Propulsion Technologies and Tools</Brief>
+          </Option>
+          <Option>
+            <Code>31049924</Code>
+            <Name>Protection of assets in and from Space</Name>
+            <Brief>Protection of assets in and from Space</Brief>
+          </Option>
+          <Option>
+            <Code>31049399</Code>
+            <Name>Remote Sensing</Name>
+            <Brief>Remote Sensing</Brief>
+          </Option>
+          <Option>
+            <Code>31049657</Code>
+            <Name>RF Payload and Systems</Name>
+            <Brief>RF Payload and Systems</Brief>
+          </Option>
+          <Option>
+            <Code>31049804</Code>
+            <Name>Satellites and Probes</Name>
+            <Brief>Satellites and Probes</Brief>
+          </Option>
+          <Option>
+            <Code>31049797</Code>
+            <Name>Space data exploitation</Name>
+            <Brief>Space data exploitation</Brief>
+          </Option>
+          <Option>
+            <Code>31049690</Code>
+            <Name>Space Debris</Name>
+            <Brief>Space Debris</Brief>
+          </Option>
+          <Option>
+            <Code>31049806</Code>
+            <Name>Space services and products</Name>
+            <Brief>Space services and products</Brief>
+          </Option>
+          <Option>
+            <Code>31087953</Code>
+            <Name>Spacecraft</Name>
+            <Brief>Spacecraft</Brief>
+          </Option>
+          <Option>
+            <Code>31049821</Code>
+            <Name>Telecommunications</Name>
+            <Brief>Telecommunications</Brief>
+          </Option>
+          <Option>
+            <Code>31049768</Code>
+            <Name>Thermal</Name>
+            <Brief>Thermal</Brief>
+          </Option>
+          <Option>
+            <Code>31048532</Code>
+            <Name>Upper atmosphere (Neutral and ionosphere)</Name>
+            <Brief>Upper atmosphere (Neutral and ionosphere)</Brief>
+          </Option>
+          <Option>
+            <Code>31048515</Code>
+            <Name>Very large data bases: archiving, handling and analysis</Name>
+            <Brief>Very large data bases: archiving, handling and analysis</Brief>
+          </Option>
+        </Selector>
+      </Group>
+    </Selector>
+  </Description>
+</GlobalInformation>

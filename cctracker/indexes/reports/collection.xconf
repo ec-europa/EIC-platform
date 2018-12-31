@@ -1,0 +1,6 @@
+<collection xmlns="http://exist-db.org/collection-config/1.0">
+  <index>
+    <!-- Range indexes -->
+    <create qname="@Key" type="xs:string"/>
+  </index>
+</collection>

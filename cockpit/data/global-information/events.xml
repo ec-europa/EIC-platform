@@ -1,0 +1,740 @@
+<GlobalInformation>
+  <Description Lang="en" Role="normative">
+    <Selector Name="PublicationStates">
+      <Option>
+        <Value>1</Value>
+        <Name>Draft</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Publish</Name>
+      </Option>
+    </Selector>
+    <Selector Name="EventsPrograms">
+      <Option>
+        <Value>OTF</Value>
+        <Name>Overseas Trade Fairs</Name>
+      </Option>
+      <Option>
+        <Value>Academy</Value>
+        <Name>Academy</Name>
+      </Option>
+      <Option>
+        <Value>Invest</Value>
+        <Name>Investors</Name>
+      </Option>
+      <Option>
+        <Value>EASME</Value>
+        <Name>EASME</Name>
+      </Option>
+    </Selector>
+    <Selector Name="OTF" W="3">
+      <Description>OTF event application workflow</Description>
+      <Option>
+        <Value>1</Value>
+        <Name>Application</Name>
+        <Export Link="apply">Application</Export>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Evaluation</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Confirmation</Name>
+        <Export Link="confirmation" Extra="project-id-and-acronym">Confirmation</Export>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Finalization</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Satisfaction Survey</Name>
+        <Export Link="satisfaction" Extra="project-id-and-acronym">Satisfaction</Export>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Finalising</Name>
+      </Option>
+      <Option>
+        <Value>7</Value>
+        <Name>Impact Survey</Name>
+        <Export Link="impact" Extra="project-id-and-acronym">Impact</Export>
+      </Option>
+      <Option>
+        <Value>8</Value>
+        <Name>Finalised</Name>
+      </Option>
+      <Option Type="final">
+        <Value>10</Value>
+        <Name>Rejected</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Academy" W="3">
+      <Description>Academy event application workflow</Description>
+      <Option>
+        <Value>1</Value>
+        <Name>Application</Name>
+        <Export Link="apply">Application</Export>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Evaluation</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Satisfaction Survey</Name>
+        <Export Link="satisfaction" Extra="project-id-and-acronym">Satisfaction</Export>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Finalising</Name>
+      </Option>
+      <Option Type="final">
+        <Value>10</Value>
+        <Name>Rejected</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Invest" W="3">
+      <Description>Invest/Matchmaking event application workflow</Description>
+      <Option>
+        <Value>1</Value>
+        <Name>Application</Name>
+        <Export Link="apply">Application</Export>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Evaluation</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Satisfaction Survey</Name>
+        <Export Link="satisfaction" Extra="project-id-and-acronym">Satisfaction</Export>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Finalising</Name>
+      </Option>
+      <Option Type="final">
+        <Value>10</Value>
+        <Name>Rejected</Name>
+      </Option>
+    </Selector>
+    <Selector Name="EASME" W="3">
+      <Description>EASME event application workflow</Description>
+      <Option>
+        <Value>1</Value>
+        <Name>Application</Name>
+        <Export Link="apply">Application</Export>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Evaluation</Name>
+      </Option>
+    </Selector>
+    <Selector Name="MSCIEProgramParts">
+      <Option>
+        <Value>1</Value>
+        <Name>The Networking activity</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>The Brokerage activity (bilateral meetings)</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>The Venture summit (pitching event)</Name>
+      </Option>
+    </Selector>
+    <Selector Name="MSCIEParticipants">
+      <Option>
+        <Value>1</Value>
+        <Name>Corporates</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Investors</Name>
+      </Option>
+    </Selector>
+    <Selector Name="MSCIEPartners">
+      <Option>
+        <Value>1</Value>
+        <Name>Investors</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Selling a specific product/service</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Co-development of product</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Licensing</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Joint-venture</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Association/Branding</Name>
+      </Option>
+      <Option>
+        <Value>7</Value>
+        <Name>Other</Name>
+      </Option>
+    </Selector>
+    <Selector Name="EventsApplicationTemplates">
+      <Option>
+        <Value>standard/pitching-and-corporate</Value>
+        <Name>Pitching and Corporate event</Name>
+      </Option>
+      <Option>
+        <Value>standard/corporate-event</Value>
+        <Name>Corporate event</Name>
+      </Option>
+      <Option>
+        <Value>standard/academy-workshop</Value>
+        <Name>Academy workshop</Name>
+      </Option>
+      <Option>
+        <Value>standard/pitching-event</Value>
+        <Name>Pitching event</Name>
+      </Option>
+      <Option>
+        <Value>standard/otf-event</Value>
+        <Name>OTF event</Name>
+      </Option>
+      <Option>
+        <Value>standard/welcome-day</Value>
+        <Name>Welcome day</Name>
+      </Option>
+    </Selector>
+    <Selector Name="SatisfactionLevels">
+      <Option>
+        <Value>1</Value>
+        <Name>Highly satisfied</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Satisfied</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Moderately</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Not at all</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>N/A</Name>
+      </Option>
+    </Selector>
+    <Selector Name="YesNoNAScales">
+      <Option>
+        <Value>1</Value>
+        <Name>Yes</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>No</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>N/A</Name>
+      </Option>
+    </Selector>
+    <Selector Name="YesNoNopScales">
+      <Option>
+        <Value>1</Value>
+        <Name>Yes</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>No</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>No Opinion</Name>
+      </Option>
+    </Selector>
+    <Selector Name="TradeFairActivities">
+      <Option>
+        <Value>2</Value>
+        <Name>Welcoming Reception</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Pitching Session</Name>
+      </Option>
+      <Option>
+        <Value>1</Value>
+        <Name>Other</Name>
+      </Option>
+    </Selector>
+    <Selector Name="TradeFairServices">
+      <Option>
+        <Value>2</Value>
+        <Name>Booth Customisation</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Legal services</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Printing services</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Shipping</Name>
+      </Option>
+      <Option>
+        <Value>1</Value>
+        <Name>No</Name>
+      </Option>
+    </Selector>
+    <Selector Name="BusinessMeetingGoals">
+      <Option>
+        <Value>1</Value>
+        <Name>Investors</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Potential customers</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Public procurers</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Sales distribution</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Subcontracting</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Franchising</Name>
+      </Option>
+      <Option>
+        <Value>7</Value>
+        <Name>Licensing</Name>
+      </Option>
+      <Option>
+        <Value>8</Value>
+        <Name>Joint R&amp;D</Name>
+      </Option>
+      <Option>
+        <Value>9</Value>
+        <Name>Joint production</Name>
+      </Option>
+      <Option>
+        <Value>10</Value>
+        <Name>Other</Name>
+      </Option>
+    </Selector>
+    <Selector Name="BusinessMissionValues">
+      <Option>
+        <Value>1</Value>
+        <Name>it was valuable for future customers</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>it was valuable for future investors</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>it was valuable for improving my company pitch</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>it increased my ambition to enter in new geographical markets</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>it helped my business to grow faster</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>it was valuable for developing new business model ideas</Name>
+      </Option>
+      <Option>
+        <Value>7</Value>
+        <Name>it helped my business better understand the target market/region</Name>
+      </Option>
+      <Option>
+        <Value>8</Value>
+        <Name>it helped me to be recognizable as an SME Instrument Champions in big events/trade fairs</Name>
+      </Option>
+      <Option>
+        <Value>9</Value>
+        <Name>it helped me in feeling part of the SME Instrument "Community" of Champions</Name>
+      </Option>
+      <Option>
+        <Value>10</Value>
+        <Name>it was not usefull for me</Name>
+      </Option>
+      <Option>
+        <Value>11</Value>
+        <Name>it was a poor experience</Name>
+      </Option>
+    </Selector>
+    <Selector Name="OneToFiveScales">
+      <Option>
+        <Value>1</Value>
+        <Name>1</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>2</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>3</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>4</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>5</Name>
+      </Option>
+    </Selector>
+    <Selector Name="BusinessAgreementTypes">
+      <Option>
+        <Value>1</Value>
+        <Name>Sales distribution</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Subcontracting</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Franchising</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Licensing</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Joint R&amp;D</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Joint production</Name>
+      </Option>
+      <Option>
+        <Value>7</Value>
+        <Name>Other</Name>
+      </Option>
+    </Selector>
+    <Selector Name="MarketAdaptationTypes">
+      <Option>
+        <Value>1</Value>
+        <Name>Product/Service</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>After sales service</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Market entry strategy</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Staff training</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Language</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Other</Name>
+      </Option>
+    </Selector>
+    <Selector Name="EventBenefits">
+      <Option>
+        <Value>1</Value>
+        <Name>Networking</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>New Business partners</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>New Financial opportunitites</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>New learnings</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>(Media) visibility</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Other</Name>
+      </Option>
+    </Selector>
+    <Selector Name="EventsBenefits">
+      <Option>
+        <Value>1</Value>
+        <Name>Networking</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>New Business partners</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>New Financial opportunitites</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>New learnings</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Visibility (Media)</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Other</Name>
+      </Option>
+    </Selector>
+    <Selector Name="RecommendationLevels">
+      <Option>
+        <Value>1</Value>
+        <Name>Strongly recommend</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Recommend</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Discourage</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Strongly discourage</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>N/A</Name>
+      </Option>
+    </Selector>
+    <Selector Name="RecommendedLevels">
+      <Option>
+        <Value>1</Value>
+        <Name>Strongly disagree</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Disagree</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Neutral</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Agree</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Strongly agree</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>N/A</Name>
+      </Option>
+    </Selector>
+    <Selector Name="FairSatisfactionLevels">
+      <Option>
+        <Value>1</Value>
+        <Name>Very satisfied</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Satisfied</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Disappointed</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Very disappointed</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>N/A</Name>
+      </Option>
+    </Selector>
+    <Selector Name="TrueSatisfactionLevels">
+      <Option>
+        <Value>1</Value>
+        <Name>Very satisfied</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Satisfied</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Neutral</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Disappointed</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Very disappointed</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>N/A</Name>
+      </Option>
+    </Selector>
+    <Selector Name="UtilityLevels">
+      <Option>
+        <Value>1</Value>
+        <Name>Very helpful</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Helpful</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Unhelpful</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Very unhelpful</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Not sure</Name>
+      </Option>
+    </Selector>
+    <Selector Name="CompetencyLevels">
+      <Option>
+        <Value>1</Value>
+        <Name>Very competent</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Competent</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Incompetent</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Very incompetent</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Not sure</Name>
+      </Option>
+    </Selector>
+    <Selector Name="BusinessPartners">
+      <Option>
+        <Value>1</Value>
+        <Name>Not interested</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Potential customers</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Sales distribution</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Joint R&amp;D</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Joint production</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Joint-venture</Name>
+      </Option>
+      <Option>
+        <Value>7</Value>
+        <Name>Licensing</Name>
+      </Option>
+      <Option>
+        <Value>8</Value>
+        <Name>Franchising</Name>
+      </Option>
+      <Option>
+        <Value>9</Value>
+        <Name>Other</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Clients">
+      <Version>20180924-0</Version>
+      <Title>type of clients the company has</Title>
+      <Option>
+        <Value>1</Value>
+        <Alt Variant="1">b2b</Alt>
+        <Name>Business to business</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Alt Variant="1">b2c</Alt>
+        <Name>Business to customer</Name>
+      </Option>
+    </Selector>
+    <Selector Name="HotBoothSlots">
+      <Option>
+        <Value>1</Value>
+        <Name>Day 1: 12h00 - 14h00</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Day 1: 14h00 - 16h00</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Day 1: 16h00 - 18h00</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Day 2: 09h00 - 11h00</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Day 2: 11h00 - 13h00</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Day 2: 13h00 - 15h00</Name>
+      </Option>
+    </Selector>
+  </Description>
+</GlobalInformation>
+

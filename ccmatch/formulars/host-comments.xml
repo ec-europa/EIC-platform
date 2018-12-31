@@ -1,0 +1,19 @@
+<Form Tag="ManagerNotes" xmlns:site="http://oppidoc.com/oppidum/site" xmlns:xt="http://ns.inria.org/xtiger">
+  <Title>Host Manager Notes</Title>
+  
+  <Row>
+    <Field Key="last" Tag="LastChangesByRef">Last Changes made by</Field>
+    <Field Key="exp" Tag="ExpertNumber">Expert Nb.</Field>
+    <Field Key="comm" Tag="Comment">Comments</Field>
+  </Row>
+  
+  <Bindings>
+  </Bindings>
+  
+  <Plugins>
+    <Constant Keys="last"/>
+    <Input Keys="exp"/>
+    <MultiText Keys="comm"/>
+  </Plugins>
+  
+</Form>

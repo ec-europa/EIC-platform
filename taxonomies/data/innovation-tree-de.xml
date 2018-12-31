@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalInformation>
+  <Description Lang="de">
+    <Selector Name="InitialContexts">
+      <Version>20180618-0</Version>
+      <Title>Initial case context in life cycle</Title>
+      <Option>
+        <Value>1</Value>
+        <Name>Gründung</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Einzelauftrag</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Industrialisierung</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Expansion</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Erneuerung</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Konsolidierung</Name>
+      </Option>
+    </Selector>
+    <Selector Name="TargetedContexts">
+      <Title>Targeted case context in life cycle</Title>
+      <Option>
+        <Value>1</Value>
+        <Name>Gründung</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Einzelauftrag</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Industrialisierung</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Expansion</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Erneuerung</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Konsolidierung</Name>
+      </Option>
+    </Selector>
+    <Selector Name="CaseImpacts" Label="V+Name">
+      <Title>Case Impacts (Innovation Tree Model)</Title>
+      <Group>
+        <Value>1</Value>
+        <Name>Vektoren der Geschäftsinnovation</Name>
+        <Root>Vectors</Root>
+        <Selector>
+          <Option>
+            <Value>1</Value>
+            <Name>Angebot</Name>
+          </Option>
+          <Option>
+            <Value>2</Value>
+            <Name>Prozesse</Name>
+          </Option>
+          <Option>
+            <Value>4</Value>
+            <Name>Distribution &amp; Kommunikation</Name>
+          </Option>
+          <Option>
+            <Value>3</Value>
+            <Name>Kunden</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>2</Value>
+        <Name>Ideenquellen für Geschäftsinnovation</Name>
+        <Root>Ideas</Root>
+        <Selector>
+          <Option>
+            <Value>1</Value>
+            <Name>Intern</Name>
+          </Option>
+          <Option>
+            <Value>10</Value>
+            <Name>Vertriebsnetz</Name>
+          </Option>
+          <Option>
+            <Value>5</Value>
+            <Name>Kunden</Name>
+          </Option>
+          <Option>
+            <Value>6</Value>
+            <Name>Lieferanten</Name>
+          </Option>
+          <Option>
+            <Value>7</Value>
+            <Name>Bildung &amp; Forschung</Name>
+          </Option>
+          <Option>
+            <Value>9</Value>
+            <Name>Andere</Name>
+          </Option>
+          <!-- <Option>
+          <Value>2</Value>
+          <Name>Competitors</Name>
+        </Option>
+        <Option>
+          <Value>3</Value>
+          <Name>Meetings, Exhibitions</Name>
+        </Option>
+        <Option>
+          <Value>4</Value>
+          <Name>Support organisation</Name>
+        </Option>
+        <Option>
+          <Value>8</Value>
+          <Name>Newspaper, Internet</Name>
+        </Option> -->
+        </Selector>
+      </Group>
+      <Group>
+        <Value>3</Value>
+        <Name>Interne Resourcen</Name>
+        <Root>Resources</Root>
+        <Selector>
+          <Option>
+            <Value>1</Value>
+            <Name>Strategie</Name>
+          </Option>
+          <Option>
+            <Value>2</Value>
+            <Name>Organisation</Name>
+          </Option>
+          <Option>
+            <Value>5</Value>
+            <Name>Kompetenzen</Name>
+          </Option>
+          <Option>
+            <Value>6</Value>
+            <Name>Markt</Name>
+          </Option>
+          <Option>
+            <Value>3</Value>
+            <Name>Innovationsprozess</Name>
+          </Option>
+          <Option>
+            <Value>4</Value>
+            <Name>Eigentumsrechte</Name>
+          </Option>
+          <Option>
+            <Value>7</Value>
+            <Name>Finanzierung</Name>
+          </Option>
+          <Option>
+            <Value>10</Value>
+            <Name>Kultur</Name>
+          </Option>
+          <Option>
+            <Value>9</Value>
+            <Name>Führung</Name>
+          </Option>
+          <!-- <Option>
+          <Value>8</Value>
+          <Name>Other</Name>
+        </Option> -->
+        </Selector>
+      </Group>
+      <Group>
+        <Value>4</Value>
+        <Name>Partnerschaften und Kooperationen</Name>
+        <Root>Partners</Root>
+        <Selector>
+          <Option>
+            <Value>2</Value>
+            <Name>Kunde</Name>
+          </Option>
+          <Option>
+            <Value>9</Value>
+            <Name>Vertriebspartner</Name>
+          </Option>
+          <Option>
+            <Value>5</Value>
+            <Name>Lieferant</Name>
+          </Option>
+          <Option>
+            <Value>4</Value>
+            <Name>Hersteller</Name>
+          </Option>
+          <Option>
+            <Value>7</Value>
+            <Name>Bildung &amp; Forschung</Name>
+          </Option>
+          <Option>
+            <Value>6</Value>
+            <Name>Privater Investor</Name>
+          </Option>
+          <Option>
+            <Value>10</Value>
+            <Name>Öffentliche Mittel</Name>
+          </Option>
+          <Option>
+            <Value>1</Value>
+            <Name>Andere</Name>
+          </Option>
+        </Selector>
+      </Group>
+    </Selector>
+  </Description>
+</GlobalInformation>

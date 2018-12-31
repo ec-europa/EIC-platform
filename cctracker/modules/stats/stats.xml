@@ -1,0 +1,715 @@
+<Statistics>
+  <Filters>
+    <Filter Page="cases">
+      <Formular>
+        <Template>../templates/stats-cases</Template>
+        <Command Allow="g:admin-system g:business-intelligence g:region-manager g:kam g:ncp" Name="submit" Action="export?t=anonymized" Form="e1" W="3" Offset="1">Anonymized Export</Command>
+        <Command Allow="g:admin-system g:region-manager g:kam" Name="submit" Action="export?t=all" Form="e2" W="2">Export All</Command>
+        <Command Allow="g:admin-system g:region-manager g:kam" ExcelAllow="g:admin-system" Name="submit" Action="export?t=list" Form="e3" W="2">Contact List</Command>
+        <Command Allow="g:admin-system g:business-intelligence g:region-manager g:kam g:ncp" Name="stats" Action="filter" W="2">Statistics</Command>
+      </Formular>
+      <Charts>
+        <Chart>
+          <Layout>
+            <Update>destructive</Update>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>Funding program</Title>
+          <Variable Selector="FundingPrograms">Prg</Variable>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Update>destructive</Update>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>Call cut-off</Title>
+          <Variable Domain="cut-off">COf</Variable>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Update>destructive</Update>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>Type of action</Title>
+          <Variable Domain="funding-phase">Ph</Variable>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>75</Angle>
+            <Bottom>180</Bottom>
+            <Left>20</Left>
+            <Size>30</Size>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>Call topic (SME Instrument only)</Title>
+          <Vector Selector="Topics">Tp</Vector>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>75</Angle>
+            <Bottom>180</Bottom>
+            <Left>20</Left>
+            <Update>destructive</Update>
+          </Layout>
+          <Title>Project Officer</Title>
+          <Set>Cases</Set>
+          <Vector Persons="officer">PO</Vector>
+        </Chart>
+        <Chart>
+          <Set>Cases</Set>
+          <Title>Current case status</Title>
+          <Variable WorkflowStatus="Case">CS</Variable>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>75</Angle>
+            <Bottom>120</Bottom>
+            <Left>20</Left>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>Country</Title>
+          <Variable Selector="Countries">Co</Variable>
+        </Chart>
+        <!-- <Chart>
+          <Set>Cases</Set>
+          <Title>Nutscode</Title>
+          <Variable Domain="nuts">Nuts</Variable>
+        </Chart> -->
+        <Chart>
+          <Layout>
+            <Angle>75</Angle>
+            <Bottom>80</Bottom>
+            <Left>20</Left>
+            <Size>4</Size>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>Nace</Title>
+          <Variable Selector="DomainActivities">Nc</Variable>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>75</Angle>
+            <Bottom>240</Bottom>
+            <Left>20</Left>
+          </Layout>
+          <Title>Markets</Title>
+          <Set>Cases</Set>
+          <Vector Selector="TargetedMarkets">TM</Vector>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>25</Angle>
+            <Bottom>80</Bottom>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>Size</Title>
+          <Variable Selector="Sizes">Sz</Variable>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>75</Angle>
+            <Bottom>50</Bottom>
+            <Left>20</Left>
+            <Update>destructive</Update>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>Year of creation</Title>
+          <Variable Domain="year">Yr</Variable>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>75</Angle>
+            <Bottom>200</Bottom>
+            <Left>20</Left>
+            <Update>destructive</Update>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>EEN</Title>
+          <Variable Domain="regions">EEN</Variable>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>75</Angle>
+            <Bottom>50</Bottom>
+            <Left>20</Left>
+            <Update>destructive</Update>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>KAM</Title>
+          <Variable Persons="kam">KAM</Variable>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>75</Angle>
+            <Bottom>200</Bottom>
+            <Left>20</Left>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>Sector group</Title>
+          <Variable Selector="SectorGroups">SG</Variable>
+        </Chart>
+        <Chart>
+          <Set>Cases</Set>
+          <Title>Current life cycle stage</Title>
+          <Variable Selector="InitialContexts">IC</Variable>
+        </Chart>
+        <Chart>
+          <Set>Cases</Set>
+          <Title>Planned life cycle stage</Title>
+          <Variable Selector="TargetedContexts">TC</Variable>
+        </Chart>
+        <Chart>
+          <Set>Cases</Set>
+          <Title>Needs vectors</Title>
+          <Vector Domain="CaseImpact" Section="1">Vct</Vector>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>45</Angle>
+            <Bottom>120</Bottom>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>Needs sources of ideas</Title>
+          <Vector Domain="CaseImpact" Section="2">Ids</Vector>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>45</Angle>
+            <Bottom>120</Bottom>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>Resources</Title>
+          <Vector Domain="CaseImpact" Section="3">Rsc</Vector>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>45</Angle>
+            <Bottom>130</Bottom>
+          </Layout>
+          <Set>Cases</Set>
+          <Title>Partnerships</Title>
+          <Vector Domain="CaseImpact" Section="4">Ptn</Vector>
+        </Chart>
+      </Charts>
+    </Filter>
+    <Filter Page="activities">
+      <Formular>
+        <Template>../templates/stats-activities</Template>
+        <Command Allow="g:admin-system g:business-intelligence g:region-manager g:kam g:ncp" Name="submit" Action="export?t=anonymized" Form="e1" W="3" Offset="1">Anonymized Export</Command>
+        <Command Allow="g:admin-system g:region-manager g:kam" Name="submit" Action="export?t=all" Form="e2" W="2">Export All</Command>
+        <Command Allow="g:admin-system g:region-manager g:kam" ExcelAllow="g:admin-system" Name="submit" Action="export?t=list" Form="e3" W="2">Contact List</Command>
+        <Command Allow="g:admin-system g:business-intelligence g:region-manager g:kam g:ncp" Name="stats" Action="filter" W="2">Statistics</Command>
+      </Formular>
+      <Charts>
+        <Chart>
+          <Layout>
+            <Update>destructive</Update>
+          </Layout>
+          <Set>Activities</Set>
+          <Title>Funding program</Title>
+          <Variable Selector="FundingPrograms">Prg</Variable>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>75</Angle>
+            <Bottom>140</Bottom>
+            <Left>20</Left>
+            <Update>destructive</Update>
+          </Layout>
+          <Set>Activities</Set>
+          <Title>Coach</Title>
+          <Variable Persons="coach">Coach</Variable>
+        </Chart>
+        <Chart>
+          <Set>Activities</Set>
+          <Title>Coaching service</Title>
+          <Variable Selector="Services">Sv</Variable>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>30</Angle>
+            <Bottom>80</Bottom>
+            <Left>80</Left>
+            <Update>destructive</Update>
+          </Layout>
+          <Set>Activities</Set>
+          <Title>Current activity status</Title>
+          <Variable WorkflowStatus="Activity">AS</Variable>
+        </Chart>
+        <Chart>
+          <Set>Activities</Set>
+          <Title>Recommendation coach</Title>
+          <Variable Selector="CommunicationAdvices">CA</Variable>
+        </Chart>
+        <Chart>
+          <Set>Activities</Set>
+          <Title>Recommendation KAM</Title>
+          <Variable Selector="CommunicationAdvices">KA</Variable>
+        </Chart>
+        <Chart>
+          <Set>Activities</Set>
+          <Title>Vectors addressed</Title>
+          <Comment>This frequency diagram only retains values with a priority set to "high" wheras the "Needs addressed" search criteria filters on "medium" or "high", hence it may show fewer samples than the result set</Comment>
+          <Vector Domain="CaseImpact" Section="1">AVct</Vector>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>45</Angle>
+            <Bottom>120</Bottom>
+          </Layout>
+          <Set>Activities</Set>
+          <Title>Sources of ideas addressed</Title>
+          <Comment>This frequency diagram only retains values with a priority set to "high" wheras the "Needs addressed" search criteria filters on "medium" or "high", hence it may show fewer samples than the result set</Comment>
+          <Vector Domain="CaseImpact" Section="2">AIds</Vector>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>45</Angle>
+            <Bottom>120</Bottom>
+          </Layout>
+          <Set>Activities</Set>
+          <Title>Resources addressed</Title>
+          <Comment>This frequency diagram only retains values with a priority set to "high" wheras the "Needs addressed" search criteria filters on "medium" or "high", hence it may show fewer samples than the result set</Comment>
+          <Vector Domain="CaseImpact" Section="3">ARsc</Vector>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>45</Angle>
+            <Bottom>130</Bottom>
+          </Layout>
+          <Set>Activities</Set>
+          <Title>Partnerships addressed</Title>
+          <Comment>This frequency diagram only retains values with a priority set to "high" wheras the "Needs addressed" search criteria filters on "medium" or "high", hence it may show fewer samples than the result set</Comment>
+          <Vector Domain="CaseImpact" Section="4">APtn</Vector>
+        </Chart>
+      </Charts>
+    </Filter>
+    <Filter Page="kpi">
+      <Formular>
+        <Template>../templates/stats-kpi</Template>
+        <Command Allow="g:admin-system g:business-intelligence g:region-manager g:kam g:ncp" Name="submit" Action="export?t=anonymized" Form="e1" W="3" Offset="1">Anonymized Export</Command>
+        <Command Allow="g:admin-system g:region-manager g:kam" Name="submit" Action="export?t=all" Form="e2" W="2">Export All</Command>
+        <Command Allow="g:admin-system g:region-manager g:kam" ExcelAllow="g:admin-system" Name="submit" Action="export?t=list" Form="e3" W="2">Contact List</Command>
+        <Command Allow="g:admin-system g:business-intelligence g:region-manager g:kam g:ncp" Name="stats" Action="filter" W="2">Statistics</Command>
+      </Formular>
+      <Charts>
+        <!-- Compound KPI
+             JS version :
+             stats.xsl :
+             data-variable="KPI"
+             data-composition="Q"
+             data-dimension-1="1 2 3 4"
+             data-dimension-2="5 6 7"
+             data-dimension-3="8 9 10 11 12"
+             data-dimension-4="13 14"
+             data-dimension-5="1 2 3 4 5 6 7 8 9 10 11 12 13 14"
+             QUESTION: inverser l'échelle (-x + 6) pour les calculs ?
+             CALL calcVectorComposition(name, values, tuples) = [[x,y,z,w], [x,y,z,w]]
+             ==> iteration sur data-dimension-{Variable.KPI.Values} !!!
+             ==> applatir avec la moyenne de chaque dimension excluant les 0 !!!
+             filter.xql /stats.xqm: gen-composition-domain( $composition )
+             Variable.KPI = { Labels : [ @loc, @loc, @loc, @loc ], Values : [ 1, 2, 3, 4 ] }
+             -->
+        <Chart>
+          <Set>Activities</Set>
+          <Title>KPI overview</Title>
+          <Composition Selector="RatingScales" Variable="Q" Name="kpi">
+            <Mean loc="stats.kpi_1" Filter="KPI1">
+              <Rank>1</Rank>
+              <Rank>2</Rank>
+              <Rank>3</Rank>
+              <Rank>4</Rank>
+            </Mean>
+            <Mean loc="stats.kpi_2" Filter="KPI2">
+              <Rank>5</Rank>
+              <Rank>6</Rank>
+              <Rank>7</Rank>
+            </Mean>
+            <Mean loc="stats.kpi_3" Filter="KPI3">
+              <Rank>8</Rank>
+              <Rank>9</Rank>
+              <Rank>10</Rank>
+              <Rank>11</Rank>
+              <Rank>12</Rank>
+            </Mean>
+            <Mean loc="stats.kpi_4" Filter="KPI4">
+              <Rank>13</Rank>
+              <Rank>14</Rank>
+            </Mean>
+            <Mean loc="stats.kpi" Filter="KPI"/>
+          </Composition>
+        </Chart>
+        <!-- KPI_4 -->
+        <Chart>
+          <Set>Activities</Set>
+          <Title>Stakeholder view on KPI_1 Needs analysis</Title>
+          <Composition Selector="RatingScales" Variable="Q" Name="sv1">
+            <Mean loc="stats.questions.kam" Filter="SV1KAM">
+              <Rank>1</Rank>
+              <Rank>2</Rank>
+            </Mean>
+            <Mean loc="stats.questions.sme" Filter="SV1SME">
+              <Rank>3</Rank>
+              <Rank>4</Rank>
+            </Mean>
+          </Composition>
+        </Chart>
+        <Chart>
+          <Set>Activities</Set>
+          <Title>Success factors related to KPI_1 Needs analysis</Title>
+          <Composition Selector="RatingScales" Variable="Q" Name="sf1">
+            <Mean loc="stats.sf1_1" Filter="SF11">
+              <Rank>1</Rank>
+            </Mean>
+            <Mean loc="stats.sf1_2" Filter="SF12">
+              <Rank>2</Rank>
+              <Rank>3</Rank>
+            </Mean>
+            <Mean loc="stats.sf1_3" Filter="SF13">
+              <Rank>4</Rank>
+            </Mean>
+          </Composition>
+        </Chart>
+        <!-- KPI_2 -->
+        <Chart>
+          <Set>Activities</Set>
+          <Title>Stakeholder view on KPI_2 Coach selection</Title>
+          <Composition Selector="RatingScales" Variable="Q" Name="sv2">
+            <Mean loc="stats.questions.kam" Filter="SV2KAM">
+              <Rank>5</Rank>
+            </Mean>
+            <Mean loc="stats.questions.sme" Filter="SV2SME">
+              <Rank>6</Rank>
+            </Mean>
+            <Mean loc="stats.questions.coach" Filter="SV2Coach">
+              <Rank>7</Rank>
+            </Mean>
+          </Composition>
+        </Chart>
+        <Chart>
+          <Set>Activities</Set>
+          <Title>Success factors related to KPI_2 Coach selection</Title>
+          <Composition Selector="RatingScales" Variable="Q" Name="sf2">
+            <Mean loc="stats.sf2_1" Filter="SF21">
+              <Rank>5</Rank>
+            </Mean>
+            <Mean loc="stats.sf2_2" Filter="SF22">
+              <Rank>6</Rank>
+              <Rank>7</Rank>
+            </Mean>
+          </Composition>
+        </Chart>
+        <!-- KPI_3 -->
+        <Chart>
+          <Set>Activities</Set>
+          <Title>Stakeholder view on KPI_3 Resource impact</Title>
+          <Composition Selector="RatingScales" Variable="Q" Name="sv3">
+            <Mean loc="stats.questions.sme" Filter="SV3SME">
+              <Rank>9</Rank>
+              <Rank>11</Rank>
+            </Mean>
+            <Mean loc="stats.questions.coach" Filter="SV3Coach">
+              <Rank>8</Rank>
+              <Rank>10</Rank>
+              <Rank>12</Rank>
+            </Mean>
+          </Composition>
+        </Chart>
+        <Chart>
+          <Set>Activities</Set>
+          <Title>Success factors related to KPI_3 Resource impact</Title>
+          <Composition Selector="RatingScales" Variable="Q" Name="sf3">
+            <Mean loc="stats.sf3_1" Filter="SF31">
+              <Rank>8</Rank>
+              <Rank>9</Rank>
+            </Mean>
+            <Mean loc="stats.sf3_2" Filter="SF32">
+              <Rank>10</Rank>
+              <Rank>11</Rank>
+              <Rank>12</Rank>
+            </Mean>
+          </Composition>
+        </Chart>
+        <!-- KPI_4 -->
+        <Chart>
+          <Set>Activities</Set>
+          <Title>Stakeholder view on KPI_4 Business impact</Title>
+          <Composition Selector="RatingScales" Variable="Q" Name="sv4">
+            <Mean loc="stats.questions.sme" Filter="SV4SME">
+              <Rank>13</Rank>
+              <Rank>14</Rank>
+            </Mean>
+          </Composition>
+        </Chart>
+        <Chart>
+          <Set>Activities</Set>
+          <Title>Success factors related to KPI_4 Business impact</Title>
+          <Composition Selector="RatingScales" Variable="Q" Name="sf4">
+            <Mean loc="stats.sf4_1" Filter="SF41">
+              <Rank>13</Rank>
+              <Rank>14</Rank>
+            </Mean>
+          </Composition>
+        </Chart>
+        <!-- Questions frequency diagrams -->
+        <Chart Max="15">
+          <Set>Activities</Set>
+          <Title loc="stats.q">Question</Title>
+          <Vector Selector="RatingScales" Format="literal">Q</Vector>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>75</Angle>
+            <Bottom>140</Bottom>
+            <Left>20</Left>
+            <Update>destructive</Update>
+          </Layout>
+          <Set>Activities</Set>
+          <Title>Coach</Title>
+          <Variable Persons="coach">Coach</Variable>
+        </Chart>
+        <Chart>
+          <Set>Activities</Set>
+          <Title>Coaching service</Title>
+          <Variable Selector="Services">Sv</Variable>
+        </Chart>
+        <Chart>
+          <Layout>
+            <Angle>30</Angle>
+            <Bottom>80</Bottom>
+            <Left>80</Left>
+            <Update>destructive</Update>
+          </Layout>
+          <Set>Activities</Set>
+          <Title>Current activity status</Title>
+          <Variable WorkflowStatus="Activity">AS</Variable>
+        </Chart>
+      </Charts>
+    </Filter>
+  </Filters>
+  <Tables>
+    <Table Type="all" Page="cases">
+      <Headers Lang="en">
+        <Header BG="none">Case ID</Header>
+        <Header BG="none">Project ID</Header>
+        <Header BG="case">Project acronym</Header>
+        <Header BG="case">Funding program</Header>
+        <Header BG="case">Type</Header>
+        <Header BG="case">Call cut-off</Header>
+        <Header BG="case">Topics</Header>
+        <Header BG="case">Project officer</Header>
+        <Header BG="case">Case status</Header>
+        <Header BG="case">KAM</Header>
+        <Header BG="case">EEN</Header>
+        <Header BG="none">Coaching ID</Header>
+        <Header BG="none">Coaching status</Header>
+        <Header BG="none">Coach</Header>
+        <Header BG="enterprise">SME beneficiary</Header>
+        <Header BG="enterprise">Country</Header>
+        <Header BG="enterprise">Nace</Header>
+        <Header BG="enterprise">Markets</Header>
+        <Header BG="enterprise">Size</Header>
+        <Header BG="enterprise">Year of creation</Header>
+        <Header BG="case">Sector group</Header>
+        <Header BG="enterprise">Current life cycle stage</Header>
+        <Header BG="enterprise">Planned life cycle stage</Header>
+        <Header BG="needs">Needs vectors</Header>
+        <Header BG="needs">Needs sources of ideas</Header>
+        <Header BG="needs">Resources</Header>
+        <Header BG="needs">Partnerships</Header>
+      </Headers>
+    </Table>
+    <Table Type="anonymized" Page="cases">
+      <Headers Lang="en">
+        <Header BG="none">Case ID</Header>
+        <Header BG="none">Project ID</Header>
+        <Header BG="case">Project acronym</Header>
+        <Header BG="case">Funding program</Header>
+        <Header BG="case">Type</Header>
+        <Header BG="case">Call cut-off</Header>
+        <Header BG="case">Topics</Header>
+        <Header BG="case">Project officer</Header>
+        <Header BG="case">Case status</Header>
+        <Header BG="case">KAM</Header>
+        <Header BG="case">EEN</Header>
+        <Header BG="enterprise">Country</Header>
+        <Header BG="enterprise">Nace</Header>
+        <Header BG="enterprise">Markets</Header>
+        <Header BG="enterprise">Size</Header>
+        <Header BG="enterprise">Year of creation</Header>
+        <Header BG="case">Sector group</Header>
+        <Header BG="enterprise">Current life cycle stage</Header>
+        <Header BG="enterprise">Planned life cycle stage</Header>
+        <Header BG="needs">Needs vectors</Header>
+        <Header BG="needs">Needs sources of ideas</Header>
+        <Header BG="needs">Resources</Header>
+        <Header BG="needs">Partnerships</Header>
+      </Headers>
+    </Table>
+    <Table Type="list" Page="cases">
+      <Headers Lang="en">
+        <Header BG="none">Case ID</Header>
+        <Header BG="none">Project ID</Header>
+        <Header BG="case">Funding program</Header>
+        <Header BG="case">Type</Header>
+        <Header BG="case">Call cut-off</Header>
+        <Header BG="case">Project acronym</Header>
+        <Header BG="enterprise">SME beneficiary</Header>
+        <Header BG="enterprise">Contact person</Header>
+        <Header BG="enterprise">Country</Header>
+        <Header BG="enterprise">Size</Header>
+        <Header BG="enterprise">Planned life cycle</Header>
+        <Header BG="case">Project officer</Header>
+        <Header BG="case">EEN</Header>
+        <Header BG="case">EEN KAM Coordinator</Header>
+        <Header BG="case">KAM</Header>
+        <Header BG="case">Case status</Header>
+      </Headers>
+    </Table>
+    <Table Type="all anonymized" Page="activities">
+      <Headers Lang="en">
+        <Header BG="none">Case ID</Header>
+        <Header BG="none">Project ID</Header>
+        <Header BG="activity">Coaching ID</Header>
+        <Header BG="activity">Coach</Header>
+        <Header BG="activity">Service</Header>
+        <Header BG="activity">Coaching status</Header>
+        <Header BG="priorities">Addressed vectors (medium)</Header>
+        <Header BG="priorities">Addressed vectors (high)</Header>
+        <Header BG="priorities">Addressed ideas (medium)</Header>
+        <Header BG="priorities">Addressed ideas (high)</Header>
+        <Header BG="priorities">Addressed resources (medium)</Header>
+        <Header BG="priorities">Addressed resources (high)</Header>
+        <Header BG="priorities">Addressed partners (medium)</Header>
+        <Header BG="priorities">Addressed partners (high)</Header>
+        <Header BG="activity">Recommendation coach</Header>
+        <Header BG="activity">Recommendation KAM</Header>
+        <Header BG="case">Project acronym</Header>
+        <Header BG="case">Funding program</Header>
+        <Header BG="case">Type</Header>
+        <Header BG="case">Call cut-off</Header>
+        <Header BG="case">Topics</Header>
+        <Header BG="case">Project officer</Header>
+        <Header BG="case">Case status</Header>
+        <Header BG="enterprise" Avoid="anonymized">SME beneficiary</Header>
+        <Header BG="enterprise">Country</Header>
+        <Header BG="enterprise">Nace</Header>
+        <Header BG="enterprise">Markets</Header>
+        <Header BG="enterprise">Size</Header>
+        <Header BG="enterprise">Year of creation</Header>
+        <Header BG="case">EEN</Header>
+        <Header BG="case">KAM</Header>
+        <Header BG="case">Sector group</Header>
+        <Header BG="enterprise">Current life cycle stage</Header>
+        <Header BG="enterprise">Planned life cycle stage</Header>
+        <Header BG="needs">Needs vectors</Header>
+        <Header BG="needs">Needs sources of ideas</Header>
+        <Header BG="needs">Resources</Header>
+        <Header BG="needs">Partnerships</Header>
+      </Headers>
+    </Table>
+    <Table Type="list" Page="activities">
+      <Headers Lang="en">
+        <Header BG="none">Case ID</Header>
+        <Header BG="none">Project ID</Header>
+        <Header BG="case">Funding program</Header>
+        <Header BG="case">Type</Header>
+        <Header BG="case">Call cut-off</Header>
+        <Header BG="case">Project acronym</Header>
+        <Header BG="enterprise">SME beneficiary</Header>
+        <Header BG="enterprise">Contact person</Header>
+        <Header BG="enterprise">Country</Header>
+        <Header BG="enterprise">Size</Header>
+        <Header BG="enterprise">Planned life cycle</Header>
+        <Header BG="case">Project officer</Header>
+        <Header BG="case">EEN</Header>
+        <Header BG="case">EEN KAM Coordinator</Header>
+        <Header BG="case">KAM</Header>
+        <Header BG="activity">Coaching ID</Header>
+        <Header BG="activity">Coach</Header>
+        <Header BG="activity">Coaching status</Header>
+      </Headers>
+    </Table>
+    <Table Type="all anonymized" Page="kpi">
+      <Headers Lang="en">
+        <Header BG="none">Case ID</Header>
+        <Header BG="none">Project ID</Header>
+        <Header BG="activity">Coaching ID</Header>
+        <Header BG="activity">Coach</Header>
+        <Header BG="activity">Service</Header>
+        <Header BG="activity">Coaching status</Header>
+        <Header BG="kpi">Q1</Header>
+        <Header BG="kpi">Q2</Header>
+        <Header BG="kpi">Q3</Header>
+        <Header BG="kpi">Q4</Header>
+        <Header BG="kpi">Q5</Header>
+        <Header BG="kpi">Q6</Header>
+        <Header BG="kpi">Q7</Header>
+        <Header BG="kpi">Q8</Header>
+        <Header BG="kpi">Q9</Header>
+        <Header BG="kpi">Q10</Header>
+        <Header BG="kpi">Q11</Header>
+        <Header BG="kpi">Q12</Header>
+        <Header BG="kpi">Q13</Header>
+        <Header BG="kpi">Q14</Header>
+        <Header BG="kpi">Coach comments</Header>
+        <Header BG="kpi">Q15</Header>
+        <Header BG="kpi">KAM comments</Header>
+        <Header BG="priorities">Addressed vectors (medium)</Header>
+        <Header BG="priorities">Addressed vectors (high)</Header>
+        <Header BG="priorities">Addressed ideas (medium)</Header>
+        <Header BG="priorities">Addressed ideas (high)</Header>
+        <Header BG="priorities">Addressed resources (medium)</Header>
+        <Header BG="priorities">Addressed resources (high)</Header>
+        <Header BG="priorities">Addressed partners (medium)</Header>
+        <Header BG="priorities">Addressed partners (high)</Header>
+        <Header BG="activity">Recommendation coach</Header>        
+        <Header BG="activity">Recommendation KAM</Header>        
+        <Header BG="case">Project acronym</Header>
+        <Header BG="case">Funding program</Header>
+        <Header BG="case">Type</Header>
+        <Header BG="case">Call cut-off</Header>
+        <Header BG="case">Topics</Header>
+        <Header BG="case">Project officer</Header>
+        <Header BG="case">Case status</Header>
+        <Header BG="enterprise" Avoid="anonymized">SME beneficiary</Header>
+        <Header BG="enterprise">Country</Header>
+        <Header BG="enterprise">Nace</Header>
+        <Header BG="enterprise">Markets</Header>
+        <Header BG="enterprise">Size</Header>
+        <Header BG="enterprise">Year of creation</Header>
+        <Header BG="case">EEN</Header>
+        <Header BG="case">KAM</Header>
+        <Header BG="case">Sector group</Header>
+        <Header BG="enterprise">Current life cycle stage</Header>
+        <Header BG="enterprise">Planned life cycle stage</Header>
+        <Header BG="needs">Needs vectors</Header>
+        <Header BG="needs">Needs sources of ideas</Header>
+        <Header BG="needs">Resources</Header>
+        <Header BG="needs">Partnerships</Header>
+      </Headers>
+    </Table>
+    <Table Type="list" Page="kpi">
+      <Headers Lang="en">
+        <Header BG="none">Case ID</Header>
+        <Header BG="none">Project ID</Header>
+        <Header BG="case">Funding program</Header>
+        <Header BG="case">Type</Header>
+        <Header BG="enterprise">SME beneficiary</Header>
+        <Header BG="enterprise">Contact person</Header>
+        <Header BG="enterprise">Country</Header>
+        <Header BG="case">EEN</Header>
+        <Header BG="case">EEN KAM Coordinator</Header>
+        <Header BG="case">KAM</Header>
+        <Header BG="activity">Coaching ID</Header>
+        <Header BG="activity">Coach</Header>
+        <Header BG="activity">Coaching status</Header>
+        <Header BG="kpi">KPI_1 Needs analysis</Header>
+        <Header BG="kpi">KPI_2 Coach selection</Header>
+        <Header BG="kpi">KPI_3 Resource impact</Header>
+        <Header BG="kpi">KPI_4 Business impact</Header>
+        <Header BG="kpi">Compound KPI</Header>
+      </Headers>
+    </Table>
+  </Tables>
+</Statistics>

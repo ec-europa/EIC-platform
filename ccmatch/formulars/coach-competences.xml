@@ -1,0 +1,40 @@
+<Form Tag="Profile" StartLevel="2" Wrapper="none"
+      xmlns:xt="http://ns.inria.org/xtiger" xmlns:site="http://oppidoc.com/oppidum/site">
+
+  <Verbatim>
+    <xt:component name="t_challenges">
+      <ProductTable>
+        <Title Width="50%">Competences related to the business innovation system</Title>
+        <Combine>
+          <Selector Document="innovation-tree-en.xml" Prefix="Rating" CardOnValue="3" CardMax="8">CaseImpacts</Selector>
+          <Selector Document="global-information.xml" Width="16%">ExpertiseScales</Selector>
+        </Combine>
+      </ProductTable>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <Cell Tag="CurriculumVitae" Gap="0">
+      <Title Level="2">Executive summary <Hint data-placement="right">Enter a short summary of your competences specifically in regard to Business Innovation Coaching relevant to the support you can provide to SME Instrument beneficiaries (500 character max, about 4 lines of text)</Hint></Title>
+      <Field Key="bio" Tag="Summary"/>
+      <Title Level="2">Keyword search <Hint data-placement="right">Keywords I whish to be found for e.g. cloud computing, aqua culture, China, maritime, you name it.</Hint></Title> 
+      <Field Key="keywords" Tag="Keywords"/>
+      <span class="af-label" style="display:none">Executive summary</span>
+    </Cell>
+  </Row>
+
+  <Row>
+    <Use Tag="CaseImpacts" TypeName="challenges"/>
+  </Row>
+  
+  <Bindings>
+    <Require Keys="bio"/>
+  </Bindings>
+  
+  <Plugins>
+    <Text Keys="keywords bio"/>
+  </Plugins>
+
+</Form>
+
+

@@ -1,0 +1,217 @@
+<Formulars Options="schematize">
+  <Formular>
+    <Name>Demo</Name>
+    <Form>forms/demo</Form>
+  </Formular>
+  <!-- Enterprise -->
+  <Formular>
+    <Name>User Account</Name>
+    <Form>forms/account</Form>
+    <Template>templates/account</Template>
+  </Formular>
+  <Formular>
+    <Name>User Roles</Name>
+    <Form>forms/roles</Form>
+    <Template>templates/roles</Template>
+  </Formular>
+  <Formular>
+    <Name>Enterprise Address</Name>
+    <Form>forms/cie-address</Form>
+    <Template>templates/enterprise/address</Template>
+  </Formular>
+  <Formular>
+    <Name>Enterprise Statistics</Name>
+    <Form>forms/cie-statistics</Form>
+    <Template>templates/enterprise/statistics</Template>
+  </Formular>
+  <Formular>
+    <Name>Enterprise Status</Name>
+    <Form>forms/cie-status</Form>
+    <Template>templates/enterprise/status</Template>
+  </Formular>  
+  <Formular>
+    <Name>Search Companies</Name>
+    <Form>forms/cie-search</Form>
+    <Template>templates/enterprise/search</Template>
+  </Formular>
+  <Formular>
+    <Name>Import Companies</Name>
+    <Form>forms/cie-import</Form>
+    <Template>templates/enterprise/import</Template>
+  </Formular>
+  <!-- Team -->
+  <Formular>
+    <Name>Team Member</Name>
+    <Form>forms/team-member</Form>
+    <Template>templates/team/member</Template>
+  </Formular>
+  <Formular>
+    <Name>Search Team members</Name>
+    <Form>forms/team-search</Form>
+    <Template>templates/team/search</Template>
+  </Formular>
+  <!-- Events -->
+  <Formular>
+    <Name>Search Events</Name>
+    <Form>forms/event-search</Form>
+    <Template>templates/event/search</Template>
+  </Formular>
+  <!-- OTF Forms -->
+  <Formular>
+    <Name>OTF FIDAE International</Name>
+    <Form>forms/otf-fidae</Form>
+    <Template>templates/otf/fidae</Template>
+  </Formular>
+  <Formular>
+    <Name>OTF Asia Water Expo</Name>
+    <Form>forms/otf-asia-water</Form>
+    <Template>templates/otf/asia-water</Template>
+  </Formular>
+  <Formular>
+    <Name>OTF African Utility Week</Name>
+    <Form>forms/otf-african-utility</Form>
+    <Template>templates/otf/african-utility</Template>
+  </Formular>
+  <Formular>
+    <Name>OTF Electronica &amp; Productronica</Name>
+    <Form>forms/otf-electronica-productronica</Form>
+    <Template>templates/otf/electronica-productronica</Template>
+  </Formular>
+  <Formular>
+    <Name>OTF Metalex</Name>
+    <Form>forms/otf-metalex</Form>
+    <Template>templates/otf/metalex</Template>
+  </Formular>
+  <Formular>
+    <Name>OTF China International Industry</Name>
+    <Form>forms/otf-china-industry</Form>
+    <Template>templates/otf/china-industry</Template>
+  </Formular>
+  <Formular>
+    <Name>OTF Arab Health</Name>
+    <Form>forms/otf-arab-health</Form>
+    <Template>templates/otf/arab-health</Template>
+  </Formular>
+  <Formular>
+    <Name>OTF CES International</Name>
+    <Form>forms/otf-ces-international</Form>
+    <Template>templates/otf/ces-international</Template>
+  </Formular>
+  <Formular>
+    <Name>OTF Evaluation</Name>
+    <Form>forms/otf-evaluation</Form>
+    <Template>templates/otf/evaluation</Template>
+  </Formular>
+  <Formular>
+    <Name>OTF confirmation</Name>
+    <Form>forms/otf-confirmation</Form>
+    <Template>templates/otf/confirmation</Template>
+  </Formular>
+  <Formular>
+    <Name>OTF Finalization</Name>
+    <Form>forms/otf-finalization</Form>
+    <Template>templates/otf/finalization</Template>
+  </Formular>
+  <Formular>
+    <Name>OTF satisfaction</Name>
+    <Form>forms/otf-satisfaction</Form>
+    <Template>templates/otf/satisfaction</Template>
+  </Formular>
+  <Formular>
+    <Name>OTF impact</Name>
+    <Form>forms/otf-impact</Form>
+    <Template>templates/otf/impact</Template>
+  </Formular>  
+  <Formular>
+    <Name>Event details (closing or closed)</Name>
+    <Form>forms/event-details</Form>
+    <Template>templates/event/details</Template>
+  </Formular>
+  <Formular>
+    <Name>Pitching impact</Name>
+    <Form>forms/pitching-impact</Form>
+    <Template>templates/pitching/impact</Template>
+  </Formular> 
+  <!-- Academy -->
+  <Formular>
+    <Name>Academy</Name>
+    <Form>forms/academy</Form>
+    <Template>templates/academy/academy</Template>
+  </Formular>
+  <Formular>
+    <Name>Academy satisfaction</Name>
+    <Form>forms/academy-satisfaction</Form>
+    <Template>templates/academy/satisfaction</Template>
+  </Formular>
+  <Formular>
+    <Name>Academy satisfaction v2</Name>
+    <Form>forms/academy-satisfaction-v2</Form>
+    <Template>templates/academy/satisfaction-v2</Template>
+  </Formular>
+  <!-- Investors -->
+  <Formular>
+    <Name>Investors SME</Name>
+    <Form>forms/investors-sme</Form>
+    <Template>templates/investors/sme</Template>
+  </Formular>
+  <Formular>
+    <Name>Investors Medica Smart City</Name>
+    <Form>forms/investors-medica-smart-city</Form>
+    <Template>templates/investors/medica-smart-city</Template>
+  </Formular>
+  <Formular>
+    <Name>Investors Corporate ABB</Name>
+    <Form>forms/investors-corporate-abb</Form>
+    <Template>templates/investors/corporate-abb</Template>
+  </Formular>
+  <Formular>
+    <Name>Investors Self Registration</Name>
+    <Form>forms/investors-self-registration</Form>
+    <Template>templates/admissions/investors-self-registration</Template>
+  </Formular>
+  <Formular>
+    <Name>Investors Registration to Berlin 2018 event</Name>
+    <Form>forms/berlin-investor-registration</Form>
+    <Template>templates/easme/berlin-investor-registration</Template>
+  </Formular>
+  <!-- EASME -->
+  <Formular>
+    <Name>Coordinator's day</Name>
+    <Form>forms/coordinator-day</Form>
+    <Template>templates/easme/coordinator-day</Template>
+  </Formular>
+  <Formular>
+    <Name>Berlin Beneficiary Registration</Name>
+    <Form>forms/berlin-beneficiary-registration</Form>
+    <Template>templates/easme/berlin-beneficiary-registration</Template>
+  </Formular>
+  <!-- Standard questionnaires -->
+  <Formular>
+    <Name>Pitching satisfaction</Name>
+    <Form>forms/pitching-satisfaction</Form>
+    <Template>templates/pitching/satisfaction</Template>
+  </Formular>
+  <Formular>
+    <Name>Satisfaction Survey</Name>
+    <Form>forms/pitching-satisfaction-v2</Form>
+    <Template>templates/pitching/satisfaction-v2</Template>
+  </Formular>
+  <!-- Feedbacks -->
+  <Formular>
+    <Name>Investor External Feedback</Name>
+    <Form>forms/feedback-investor</Form>
+    <Template>templates/feedback/investor</Template>
+  </Formular>
+  <!-- Privacy statement -->
+  <Formular>
+    <Name>Privacy statement</Name>
+    <Form>forms/consent</Form>
+    <Template/>
+  </Formular>
+  <!-- User -->
+  <Formular>
+    <Name>User Self Registration</Name>
+    <Form>forms/users-self-registration</Form>
+    <Template>templates/admissions/users-self-registration</Template>
+  </Formular>
+</Formulars>

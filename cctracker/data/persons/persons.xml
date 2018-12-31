@@ -1,0 +1,26 @@
+<Persons>
+  <Person>
+    <Id>1</Id>
+    <Sex>M</Sex>
+    <Civility>M.</Civility>
+    <Name>
+      <LastName>Sample</LastName>
+      <FirstName>Demo</FirstName>
+    </Name>
+    <EnterpriseRef>1</EnterpriseRef>
+    <Contacts>
+      <Phone>012 345 67 89</Phone>
+      <Mobile>098 76 543 21</Mobile>
+      <Email>demo@sample.org</Email>
+    </Contacts>
+    <UserProfile>
+      <Username>demo</Username>
+      <Remote Name="ECAS">demo</Remote>
+      <Roles>
+        <Role>
+          <FunctionRef>1</FunctionRef>
+        </Role>
+      </Roles>
+    </UserProfile>
+  </Person>
+</Persons>

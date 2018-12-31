@@ -1,0 +1,38 @@
+<Form Tag="SearchMembersRequest" Width="680px" Wrapper="none" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <Row>
+    <Column W="4">
+      <Field Key="programs" Tag="FundingPrograms" Placeholder-loc="content.any">Funding Program</Field>
+      <Field Key="project" Tag="ProjectId" L="0" W="6" Placeholder-loc="content.any">Project Number</Field>
+      <Field Key="acronyms" Tag="Acronyms" L="0" W="6" Placeholder-loc="content.any">Project Acronym</Field>
+      <Field Key="PO" Tag="ProjectOfficers" loc="term.PO" Placeholder-loc="content.any">Project officer</Field>
+      <Field Key="terminations" Tag="TerminationFlags" Placeholder-loc="content.any">Termination</Field>
+      <Field Key="category" Tag="Events"  Placeholder-loc="content.any">Events</Field>
+      <Field data-binding="condition" data-variable="status" Key="status" Tag="Status" Placeholder-loc="content.any">Current status</Field>
+      <Row data-binding="interval" data-variable="status-period">
+        <Field data-avoid-status="" data-min-date="status-period" Key="period1" Tag="DateOpen" Gap="0.5" W="6" Placeholder-loc="content.any">After</Field>
+        <Field data-avoid-status="" data-max-date="status-period" Key="period2" Tag="DateClose" Gap="0.5" W="6" Placeholder-loc="content.any">Before</Field>
+      </Row>
+    </Column>
+    <Column W="4">
+      <Field Key="enterprises" Tag="Enterprises" loc="term.enterprise" Placeholder-loc="content.any">Company</Field>
+      <Field Key="company-type" Tag="CompanyTypes" L="0" W="6" Placeholder-loc="content.any">Organisation type</Field>
+      <Field Key="validity" Tag="StatusFlags" L="0" W="6" Placeholder-loc="content.any">Validity</Field>
+      <Field Key="sizes" Tag="Sizes" loc="term.enterpriseSize" Placeholder-loc="content.any.f">Taille d'entreprise</Field>
+    </Column>
+    <Column W="4">
+      <Field Key="towns" Tag="Towns" loc="term.town" Placeholder-loc="content.any.f">Localité</Field>
+      <Field Key="country" Tag="Country" Placeholder-loc="content.any">Country</Field>
+      <Field Key="domains-of-activities" Tag="DomainsOfActivities" loc="term.domainActivity" Placeholder-loc="content.any">NACE</Field>
+      <Field Key="targeted-markets" Tag="TargetedMarkets" loc="term.targetedMarkets" Placeholder-loc="content.any">Marchés ciblés</Field>
+    </Column>
+  </Row>
+ <!-- <Row>
+    <Column W="5">
+    
+    </Column>
+  </Row>-->
+  <Plugins>
+    <Input Keys="project"/>
+    <Date Prefix="period"/>
+  </Plugins>
+</Form>

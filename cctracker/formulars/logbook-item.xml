@@ -1,0 +1,24 @@
+<Form Tag="LogbookItem" StartLevel="2" xmlns:xt="http://ns.inria.org/xtiger">
+  <Title>Entree dans le journal</Title>
+  <Row>
+    <Field Key="date" Tag="Date" loc="term.date" W="2" Gap="0">Date</Field>
+    <Field Key="coach-ref" Tag="CoachRef" loc="term.coach" W="3" Gap="0">Coach</Field>
+    <Field Key="nb-of-hours" Tag="NbOfHours" loc="term.nbOfHours" W="2" Gap="0">Nb d'heures</Field>
+    <Field Key="expense-amount" Tag="ExpenseAmount" loc="term.expenses" W="2" Gap="0">Défraiements</Field>
+    <Field Key="comment" Tag="Comment" loc="term.comment" W="3" Gap="0">Commentaire</Field>
+  </Row>
+  
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="nb-of-hours" Message-loc="validation.hours" Message="Entrez uniquement des chiffres" Pattern="[0-9]+(\.|,)?(25|5|50|75|0|00)?">^\s*$|^\s*(\d+)(\.|,)?(25|5|50|75|0|00)?$</RegExp>
+      <RegExp Keys="expense-amount" Message-loc="validation.decimal" Message="Entrez uniquement des chiffres" Pattern="[0-9]+(\.|,)?[0-9]{0,2}">^\s*$|^\s*(\d+)(\.|,)?(\d){0,2}\s*$</RegExp>
+    </Enforce>
+  </Bindings>
+  
+  <Plugins>
+    <Date Keys="date"/>
+    <Input Keys="nb-of-hours" Type="number" Class="text-right"/>
+    <Input Keys="expense-amount" Type="number" Append="CHF" Class="text-right"/>
+    <Text Keys="comment"/>
+  </Plugins>
+</Form>

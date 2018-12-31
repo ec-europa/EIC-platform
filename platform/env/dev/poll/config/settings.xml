@@ -1,0 +1,6 @@
+<Settings>
+    <Sudoer>
+        <User>poll-agent</User>
+        <Password>PASSWORD</Password>
+    </Sudoer>
+</Settings>

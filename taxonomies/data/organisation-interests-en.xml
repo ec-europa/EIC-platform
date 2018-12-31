@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalInformation>
+	<Description Lang="en" Role="normative">
+		<Selector Name="OrganisationInterests">
+			<Version>20180829-0</Version>
+			<Title>Organisation interests</Title>
+			<Note>Classification of the organisation types from the organisation interests point of view.</Note>
+			<Option>
+				<Value>50</Value>
+				<Name>Offering investment (Investor)</Name>
+			</Option>
+			<Option>
+				<Value>51</Value>
+				<Name>Business Partnership(s)</Name>
+			</Option>
+			<Option>
+				<Value>52</Value>
+				<Name>Knowledge sharing</Name>
+			</Option>
+			<Option>
+				<Value>53</Value>
+				<Name>Offering Training</Name>
+			</Option>
+			<Option>
+				<Value>54</Value>
+				<Name>Learning</Name>
+			</Option>
+			<Option>
+				<Value>55</Value>
+				<Name>Offering mentoring/coaching</Name>
+			</Option>
+			<Option>
+				<Value>56</Value>
+				<Name>Receiving mentoring/coaching</Name>
+			</Option>
+		</Selector>
+	</Description>
+</GlobalInformation>

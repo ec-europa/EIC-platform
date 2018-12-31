@@ -1,0 +1,32 @@
+<Form Tag="Profil" StartLevel="2" Wrapper="none"
+      xmlns:xt="http://ns.inria.org/xtiger" xmlns:site="http://oppidoc.com/oppidum/site">
+
+  <Verbatim>
+    <xt:component name="t_visibility_1">
+      <Field Key="visibility_1" Tag="YesNoAcceptRef" W="8" Gap="3">Visibility for SME Instrument</Field>
+    </xt:component>
+    <xt:component name="t_visibility_0">
+      <Field Key="visibility_0" Tag="YesNoAcceptRef" W="8" Gap="3">Visibility for all coaches of Coach Match</Field>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <Cell Tag="Visibility">
+      <Title Level="3">Define your coach profile visibility</Title>
+      <!-- <Row>
+        <Use Tag="Visibility_1" TypeName="visibility_1"/>
+      </Row> -->
+      <Row style="margin-top:16px">
+        <Use Tag="Visibility_0" TypeName="visibility_0"/>
+      </Row>
+    </Cell>
+  </Row>
+  <Plugins>
+    <Selector Default="2" Keys="visibility_1" Name="YesNoAccepts"/>
+    <Selector Default="2" Keys="visibility_0" Name="YesNoAccepts"/>
+  </Plugins>
+  <Hints>
+    <Hint Keys="visibility_1" data-placement="right">Choosing "Yes" means that your profile will appear in search results done from the SME Instrument Case Tracker by its users (mainly KAM and coaches)</Hint>
+    <Hint Keys="visibility_0" data-placement="right">Choosing "Yes" means that your profile will appear in search results done from Coach Match by other coaches</Hint>
+  </Hints>
+</Form>

@@ -1,0 +1,124 @@
+<Form Tag="Event" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+  <Verbatim>
+    <xt:component name="t_enterprise">
+      <Field Key="entname" Tag="Name" Gap="1.5">Enterprise name</Field>
+      <Field Key="acronym" Tag="Acronym" Gap="1.5">Project acronym</Field>
+    </xt:component>
+    <xt:component name="t_contact_person">
+      <Field Key="firstname" Tag="FirstName" Gap="1.75" W="4" L="0">First Name</Field>
+      <Field Key="lastname" Tag="LastName" Gap="1.5" W="4">Last Name</Field>
+      <Field Key="civility" Tag="Civility" Gap="1" W="2">Title</Field>
+      <Field Key="phone" Tag="Phone" Gap="1.75" W="4" L="0">Direct phone</Field>
+      <Field Key="email" Tag="Email" Gap="1.5" W="6">Email</Field>
+    </xt:component>
+    <xt:component name="t_term">
+      <blockquote xmlns="http://www.w3.org/1999/xhtml">
+        <p style="font-size:15px;margin-bottom:0.5em">
+          I declare that the information included in this application is true and accurate and agree to answer to the follow-up questions related to the event.
+        </p>
+        <p style="font-size:15px;margin-bottom:0.5em">
+          The information supplied to the SME Instrument Programme will be treated in accordance with the European Union (Council Regulation 45/2001) data protection and privacy regulations. The information will only be used for the internal purposes of the SME Instrument Programme.
+        </p>
+      </blockquote>
+      <p xmlns="http://www.w3.org/1999/xhtml">
+        <label style="display:inline;vertical-align:middle;margin-right:10px;">
+          Click here if you agree to the above declaration
+        </label>
+        <span data-binding="required" data-variable="terms">
+          <site:conditional avoid="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on" types="input"/>
+          </site:conditional>
+          <site:conditional meet="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on;name=term;noedit=true" types="input"/>
+          </site:conditional>
+        </span>
+      </p>
+    </xt:component>
+    <xt:component name="t_cancellation">
+      <blockquote xmlns="http://www.w3.org/1999/xhtml">
+        <p style="font-size:15px;margin-bottom:0.5em">
+          Should you be selected to this programme, we will ask you to confirm within seven days.
+        </p>
+        <p style="font-size:15px;margin-bottom:0.5em">
+          Be aware that a cancellation within four weeks before the event, without a documentation of "force majeure" might hinder the participation of your company to future events and services.
+        </p>
+        <p style="font-size:15px;margin-bottom:0.5em">
+          In case of doubts, please contact our helpdesk (EASME-SME-HELPDESK@ec.europa.eu). 
+        </p>
+      </blockquote>
+      <p xmlns="http://www.w3.org/1999/xhtml">
+        <label style="display:inline;vertical-align:middle;margin-right:10px">
+          Click here if you agree to the above cancellation policy
+        </label>
+        <span data-binding="required" data-variable="terms">
+          <site:conditional avoid="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on" types="input"/>
+          </site:conditional>
+          <site:conditional meet="read" force="true">
+            <xt:use param="type=checkbox;filter=event;value=on;name=cancellation;noedit=true" types="input"/>
+          </site:conditional>
+        </span>
+      </p>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <Title>Company Information</Title>
+    <Use Tag="Company" TypeName="enterprise"/>
+  </Row>
+  <Row>
+    <Title>Contact Person</Title>
+    <Use Tag="Contact" TypeName="contact_person"/>
+  </Row>
+  <Row>
+    <Title>Questions</Title>
+    <Field Key="comments00" Tag="Challenge" Gap="0">1. Why is this topic interesting for you? (500 characters)</Field>
+    <Field Key="comments01" Tag="Expectations" Gap="0">2. What do you expect to gain from this workshop? (500 characters)</Field>
+    <Cell Tag="CoachAttending"> 	
+    	<Field Key="coach-att" Tag="YesNoScaleRef" Gap="0">3. Would you like us to invite your coach to join you in this event? (Note that if your coach is still actively involved with your company we could reimburse his cost linked to his participation)</Field>
+    	<div data-avoid-attend="2" data-off-class="hide" class="hide">
+      <Field Key="comments02" Tag="HowCoachParticipationHelps" Gap="0">Please explain how the participation of your coach would help (500 characters)</Field>
+    </div>
+    </Cell>
+  </Row>
+  <Row>
+    <Cell W="12">
+      <Title>Declaration</Title>
+      <Row>
+        <Use Tag="Term" TypeName="term"/>
+      </Row>
+    </Cell>
+  </Row>
+  <br/>
+  <Row>
+    <Cell W="12">
+      <Title>Cancellation Policy</Title>
+      <Row>
+        <Use Tag="Cancellation" TypeName="cancellation"/>
+      </Row>
+    </Cell>
+  </Row>
+  <Include src="consent.xml" TypeName="footer"/>
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="email" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+    </Enforce>
+    <Condition Keys="coach-att" Variable="attend"/>
+  </Bindings>
+
+  <Hints>
+    <Mandatory Tags="Name Acronym SMEiGrantAgreementNumber FirstName LastName Civility Phone Email Challenge Expectations">This field must be filled to be able to proceed to the next step</Mandatory>
+  </Hints>
+  <Plugins>
+    <Input Keys="ganumber firstname lastname civility phone email"/>
+    <MultiText Prefix="comments"/>
+    <Constant Keys="entname"/>
+  </Plugins>
+
+</Form>

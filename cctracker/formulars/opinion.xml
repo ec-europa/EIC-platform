@@ -1,0 +1,14 @@
+<Form Tag="OtherOpinion" StartLevel="2" xmlns:xt="http://ns.inria.org/xtiger">
+  <Title>Opinion</Title>
+  <Row>
+    <Field Key="oo-comment" Tag="Comment" W="7" Gap="0" loc="term.comment">Commentaire</Field>
+    <Field Key="date" Tag="Date" W="2" Gap="0" loc="term.date">Date</Field>
+    <Field Key="author" Tag="Author" W="3" Gap="0" loc="term.author">Auteur</Field>
+  </Row>
+  <Plugins>
+    <Text Keys="oo-comment"/>
+  </Plugins>
+  <Bindings>
+    <!-- <Require Keys="oo-comment"/> -->
+  </Bindings>
+</Form>

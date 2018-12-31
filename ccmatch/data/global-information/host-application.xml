@@ -1,0 +1,15 @@
+<GlobalInformation>
+  <Description Lang="en">
+    <Selector Name="Hosts" Value="Id" Label="Name">
+      <Option>
+        <Id>0</Id>
+        <Name>Coach Match (Reflexive)</Name>
+        <NoShow/>
+      </Option>
+      <Option>
+        <Id>1</Id>
+        <Name>SMEI</Name>
+      </Option>
+    </Selector>
+  </Description>
+</GlobalInformation>

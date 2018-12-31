@@ -1,0 +1,40 @@
+<Form Tag="Order" StartLevel="2" 
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Title>Evaluation</Title>
+  <Row>
+    <xhtml:h2><xt:use types="text" label="TitleSME">Status</xt:use></xhtml:h2>
+    <Cell Gap="2.75" Tag="SentSME">
+      <Title Level="3">Feedback form sent ...</Title>
+      <Field Key="email" Tag="Email" Gap="1.8" W="8">To SME Contact</Field>
+      <Field Key="date" Tag="Date" Gap="1" W="4">Date </Field>
+    </Cell>
+    <Cell Gap="2.75" Tag="CompletedSME">
+      <Title Level="3">Feedback form completed ...</Title>
+      <Field Key="email" Tag="Email" Gap="1.8" W="8">By SME Contact</Field>
+      <Field Key="date" Tag="Date" Gap="1" W="4">Date </Field>
+    </Cell>
+  </Row>
+  <Row>
+    <xhtml:h2><xt:use types="text" label="TitleKAM">Status</xt:use></xhtml:h2>
+    <Cell Gap="2.75" Tag="SentKAM">
+      <Title Level="3">Feedback form sent ...</Title>
+      <Field Key="email" Tag="Email" Gap="1.8" W="8">To KAM</Field>
+      <Field Key="date" Tag="Date" Gap="1" W="4">Date </Field>
+    </Cell>
+    <Cell Gap="2.75" Tag="CompletedKAM">
+      <Title Level="3">Feedback form completed ...</Title>
+      <Field Key="email" Tag="Email" Gap="1.8" W="8">By KAM</Field>
+      <Field Key="date" Tag="Date" Gap="1" W="4">Date </Field>
+    </Cell>
+  </Row>
+  <Plugins>
+    <Input Keys="email" Media="email"/>
+    <Date Keys="date"/>
+  </Plugins>
+  <Bindings>
+  </Bindings>
+</Form>

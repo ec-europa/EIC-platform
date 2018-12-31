@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalInformation>
+  <Description Lang="de">
+    <Selector Name="DomainActivities">
+      <Version>20180618-0</Version>
+      <Title>Domains of activities (NACE nomenclature)</Title>
+      <Group>
+        <Value>A</Value>
+        <Name>LAND- UND FORSTWIRTSCHAFT, FISCHEREI</Name>
+        <Selector>
+          <Option>
+            <Value>A1</Value>
+            <Name>Landwirtschaft, Jagd und damit verbundene Tätigkeiten</Name>
+          </Option>
+          <Option>
+            <Value>A2</Value>
+            <Name>Forstwirtschaft und Holzeinschlag</Name>
+          </Option>
+          <Option>
+            <Value>A3</Value>
+            <Name>Fischerei und Aquakultur</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>B</Value>
+        <Name>BERGBAU UND GEWINNUNG VON STEINEN UND ERDEN</Name>
+        <Selector>
+          <Option>
+            <Value>B5</Value>
+            <Name>Kohlenbergbau</Name>
+          </Option>
+          <Option>
+            <Value>B6</Value>
+            <Name>Gewinnung von Erdöl und Erdgas</Name>
+          </Option>
+          <Option>
+            <Value>B7</Value>
+            <Name>Erzbergbau</Name>
+          </Option>
+          <Option>
+            <Value>B8</Value>
+            <Name>Gewinnung von Steinen und Erden, sonstiger Bergbau</Name>
+          </Option>
+          <Option>
+            <Value>B9</Value>
+            <Name>Erbringung von Dienstleistungen für den Bergbau und für die Gewinnung von Steinen und Erden</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>C</Value>
+        <Name>VERARBEITENDES GEWERBE/HERSTELLUNG VON WAREN</Name>
+        <Selector>
+          <Option>
+            <Value>C10</Value>
+            <Name>Herstellung von Nahrungs- und Futtermitteln</Name>
+          </Option>
+          <Option>
+            <Value>C11</Value>
+            <Name>Getränkeherstellung</Name>
+          </Option>
+          <Option>
+            <Value>C12</Value>
+            <Name>Tabakverarbeitung</Name>
+          </Option>
+          <Option>
+            <Value>C13</Value>
+            <Name>Herstellung von Textilien</Name>
+          </Option>
+          <Option>
+            <Value>C14</Value>
+            <Name>Herstellung von Bekleidung</Name>
+          </Option>
+          <Option>
+            <Value>C15</Value>
+            <Name>Herstellung von Leder, Lederwaren und Schuhen</Name>
+          </Option>
+          <Option>
+            <Value>C16</Value>
+            <Name>Herstellung von Holz-, Flecht-, Korb- und Korkwaren (ohne Möbel)</Name>
+          </Option>
+          <Option>
+            <Value>C17</Value>
+            <Name>Herstellung von Papier, Pappe und Waren daraus</Name>
+          </Option>
+          <Option>
+            <Value>C18</Value>
+            <Name>Herstellung von Druckerzeugnissen; Vervielfältigung von bespielten Ton-, Bild- und Datenträgern</Name>
+          </Option>
+          <Option>
+            <Value>C19</Value>
+            <Name>Kokerei und Mineralölverarbeitung</Name>
+          </Option>
+          <Option>
+            <Value>C20</Value>
+            <Name>Herstellung von chemischen Erzeugnissen</Name>
+          </Option>
+          <Option>
+            <Value>C21</Value>
+            <Name>Herstellung von pharmazeutischen Erzeugnissen</Name>
+          </Option>
+          <Option>
+            <Value>C22</Value>
+            <Name>Herstellung von Gummi- und Kunststoffwaren</Name>
+          </Option>
+          <Option>
+            <Value>C23</Value>
+            <Name>Herstellung von Glas und Glaswaren, Keramik, Verarbeitung von Steinen und Erden</Name>
+          </Option>
+          <Option>
+            <Value>C24</Value>
+            <Name>Metallerzeugung und -bearbeitung</Name>
+          </Option>
+          <Option>
+            <Value>C25</Value>
+            <Name>Herstellung von Metallerzeugnissen</Name>
+          </Option>
+          <Option>
+            <Value>C26</Value>
+            <Name>Herstellung von Datenverarbeitungsgeräten, elektronischen und optischen Erzeugnissen</Name>
+          </Option>
+          <Option>
+            <Value>C27</Value>
+            <Name>Herstellung von elektrischen Ausrüstungen</Name>
+          </Option>
+          <Option>
+            <Value>C28</Value>
+            <Name>Maschinenbau</Name>
+          </Option>
+          <Option>
+            <Value>C29</Value>
+            <Name>Herstellung von Automobilen und Automobilteilen</Name>
+          </Option>
+          <Option>
+            <Value>C30</Value>
+            <Name>Sonstiger Fahrzeugbau</Name>
+          </Option>
+          <Option>
+            <Value>C31</Value>
+            <Name>Herstellung von Möbeln</Name>
+          </Option>
+          <Option>
+            <Value>C32</Value>
+            <Name>Herstellung von sonstigen Waren</Name>
+          </Option>
+          <Option>
+            <Value>C33</Value>
+            <Name>Reparatur und Installation von Maschinen und Ausrüstungen</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>D</Value>
+        <Name>ENERGIEVERSORGUNG</Name>
+        <Selector>
+          <Option>
+            <Value>D35</Value>
+            <Name>Energieversorgung</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>E</Value>
+        <Name>WASSERVERSORGUNG; ABWASSER- UND ABFALLENTSORGUNG UND BESEITIGUNG VON UMWELTVERSCHMUTZUNGEN</Name>
+        <Selector>
+          <Option>
+            <Value>E36</Value>
+            <Name>Wasserversorgung</Name>
+          </Option>
+          <Option>
+            <Value>E37</Value>
+            <Name>Abwasserentsorgung</Name>
+          </Option>
+          <Option>
+            <Value>E38</Value>
+            <Name>Sammlung, Behandlung und Beseitigung von Abfällen; Rückgewinnung</Name>
+          </Option>
+          <Option>
+            <Value>E39</Value>
+            <Name>Beseitigung von Umweltverschmutzungen und sonstige Entsorgung</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>F</Value>
+        <Name>BAUGEWERBE/BAU</Name>
+        <Selector>
+          <Option>
+            <Value>F41</Value>
+            <Name>Hochbau</Name>
+          </Option>
+          <Option>
+            <Value>F42</Value>
+            <Name>Tiefbau</Name>
+          </Option>
+          <Option>
+            <Value>F43</Value>
+            <Name>Vorbereitende Baustellenarbeiten, Bauinstallation und sonstiges Ausbaugewerbe</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>G</Value>
+        <Name>HANDEL; INSTANDHALTUNG UND REPARATUR VON MOTORFAHRZEUGE</Name>
+        <Selector>
+          <Option>
+            <Value>G45</Value>
+            <Name>Handel mit Motorfahrzeugen; Instandhaltung und Reparatur von Motorfahrzeugen</Name>
+          </Option>
+          <Option>
+            <Value>G46</Value>
+            <Name>Grosshandel (ohne Handel mit Motorfahrzeugen)</Name>
+          </Option>
+          <Option>
+            <Value>G47</Value>
+            <Name>Detailhandel (ohne Handel mit Motorfahrzeugen)</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>H</Value>
+        <Name>VERKEHR UND LAGEREI</Name>
+        <Selector>
+          <Option>
+            <Value>H49</Value>
+            <Name>Landverkehr und Transport in Rohrfernleitungen</Name>
+          </Option>
+          <Option>
+            <Value>H50</Value>
+            <Name>Schifffahrt</Name>
+          </Option>
+          <Option>
+            <Value>H51</Value>
+            <Name>Luftfahrt</Name>
+          </Option>
+          <Option>
+            <Value>H52</Value>
+            <Name>Lagerei sowie Erbringung von sonstigen Dienstleistungen für den Verkehr</Name>
+          </Option>
+          <Option>
+            <Value>H53</Value>
+            <Name>Post-, Kurier- und Expressdienste</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>I</Value>
+        <Name>GASTGEWERBE/BEHERBERGUNG UND GASTRONOMIE</Name>
+        <Selector>
+          <Option>
+            <Value>I55</Value>
+            <Name>Beherbergung</Name>
+          </Option>
+          <Option>
+            <Value>I56</Value>
+            <Name>Gastronomie</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>J</Value>
+        <Name>INFORMATION UND KOMMUNIKATION</Name>
+        <Selector>
+          <Option>
+            <Value>J58</Value>
+            <Name>Verlagswesen</Name>
+          </Option>
+          <Option>
+            <Value>J59</Value>
+            <Name>Herstellung, Verleih und Vertrieb von Filmen und Fernsehprogrammen; Kinos; Tonstudios und Verlegen von Musik</Name>
+          </Option>
+          <Option>
+            <Value>J60</Value>
+            <Name>Rundfunkveranstalter</Name>
+          </Option>
+          <Option>
+            <Value>J61</Value>
+            <Name>Telekommunikation</Name>
+          </Option>
+          <Option>
+            <Value>J62</Value>
+            <Name>Erbringung von Dienstleistungen der Informationstechnologie</Name>
+          </Option>
+          <Option>
+            <Value>J63</Value>
+            <Name>Informationsdienstleistungen</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>K</Value>
+        <Name>ERBRINGUNG VON FINANZ- UND VERSICHERUNGSDIENSTLEISTUNGEN</Name>
+        <Selector>
+          <Option>
+            <Value>K64</Value>
+            <Name>Erbringung von Finanzdienstleistungen</Name>
+          </Option>
+          <Option>
+            <Value>K65</Value>
+            <Name>Versicherungen, Rückversicherungen und Pensionskassen (ohne Sozialversicherung)</Name>
+          </Option>
+          <Option>
+            <Value>K66</Value>
+            <Name>Mit Finanz- und Versicherungsdienstleistungen verbundene Tätigkeiten</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>L</Value>
+        <Name>GRUNDSTÜCKS- UND WOHNUNGSWESEN</Name>
+        <Selector>
+          <Option>
+            <Value>L68</Value>
+            <Name>Grundstücks- und Wohnungswesen</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>M</Value>
+        <Name>ERBRINGUNG VON FREIBERUFLICHEN, WISSENSCHAFTLICHEN UND TECHNISCHEN DIENSTLEISTUNGEN</Name>
+        <Selector>
+          <Option>
+            <Value>M69</Value>
+            <Name>Rechts- und Steuerberatung, Wirtschaftsprüfung</Name>
+          </Option>
+          <Option>
+            <Value>M70</Value>
+            <Name>Verwaltung und Führung von Unternehmen und Betrieben; Unternehmensberatung</Name>
+          </Option>
+          <Option>
+            <Value>M71</Value>
+            <Name>Architektur- und Ingenieurbüros; technische, physikalische und chemische Untersuchung</Name>
+          </Option>
+          <Option>
+            <Value>M72</Value>
+            <Name>Forschung und Entwicklung</Name>
+          </Option>
+          <Option>
+            <Value>M73</Value>
+            <Name>Werbung und Marktforschung</Name>
+          </Option>
+          <Option>
+            <Value>M74</Value>
+            <Name>Sonstige freiberufliche, wissenschaftliche und technische Tätigkeiten</Name>
+          </Option>
+          <Option>
+            <Value>M75</Value>
+            <Name>Veterinärwesen</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>N</Value>
+        <Name>ERBRINGUNG VON SONSTIGEN WIRTSCHAFTLICHEN DIENSTLEISTUNGEN</Name>
+        <Selector>
+          <Option>
+            <Value>N77</Value>
+            <Name>Vermietung von beweglichen Sachen</Name>
+          </Option>
+          <Option>
+            <Value>N78</Value>
+            <Name>Vermittlung und Überlassung von Arbeitskräften</Name>
+          </Option>
+          <Option>
+            <Value>N79</Value>
+            <Name>Reisebüros, Reiseveranstalter und Erbringung sonstiger Reservierungsdienstleistungen</Name>
+          </Option>
+          <Option>
+            <Value>N80</Value>
+            <Name>Wach- und Sicherheitsdienste sowie Detekteien</Name>
+          </Option>
+          <Option>
+            <Value>N81</Value>
+            <Name>Gebäudebetreuung; Garten- und Landschaftsbau</Name>
+          </Option>
+          <Option>
+            <Value>N82</Value>
+            <Name>Erbringung von wirtschaftlichen Dienstleistungen für Unternehmen und Privatpersonen a. n. g.</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>O</Value>
+        <Name>ÖFFENTLICHE VERWALTUNG, VERTEIDIGUNG; SOZIALVERSICHERUNG</Name>
+        <Selector>
+          <Option>
+            <Value>O84</Value>
+            <Name>Öffentliche Verwaltung, Verteidigung; Sozialversicherung</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>P</Value>
+        <Name>ERZIEHUNG UND UNTERRICHT</Name>
+        <Selector>
+          <Option>
+            <Value>P85</Value>
+            <Name>Erziehung und Unterricht</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>Q</Value>
+        <Name>GESUNDHEITS- UND SOZIALWESEN</Name>
+        <Selector>
+          <Option>
+            <Value>Q86</Value>
+            <Name>Gesundheitswesen</Name>
+          </Option>
+          <Option>
+            <Value>Q87</Value>
+            <Name>Heime (ohne Erholungs- und Ferienheime)</Name>
+          </Option>
+          <Option>
+            <Value>Q88</Value>
+            <Name>Sozialwesen (ohne Heime)</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>R</Value>
+        <Name>KUNST, UNTERHALTUNG UND ERHOLUNG</Name>
+        <Selector>
+          <Option>
+            <Value>R90</Value>
+            <Name>Kreative, künstlerische und unterhaltende Tätigkeiten</Name>
+          </Option>
+          <Option>
+            <Value>R91</Value>
+            <Name>Bibliotheken, Archive, Museen, botanische und zoologische Gärten</Name>
+          </Option>
+          <Option>
+            <Value>R92</Value>
+            <Name>Spiel-, Wett- und Lotteriewesen</Name>
+          </Option>
+          <Option>
+            <Value>R93</Value>
+            <Name>Erbringung von Dienstleistungen des Sports, der Unterhaltung und der Erholung</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>S</Value>
+        <Name>ERBRINGUNG VON SONSTIGEN DIENSTLEISTUNGEN</Name>
+        <Selector>
+          <Option>
+            <Value>S94</Value>
+            <Name>Interessenvertretungen sowie kirchliche und sonstige religiöse Vereinigungen (ohne Sozialwesen und Sport)</Name>
+          </Option>
+          <Option>
+            <Value>S95</Value>
+            <Name>Reparatur von Datenverarbeitungsgeräten und Gebrauchsgütern</Name>
+          </Option>
+          <Option>
+            <Value>S96</Value>
+            <Name>Erbringung von sonstigen überwiegend persönlichen Dienstleistungen</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>T</Value>
+        <Name>PRIVATE HAUSHALTE MIT HAUSPERSONAL; HERSTELLUNG VON WAREN UND ERBRINGUNG VON DIENSTLEISTUNGEN DURCH PRIVATE HAUSHALTE FÜR DEN EIGENBEDARF OHNE AUSGEPRÄGTEN SCHWERPUNKT</Name>
+        <Selector>
+          <Option>
+            <Value>T97</Value>
+            <Name>Private Haushalte mit Hauspersonal</Name>
+          </Option>
+          <Option>
+            <Value>T98</Value>
+            <Name>Herstellung von Waren und Erbringung von Dienstleistungen durch private Haushalte für den Eigenbedarf ohne ausgeprägten Schwerpunkt</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>U</Value>
+        <Name>EXTERRITORIALE ORGANISATIONEN UND KÖRPERSCHAFTEN</Name>
+        <Selector>
+          <Option>
+            <Value>U99</Value>
+            <Name>Exterritoriale Organisationen und Körperschaften</Name>
+          </Option>
+        </Selector>
+      </Group>
+    </Selector>
+  </Description>
+</GlobalInformation>

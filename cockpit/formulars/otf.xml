@@ -1,0 +1,55 @@
+<Form Tag="OTF" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+  
+  <!-- TODO: 
+       implement <Component Tag="Term" TypeName="term" src="otf.xml">
+       to share component (similar to Include to share complete formulars inside formulars)
+   -->
+  
+  <Component Name="t_term">
+    <blockquote xmlns="http://www.w3.org/1999/xhtml">
+      <p style="font-size:15px;margin-bottom:0.5em">
+        I declare that the information included in this application is true and accurate. If my company is selected for the Trade Fair, I agree to observe the terms and conditions laid down in the call for manifestation of interest to the Trade Fair. I also agree to answer to the follow-up questions related to the Trade Fair at the end of exhibition period and upon my return to Europe.
+      </p>
+      <p style="font-size:15px;margin-bottom:0.5em">
+        The information supplied to the SME Instrument - Overseas Trade Fair Participation Programme will be treated in accordance with the European Union (Council Regulation 45/2001) and Chile data protection and privacy laws and regulations. The information will only be used for the internal purposes of the SME Instrument - Overseas Trade Fair Participation Programme. Information will only be made public upon your agreement.
+      </p>
+    </blockquote>
+    <p xmlns="http://www.w3.org/1999/xhtml">
+      <label style="display:inline;vertical-align:middle;margin-right:10px;">
+        Click here if you agree to the above declaration
+      </label>
+      <span data-binding="required" data-variable="terms">
+        <xt:use param="type=radio;filter=event;value=on" types="input"/>
+      </span>
+    </p>
+  </Component>
+
+  <xt:component name="t_cancellation">
+    <p>
+      <label style="display:inline;vertical-align:middle;margin-right:10px" id="required">
+        Should you be selected to this programme, you will be notified ON. We expect you to follow up on this within 7 days.
+      </label>
+      <br/>
+      <label style="display:inline;vertical-align:middle;margin-right:10px" id="required">
+        Cancellations will only be considered in duly documented cases of "force majeure". In any other case, you will be excluded from participating to the SME Instrument - Support to commercialisation services (trade fairs, academy, etc).
+      </label>
+      <br/>
+      <label style="display:inline;vertical-align:middle;margin-right:10px" id="required">
+        In case of doubts, please contact our helpdesk.
+      </label>
+      <br/>
+      <label style="display:inline;vertical-align:middle;margin-right:10px" id="required">
+        Click here if you agree to the above cancellation policy
+      </label>
+      <Include src="consent.xml" TypeName="footer"/>
+      <xhtml:span data-binding="required" data-variable="terms">
+        <xt:use param="type=radio;filter=event;value=on" types="input"/>
+      </xhtml:span>
+    </p>
+  </xt:component>
+
+</Form>

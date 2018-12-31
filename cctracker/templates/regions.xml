@@ -1,0 +1,102 @@
+<!-- 
+CC Tracker
+
+Creation: Franck Leplé <franck.leple@amplexor.com>
+  Contributor:     
+  
+  Description:
+  Templates for the persons collection -
+  
+  August 2018 - European Union Public Licence EUPL
+-->
+  
+<Templates>
+
+  <Template Name="EEN" Mode="create">
+<![CDATA[
+let $country := display:gen-name-for('Countries', $form/Address/Country, 'en')
+return
+  <XAL Mode="{ $mode }">
+    <XALAction Type="create" Entity="region" Key="{ $id }">
+      <Region>
+        <Id>{ $id }</Id>
+        <Acronym>{ $form/Acronym/text() }</Acronym>
+        <Label>{ $form/Acronym/text() }::{ $country }</Label>
+        <LongLabel>{ $form/Acronym/text() }::{ $country } ({ $form/Region/text() })</LongLabel>
+        <Region>{ $form/Region/text() }</Region>
+        <NutsCodes>{ $form/NutsCodes/* }</NutsCodes>
+        <Address>{ $form/Address/* }</Address>
+        <WebSite>{ $form/WebSite/text() }</WebSite>
+      </Region>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+
+  <Template Name="region" Mode="update" Subject="Region">
+<![CDATA[
+let $country := display:gen-name-for('Countries', $form/Address/Country, 'en')
+return
+  <XAL _Prune="none">
+    <XALAction Type="align">
+      <Acronym>{ $form/Acronym/text() }</Acronym>
+      <Label>{ $form/Acronym/text() }::{ $country }</Label>
+      <LongLabel>{ $form/Acronym/text() }::{ $country } ({ $form/Region/text() })</LongLabel>
+      <Region>{ $form/Region/text() }</Region>
+      <NutsCodes>{ $form/NutsCodes/* }</NutsCodes>
+      <Address>{ $form/Address/* }</Address>
+      <WebSite>{ $form/WebSite/text() }</WebSite>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>  
+  <!-- Note: drop Country unless not already in Address (Address should always be there) -->
+  <Template Name="fusion" Mode="update" Subject="region">
+    <![CDATA[
+      <XAL _Prune="none">
+        <XALAction Type="replace">          
+          <Acronym>{ $form/Acronym/text() }</Acronym>
+        </XALAction>
+        <XALAction Type="replace">          
+          <Label>{ $form/Label/text() }</Label>
+        </XALAction>
+        <XALAction Type="replace">          
+          <LongLabel>{ $form/LongLabel/text() }</LongLabel>
+        </XALAction>
+        <XALAction Type="replace">          
+          <NutsCodes>{ $form/NutsCodes/* }</NutsCodes>
+        </XALAction>
+        {
+        if (empty($subject/Address/Country)) then
+          <XALAction Type="insert" Pivot="$subject/Address">          
+            <Country>{ $form/Country/text() }</Country>
+          </XALAction>
+        else 
+          ()
+        }
+        <XALAction Type="replace">          
+          <Region>{ $form/Region/text() }</Region>
+        </XALAction>        
+      </XAL>         
+    ]]>
+  </Template> 
+
+  <!-- Template used for the bucketisation only -->
+  <Template Name="region" Mode="create">
+  <![CDATA[
+    <XAL Mode="{ $mode }">
+      <XALAction Type="create" Entity="region" Db-uri="/db/sites/cctracker" Key="{ $form/Id/text() }">
+        <Region>
+          { 
+          $form/*[local-name(.) ne 'Country'] 
+          }
+          <Address>
+            { $form/Country }
+          </Address>
+        </Region>
+      </XALAction>
+    </XAL>
+  ]]>
+  </Template>
+
+</Templates>

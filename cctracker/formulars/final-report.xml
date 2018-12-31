@@ -1,0 +1,103 @@
+<!-- CCTRACKER - EIC Case Tracker Application
+
+     Author: Stéphane Sire <s.sire@opppidoc.fr>
+
+     (c) Copyright may be reserved
+  -->
+<Form Tag="FinalReport" StartLevel="2"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+  <Title>Coach report</Title>
+
+  <Row>
+    <Title Level="1">Evaluation <Hint data-placement="right">All text commentary are limited to 1000 characters max.</Hint></Title>
+
+    <Cell Tag="KAMPreparation">
+      <Field Key="likert-scale" Tag="RatingScaleRef" Gap="3" W="12">The KAM prepared constructively my interaction with the SME beneficiary.</Field>
+    </Cell>
+    <Cell Tag="ManagementTeam">
+      <Field Key="likert-scale" Tag="RatingScaleRef" Gap="3" W="12">The management team of the company was actively engaged in the coaching process.</Field>
+    </Cell>
+    <Cell Tag="ObjectivesAchievements">
+      <Field Key="likert-scale" Tag="RatingScaleRef" Gap="3" W="12">The planned tasks and objectives were achieved.</Field>
+      <Field Key="targeted-markets" Tag="TargetedMarkets" Gap="3" loc="finalReport.label.targetMarkets">Target markets</Field>
+      <Field Key="objectives-achievements" Tag="PositiveComment" Gap="0" loc="finalReport.label.objectivesAchievments">Objectives achievements</Field>
+      <Field Key="specific-problems" Tag="NegativeComment" Gap="0" loc="finalReport.label.specificProblems">Specific problems</Field>
+    </Cell>
+
+    <Field Key="comment" Tag="Comment" Gap="0" loc="finalReport.label.comments">Comments</Field>
+    <Field Key="planned-continuation" Tag="PlannedContinuation" Gap="0" loc="finalReport.label.plannedContinuation">Planned continuation</Field>
+  </Row>
+
+  <Row>
+    <Title Level="1">Success Story of coaching</Title>
+    <!-- <Field Key="acceptation" Tag="Acceptation" Gap="0" loc="finalReport.label.acceptation">Acceptation</Field> -->
+    <Cell Tag="Dissemination">
+      <Field Key="likert-scale" Tag="RatingScaleRef" Gap="3" W="12">I do consider the coaching experience suitable to be communicated as a success story.</Field>
+      <Field Key="to-appear-in-news" Tag="CommunicationAdviceRef" Gap="0">Would you recommend this case as a success story for EASME communication ?</Field>
+      <Field Key="motivation" Tag="Comment" Gap="0">Describe the attractiveness as a success story</Field>
+    </Cell>
+  </Row>
+
+  <Row Include="false">
+    <Title Level="1">Have any successful partnerships beeing established ?</Title>
+    <Cell Tag="Partners">
+      <Repeat Min="0" Key="partners" Id="x-Partners">
+        <Cell Tag="Partner">
+          <Row>
+            <Field Key="partner" Tag="Name" W="8" Gap="0">Partner name</Field>
+            <Field Key="country" Tag="Country" loc="term.country" W="4" Gap="0">Pays</Field>
+          </Row>
+          <Row>
+            <Field Key="type" Tag="PartnerTypeRef" loc="term.type" W="4" Gap="0">Type</Field>
+            <Field Key="role" Tag="PartnerRoleRef" loc="term.role" W="4" Gap="0">Rôle</Field>
+            <Field Key="npa" Tag="PostalCode" loc="term.npa" W="4" Gap="0">NPA</Field>
+          </Row>
+          <!-- <Field Key="town" Tag="Town" loc="term.town" W="6" Gap="0">Localité</Field> -->
+          <!-- <Field Key="nutscode" Tag="Nuts" W="2" Gap="0">Nutscode</Field> -->
+        </Cell>
+        <xhtml:div xmlns="http://www.w3.org/1999/xhtml" style="float:right">
+          <xhtml:span class="text-info" loc="partner.repeat.hint">message à prendre dans le dictionnaire<Menu/></xhtml:span>
+        </xhtml:div>
+      </Repeat>
+    </Cell>
+    <xhtml:div class="span12" style="margin-left:0">
+      <xhtml:p style="border-style: solid; border-color:red; padding: 10px 5px 10px; font-weight:bold; color:red">Activities outside of the coach contract period cannot be paid (please refer to Art. 3 of your contract).</xhtml:p>
+    </xhtml:div>
+    <Field Key="timesheet-upload" Gap="3">Mandatory timesheet (PDF)</Field>
+  </Row>
+    
+  <Row>
+    <Title Level="1">Feedback to the SME instrument project evaluation (optional)</Title>
+  
+    <xhtml:p class="span12 text-hint" style="margin:0;min-height:20px">This information will be used for the improvement process of the evaluation scheme</xhtml:p>
+  
+    <Cell Tag="EvaluationCriteria">
+      <Field Key="business-criteria" Tag="Business" Gap="0">Did the project evaluation capture the real business opportunities of the innovation ? If not really, please mention meaningful evaluation criteria or check list items...</Field>
+      <Field Key="capacity-criteria" Tag="Capacity" Gap="0">Has the project evaluation taken care of the SME’s capacity for turning the innovation venture into real business opportunities ? If not really, please mention meaningful evaluation criteria or check list items...</Field>
+    </Cell>
+  </Row>
+
+  <Modals>
+  </Modals>
+
+  <Commands>
+  </Commands>
+
+  <Bindings>
+    <Require Keys="partner type role"/>
+    <Enforce>
+    </Enforce>
+  </Bindings>
+
+  <Plugins>
+    <MultiText Keys="objectives-achievements specific-problems comment acceptation planned-continuation motivation business-criteria capacity-criteria"/>
+    <Input Keys="npa partner"/>
+  </Plugins>
+
+  <Hints>
+    <Hint Keys="timesheet-upload">Your file should not exceed 1MB</Hint>
+  </Hints>
+</Form>

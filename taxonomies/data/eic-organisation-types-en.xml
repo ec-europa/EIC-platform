@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalInformation>
+	<Description Lang="en">
+		<Selector Name="EICOrganisationTypes">
+			<Version>20180829-0</Version>
+			<Title>Organisation types II</Title>
+			<Note>Classification of the organisation types from their project involvement with EIC.</Note>
+			<Option>
+				<Value>30</Value>
+				<Name>SME-Instrument</Name>
+			</Option>
+			<Option>
+				<Value>31</Value>
+				<Name>FTI</Name>
+			</Option>
+			<Option>
+				<Value>32</Value>
+				<Name>FETopen</Name>
+			</Option>
+			<Option>
+				<Value>33</Value>
+				<Name>EEN Partner</Name>
+			</Option>
+			<Option>
+				<Value>34</Value>
+				<Name>EIC Service provider</Name>
+			</Option>
+		</Selector>
+	</Description>
+</GlobalInformation>

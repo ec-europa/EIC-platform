@@ -1,0 +1,257 @@
+<!-- 
+ : Data templates for the Berlin event application workflow
+ :
+ : NOTE: actually no template to create the application since it uses 
+ :       deprecated default behavior of data.xql which saves everything
+ -->
+<Templates>
+  <Template Name="berlin-2018" Mode="bootstrap" Subject="Enterprise" Object="Event">
+<![CDATA[
+let $uid := user:get-current-person-id ()
+let $member := $subject//Member[PersonRef eq $uid]/Information
+return
+<Application>
+ <CompanyProfile>
+   { $subject/Information/Name }
+   { $subject/Information/WebSite }
+   { $subject/Information/TargetedMarkets }
+ </CompanyProfile>
+ <ParticipantInformation>
+   {
+   if ($member/Sex) then <Gender>{ $member/Sex/text() }</Gender> else (),
+   $member/Name/FirstName,
+   $member/Name/LastName,
+   $member/CorporateFunctions,
+   $member/Function,
+   $member/Contacts/Phone,
+   $member/Contacts/Email
+   }
+ </ParticipantInformation>
+</Application>
+]]>
+  </Template>
+  <!-- TIP: manual de-referencing of project acronym -->
+  <Template Name="berlin-2018" Mode="read" Subject="Enterprise" Object="Event" Assert="exists($object/Data/Application)" Fallback="bootstrap">
+    <![CDATA[
+let $application := $object/Data/Application
+let $project-id := $application/CompanyProfile/Acronym
+return
+  <Application>
+    <CompanyProfile>
+    {
+    $application/CompanyProfile/Name,
+    if ((exists($project-id)) and (not($project-id eq ''))) then 
+      let $project := $subject/Projects/Project[ProjectId = $project-id]
+      return
+        <Acronym _Display="{ concat($project/Acronym, ' (', $project-id,')' ) }">
+          { $project-id/text() }
+        </Acronym>
+    else
+      <Acronym/>,
+    $application/CompanyProfile/*[not(local-name() = ('Name', 'Acronym'))]
+    }
+    </CompanyProfile>
+    { $application/*[local-name() ne 'CompanyProfile'] }
+  </Application>
+]]>
+  </Template>
+  <!-- TODO: replace with schema-based validation !
+    -->
+  <Template Name="berlin-2018" Subject="Application" Mode="validate">
+    <![CDATA[
+<XAL>
+  <XALAction Type="assert">
+    {
+    let $business := $subject/Business
+    let $investment := $subject/Investment
+    let $pitching := $subject/Pitching
+    return
+      <True Error="ALL-FIELDS-MANDATORY">
+        {
+        $subject/CompanyProfile/Name
+        and
+        $subject/CompanyProfile/Acronym
+        and
+        $subject/CompanyProfile//TargetedMarketRef
+        and
+        $subject/CompanyProfile//GeographicalMarketRef
+        and
+        $subject/CompanyProfile/CompanyDescription/Text
+        and
+        $subject/ParticipantInformation/Gender
+        and
+        $subject/ParticipantInformation/FirstName
+        and
+        $subject/ParticipantInformation/LastName
+        and
+        $subject/ParticipantInformation//CorporateFunctionRef
+        and
+        $subject/ParticipantInformation/Phone
+        and
+        $subject/ParticipantInformation/Email
+        and
+        $business/YesNoScaleRef
+        and
+        ($business/YesNoScaleRef eq '2' or $business//BusinessPartnerRef)
+        and
+        $investment/YesNoScaleRef
+        and
+        ($investment/YesNoScaleRef eq '2' or 
+          ($investment//InvestmentInvestorRef and $investment//InvestmentInvestorTicketRef and $investment//InvestorTypeRef))
+        and 
+        $subject/Workshop/QuestionWorkshop11Ref
+        and
+        $subject/Workshop/QuestionWorkshop21Ref
+        and
+        $subject/Workshop/QuestionWorkshop31Ref
+        and
+        $subject/Workshop/QuestionWorkshop41Ref
+        and
+        $pitching/PitchingSessionRef
+        and
+        ($pitching/PitchingSessionRef eq '9' or ((count($pitching/(EBITDA | Revenue | ShareholderStructure | BusinessConcept | SellingPoints | IPInformation | MarketCompetitors | Customers | TeamStructure)) eq 9) and $pitching//InvestmentInvestorRef and $pitching//InvestmentInvestorTicketRef and $pitching//InvestorTypeRef))
+        and
+        $subject/DataTransfer
+        }
+      </True>
+    }
+  </XALAction>
+</XAL>
+]]>
+  </Template>
+  <!-- export extra columns with enterprise statistics -->
+  <Template Name="berlin-2018" Mode="export" Subject="Enterprise" Object="Project" Form="Event">
+<![CDATA[
+<Stats _Prune="none">
+  <Id>{ $subject/Id/text() }</Id>
+  <SubmissionTime>{ $form/StatusHistory/Status[ValueRef eq '2']/Date/text() }</SubmissionTime>
+  <Country>{ $subject/Information/Address/Country/text() }</Country>
+  <ProjectOfficer>{ custom:gen-project-officer-name($object/ProjectOfficerKey) }</ProjectOfficer>
+  <FundingProgram>{ $object/Call/FundingProgramRef/text() }</FundingProgram>
+  <ProjectCallPhase>
+    { 
+    if ($object/Call/FundingProgramRef eq '2') then
+      'FTI'
+    else
+      $object/Call/(SMEiFundingRef | FETActionRef)/text()
+    }
+  </ProjectCallPhase>
+  <ProjectRole>{ $object/Role/text() }</ProjectRole>
+  <CompanyType>{ (<default>1</default>, $subject/ValidationStatus/CompanyTypeRef)[last()] }</CompanyType>
+</Stats>
+]]>
+  </Template>
+<!--
+  TIP: Since the investor create an application to Berlin event, add
+  <AccelerationServiceRef>1</AccelerationServiceRef> in order to open the berlin event form's section
+-->
+  <Template Name="berlin-investor-2018" Mode="bootstrap" Subject="Enterprise" Object="Event">
+    <![CDATA[
+let $uid := user:get-current-person-id ()
+let $member := $subject//Member[PersonRef eq $uid]/Information
+let $admission := if (exists($subject/@AdmissionKey)) then 
+                    fn:collection($globals:admissions-uri)//Admission[Id eq $subject/@AdmissionKey]
+                  else
+                    ()
+return
+  <Application>
+    <ParticipantInformation>
+      {
+      if ($member/Sex) then <Gender>{ $member/Sex/text() }</Gender> else (),
+      $member/Name/FirstName,
+      $member/Name/LastName,
+      $member/CorporateFunctions,
+      $member/Function,
+      $member/Contacts/Phone,
+      $member/Contacts/Email,
+      $admission/ParticipantInformation/LinkedIn,
+      $admission/ParticipantInformation/Twitter
+      }
+    </ParticipantInformation>
+    <CompanyProfile>
+      <CompanyName>{ $subject/Information/Name/text() }</CompanyName>
+      {
+      $admission/CompanyProfile/CompanyDescription,
+      $admission/CompanyProfile/InvestorTypes
+      }
+    </CompanyProfile>
+    { $admission/CompaniesSought }
+    <AccelerationServices>
+      <AccelerationServiceRef>1</AccelerationServiceRef>
+      { $admission/AccelerationServices/AccelerationServiceRef[. ne '1'] }
+    </AccelerationServices>
+  </Application>
+]]>
+  </Template>
+  <!-- TIP: cleanup company profile to remove extra tags inherited from admission
+            since "self-investor-company" Create template copy too much of them
+            -->
+  <Template Name="berlin-investor-2018" Mode="read" Subject="Enterprise" Object="Event" Assert="exists($object/Data/Application)" Fallback="bootstrap">
+<![CDATA[
+let $application := $object/Data/Application
+return
+  <Application>
+    { $application/ParticipantInformation }
+    <CompanyProfile>
+      {
+      $application/CompanyProfile/CompanyName,
+      $application/CompanyProfile/CompanyDescription,
+      $application/CompanyProfile/InvestorTypes
+      }
+    </CompanyProfile>
+    { $application/(CompaniesSought | EICEvent | AccelerationServices) }
+  </Application>
+]]>
+  </Template>
+  <!-- export extra columns with enterprise statistics -->
+  <Template Name="berlin-investor-2018" Mode="export" Subject="Enterprise" Object="Project" Form="Event">
+<![CDATA[
+<Stats _Prune="none">
+  <Id>{ $subject/Id/text() }</Id>
+  <SubmissionTime>{ $form/StatusHistory/Status[ValueRef eq '2']/Date/text() }</SubmissionTime>
+  <CompanyType>3</CompanyType>
+  <PitchingSessions Replace="PitchingSessions11 PitchingSessions12 PitchingSessions21 PitchingSessions22">{ $form//PitchingSessionRef }</PitchingSessions>
+</Stats>
+]]>
+  </Template>
+  <!--Template Name="berlin-investor-2018" Subject="Application" Mode="validate" -->
+  <Template Name="berlin-investor-2018" Subject="Application" Object="Event" Mode="validate">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-ADMISSION-ARE-MANDATORY-2">
+        { exists($subject//Networking/YesNoScaleRef) }
+      </True>
+    </XALAction>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-ADMISSION-ARE-MANDATORY-3">
+        { exists($subject//DataTransfer) }
+      </True>
+    </XALAction>
+    <!-- was commented out in admission template too !
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-ADMISSION-ARE-MANDATORY-4">
+        { exists($subject//PitchingSessionRef) }
+      </True>
+    </XALAction>
+    -->
+  </XAL>
+]]> 
+  </Template>
+  <!--
+    Update the Enterprise content (Events/event[Id/text()='62'])
+  -->
+  <Template Name="berlin-investor-2018" Mode="create" Subject="Application"  Object="Event">
+<![CDATA[
+<Application>
+  { 
+  $form/ParticipantInformation,
+  $form/CompanyProfile,
+  $form/CompaniesSought,
+  $form/EICEvent, 
+  $form/AccelerationServices
+  }
+</Application>
+]]>
+  </Template>
+</Templates>

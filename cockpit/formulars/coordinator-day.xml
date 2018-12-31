@@ -1,0 +1,94 @@
+<Form Tag="Event" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+
+  <Title>Feedback</Title>
+
+  <Verbatim>
+    <xt:component name="t_privacy">
+      <blockquote xmlns="http://www.w3.org/1999/xhtml">
+        <p style="margin-bottom:10px">Please read the <a href="../../../files/EIC_Privacy_statement_20171129" target="blank_">Privacy statement</a>.</p>
+	<p>The information provided in the following fields: Enterprise Name, Summary of the Company's Activity, Project Number and Acronym, Summary of the Project, First Name, Last Name, Nationality and Biography of the delegate, will be used and disseminated exclusively in relation to the Coordinators' Welcome Days 2018.</p>
+	<p>The Date of birth, ID/Passport number and ID/Passport Expiration date are solely required for the access to the EC building and will not be disseminated beyond the EC authorised staff.</p>
+      </blockquote>
+    </xt:component>
+
+    <xt:component name="t_enterprise">
+      <Field Key="entname" Tag="Name" Gap="3">Enterprise name</Field>
+      <Field Key="sum-activity" Tag="Summary" Gap="0">Summary of the company's activity (Max 1500 characters ~ 12 lines)</Field>
+    </xt:component>
+
+    <xt:component name="t_project">
+      <Field Key="acronym" Tag="Acronym" Gap="3">Project acronym</Field>
+      <site:conditional meet="read" force="true">
+        <Field Key="p_o" Tag="ProjectOfficer" Gap="3">Project officer</Field>
+      </site:conditional>
+      <Field Key="sum_project" Tag="Summary" Gap="0">Summary of the project (Max 1500 characters ~ 12 lines)</Field>
+    </xt:component>
+
+    <xt:component name="t_contact_person">
+      <Field Key="firstname" Tag="FirstName" Gap="2" W="6" L="0">First Name</Field>
+      <Field Key="lastname" Tag="LastName" Gap="2" W="6">Last Name</Field>
+      <Field Key="phone" Tag="Phone" Gap="2" W="6" L="0">Direct phone</Field>
+      <Field Key="email_delegate" Tag="Email" Gap="2" W="6">Email</Field>
+      <Field Key="nationality" Tag="ISO3Country" Gap="2" W="8" L="0">Nationality</Field>
+      <Field Key="date_birth" Tag="BirthDate" Gap="2" W="4">Date of birth</Field>
+      <Field Key="id_card" Tag="IDCard" Gap="2" W="8" L="0">ID Card Number</Field>
+      <Field Key="date_exp" Tag="IDExpDate" Gap="2" W="4">ID Expiration Date</Field>
+      <Field Key="biography" Tag="Biography" Gap="0">Biography of the delegate (Max 800 characters ~ 8 lines)</Field>
+    </xt:component>
+
+    <xt:component name="t_delegates">
+        <Repeat Min="1" Tag="Delegates">
+          <Cell Tag="Delegate" Class="unroll-export">
+              <Use TypeName="contact_person"/>
+          </Cell>
+          <xhtml:p class="text-hint" style="float:right"><xhtml:span class="c-repeat-menu">Click to add/remove a delegate <Menu/></xhtml:span></xhtml:p>
+        </Repeat>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <Title>Company Information</Title>
+    <Use Tag="Company" TypeName="enterprise"/>
+  </Row>
+
+  <Row>
+    <Title>Project Information</Title>
+    <Use Tag="Project" TypeName="project"/>
+  </Row>
+
+  <Row>
+    <Title>Delegates</Title>
+    <Use TypeName="delegates"/>
+  </Row>
+
+  <Row>
+    <Use TypeName="privacy"/>
+  </Row>
+
+  <Bindings>
+    <Enforce>
+      <RegExp Keys="email_delegate" Message-loc="validation.email"
+        Message="L'addrese de courrier électronique n'est pas bien formée (nom@serveur.domaine)"
+        >^\s*$|^\w([-.]?\w)*@\w([-.]?\w)+\.[a-z]{2,}$</RegExp>
+      <!-- FIXME: actually it is not possible to validate in a repetition because the feedback warning applies to all lines !-->
+    </Enforce>
+  </Bindings>
+
+  <Hints>
+    <!-- FIXME: switch back to "border" feedback when compatible with Condition / RegExp ... -->
+    <Mandatory Feedback="none" Tags="Acronym Summary FirstName LastName Phone Email ISO3Country BirthDate IDCard IDExpDate Biography ">This field must be filled to be able to proceed to the next step</Mandatory>
+  </Hints>
+
+  <Plugins>
+    <Constant Keys="entname p_o"/>
+    <Date Prefix="date"/>
+    <Input Keys="firstname lastname phone email_delegate id_card"/>
+    <MultiText Prefix="sum"/>
+    <MultiText Keys="biography"/>
+  </Plugins>
+  
+</Form>

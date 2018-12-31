@@ -1,0 +1,1009 @@
+<GlobalInformation>
+  <Description Lang="en" Role="normative">
+    <Selector Name="AccreditationTypes" Default="1">
+      <Option>
+        <Value>1</Value>
+        <Name>Manage accounts</Name>
+        <Table>members</Table>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Manage tokens</Name>
+        <Table>tokens</Table>
+      </Option>
+      <!-- DEPRECATED
+      <Option>
+        <Value>2</Value>
+        <Name>Manage admissions</Name>
+        <Table>investors</Table>
+      </Option -->
+      <Option>
+        <Value>4</Value>
+        <Name>View unaffiliated</Name>
+        <Table>unaffiliated</Table>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Manage admissions</Name>
+        <Table>entries</Table>
+      </Option>
+    </Selector>
+    <Selector Name="AdmissionStatus">
+      <Option>
+        <Value>1</Value>
+        <Name>Draft</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Submitted</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Rejected</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Authorized</Name>
+      </Option>
+    </Selector>
+    <Selector Name="AccreditationStatus">
+      <Option>
+        <Value>1</Value>
+        <Name>Accredited</Name>
+      </Option>
+    </Selector>
+    <Selector Name="TokenStatus">
+      <Option>
+        <Value>1</Value>
+        <Name>Pending</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Rejected</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Allocated</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Withdrawn</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Transferred</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Deleted</Name>
+      </Option>
+    </Selector>
+    <Selector Name="AccessLevels">
+      <Option>
+        <Value>1</Value>
+        <Name>Pending</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Rejected</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Authorized / Allocated</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Blocked / Withdrawn</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Transferred (token only)</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Deleted (token only)</Name>
+      </Option>
+      <Option>
+        <Value>99</Value>
+        <Name>Unknown</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Functions">
+      <Description>User's functions with associated database roles</Description>
+      <Option Group="admin-system" Role="admin-system" Sight="omni">
+        <Value>1</Value>
+        <Name>System Administrator</Name>
+        <Brief>SysAdmin</Brief>
+      </Option>
+      <Option Role="project-officer">
+        <Value>2</Value>
+        <Name>Project Officer</Name>
+        <Brief>PO</Brief>
+      </Option>
+      <Option Role="lear" Scope="enterprise" Team="Beneficiary">
+        <Value>3</Value>
+        <Name>LEAR</Name>
+        <Brief>LEAR</Brief>
+      </Option>
+      <Option Role="delegate" Scope="enterprise" Team="Beneficiary">
+        <Value>4</Value>
+        <Name>Delegate</Name>
+        <Brief>Delegate</Brief>
+      </Option>
+      <Option Role="events-manager" Scope="program">
+        <Value>5</Value>
+        <Name>Events Manager</Name>
+        <Brief>EvMgr</Brief>
+      </Option>
+      <Option Role="dg" Scope="enterprise" Team="DG">
+        <Value>6</Value>
+        <Name>DG</Name>
+        <Brief>DG</Brief>
+      </Option>
+      <Option Role="investor" Scope="enterprise" Team="Investor">
+        <Value>7</Value>
+        <Name>Investor</Name>
+        <Brief>invest</Brief>
+      </Option>
+      <Option Role="mi-token" Scope="enterprise" AdminPanel="static">
+        <Value>8</Value>
+        <Name>ScaleupEU access</Name>
+        <Brief>ScaleupEU</Brief>
+      </Option>
+      <Option Role="pending-investor" Scope="admission" AdminPanel="static">
+        <Value>9</Value>
+        <Name>Pending investor</Name>
+        <Brief>PendingInvestor</Brief>
+      </Option>
+      <Option Role="facilitator" Scope="scaleup">
+        <Value>10</Value>
+        <Name>ScaleupEU Facilitator</Name>
+        <Brief>ScaleupEU Facilitator</Brief>
+      </Option>
+      <Option Role="monitor" Scope="scaleup">
+        <Value>11</Value>
+        <Name>ScaleupEU Monitor</Name>
+        <Brief>ScaleupEU Monitor</Brief>
+      </Option>
+      <Option Group="developer" Role="developer">
+        <Value>99</Value>
+        <Name>Software Developer</Name>
+        <Brief>Dev</Brief>
+      </Option>
+    </Selector>
+    <Selector Name="UserTypes">
+      <Version>20180621-0</Version>
+      <Title>User types</Title>
+      <Note>Type of user will determine the functional role a user has. Define what he/she can do or see.</Note>
+      <!-- Currently only the 2 following roles exist:
+				Account owner = LEAR
+				member = member. -->
+      <Option>
+        <Value>1</Value>
+        <Name>Account owner</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Member</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Community manager</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Project officer</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>EEN KAM</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Coach</Name>
+      </Option>
+      <Option>
+        <Value>7</Value>
+        <Name>Event manager</Name>
+      </Option>
+      <Option>
+        <Value>8</Value>
+        <Name>Event supervisor</Name>
+      </Option>
+      <Option>
+        <Value>9</Value>
+        <Name>Superintendent</Name>
+      </Option>
+      <Option>
+        <Value>10</Value>
+        <Name>Investor</Name>
+      </Option>			
+    </Selector> 
+    <Selector Name="OrganisationTypes">
+      <Version>20180829-0</Version>
+      <Title>Organisation types I</Title>
+      <Note>Classification of the organisation types from a legal point of view.</Note>
+      <Option>
+        <Value>10</Value>
+        <Name>Private company</Name>
+      </Option>
+      <Option>
+        <Value>11</Value>
+        <Name>Governemental institution / Public organisation</Name>
+      </Option>
+      <Option>
+        <Value>12</Value>
+        <Name>European Institution</Name>
+      </Option>
+      <Option>
+        <Value>13</Value>
+        <Name>NGOs / NPOs</Name>
+      </Option>
+      <Option>
+        <Value>14</Value>
+        <Name>Academia</Name>
+      </Option>
+    </Selector>
+    <Selector Name="EICOrganisationTypes">
+      <Version>20180829-0</Version>
+      <Title>Organisation types II</Title>
+      <Note>Classification of the organisation types from their project involvement with EIC.</Note>
+      <Option>
+        <Value>30</Value>
+        <Name>SME-Instrument</Name>
+      </Option>
+      <Option>
+        <Value>31</Value>
+        <Name>FTI</Name>
+      </Option>
+      <Option>
+        <Value>32</Value>
+        <Name>FETopen</Name>
+      </Option>
+      <Option>
+        <Value>33</Value>
+        <Name>EEN Partner</Name>
+      </Option>
+      <Option>
+        <Value>34</Value>
+        <Name>EIC Service provider</Name>
+      </Option>
+      <Option>
+        <Value>35</Value>
+        <Name>Corporate</Name>
+      </Option>
+      <Option>
+        <Value>36</Value>
+        <Name>European Institutions</Name>
+      </Option>
+    </Selector>
+    <Selector Name="MyOrganisationsTypes">
+      <Version>20180829-0</Version>
+      <Title>Organisation(s) types II</Title>
+      <Note>Classification of the organisation types for a member.</Note>
+      <Option>
+        <Value>60</Value>
+        <Name>Beneficiary (EIC, SMEI, FTI, FETopen)</Name>
+      </Option>
+      <Option>
+        <Value>61</Value>
+        <Name>Investor/Corporate</Name>
+      </Option>
+      <!--<Option>
+        <Value>62</Value>
+        <Name>Large Corporate</Name>
+      </Option>
+      <Option>
+        <Value>63</Value>
+        <Name>EEN Partner</Name>
+      </Option>
+      <Option>
+        <Value>64</Value>
+        <Name>NCP Partner</Name>
+      </Option>
+      <Option>
+        <Value>65</Value>
+        <Name>EIC Contractor</Name>
+      </Option>
+      <Option>
+        <Value>66</Value>
+        <Name>Seal of Excellence</Name>
+      </Option>
+      <Option>
+        <Value>67</Value>
+        <Name>Other type of Organisation</Name>
+      </Option>
+      <Option>
+        <Value>68</Value>
+        <Name>Unaffiliated</Name>
+      </Option>-->
+    </Selector>
+    <Selector Name="InvestCorpoOrganisationsTypes">
+      <Version>20181126-0</Version>
+      <Title>Organisation(s) types III</Title>
+      <Note>Classification of the organisation types for a investor/corporate.</Note>
+      <Option>
+        <Value>611</Value>
+        <Name>Investor</Name>
+      </Option>
+      <Option>
+        <Value>612</Value>
+        <Name>Corporate</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Services" Test="Services">
+      <Description>Services associated with some roles</Description>
+      <Option>
+        <Value>2</Value>
+        <Name>Business</Name>
+      </Option>
+      <Option>
+        <Value>1</Value>
+        <Name>Organisation</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Financing</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Cooperation</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Sizes">
+      <Version>20180620-0</Version>
+      <Title>Organisation size</Title>
+      <Note>The number of employees the company has at the point of the application</Note>
+      <Option>
+        <Value>1</Value>
+        <!-- Variant="1" -->
+        <Alt Variant="1">micro</Alt>
+        <Name>Micro (1-9 employees)</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Alt Variant="1">small</Alt>
+        <Name>Small (10-49 employees)</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Alt Variant="1">medium</Alt>
+        <Name>Medium (50-249 employees)</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Alt Variant="1">large</Alt>
+        <Name>Large (250 employees and more)</Name>
+      </Option>
+      <!-- skip="1": Means this option is not defined in variant="1" -->
+      <Option Skip="1">
+        <Value>5</Value>
+        <Alt Variant="1">other</Alt>
+        <Name>Other</Name>
+      </Option>				
+    </Selector>
+    <Selector Name="InitialContexts" Test="Initial case contexts">
+      <Option>
+        <Value>1</Value>
+        <Name>Seed stage</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Project-to-project stage</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Upscaling stage</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Expansion stage</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Renewal stage</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Consolidation stage</Name>
+      </Option>
+    </Selector>
+    <Selector Name="TargetedContexts" Test="Targeted case contexts">
+      <Option>
+        <Value>1</Value>
+        <Name>Seed stage</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Project-to-project stage</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Upscaling stage</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Expansion stage</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Renewal stage</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Consolidation stage</Name>
+      </Option>
+    </Selector>
+    <Selector Name="RatingScales" Test="Rating scale">
+      <Option>
+        <Value>5</Value>
+        <Name>Strongly disagree</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Disagree</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Neutral</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Agree</Name>
+      </Option>
+      <Option>
+        <Value>1</Value>
+        <Name>Strongly agree</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>N/A</Name>
+      </Option>
+    </Selector>
+    <Selector Name="InvestmentKinds">
+      <Option>
+        <Value>1</Value>
+        <Name>Majority equity</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Minority equity</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Bridge equity - Mezzanine</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Subordinated debt</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Senior debt</Name>
+      </Option>
+    </Selector>
+    <Selector Name="InvestmentSizes">
+      <Option>
+        <Value>1</Value>
+        <Name>0 - 99,999€</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>100,000 - 499,999€</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>500,000 - 999,999€</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>1,000,000 - 2,999,999€</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>3,000,000 - 4,999,999€</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>5,000,000 - 9,999,999€</Name>
+      </Option>
+      <Option>
+        <Value>7</Value>
+        <Name>&gt; 10,000,000€</Name>
+      </Option>
+    </Selector>
+    <Selector Name="InvestorKinds">
+      <Option>
+        <Value>1</Value>
+        <Name>Venture capitalists</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Private equity</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Business angels</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Strategic investors</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Corporate venture capital</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>MBO investors</Name>
+      </Option>
+      <Option>
+        <Value>7</Value>
+        <Name>Family offices/High Networth individuals</Name>
+      </Option>
+      <Option>
+        <Value>8</Value>
+        <Name>Corporate investors</Name>
+      </Option>
+    </Selector>
+    <Selector Name="InvestorTypes">
+      <Version>20180924-0</Version>
+      <Title>What is the type of the investor</Title>
+      <Option>
+        <Value>1</Value>
+        <Name>Business Angel</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Private Equity</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Venture Capital</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Corporate Venture Capital</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Family Office</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Growth Equity</Name>
+      </Option>
+      <Option>
+        <Value>7</Value>
+        <Name>State funds</Name>
+      </Option>
+      <Option>
+        <Value>8</Value>
+        <Name>Bank funds</Name>
+      </Option>
+      <Option>
+        <Value>9</Value>
+        <Name>Management buy In</Name>
+      </Option>
+      <Option>
+        <Value>10</Value>
+        <Name>Debt funds</Name>
+      </Option>
+    </Selector>
+    <Selector Name="OrganisationAffiliations">
+      <Version>20180924-0</Version>
+      <Description>Organisation affiliation to association(s)</Description>
+      <Option>
+        <Value>4</Value>
+        <Name>BAE (Business Angels Europe)</Name>
+      </Option>
+      <Option>
+        <Value>1</Value>
+        <Name>EBAN (European Business Angle Network)</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Invest Europe</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>National association</Name>
+      </Option>
+    </Selector>
+    <Selector Name="SellingShares">
+      <Option>
+        <Value>1</Value>
+        <Name>Minority</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Majority</Name>
+      </Option>
+    </Selector>
+    <Selector Name="YesNoScales" Test="Yes or no">
+      <Option>
+        <Value>1</Value>
+        <Name>Yes</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>No</Name>
+      </Option>
+    </Selector>
+    <Selector Name="ApplicabilityRanks" Test="Yes or no">
+      <Option>
+        <Value>1</Value>
+        <Name>Applicable</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>N/A</Name>
+      </Option>
+    </Selector>
+    <Selector Name="CutOffDates" Test="Cut-off dates">
+      <Option>
+        <Name>18 Jun 2014</Name>
+        <Value>2014-06-18</Value>
+      </Option>
+      <Option>
+        <Name>24 Sep 2014</Name>
+        <Value>2014-09-24</Value>
+      </Option>
+      <Option>
+        <Name>09 Oct 2014</Name>
+        <Value>2014-10-09</Value>
+      </Option>
+      <Option>
+        <Name>17 Dec 2014</Name>
+        <Value>2014-12-17</Value>
+      </Option>
+      <Option>
+        <Name>18 Mar 2015</Name>
+        <Value>2015-03-18</Value>
+      </Option>
+      <Option>
+        <Name>17 Jun 2015</Name>
+        <Value>2015-06-17</Value>
+      </Option>
+      <Option>
+        <Name>17 Sep 2015</Name>
+        <Value>2015-09-17</Value>
+      </Option>
+      <Option>
+        <Name>25 Nov 2015</Name>
+        <Value>2015-11-25</Value>
+      </Option>
+      <Option>
+        <Name>03 Feb 2016</Name>
+        <Value>2016-02-03</Value>
+      </Option>
+      <Option>
+        <Name>24 Feb 2016</Name>
+        <Value>2016-02-24</Value>
+      </Option>
+      <Option>
+        <Name>14 Apr 2016</Name>
+        <Value>2016-04-14</Value>
+      </Option>
+      <Option>
+        <Name>03 May 2016</Name>
+        <Value>2016-05-03</Value>
+      </Option>
+      <Option>
+        <Name>15 June 2016</Name>
+        <Value>2016-06-15</Value>
+      </Option>
+      <Option>
+        <Name>07 Sep 2016</Name>
+        <Value>2016-09-07</Value>
+      </Option>
+      <Option>
+        <Name>13 Oct 2016</Name>
+        <Value>2016-10-13</Value>
+      </Option>
+      <Option>
+        <Name>09 Nov 2016</Name>
+        <Value>2016-11-09</Value>
+      </Option>
+      <Option>
+        <Name>18 Jan 2017</Name>
+        <Value>2017-01-18</Value>
+      </Option>
+      <Option>
+        <Name>15 Feb 2017</Name>
+        <Value>2017-02-15</Value>
+      </Option>
+      <Option>
+        <Name>06 Apr 2017</Name>
+        <Value>2017-04-06</Value>
+      </Option>
+      <Option>
+        <Name>03 May 2017</Name>
+        <Value>2017-05-03</Value>
+      </Option>
+      <Option>
+        <Name>01 June 2017</Name>
+        <Value>2017-06-01</Value>
+      </Option>
+      <Option>
+        <Name>06 Sep 2017</Name>
+        <Value>2017-09-06</Value>
+      </Option>
+      <Option>
+        <Name>18 Oct 2017</Name>
+        <Value>2017-10-18</Value>
+      </Option>
+      <Option>
+        <Name>08 Nov 2017</Name>
+        <Value>2017-11-08</Value>
+      </Option>
+    </Selector>
+    <Selector Name="StatusFlags">
+      <Title>Existence (validity) of the company verified by REA during a GAP (Grant Agreement Preparation) or during the duration of the project</Title>
+      <Option>
+        <Value>1</Value>
+        <Name>Non-valid</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Valid</Name>
+      </Option>
+      <Option>
+        <!-- duplicate -->
+        <Value>3</Value>
+        <Name>Deprecates</Name>
+      </Option>
+      <Option>
+        <!-- bankruptcies -->
+        <Value>4</Value>
+        <Name>Blocked</Name>
+      </Option>
+      <Option>
+        <!-- non-responsive -->
+        <Value>5</Value>
+        <Name>Sleeping</Name>
+      </Option>
+      <Option>
+        <!-- UTRO -->
+        <Value>6</Value>
+        <Name>Suspended</Name>
+      </Option>
+    </Selector>
+    <Selector Name="TerminationFlags">
+      <Title>Project termination during GAP (Grant Agreement Preparation) or during the duration of the project</Title>
+      <Option>
+        <Value>1</Value>
+        <Name>Terminated GAP by EC</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Terminated GAP by SME</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Terminated project by EC</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Terminated project by SME</Name>
+      </Option>
+    </Selector>
+    <Selector Name="CorporateFunctions">
+      <Version>20180924-1</Version>
+      <Title>Business titles of a user</Title>
+      <Note>Corporate functions / job title of a team member</Note>
+      <Option>
+        <Value>1</Value>
+        <Name>General management / CEO</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Accounting / Finance / CFO</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Research &amp; Development / CRO</Name>
+      </Option>
+      <Option>
+        <Value>4</Value>
+        <Name>Production/ Service delivery / COO</Name>
+      </Option>
+      <Option>
+        <Value>5</Value>
+        <Name>Sales / Marketing / CMO</Name>
+      </Option>
+      <Option>
+        <Value>6</Value>
+        <Name>Human Resources / CHRO</Name>
+      </Option>
+      <Option>
+        <Value>7</Value>
+        <Name>Administration / CAO</Name>
+      </Option>
+      <Option>
+        <Value>8</Value>
+        <Name>Information services / CIO</Name>
+      </Option>
+      <Option>
+        <Value>9</Value>
+        <Name>Purchasing / CPO</Name>
+      </Option>
+      <Option>
+        <Value>10</Value>
+        <Name>Other</Name>
+      </Option>
+    </Selector>
+    <Selector Name="CompanyTypes">
+      <!-- MUST be compatible with YesNoScaleRef -->
+      <Option>
+        <Value>1</Value>
+        <Name>SME</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Not SME</Name>
+      </Option>
+      <Option>
+        <!-- trick : only for search filtering and Excel export -->
+        <Value>3</Value>
+        <Name>Investor</Name>
+      </Option>
+      <Option>
+        <!-- trick : only for search filtering -->
+        <Value>4</Value>
+        <Name>Corporate</Name>
+      </Option>
+      <Option>
+        <!-- trick : only for search filtering -->
+        <Value>5</Value>
+        <Name>EEN host partner</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Topics" Value="Id" Label="Name" Test="Topics">
+      <Option>
+        <Id>1</Id>
+        <ShortName>Biotech</ShortName>
+        <Name>SME Boosting biotechnology-based industrial processes (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <ShortName>BG</ShortName>
+        <Name>Supporting SMEs efforts for the development-deployment and market replication of innovative solutions for blue growth (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <ShortName>DRS</ShortName>
+        <Name>Protection of urban soft targets and urban critical infrastructures (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <ShortName>ICT</ShortName>
+        <Name>Information and Communication technologies - open disruptive innovation scheme (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>5</Id>
+        <ShortName>IT</ShortName>
+        <Name>Small business innovation research for transport (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>6</Id>
+        <ShortName>NMP</ShortName>
+        <Name>Accelerating the uptake of nanotechnologies, advances materials, biotechnology and advance manufacturing and processing (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>7</Id>
+        <ShortName>PHC</ShortName>
+        <Name>Clinical research for the validation of biomarkers and/or diagnostic medical devices (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>8</Id>
+        <ShortName>SC5</ShortName>
+        <Name>Boosting the potential of small business for eco-innovation and a sustainable supply of raw material (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>9</Id>
+        <ShortName>SFS</ShortName>
+        <Name>Resource-efficient eco-innovative food production and processing (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>10</Id>
+        <ShortName>SIE</ShortName>
+        <Name>Stimulating the innovation potential of SMEs for a low carbon and efficient energy system (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>11</Id>
+        <ShortName>Space</ShortName>
+        <Name>SME Instrument Space (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>12</Id>
+        <ShortName>INSO-9</ShortName>
+        <Name>Innovative mobile e-government applications by SMEs (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>13</Id>
+        <ShortName>INSO-10</ShortName>
+        <Name>SME Business model innovation (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>14</Id>
+        <Name>Open Disruptive Innovation Scheme (2016/17)</Name>
+        <ShortName>SMEInst-01-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>15</Id>
+        <Name>Accelerating the uptake of nanotechnologies advanced materials or advanced manufacturing and processing technologies by SMEs (2016/17)</Name>
+        <ShortName>SMEInst-02-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>16</Id>
+        <Name>Dedicated support to biotechnology SMEs closing the gap from lab to market (2016/17)</Name>
+        <ShortName>SMEInst-03-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>17</Id>
+        <Name>Engaging SMEs in space research and development (2016/17)</Name>
+        <ShortName>SMEInst-04-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>18</Id>
+        <Name>Supporting innovative SMEs in the healthcare biotechnology sector (2016/17)</Name>
+        <ShortName>SMEInst-05-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>19</Id>
+        <Name>Accelerating market introduction of ICT solutions for Health, Well-Being and Ageing Well (2016/17)</Name>
+        <ShortName>SMEInst-06-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>20</Id>
+        <Name>Stimulating the innovation potential of SMEs for sustainable and competitive agriculture, forestry, agri-food and bio-based sectors (2016/17)</Name>
+        <ShortName>SMEInst-07-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>21</Id>
+        <Name>Supporting SMEs efforts for the development - deployment and market replication of innovative solutions for blue growth (2016/17)</Name>
+        <ShortName>SMEInst-08-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>22</Id>
+        <Name>Stimulating the innovation potential of SMEs for a low carbon and efficient energy system (2016/17)</Name>
+        <ShortName>SMEInst-09-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>23</Id>
+        <Name>Small business innovation research for Transport and Smart Cities Mobility (2016/17)</Name>
+        <ShortName>SMEInst-10-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>24</Id>
+        <Name>Boosting the potential of small businesses in the areas of climate action, environment, resource efficiency and raw materials (2016/17)</Name>
+        <ShortName>SMEInst-11-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>25</Id>
+        <Name>New business models for inclusive, innovative and reflective societies (2016/17)</Name>
+        <ShortName>SMEInst-12-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>26</Id>
+        <Name>Engaging SMEs in security research and development (2016/17)</Name>
+        <ShortName>SMEInst-13-2016-2017</ShortName>
+      </Option>
+    </Selector>
+    <Selector Name="FacilitatorMonitor">
+      <Option>
+        <Value>1</Value>
+        <Name>none</Name>
+      </Option>
+      <Option>
+        <Value>2</Value>
+        <Name>Facilitator</Name>
+      </Option>
+      <Option>
+        <Value>3</Value>
+        <Name>Monitor</Name>
+      </Option>      
+    </Selector>
+  </Description>
+</GlobalInformation>

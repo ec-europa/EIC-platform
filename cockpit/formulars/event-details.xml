@@ -1,0 +1,25 @@
+<Form Tag="Closing" Layout="fluid"
+  xmlns:site="http://oppidoc.com/oppidum/site"
+  xmlns:xt="http://ns.inria.org/xtiger"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  >
+  <Verbatim>
+    <xt:component name="t_something">
+      <Field Key="details" Tag="Field" Gap="1.5">Details</Field>
+      <xhtml:p style="text-align:right"><xt:use types="constant" label="FollowUp"></xt:use></xhtml:p>
+    </xt:component>
+  </Verbatim>
+
+  <Row>
+    <Use Tag="Something" TypeName="something"/>
+  </Row>
+  <Bindings>
+  </Bindings>
+
+  <Hints>
+  </Hints>
+  <Plugins>
+    <Constant Keys="details"/>
+  </Plugins>
+
+</Form>

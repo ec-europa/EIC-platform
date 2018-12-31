@@ -1,0 +1,8 @@
+<Form Tag="SearchRegionsRequest" Width="680px" Wrapper="none">
+  <Row>
+    <Field Key="regions" Tag="RegionalEntities" Gap="2" Placeholder-loc="content.any">EEN Entity</Field>
+    <Field Key="nuts" Tag="NutsCodes" Gap="2" Placeholder-loc="content.any">Nutscode</Field>
+    <Field Key="countries" Tag="Countries" Gap="2" loc="term.country" Placeholder-loc="content.any">Country</Field>
+    <Field Key="members" Tag="Members" Gap="2" loc="term.name" Placeholder-loc="content.any">Name</Field>
+  </Row>
+</Form>

@@ -1,0 +1,181 @@
+<Statistics>
+  <Filters>
+    <Filter Page="coaches">
+      <Formular>
+        <Template>templates/stats-coaches</Template>
+        <Command Allow="g:admin-system g:host-manager" ExcelAllow="g:admin-system g:host-manager" Name="submit" Action="export?t=list" Form="e3" W="2">Contact List</Command>
+        <Command Allow="g:admin-system g:host-manager" Name="stats" Action="filter" W="2" data-spinning-wheel="cm-stats-busy">Statistics</Command>
+      </Formular>
+      <Charts>
+        <Chart Library="C3">
+          <Set>Coaches</Set>
+          <Title>Acceptance status</Title>
+          <Variable Selector="Acceptances">AS</Variable>
+        </Chart>
+        <Chart Library="C3">
+          <Configuration>
+            <Type>pie</Type>
+          </Configuration>
+          <Set>Coaches</Set>
+          <Title>Working rank</Title>
+          <Variable Selector="WorkingRanks">WR</Variable>
+        </Chart>
+        <Chart Library="C3">
+          <Configuration>
+            <Type>pie</Type>
+          </Configuration>
+          <Set>Coaches</Set>
+          <Title>Visibility for other coaches of CoachMatch</Title>
+          <Variable Selector="YesNoAccepts">VC</Variable>
+        </Chart>
+        <Chart Library="C3">
+          <Configuration>
+            <Type>pie</Type>
+          </Configuration>
+          <Set>Coaches</Set>
+          <Title>Availability for coaching</Title>
+          <Variable Selector="YesNoAvails">AC</Variable>
+        </Chart>
+        <Chart>
+          <Configuration>
+            <Order>asc</Order>
+          </Configuration>
+          <Layout>
+            <Width>750</Width>
+            <Angle>75</Angle>
+            <Bottom>120</Bottom>
+            <Left>20</Left>
+          </Layout>
+          <Set>Coaches</Set>
+          <Title>Country</Title>
+          <Variable Selector="Countries">Co</Variable>
+        </Chart>
+        <Chart Library="C3">
+          <Configuration>
+            <Type>pie</Type>
+          </Configuration>
+          <Set>Coaches</Set>
+          <Title>Sex</Title>
+          <Variable Selector="Sex">Sx</Variable>
+        </Chart>
+        <Chart Library="C3">
+          <Set>Coaches</Set>
+          <Title>Services</Title>
+          <Vector Selector="Services">Sv</Vector>
+        </Chart>
+        <Chart>
+          <Configuration>
+            <Order>asc</Order>
+            <Format>compact</Format>
+          </Configuration>
+          <Layout>
+            <Width>750</Width>
+            <Angle>75</Angle>
+            <Bottom>120</Bottom>
+            <Left>20</Left>
+            <Update>destructive</Update>
+          </Layout>
+          <Set>Coaches</Set>
+          <Title>Languages</Title>
+          <Vector Selector="EU-Languages">Lg</Vector>
+        </Chart>
+        <Chart Library="C3">
+          <Set>Coaches</Set>
+          <Title>Performance - SME feedback</Title>
+          <Vector Selector="RatingScales">Pfs</Vector>
+        </Chart>
+        <Chart>
+          <Configuration>
+            <Order>asc</Order>
+            <Format>compact</Format>
+          </Configuration>
+          <Layout>
+            <Width>750</Width>
+            <Angle>75</Angle>
+            <Bottom>340</Bottom>
+            <Left>40</Left>
+            <Size>70</Size>
+            <Update>destructive</Update>
+          </Layout>
+          <Set>Coaches</Set>
+          <Title>Nace</Title>
+          <Vector Selector="DomainActivities">Nc</Vector>
+        </Chart>
+        <Chart>
+          <Configuration>
+            <Format>compact</Format>
+          </Configuration>
+          <Layout>
+            <Width>750</Width>
+            <Angle>75</Angle>
+            <Bottom>240</Bottom>
+            <Left>20</Left>
+            <Update>destructive</Update>
+          </Layout>
+          <Title>Markets</Title>
+          <Set>Coaches</Set>
+          <Vector Selector="TargetedMarkets">TM</Vector>
+        </Chart>
+        <Chart Library="C3">
+          <Configuration>
+            <Type>pie</Type>
+          </Configuration>
+          <Set>Coaches</Set>
+          <Title>Life cycle stage</Title>
+          <Vector Selector="InitialContexts">LC</Vector>
+        </Chart>
+        <Chart Library="C3">
+          <Configuration>
+            <Type>pie</Type>
+          </Configuration>
+          <Set>Coaches</Set>
+          <Title>Needs vectors</Title>
+          <Vector Domain="CaseImpact" Section="1">Vct</Vector>
+        </Chart>
+        <Chart Library="C3">
+          <Configuration>
+            <Type>pie</Type>
+          </Configuration>
+          <Set>Coaches</Set>
+          <Title>Needs sources of ideas</Title>
+          <Vector Domain="CaseImpact" Section="2">Ids</Vector>
+        </Chart>
+        <Chart Library="C3">
+          <Configuration>
+            <Type>pie</Type>
+          </Configuration>
+          <Set>Coaches</Set>
+          <Title>Resources</Title>
+          <Vector Domain="CaseImpact" Section="3">Rsc</Vector>
+        </Chart>
+        <Chart Library="C3">
+          <Configuration>
+            <Type>pie</Type>
+          </Configuration>
+          <Set>Coaches</Set>
+          <Title>Partnerships</Title>
+          <Vector Domain="CaseImpact" Section="4">Ptn</Vector>
+        </Chart>
+      </Charts>
+    </Filter>
+  </Filters>
+  <Tables>
+    <Table Type="list" Page="coaches">
+      <Headers Lang="en">
+        <Header BG="none">Coach ID</Header>
+        <Header BG="none">Name</Header>
+        <Header BG="coach">E-mail</Header>
+        <Header BG="coach">Phone</Header>
+        <Header BG="coach">Sex</Header>
+        <Header BG="coach">Country</Header>
+        <Header BG="coach">Language(s)</Header>
+        <Header BG="coach" style="min-width:150px">Coaching service(s)</Header>
+        <Header BG="coach">Performance</Header>
+        <Header BG="status">Acceptance status</Header>
+        <Header BG="status">Working rank</Header>
+        <Header BG="status">Availability for Host (defaults to available)</Header>
+        <Header BG="status">Visibility to other coaches (defaults to not visible)</Header>
+      </Headers>
+    </Table>
+  </Tables>
+</Statistics>

@@ -1,0 +1,328 @@
+<Reports>
+  <!-- TODO: implement Module tag to declare module dependencies see codegen.xql -->
+  <Verbatim>
+declare variable $sample:crlf := codepoints-to-string((10));
+declare variable $sample:cut-off-dates := stats:gen-cutoff-date-map();
+declare variable $sample:funding-phases := stats:gen-selectors-map(('SMEiFundings', 'FETActions'));
+  </Verbatim>
+  <Report No="1">
+    <Title>Export all cases</Title>
+    <Target>
+      <Subject Collection="projects">$object/ancestor::Project</Subject>
+      <Object Key="concat($subject/Id, '.', $object/No)">//Case</Object>
+      <Pivot Parent="Activities" Key="$pivot/No">Activity</Pivot>
+      <!-- one row for each activity in the current extracted case (as each Activity is functionally dependent from a Case and we have to produce denormalized relations (2FN)) -->
+    </Target>
+    <Unification>
+      <!-- to ease the reuse of variables.xml -->
+      <Substitution Variable="$project" Is="$subject"/>
+      <Substitution Variable="$case" Is="$object"/>
+      <Substitution Variable="$activity" Is="$pivot"/>
+    </Unification>
+    <Verbatim>
+declare function local:gen-cut-off-date( $ref as xs:string? ) {
+  if ($ref and map:contains($sample:cut-off-dates, $ref)) then
+    map:get($sample:cut-off-dates, $ref)
+  else
+    concat("Unknown Ref(", $ref ,")")
+};
+
+declare function local:gen-funding-phase( $ref as xs:string? ) {
+  if ($ref and map:contains($sample:funding-phases, $ref)) then
+    map:get($sample:funding-phases, $ref)
+  else
+    concat("Unknown Ref(", $ref ,")")
+};
+
+declare function local:normalize-date( $date as xs:string? ) as xs:string {
+  if ($date) then
+    substring($date, 1, 10)
+  else
+    ''
+};
+
+declare function local:stringify( $lines as element()* ) {
+  if ($lines) then
+    replace(string-join($lines, $sample:crlf), '\|', '')
+  else
+    ()
+};
+    </Verbatim>
+    <Sample FieldSeparator="|">
+      <Project>
+        <Expression>string($subject/Id)</Expression>
+      </Project>
+      <Case>
+        <Expression>$object/No</Expression>
+      </Case>
+      <Activity>
+        <Expression>$pivot/No</Expression>
+      </Activity>
+      <FundingProgram selector="FundingPrograms">
+        <Expression>$subject/Information/Call/FundingProgramRef</Expression>
+      </FundingProgram>
+      <Country>
+        <Expression>$subject/Information/Beneficiaries/Coordinator/Address/Country</Expression>
+      </Country>
+      <Phase render="local:gen-funding-phase">
+        <Expression>$subject/Information/Call/(SMEiFundingRef | FETActionRef)</Expression>
+      </Phase>
+      <Cutoff render="local:gen-cut-off-date">
+        <Expression>$project/Information/Call/(SMEiCallRef|FTICallRef|FETCallRef)</Expression>
+      </Cutoff>
+      <Acronym Variable="Project_Acronym"/>
+      <SigningDate>
+        <Expression>local:normalize-date($subject/Information/Contract/Date)</Expression>
+      </SigningDate>
+      <Kam Variable="KAM_Name"/>
+      <SmeNotification>
+        <Expression>local:normalize-date(if ($subject/Information/Contract/SME-Notification/Date) then $subject/Information/Contract/SME-Notification/Date else $object/Alerts/Alert[Key = 'sme-1']/Date)</Expression>
+      </SmeNotification>
+      <NeedsAnalysisDateRecorded>
+        <Expression>local:normalize-date($object/NeedsAnalysis/Analysis/Date)</Expression>
+      </NeedsAnalysisDateRecorded>
+      <CaseStatus>
+        <Expression>fn:doc($globals:global-information-uri)/GlobalInformation/Description[@Lang = 'en']/WorkflowStatus[@Name eq 'Case']/Status[Id eq $object/StatusHistory/CurrentStatusRef]/Name</Expression>
+      </CaseStatus>
+      <ToDoStatus>
+        <Expression>string-join(for $c in fn:collection('/db/sites/cctracker/checks')//Project[@Id eq $subject/Id][@CaseNo eq $object/No][@ActivityNo eq $pivot/No] return string($c/parent::Check/@Title), '; ')</Expression>
+      </ToDoStatus>
+      <Coach Variable="Coach_Name"/>
+      <CoachingPlanSubmitted>
+        <Expression>local:normalize-date($pivot/StatusHistory/Status[ValueRef eq '3']/Date)</Expression>
+      </CoachingPlanSubmitted>
+      <CoachContract>
+        <Expression>if ($pivot/FundingDecision/CoachContract/*/Date) then concat(local:normalize-date($pivot/FundingDecision/CoachContract/*/Date), ' (', substring(local-name($pivot/FundingDecision/CoachContract/*[1]), 1, 1),')') else ()</Expression>
+      </CoachContract>
+      <PoolNumber>
+        <Expression>$pivot/FundingDecision/CoachContract/PoolNumber</Expression>
+      </PoolNumber>
+      <CoachingDays>
+        <Expression>number($pivot/FundingRequest/Budget/Tasks/TotalNbOfHours) div 8</Expression>
+      </CoachingDays>
+      <CoachingStatus>
+        <Expression>fn:doc($globals:global-information-uri)/GlobalInformation/Description[@Lang = 'en']/WorkflowStatus[@Name eq 'Activity']/Status[Id eq $pivot/StatusHistory/CurrentStatusRef]/Name</Expression>
+      </CoachingStatus>
+      <KamEmail Variable="KAM_Email"/>
+      <CoachEmail>
+        <Expression>display:gen-person-email($pivot/Assignment/ResponsibleCoachRef, 'en')</Expression>
+      </CoachEmail>
+      <ProjectOfficerEmail>
+        <Expression>display:gen-person-email($subject/Information/ProjectOfficerRef, 'en')</Expression>
+      </ProjectOfficerEmail>
+    </Sample>
+  </Report>
+  <Report No="2">
+    <Title>Timeline</Title>
+    <Target>
+      <Subject Collection="projects">$object/ancestor::Project</Subject>
+      <Object Key="concat($subject/Id, '.', $object/No)">//Case</Object>
+      <Pivot Parent="Activities" Key="$pivot/No">Activity</Pivot>
+      <!-- one row for each activity in the current extracted case (as each Activity is functionally dependent from a Case and we have to produce denormalized relations (2FN)) -->
+    </Target>
+    <Unification>
+      <Substitution Variable="$project" Is="$subject"/>
+      <Substitution Variable="$case" Is="$object"/>
+      <Substitution Variable="$activity" Is="$pivot"/>
+    </Unification>
+    <Sample FieldSeparator="|">
+      <Project>
+        <Expression>string($subject/Id)</Expression>
+      </Project>
+      <Case>
+        <Expression>$object/No</Expression>
+      </Case>
+      <Activity>
+        <Expression>$pivot/No</Expression>
+      </Activity>
+      <Acronym Variable="Project_Acronym"/>
+      <EenConsortiumName>
+        <Expression>display:gen-name-for-regional-entities( $object/ManagingEntity/RegionalEntityRef, 'en')</Expression>
+      </EenConsortiumName>
+      <EenKamCoordinators>
+        <Expression>let $contacts := fn:collection('/db/sites/cctracker/persons')//Person[UserProfile/Roles/Role[FunctionRef[. eq '3']][RegionalEntityRef eq $object/ManagingEntity/RegionalEntityRef]]/Id return string-join(for $c in $contacts return display:gen-person-name($c, 'en'),'; ')</Expression>
+      </EenKamCoordinators>
+      <Kam Variable="KAM_Name"/>
+      <KamEmail Variable="KAM_Email"/>
+      <Coach Variable="Coach_Name"/>
+      <CoachEmail Variable="Coach_Email"/>
+      <EenAssignmentDate>
+        <Expression>local:normalize-date($object/ManagingEntity/Date)</Expression>
+      </EenAssignmentDate>
+      <KAMAssignmentDate>
+        <Expression>local:normalize-date($object/Management/Date)</Expression>
+      </KAMAssignmentDate>
+      <NeedsAnalysisEntering>
+        <Expression>local:normalize-date($object/StatusHistory/Status[ValueRef eq '3']/Date)</Expression>
+      </NeedsAnalysisEntering>
+      <SmeFirstContact>
+        <Expression>local:normalize-date($object/NeedsAnalysis/Contact/Date)</Expression>
+      </SmeFirstContact>
+      <NeedsAnalysisDateRecorded>
+        <Expression>local:normalize-date($object/NeedsAnalysis/Analysis/Date)</Expression>
+      </NeedsAnalysisDateRecorded>
+      <CoachAssignmentDate>
+        <Expression>local:normalize-date($pivot/StatusHistory/Status[ValueRef eq '1']/Date)</Expression>
+      </CoachAssignmentDate>
+      <CoachingPlanDate>
+        <Expression>local:normalize-date($pivot/StatusHistory/Status[ValueRef eq '2']/Date)</Expression>
+      </CoachingPlanDate>
+      <ConsultationDate>
+        <Expression>local:normalize-date($pivot/StatusHistory/Status[ValueRef eq '3']/Date)</Expression>
+      </ConsultationDate>
+      <CoachContractingDate>
+        <Expression>local:normalize-date($pivot/StatusHistory/Status[ValueRef eq '4']/Date)</Expression>
+      </CoachContractingDate>
+      <CoachingReportDate>
+        <Expression>local:normalize-date($pivot/StatusHistory/Status[ValueRef eq '5']/Date)</Expression>
+      </CoachingReportDate>
+      <ReportApprovalDate>
+        <Expression>local:normalize-date($pivot/StatusHistory/Status[ValueRef eq '7']/Date)</Expression>
+      </ReportApprovalDate>
+      <FeedbacksSentDate>
+        <Expression>local:normalize-date($pivot/StatusHistory/Status[ValueRef eq '8']/Date)</Expression>
+      </FeedbacksSentDate>
+      <TheEnd>
+        <Expression>local:normalize-date($pivot/StatusHistory/Status[ValueRef = ('9','10','11')]/Date)</Expression>
+      </TheEnd>
+    </Sample>
+  </Report>
+  <Report No="3">
+    <Title>Export all cases (most recent activities)</Title>
+    <Target>
+      <Subject Collection="projects">$object/ancestor::Project</Subject>
+      <Object Key="concat($subject/Id, '.', $object/No)">//Case</Object>
+      <Pivot Parent="Activities" Key="$pivot/No">(Activity[max(../Activity//CurrentStatusRef) &lt;= .//CurrentStatusRef])[1]</Pivot>
+      <!-- one row for each activity in the current extracted case (as each Activity is functionally dependent from a Case and we have to produce denormalized relations (2FN)) -->
+    </Target>
+    <Unification>
+      <Substitution Variable="$project" Is="$subject"/>
+      <Substitution Variable="$case" Is="$object"/>
+      <Substitution Variable="$activity" Is="$pivot"/>
+    </Unification>
+    <Sample FieldSeparator="|">
+      <Project>
+        <Expression>string($subject/Id)</Expression>
+      </Project>
+      <Case>
+        <Expression>$object/No</Expression>
+      </Case>
+      <Activity>
+        <Expression>$pivot/No</Expression>
+      </Activity>
+      <Country>
+        <Expression>$subject/Information/Beneficiaries/(Coordinator|Partner)/Address/Country</Expression>
+      </Country>
+      <Phase render="local:gen-funding-phase">
+        <Expression>$subject/Information/Call/(SMEiFundingRef | FETActionRef)</Expression>
+      </Phase>
+      <Cutoff render="local:gen-cut-off-date">
+        <Expression>$project/Information/Call/(SMEiCallRef|FTICallRef|FETCallRef)</Expression>
+      </Cutoff>
+      <Acronym Variable="Project_Acronym"/>
+      <SigningDate>
+        <Expression>local:normalize-date($subject/Information/Contract/Date)</Expression>
+      </SigningDate>
+      <Kam Variable="KAM_Name"/>
+      <SmeNotification>
+        <Expression>local:normalize-date(if ($object/Information/Contract/SME-Notification/Date) then $object/Information/Contract/SME-Notification/Date else $object/Alerts/Alert[Key = 'sme-1']/Date)</Expression>
+      </SmeNotification>
+      <NeedsAnalysisDateRecorded>
+        <Expression>local:normalize-date($object/NeedsAnalysis/Analysis/Date)</Expression>
+      </NeedsAnalysisDateRecorded>
+      <CaseStatus>
+        <Expression>fn:doc($globals:global-information-uri)/GlobalInformation/Description[@Lang = 'en']/WorkflowStatus[@Name eq 'Case']/Status[Id eq $object/StatusHistory/CurrentStatusRef]/Name</Expression>
+      </CaseStatus>
+      <ToDoStatus>
+        <Expression>string-join(for $c in fn:collection('/db/sites/cctracker/checks')//Case[@No eq $object/No][@ActivityNo eq $pivot/No] return string($c/parent::Check/@Title), '; ')</Expression>
+      </ToDoStatus>
+      <Coach Variable="Coach_Name"/>
+      <CoachingPlanSubmitted>
+        <Expression>local:normalize-date($pivot/StatusHistory/Status[ValueRef eq '3']/Date)</Expression>
+      </CoachingPlanSubmitted>
+      <CoachContract>
+        <Expression>if ($pivot/FundingDecision/CoachContract/*/Date) then concat(local:normalize-date($pivot/FundingDecision/CoachContract/*/Date), ' (', substring(local-name($pivot/FundingDecision/CoachContract/*[1]), 1, 1),')') else ()</Expression>
+      </CoachContract>
+      <PoolNumber>
+        <Expression>$pivot/FundingDecision/CoachContract/PoolNumber</Expression>
+      </PoolNumber>
+      <CoachingDays>
+        <Expression>number($pivot/FundingRequest/Budget/Tasks/TotalNbOfHours) div 8</Expression>
+      </CoachingDays>
+      <CoachingStatus>
+        <Expression>fn:doc($globals:global-information-uri)/GlobalInformation/Description[@Lang = 'en']/WorkflowStatus[@Name eq 'Activity']/Status[Id eq $pivot/StatusHistory/CurrentStatusRef]/Name</Expression>
+      </CoachingStatus>
+      <KamEmail Variable="KAM_Email"/>
+      <KamEmail Variable="Coach_Email"/>
+      <ProjectOfficerEmail>
+        <Expression>display:gen-person-email($subject/Information/ProjectOfficerRef, 'en')</Expression>
+      </ProjectOfficerEmail>
+    </Sample>
+  </Report>
+  <Report No="4">
+    <Title>SME and KAM feedback questionnaires</Title>
+    <Note>Q1 - Q15 scale : (1) Strongly agree, (2) Agree, (3) Neutral, (4) Disagree, (5) Strongly disagree</Note>
+    <Target>
+      <Subject Collection="projects">$object/ancestor::Project</Subject>
+      <Object Key="concat($subject/Id, '.', $object/No)" Include="no">//Case[Activities/Activity/StatusHistory/CurrentStatusRef = ('8', '10', '11')]</Object>
+      <Pivot Parent="Activities" Key="$pivot/No">Activity[StatusHistory/CurrentStatusRef = ('8', '10', '11')]</Pivot>
+      <!-- Closed or Evaluated activities -->
+    </Target>
+    <Unification>
+      <Substitution Variable="$project" Is="$subject"/>
+      <Substitution Variable="$case" Is="$object"/>
+      <Substitution Variable="$activity" Is="$pivot"/>
+      <Bind Variable="$fr" Is="$pivot/FinalReport"/>
+      <Bind Variable="$fra" Is="$pivot/FinalReportApproval"/>
+      <Bind Variable="$sme" Is="$pivot/Evaluation"/>
+    </Unification>
+    <Seal>
+      <!-- Seal sample when Closed or Evaluated status reached -->
+      <Expression>$activity/StatusHistory/CurrentStatusRef = ('10', '11')</Expression>
+    </Seal>
+    <Sample FieldSeparator="|">
+      <Project>
+        <Expression>string($subject/Id)</Expression>
+      </Project>
+      <Case>
+        <Expression>$object/No</Expression>
+      </Case>
+      <Activity>
+        <Expression>$pivot/No</Expression>
+      </Activity>
+      <Status>
+        <Expression>fn:doc($globals:global-information-uri)/GlobalInformation/Description[@Lang = 'en']/WorkflowStatus[@Name eq 'Activity']/Status[Id eq $activity/StatusHistory/CurrentStatusRef]/Name</Expression>
+      </Status>
+      <CoachComAdvice selector="CommunicationAdvices">
+        <Expression>$fr/Dissemination/CommunicationAdviceRef</Expression>
+      </CoachComAdvice>
+      <CoachComAdviceComment>
+        <Expression>local:stringify($fr/Dissemination/Comment/Text)</Expression>
+      </CoachComAdviceComment>
+      <KAMComAdvice selector="CommunicationAdvices">
+        <Expression>$fra/Dissemination/CommunicationAdviceRef</Expression>
+      </KAMComAdvice>
+      <KAMComAdviceComment>
+        <Expression>local:stringify($fra/Dissemination/Comment/Text)</Expression>
+      </KAMComAdviceComment>
+      <Q1><Expression>$fra/Recognition/RatingScaleRef</Expression></Q1>,
+      <Q2><Expression>$fra/Tools/RatingScaleRef</Expression></Q2>,
+      <Q3><Expression>$sme//RatingScaleRef[@For eq 'SME1']</Expression></Q3>,
+      <Q4><Expression>$sme//RatingScaleRef[@For eq 'SME2']</Expression></Q4>,
+      <Q5><Expression>$fra/Profiles/RatingScaleRef</Expression></Q5>,
+      <Q6><Expression>$sme//RatingScaleRef[@For eq 'SME3']</Expression></Q6>,
+      <Q7><Expression>$fr/KAMPreparation/RatingScaleRef</Expression></Q7>,
+      <Q8><Expression>$fr/ManagementTeam/RatingScaleRef</Expression></Q8>,
+      <Q9><Expression>$sme//RatingScaleRef[@For eq 'SME7']</Expression></Q9>,
+      <Q10><Expression>$fr/Dissemination/RatingScaleRef</Expression></Q10>,
+      <Q11><Expression>$sme//RatingScaleRef[@For eq 'SME4']</Expression></Q11>,
+      <Q12><Expression>$fr/ObjectivesAchievements/RatingScaleRef</Expression></Q12>,
+      <Q13><Expression>$sme//RatingScaleRef[@For eq 'SME5']</Expression></Q13>,
+      <Q14><Expression>$sme//RatingScaleRef[@For eq 'SME6']</Expression></Q14>,
+      <Q15><Expression>$fra/Dialogue/RatingScaleRef</Expression></Q15>
+      <SMEComments>
+        <Expression>local:stringify($sme//Comments/Text)</Expression>
+      </SMEComments>
+    </Sample>
+  </Report>  
+</Reports>

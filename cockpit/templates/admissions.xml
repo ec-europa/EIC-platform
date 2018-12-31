@@ -1,0 +1,1074 @@
+<Templates>
+  <!-- ******************************* -->
+  <!-- Generic user self-registration  -->
+  <!-- ******************************* -->
+  <!-- see https://webgate.ec.europa.eu/CITnet/confluence/display/SMEIMKT/Template_Open+registration_SME+Dashboard -->
+  <Template Name="generic-admission" Mode="read" Subject="Admission">
+<![CDATA[
+  <Admission>
+    {
+    $subject/isECUser,
+    $subject/EULogin,
+    $subject/ParticipantInformation,
+    $subject/MyOrganisationProfile,
+    $subject/OrganisationList,
+    $subject/CreateOrganisation,
+    $subject/Consent
+    }
+  </Admission>
+]]>
+  </Template>
+  <!-- NOTE: Validate against $subject (pruned) and not $form !
+       - does not assert Required "firstname lastname phone member-email spokenlanguages" fields
+       - reverse document order since actually only first error returned to end user
+       - assertion on FirstName/LastName/Email is a security in case EU Login didn't pass firstname/lastname/email
+    -->
+  <Template Name="generic-admission" Mode="validate">
+    <![CDATA[
+<XAL>
+  {
+  let $participant := $subject//ParticipantInformation
+  let $notNew := empty($subject//CreateOrganisation[YesNoScaleRef eq '1'])
+  let $newOrg := $subject//CreateOrganisation[YesNoScaleRef eq '1']/OrganisationInformation
+  let $orgInList := $subject//OrganisationList/OrganisationInformation[EnterpriseRef ne '']
+  let $orgProfile := $newOrg/OrganisationProfile
+  let $is_eicProfile := exists($subject//isECUser[text() ne 'yes']) and exists($subject/MyOrganisationProfile/MyOrganisationsTypes[MyOrganisationsTypeRef eq '60'])
+  let $is_invProfile := exists($subject//isECUser[text() ne 'yes']) and exists($subject/MyOrganisationProfile/MyOrganisationsTypes[MyOrganisationsTypeRef eq '61'])
+  let $is_otherProfile := exists($subject/MyOrganisationProfile/MyOrganisationsTypes[MyOrganisationsTypeRef eq '67'])
+  let $investProfile := $newOrg/InvestorProfile
+  let $partnerProfile := $newOrg/PartnerProfile
+  return (
+    <XALAction Type="assert" Error="ASSERT-EMAIL-UNICITY">
+      <False>
+        {
+        count(fn:collection($globals:persons-uri)//UserProfile/Email[@Name eq 'ECAS'][. eq $participant/Email]) > 1
+        }
+      </False>
+    </XALAction>,
+    <XALAction Type="assert" Error="MANDATORY-FIELD">
+      <True Param="First Name">
+        {
+        string($participant/FirstName) ne ''
+        }
+      </True>
+      <True Param="Work Email">
+        {
+        string($participant/Email) ne ''
+        }
+      </True>
+      <True Param="Last Name">
+        {
+        string($participant/LastName) ne ''
+        }
+      </True>
+      <True Param="Work Email">
+        {
+        string($participant/Email) ne ''
+        }
+      </True>
+      <True Param="Gender">
+        {
+        exists($participant/Gender)
+        }
+      </True>
+     {
+     if (exists($subject//isECUser[text() eq 'yes'])) then 
+     (
+      <True Param="Topics of expertise">
+        {
+        exists($participant/Expert/ThematicsTopics/ThematicsTopicRef)
+        }
+      </True>,
+      <True Param="Topics of interest">
+        {
+        exists($participant/Interest/ThematicsTopics/ThematicsTopicRef)
+        }
+      </True>
+      )
+      else()
+     }
+      <True Param="Organisation name">
+        {
+        $notNew or exists($newOrg/Name)
+        }
+      </True>
+      <True Param="Job function">
+        {
+        empty($orgInList[empty(CorporateFunctions)]) and
+           ($notNew or exists($newOrg/CorporateFunctions))
+        }
+      </True>
+      <True Error="CUSTOM" Param="Please specify the 'Other' job function">
+        {
+        empty($orgInList[CorporateFunctions/CorporateFunctionRef eq '10' and empty(Function)]) and
+         ($notNew or empty($newOrg[CorporateFunctions/CorporateFunctionRef eq '10' and empty(Function)]))
+        }
+      </True>
+      {
+      if($is_otherProfile)then 
+      <True Error="CUSTOM" Param="Please specify the 'Other type organisation'">
+        {
+        not(empty($subject/MyOrganisationProfile/OtherOrganisationType))
+        }
+      </True>
+      else ()
+      }
+      <True Param="VAT">
+        {
+        $notNew or not($is_eicProfile) or exists($newOrg/VAT)
+        }
+      </True>
+      <True Param="Clients">
+        {
+        $notNew or not($is_eicProfile) or exists($newOrg/Clients)
+        }
+      </True>
+      <True Param="Company size">
+        {
+        $notNew or not($is_invProfile) or exists($newOrg/SizeRef)
+        }
+      </True>
+      <True Param="Year of establishment">
+        {
+        $notNew  or not($is_invProfile) or exists($newOrg/CreationYear)
+        }
+      </True>
+      <True Error="CUSTOM" Param="Please give at least one complete address (Address, Postcode, City and Country) for the new organisation. Some fields are missing.">
+        {
+        $notNew or (exists($newOrg/Locations/Location) and (some $l in $newOrg/Locations/Location satisfies count($l/*) eq 4))
+        }
+      </True>
+      
+      <True Param="Topics">
+        {
+        $notNew or exists($orgProfile/Topics)
+        }
+      </True>
+     
+      <True Param="Target markets">
+        {
+        $notNew or exists($orgProfile/TargetedMarkets)
+        }
+      </True>
+      
+      <True Param="Service and product offered">
+        {
+        $notNew or  not($is_eicProfile) or exists($orgProfile/ServiceProductOffered)
+        }
+      </True>
+
+      <True Param="Service and product looking for">
+        {
+        $notNew or not($is_eicProfile) or exists($orgProfile/ServiceProductLookingFor)
+        }
+      </True>
+      <!-- common mandatory rules for EIC or Investor  -->
+      {if($is_eicProfile or $is_invProfile) then 
+        (
+          <True Error="CUSTOM" Param="You must select or add at least one organisation you work for">
+            {
+            exists($subject/OrganisationList//EnterpriseRef) or $newOrg
+            }
+          </True>,
+          <True Param="Company description">
+          {
+          $notNew or exists($orgProfile/CompanyDescription)
+          }
+          </True>
+        )
+      else
+        ()
+      }
+       {
+      if ($is_eicProfile) then (: EIC profile :)
+      (
+       <True Param="Countries selling to">
+        {
+        $notNew or exists($orgProfile/CountriesSellingTo)
+        }
+      </True>,
+        <True Error="CUSTOM" Param="Please specify the nature of the 'Other' business partnership.">
+          {
+          empty($partnerProfile/Offer[PartnerTypes[PartnerTypeRef = '7'] and empty($partnerProfile/Offer/Description)])
+            and empty($partnerProfile/Looking[PartnerTypes[PartnerTypeRef = '7'] and empty($partnerProfile/Looking/Description)])
+          }
+        </True>
+       )
+      else
+        ()
+      }
+      {
+      if ($is_invProfile ) then (: Investor profile :)
+      <True Param="Organisation type">
+        {
+        $notNew or exists($subject//OrganisationInformation/InvestCorpoOrganisationsTypes/InvestCorpoOrganisationsTypeRef)
+        }
+      </True>
+      else
+        ()
+      }
+      {
+      if ($is_invProfile and exists($subject//OrganisationInformation/InvestCorpoOrganisationsTypes[InvestCorpoOrganisationsTypeRef eq '611'])) then (: Investor profile :)
+        (
+         <True Param="Target Countries">
+        {
+        $notNew or exists($orgProfile/CountriesSellingTo)
+        }
+      </True>,
+        <True Param="Investor type">
+          {
+          $notNew or exists($investProfile/InvestorTypes)
+          }
+        </True>,
+        <True Error="CUSTOM" Param="Please complete the name of national association your organisation is affiliated with.">
+          {
+          $notNew or not($investProfile//OrganisationAffiliationRef = '3') or exists($investProfile/Organisation)
+          }
+        </True>,
+        <True Error="CUSTOM" Param="Please declare if your organisation is a financial intermediary supported by the European Union.">
+          {
+         $notNew or  exists($investProfile/FinancialIntermediary/YesNoScaleRef)
+          }
+        </True>,
+        <True Param="Investor stage">
+          {
+          $notNew or exists($investProfile/InvestmentInvestors)
+          }
+        </True>,
+        <True Param="Investment Amount">
+          {
+          $notNew or exists($investProfile/InvestmentInvestorTickets)
+          }
+        </True>
+        )
+      else
+        ()
+       }      
+     {
+      if ($is_invProfile and exists($subject//OrganisationInformation/InvestCorpoOrganisationsTypes[InvestCorpoOrganisationsTypeRef eq '612'])) then (: Corporate profile :)
+      (
+        <True Param="Type of Corporate">
+          {
+            $notNew or exists($subject//CorporateProfile/Type/CorporateTypes/CorporateTypeRef)
+          }
+        </True>,
+        <True Error="CUSTOM" Param="Please specify the nature of the 'Other' Type of Corporate.">
+          {
+          not(exists($subject//CorporateProfile/Type/CorporateTypes[CorporateTypeRef = '5']) and empty($subject//CorporateProfile/Type/Description))
+          }
+        </True>,
+        <True Param="Interest as a corporate">
+        {
+        $notNew or exists($subject//CorporateProfile/Interests/CorporateInterests/CorporateInterestRef)
+        }
+        </True>,
+        <True Error="CUSTOM" Param="Please specify the nature of the 'Other' Interest as a corporate.">
+          {
+          not(exists($subject//CorporateProfile/Interests/CorporateInterests[CorporateInterestRef = '7']) and empty($subject//CorporateProfile/Interests/Description))
+          }
+        </True>
+       )
+      else
+        ()
+     }
+      
+       <True Error="CUSTOM" Param="You must read and accept the Privacy statement as well as the terms and conditions">
+        {
+        exists($subject//Consent[text() eq 'on'])
+        }
+      </True>
+    </XALAction>
+    )
+  }
+</XAL>
+]]>
+  </Template>
+  <Template Name="generic-admission" Mode="create">
+<![CDATA[
+<XAL Mode="{ $mode }">
+  <XALAction Type="create" Entity="admission" Key="{ $id }">
+    <Admission Creation="{ $date }">
+      <Id>{ $id }</Id>
+      {
+      $form/isECUser,
+      $form/EULogin,
+      $form/ParticipantInformation,
+      $form/MyOrganisationProfile,
+      $form/OrganisationList,
+      $form/CreateOrganisation,
+      $form/Consent
+      }
+      <AdmissionStatusRef Date="{ $date }">1</AdmissionStatusRef>
+    </Admission>
+  </XALAction>
+</XAL>
+]]>
+  </Template>
+  <Template Name="generic-admission" Mode="update" Subject="Admission">
+<![CDATA[
+<XAL>
+  <XALAction Type="replace">
+      { $form/isECUser }
+  </XALAction>
+  <XALAction Type="replace">
+      { $form/EULogin }
+  </XALAction>
+  <XALAction Type="replace">
+      { $form/ParticipantInformation }
+  </XALAction>
+  <XALAction Type="replace">
+      { $form/MyOrganisationProfile }
+  </XALAction>
+  <XALAction Type="replace">
+      { $form/OrganisationList }
+  </XALAction>
+  <XALAction Type="replace">
+      { $form/CreateOrganisation }
+  </XALAction>
+  {
+  if (exists($form/Consent)) then
+    <XALAction Type="replace" Source="$subject">
+      { $form/Consent }
+    </XALAction>
+  else
+    <XALAction Type="delete" Pivot="$subject/Consent" _Prune="none"/>
+  }
+  <XALAction Type="replace">
+    <AdmissionStatusRef Date="{ $date }">1</AdmissionStatusRef>
+  </XALAction>
+</XAL>
+]]>
+  </Template>
+
+  <!-- Create a user company profile with information from admission/CreateOrganisation
+       NOTE: actually an investor company is flagged with Settings/Teams
+       TODO: in the future replace it with a more comprehensive OrganisationTypes/OrganisationTypeRef(61)
+             (in synch with "cie-statistics" and "cie-statistics" update templates in templates.xml)
+  -->
+  <Template Name="generic-company" Mode="create" Subject="Person" Object="Admission">
+<![CDATA[
+let $create-org := $object/CreateOrganisation/OrganisationInformation
+let $my_org_profile := $object/MyOrganisationProfile
+let $is-an-investor := $my_org_profile/MyOrganisationsTypes/MyOrganisationsTypeRef = '61'
+return
+  <XAL Mode="{ $mode }">
+    <XALAction Type="create" Entity="enterprise" Key="{ $id }">
+      <Enterprise Creation="{ $date }" AdmissionKey="{ $object/Id }">
+        <Id>{ $id }</Id>
+        {
+        if ($is-an-investor) then
+          <Settings><Teams>Investor</Teams></Settings>
+        else
+          ()
+        }
+        <Information>
+          <Name>{ $create-org/Name/text() }</Name>
+          <ShortName>{ $create-org/Name/text() }</ShortName>
+          { $create-org/WebSite }
+          <Address>
+            <StreetNameAndNo>{ $create-org/Locations/Location[1]/Address/text() }</StreetNameAndNo>
+            <PostalCode>{ $create-org/Locations/Location[1]/PostalCode/text() }</PostalCode>
+            <Town>{ $create-org/Locations/Location[1]/Town/text() }</Town>
+            <Country>
+            {
+                let $ctr := $create-org/Locations/Location[1]/ISO3CountryRef
+                return
+                  if ($ctr) then
+                    let $ctr_iso2 := custom:get-country-code-value-store($ctr/text(), 'iso2')
+                    return
+                      if ($ctr_iso2) then
+                        $ctr_iso2/text()
+                      else ()
+                  else ()
+            }
+            </Country>
+          </Address>
+          { $create-org/(CreationYear | SizeRef) }
+          <ServicesAndProductsLookingFor>{ $create-org/OrganisationProfile/ServiceProductLookingFor/* }</ServicesAndProductsLookingFor>
+          <ServicesAndProductsOffered>{ $create-org/OrganisationProfile/ServiceProductOffered/* }</ServicesAndProductsOffered>
+          {
+          $create-org/OrganisationProfile/TargetedMarkets,
+          $create-org/DomainNames
+          }
+          <ThematicsTopics>{ $create-org/OrganisationProfile/Topics/* }</ThematicsTopics>
+          <CountriesSellingTo>
+            <ISO3166Countries>
+            {
+              for $gmr in $create-org/OrganisationProfile/CountriesSellingTo/GeographicalMarkets/GeographicalMarketRef
+                return
+                  <ISO3166CountryRef>
+                  {
+                    let $ctr := custom:get-country-code-value($gmr/text(), 'iso3')
+                    return
+                    if ($ctr) then
+                      $ctr/text()
+                    else "ERROR"
+                  }
+                  </ISO3166CountryRef>
+            }
+            </ISO3166Countries>
+          </CountriesSellingTo>
+          { $create-org/Clients }
+        </Information>
+        <Team LastModification="{ $date }" _Prune="none">
+          <Members LastIndex="1">
+            <Member LastModification="{ $date }">
+             <Id>1</Id>
+             <CreatedByRef>{ $uid }</CreatedByRef>
+             <AdmissionKey>{ $object/Id/text() }</AdmissionKey>
+             <PersonRef>{ $subject/Id/text() }</PersonRef>
+             <Information>
+              <Sex>{ $object/ParticipantInformation/Gender/text() }</Sex>
+              <Name>
+                <FirstName>{ $object/ParticipantInformation/FirstName/text() }</FirstName>
+                <LastName>{ $object/ParticipantInformation/LastName/text() }</LastName>
+              </Name>
+              <Contacts>
+                { $object/ParticipantInformation/(Phone | Email) }
+              </Contacts>
+              { 
+              $create-org/(CorporateFunctions | Function),
+              $object/ParticipantInformation/SpokenLanguages
+              }
+             </Information>
+            </Member>
+          </Members>
+        </Team>
+      </Enterprise>
+    </XALAction>
+    <XALAction Type="insert" Pivot="$object/CreateOrganisation/OrganisationInformation" _Prune="none">
+      <AccreditationStatusRef Date="{ $date }">1</AccreditationStatusRef>
+    </XALAction>
+    <XALAction Type="invalidate" Lang="en"><Cache>enterprise</Cache><Cache>town</Cache></XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" _Prune="none">
+        <Task context="EICCommunity" enterprise="{ $id }" priority="1" submission-date="{ $date }" name="bootstrap"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+
+  <!-- Add Member record for a user, take input from the user auto registration form -->
+  <Template Name="generic-team-member" Mode="create" Subject="Enterprise" Object="Person">
+<![CDATA[
+let $member := $form/ParticipantInformation
+let $org := $form/OrganisationList/OrganisationInformation[EnterpriseRef eq $subject/Id]
+return
+  <XAL>
+    <XALAction Type="insert" Pivot="$subject/Team/Members">
+      <Member LastModification="{ $date }">
+         <Id>{{ xal:auto-increment($subject, 'LastIndex') }}</Id>
+         <CreatedByRef>{ $uid }</CreatedByRef>
+         <AdmissionKey>{ $form/Id/text() }</AdmissionKey>
+         <PersonRef>{ $object/Id/text() }</PersonRef>
+         <Information>
+          <Sex>{ $member/Gender/text() }</Sex>
+          <Name>{ $member/(FirstName | LastName) }</Name>
+          <Contacts>{ $member/(Phone | Email) }</Contacts>
+            {
+              $org/CorporateFunctions,
+              if ($org/CorporateFunctions eq '10') then $org/Function else (),
+              $member/SpokenLanguages
+            }
+         </Information>
+      </Member>
+    </XALAction>
+    <XALAction Type="timestamp" Pivot="$subject/Team">LastModification</XALAction>
+    <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+      <Task context="EICCommunity" enterprise="{ $subject/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+
+  <!-- Update Member record for a user, take input from the user self-admission form. Accredit pending member as a side effect.
+  -->
+  <Template Name="generic-team-member" Mode="update" Subject="Enterprise" Object="Person">
+<![CDATA[
+<XAL>
+  {
+  let $member := $form/ParticipantInformation
+  let $org := $form/OrganisationList/OrganisationInformation[EnterpriseRef eq $subject/Id]
+  let $email-key := $member/lower-case(Email)
+  let $persists := $subject/Team/Members/Member[PersonRef eq $id or Information/Contacts/lower-case(Email) eq $email-key]
+  return
+    <XALAction Type="update" Source="$subject/Team/Members/Member[PersonRef eq '{$id}' or Information/Contacts/lower-case(Email) eq '{$email-key}' ]">
+      <Member LastModification="{ $date }">
+        {
+        $persists/(Id|CreatedByRef|AdmissionKey),
+        if ($persists/PersonRef) then 
+          $persists/PersonRef
+        else
+          <PersonRef>{ $id }</PersonRef>
+        }
+        <Information>
+          <Sex>{ $member/Gender/text() }</Sex>
+          { $persists/Information/Civility }
+          <Name>{ $member/(FirstName | LastName) }</Name>
+          <Contacts>
+            {
+            $member/Phone,
+            $persists/Information/Contacts/Mobile,
+            $member/Email
+            }
+          </Contacts>
+          {
+          $org/CorporateFunctions,
+          if ($org/CorporateFunctions eq '10') then $org/Function else (),
+          $member/SpokenLanguages
+          }
+        </Information>
+      </Member>
+    </XALAction>
+  }
+  <XALAction Type="timestamp" Pivot="$subject/Team">LastModification</XALAction>
+  <XALAction Type="task" Subject="/db/tasks/cockpit/community.xml" Debug="on" Assert="{ exists($subject/EICCommunity/Bootstrap[@status eq 'success']) }" Exist="{ exists(fn:doc('/db/tasks/cockpit/community.xml')/Tasks/Task[@enterprise eq $subject/Id/text()][@context eq 'EICCommunity']) }" _Prune="none">
+    <Task context="EICCommunity" enterprise="{ $subject/Id/text() }" priority="1" submission-date="{ $date }" name="update"/>
+  </XALAction>
+</XAL>
+]]>
+  </Template>
+
+  <!-- Upgrade the object user account with the account owner role for the subject enterprise. Actually the account owner role is either LEAR for a beneficiary company or Investor for an investor company. Link that role to an admission form. Do nothing if the user already has a role in that enterprise (unlikely since this should be called upon the enterprise creation).
+  -->
+  <Template Name="user-account-join-new-company" Mode="update" Subject="Enterprise" Object="Person">
+<![CDATA[
+<XAL>
+ {
+  let $uid := $object/Id/text()
+  let $enterprise-ref := $subject/Id/text()
+  let $rolePI := $object/UserProfile/Roles/Role[EnterpriseRef eq $enterprise-ref]
+  return
+    if (not(exists($rolePI))) then
+        <XALAction Type="insert" Pivot="$object/UserProfile/Roles">
+          <Role>
+            <FunctionRef>{ if (enterprise:is-a($subject, 'Investor')) then '7' else '3' }</FunctionRef>
+            <EnterpriseRef>{ $enterprise-ref  }</EnterpriseRef>
+            <AdmissionKey>{ $form/Id/text() }</AdmissionKey>
+          </Role>
+        </XALAction>
+    else
+      ()
+  }
+</XAL>
+]]>
+  </Template>
+
+  <!-- Upgrade the object user account with the delegate or investor role for the subject enterprise. Link that role to an admission form. Do nothing if the user already has a role in that enterprise (unlikely since this should be called upon joining an enterprise through user self admission form).
+  -->
+  <Template Name="user-account-join-legacy-company" Mode="update" Subject="Enterprise" Object="Person">
+<![CDATA[
+<XAL>
+ {
+  let $uid := $object/Id/text()
+  let $enterprise-ref := $subject/Id/text()
+  let $rolePI := $object/UserProfile/Roles/Role[EnterpriseRef eq $enterprise-ref]
+  return
+    if (not(exists($rolePI))) then
+        <XALAction Type="insert" Pivot="$object/UserProfile/Roles">
+          <Role>
+            <FunctionRef>{ if (enterprise:is-a($subject, 'Investor')) then '7' else '4' }</FunctionRef>
+            <EnterpriseRef>{ $enterprise-ref  }</EnterpriseRef>
+            <AdmissionKey>{ $form/Id/text() }</AdmissionKey>
+          </Role>
+        </XALAction>
+    else
+      ()
+  }
+</XAL>
+]]>
+  </Template>
+
+  <!-- Delete subject account pending role related to an admission form
+  -->
+  <Template Name="self-user-account-delete-pending-role" Mode="update" Subject="Person">
+<![CDATA[
+<XAL _Prune="none" >
+  <XALAction Debug="on" Type="delete" Pivot="$subject/UserProfile/Roles/Role[FunctionRef eq '9' and AdmissionKey eq '{ $form/Id }']"/>
+</XAL>
+]]>
+  </Template>
+
+  <!-- Update the accreditation status of a company in an admission form in order to indicate the accreditation of the user for this company
+  -->
+  <Template Name="admission-accredit-company" Mode="update" Subject="Enterprise" Object="Admission">
+<![CDATA[
+<XAL _Prune="none">
+  <XALAction Type="insert" Pivot="$object/OrganisationList/OrganisationInformation[EnterpriseRef/text() eq $subject/Id/text()]">
+    <AccreditationStatusRef Date="{ $date }">1</AccreditationStatusRef>
+  </XALAction>
+</XAL>
+]]>
+  </Template>
+
+  <!-- **************************************** -->
+  <!-- (DEPRECATED) Investor self-registration  -->
+  <!-- **************************************** -->
+  <!-- see https://webgate.ec.europa.eu/CITnet/confluence/display/SMEIMKT/Sign+up+form+-+Investor -->
+  <Template Name="admission" Mode="create">
+    <![CDATA[
+  <XAL Mode="{ $mode }">
+    <XALAction Type="create" Entity="admission" Key="{ $id }">
+      <Admission Creation="{ $date }">
+        <Id>{ $id }</Id>
+        <Settings>
+          <Teams>Investor</Teams>
+        </Settings>
+        { $form/ParticipantInformation }
+        <CompanyProfile>
+         { $form/CompanyProfile/CompanyName }
+         { $form/CompanyProfile/WebSite }
+         { $form//CompanyProfile/Address }
+         { $form/CompanyProfile/PostalCode }
+         { $form/CompanyProfile/Town }
+         { $form/CompanyProfile/ISO3CountryRef }
+         { $form/CompanyProfile/CompanyDescription }
+         { $form/CompanyProfile/InvestorTypes }
+         { $form/CompanyProfile/OrganisationAffiliations }
+         { $form/CompanyProfile/Organisation }
+         { $form/CompanyProfile/FinancialIntermediary }
+         { $form/CompanyProfile/InvestedEIC }
+         { $form/CompanyProfile/EICName }
+        </CompanyProfile>
+        <CompaniesSought>
+          { $form/CompaniesSought/InvestmentInvestors }
+          { $form/CompaniesSought/InvestmentInvestorTickets }
+          { $form/CompaniesSought/TargetedMarkets }
+          { $form/CompaniesSought/GeographicalMarkets }
+        </CompaniesSought>
+        { $form/EICEvent }
+        { $form/AccelerationServices }
+        <AdmissionStatusRef Date="{ $date }">1</AdmissionStatusRef>
+      </Admission>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <Template Name="admission" Mode="update" Subject="Admission">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="update" Source="$subject" Pivot="$subject/ParticipantInformation">
+        { $form/ParticipantInformation }
+    </XALAction>
+    <XALAction Type="update" Source="$subject" Pivot="$subject/CompanyProfile">
+        <CompanyProfile>
+         { $form/CompanyProfile/CompanyName }
+         { $form/CompanyProfile/WebSite }
+         { $form//CompanyProfile/Address }
+         { $form/CompanyProfile/PostalCode }
+         { $form/CompanyProfile/Town }
+         { $form/CompanyProfile/ISO3CountryRef }
+         { $form/CompanyProfile/CompanyDescription }
+         { $form/CompanyProfile/InvestorTypes }
+         { $form/CompanyProfile/OrganisationAffiliations }
+         { $form/CompanyProfile/Organisation }
+         { $form/CompanyProfile/FinancialIntermediary }
+         { $form/CompanyProfile/InvestedEIC }
+         { $form/CompanyProfile/EICName }
+        </CompanyProfile>
+    </XALAction>
+    <XALAction Type="update" Source="$subject" Pivot="$subject/CompaniesSought">
+        <CompaniesSought>
+          { $form/CompaniesSought/InvestmentInvestors }
+          { $form/CompaniesSought/InvestmentInvestorTickets }
+          { $form/CompaniesSought/TargetedMarkets }
+          { $form/CompaniesSought/GeographicalMarkets }
+        </CompaniesSought>
+    </XALAction>
+    {
+     if (exists($subject/EICEvent)) then
+       <XALAction Type="update" Source="$subject" Pivot="$subject/EICEvent">
+           { $form/EICEvent }
+       </XALAction>
+     else
+        <XALAction Type="insert" Source="$subject" Pivot="$subject">
+           { $form/EICEvent }
+       </XALAction>
+   }
+   {
+     if (exists($subject/AccelerationServices)) then
+       <XALAction Type="update" Source="$subject" Pivot="$subject/AccelerationServices" _Prune="none">
+           { $form/AccelerationServices }
+       </XALAction>
+     else
+        <XALAction Type="insert" Source="$subject" Pivot="$subject">
+           { $form/AccelerationServices }
+       </XALAction>
+   }
+    <XALAction Type="replace">
+       <AdmissionStatusRef Date="{ $date }">1</AdmissionStatusRef>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- Read investor of admission -->
+  <Template Name="admission" Mode="read" Subject="Admission">
+    <![CDATA[
+    <Admission>{ $subject/* }</Admission>]]>
+  </Template>
+  <!-- Validate investor admission -->
+  <Template Name="admission" Mode="validate">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-ADMISSION-ARE-MANDATORY-1">
+        {
+        (: if OrganisationAffiliationRef = 3 then Organisation Mandatory
+        :)
+        not(exists($form//OrganisationAffiliationRef[text() eq '3'])) or
+        (exists($form//OrganisationAffiliationRef[text() eq '3']) and exists($form//Organisation))
+        }
+      </True>
+    </XALAction>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-ADMISSION-ARE-MANDATORY-5">
+        {
+        (:
+        $form//InvestedEIC/YesNoScaleRef ==> $form/InvestedEIC/Name
+        :)
+        not(exists($form//InvestedEIC/YesNoScaleRef[text() eq '1'])) or
+        (exists($form//InvestedEIC/YesNoScaleRef[text() eq '1']) and exists($form//InvestedEIC/Name))
+        }
+      </True>
+    </XALAction>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-ADMISSION-ARE-MANDATORY-2">
+        {
+        (:
+        $form/EICEvent ==> $form/EICEvent/Networking/YesNoScaleRef
+        :)
+        not(exists($form//AccelerationServiceRef[text() eq '1'])) or
+        (exists($form//AccelerationServiceRef[text() eq '1']) and exists($form//Networking/YesNoScaleRef))
+        }
+      </True>
+    </XALAction>
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-ADMISSION-ARE-MANDATORY-3">
+        {
+        (:
+        $form/EICEvent ==> $form/EICEvent/DataTransfer
+        :)
+        not(exists($form//AccelerationServiceRef[text() eq '1'])) or
+        (exists($form//AccelerationServiceRef[text() eq '1']) and exists($form//DataTransfer))
+        }
+      </True>
+    </XALAction>
+    <!--
+    <XALAction Type="assert">
+      <True Error="ALL-FIELDS-ADMISSION-ARE-MANDATORY-4">
+        {
+        (:
+        $form/EICEvent ==> $form/EICEvent/PitchingSessions
+        :)
+        not(exists($form//AccelerationServiceRef[text() eq '1'])) or
+        (exists($form//AccelerationServiceRef[text() eq '1']) and exists($form//PitchingSessionRef))
+        }
+      </True>
+    </XALAction>-->
+  </XAL>
+]]>
+  </Template>
+  <!-- Create a pending account (with role pending-investor) and register him with an investor admission
+       The pending account allows to further access the application to track the admission status
+       Pre-condition= the e-mail address must not be already associated with another account
+       or you should use "investor-template" instead
+       FIXME: force Email to be the ECAS e-mail ?
+  -->
+  <Template Name="self-investor" Mode="create" Subject="Admission" Object="FunctionRef">
+    <![CDATA[
+  <XAL>
+    <XALAction Type="create" Entity="person" Key="{ $id }">
+      <Person>
+        <Id>{ $id }</Id>
+        <UserProfile>
+          <Remote Name="ECAS">{ session:get-attribute('cas-guest') }</Remote>
+          <Email Name='ECAS'>{ $form/ParticipantInformation/Email/text() }</Email>
+          <Roles>
+            <Role>
+              <FunctionRef>{ $object/text() }</FunctionRef>
+              <AdmissionKey>{ $subject/Id/text() }</AdmissionKey>
+            </Role>
+          </Roles>
+        </UserProfile>
+      </Person>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!-- create an Investor company profile
+       such profile is restricted to hold a team of investor(s) members
+       During the Berlin EIC event registration add Event Application to the Entreprise
+
+       FIXME: remove hard-coded EICEvent '62' creation after registration period !
+  -->
+  <Template Name="self-investor-company" Mode="create" Subject="Person" Object="Admission">
+    <![CDATA[
+let $submission-date := ($object/@Creation, $object/AdmissionStatusRef[. eq '2']/@Date)[last()]
+return
+        <XAL Mode="{ $mode }">
+          <XALAction Type="create" Entity="enterprise" Key="{ $id }">
+            <Enterprise Creation="{ $date }" AdmissionKey="{ $object/Id }">
+              <Id>{ $id }</Id>
+              <Settings>
+                <Teams>Investor</Teams>
+              </Settings>
+              <Information>
+                <Name>{ $object/CompanyProfile/CompanyName/text() }</Name>
+                <ShortName>{ $object/CompanyProfile/CompanyName/text() }</ShortName>
+                { $object/CompanyProfile/WebSite }
+                <Address>
+                  <StreetNameAndNo>{ $object/CompanyProfile/Address/text() }</StreetNameAndNo>
+                  <PostalCode>{ $object/CompanyProfile/PostalCode/text() }</PostalCode>
+                  <Town>{ $object/CompanyProfile/Town/text() }</Town>
+                  <ISO3CountryRef>{ $object/CompanyProfile/ISO3CountryRef/text() }</ISO3CountryRef>
+                </Address>
+                { $object/CompaniesSought/TargetedMarkets }
+              </Information>
+              <Team LastModification="{ $date }" _Prune="none">
+                <Members LastIndex="1">
+                  <Member LastModification="{ $date }">
+                   <Id>1</Id>
+                   <CreatedByRef>{ $uid }</CreatedByRef>
+                   <PersonRef>{ $subject/Id/text() }</PersonRef>
+                   <Information>
+                    <Civility>{ $object/ParticipantInformation/Gender/text() }</Civility>
+                    <Name>
+                      <FirstName>{ $object/ParticipantInformation/FirstName/text() }</FirstName>
+                      <LastName>{ $object/ParticipantInformation/LastName/text() }</LastName>
+                    </Name>
+                    <Contacts>
+                      {
+                        $object/ParticipantInformation/Phone,
+                        $object/ParticipantInformation/Email
+                      }
+                    </Contacts>
+                      {
+                        $object/ParticipantInformation/CorporateFunctions,
+                        $object/ParticipantInformation/Function
+                      }
+                   </Information>
+                  </Member>
+                </Members>
+              </Team>
+              {
+              if (($object/EICEvent) and ($object/AccelerationServices/AccelerationServiceRef[text() eq '1'])) then
+                <Events>
+                  <Event>
+                   <Id>62</Id>
+                   <StatusHistory>
+                     <CurrentStatusRef>2</CurrentStatusRef>
+                     <PreviousStatusRef>1</PreviousStatusRef>
+                     <Status>
+                         <Date>{ string($submission-date) }</Date>
+                         <ValueRef>1</ValueRef>
+                     </Status>
+                     <Status>
+                       <Date>{ string($submission-date) }</Date>
+                       <ValueRef>2</ValueRef>
+                     </Status>
+                   </StatusHistory>
+                   <Data>
+                     <Application LastModification="{ $date }">
+                       {
+                       $object/ParticipantInformation,
+                       $object/CompanyProfile,
+                       $object/CompaniesSought,
+                       $object/EICEvent,
+                       $object/AccelerationServices
+                       }
+                     </Application>
+                   </Data>
+                  </Event>
+                </Events>
+              else
+                  ()
+              }
+            </Enterprise>
+          </XALAction>
+          <XALAction Type="invalidate" Lang="en"><Cache>enterprise</Cache><Cache>town</Cache></XALAction>
+        </XAL>
+]]>
+  </Template>
+
+  <!-- update an Investor company profile
+       For EIC 2018 Berlin event
+       FIXME: not used ???
+  -->
+  <Template Name="investor-company-berlin-2018" Mode="update" Subject="Enterprise" Object="Admission">
+    <![CDATA[
+    {
+    if ($object/EICEvent) then
+      <XALAction Type="insert" Pivot="$subject/Events">
+        <Event>
+          <Id>62</Id>
+          <StatusHistory>
+            <CurrentStatusRef>2</CurrentStatusRef>
+            <PreviousStatusRef>1</PreviousStatusRef>
+            <Status>
+                <Date>{ $date }</Date>
+                <ValueRef>1</ValueRef>
+            </Status>
+            <Status>
+              <Date>{ $date }</Date>
+              <ValueRef>2</ValueRef>
+            </Status>
+          </StatusHistory>
+          <Data>
+            <Application LastModification="{ $date }">
+              {
+              $object/ParticipantInformation,
+              $object/CompaniesProfile,
+              $object/CompaniesSought,
+              $object/EICEvent,
+              $object/AccelerationServices
+              }
+            </Application>
+          </Data>
+        </Event>
+      </XALAction>
+  else
+    ()
+    }
+]]>
+  </Template>
+
+  <!-- Once the investor's enterprise is created
+       Update the Person profile with the EnterpriseRef
+       Update the Enterprise Member at the same time
+  -->
+  <Template Name="self-investor" Mode="update" Subject="Enterprise" Object="Person">
+    <![CDATA[
+  <XAL>
+   {
+    let $uid := $object/Id/text()
+    let $member := $subject//Member[PersonRef eq $uid]/Information
+    let $rolePI := $object/UserProfile/Roles/Role[FunctionRef eq '9']
+    let $enterprise-ref := $subject/Id/text()
+    return
+      if (exists($rolePI)) then
+        if (not($rolePI/EnterpriseRef = $enterprise-ref)) then
+          <XALAction Type="replace" Pivot="$object/UserProfile/Roles/Role[FunctionRef eq '9']">
+            <FunctionRef>7</FunctionRef>
+            <EnterpriseRef>{ $enterprise-ref }</EnterpriseRef>
+          </XALAction>
+        else
+          ()
+      else
+        ()
+    }
+  </XAL>
+]]>
+  </Template>
+  <!-- Set admission status of the Admission to accredited. This is the last step of the accreditation process.
+  -->
+  <Template Name="admission-accredit-admission" Mode="update" Subject="Admission">
+<![CDATA[
+<XAL _Prune="none">
+  <XALAction Type="replace">
+    <AdmissionStatusRef Date="{ $date }">4</AdmissionStatusRef>
+  </XALAction>
+</XAL>
+]]>
+  </Template>
+  <!--
+      Submit the admission form
+  -->
+  <Template Name="submit-admission" Mode="update" Subject="Admission">
+    <![CDATA[
+  <XAL _Prune="none">
+    <XALAction Type="replace">
+      <AdmissionStatusRef Date="{ $date }">2</AdmissionStatusRef>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+  <!--
+      Reject the admission form
+  -->
+  <Template Name="reject-admission" Mode="update" Subject="Admission">
+    <![CDATA[
+  <XAL _Prune="none">
+    <XALAction Type="replace">
+       <AdmissionStatusRef Date="{ $date }">3</AdmissionStatusRef>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+
+  <!--
+      Reject the admission form
+  -->
+  <Template Name="reject-all-admission" Mode="update" Subject="Admission">
+    <![CDATA[
+  <XAL _Prune="none">
+    <XALAction Type="replace">
+       <AdmissionStatusRef Date="{ $date }">3</AdmissionStatusRef>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+
+    <!--
+      UnReject the admission form
+  -->
+    <Template Name="unreject-admission" Mode="update" Subject="Admission">
+      <![CDATA[
+  <XAL _Prune="none">
+    <XALAction Type="replace">
+       <AdmissionStatusRef Date="{ $date }">1</AdmissionStatusRef>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+
+  <!--
+      UnReject the admission form
+  -->
+  <Template Name="unreject-all-admission" Mode="update" Subject="Admission">
+    <![CDATA[
+  <XAL _Prune="none">
+    <XALAction Type="replace">
+       <AdmissionStatusRef Date="{ $date }">1</AdmissionStatusRef>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+
+  <!--
+      save the admission form in draft mode
+  -->
+  <Template Name="save-admission" Mode="update" Subject="Admission">
+    <![CDATA[
+  <XAL _Prune="none">
+    <XALAction Type="replace">
+       <AdmissionStatusRef Date="{ $date }">1</AdmissionStatusRef>
+    </XALAction>
+  </XAL>
+]]>
+  </Template>
+    <!--
+      Block an investor and reject Admission
+  -->
+  <Template Name="block-investor" Mode="update" Subject="Member" Object="Admission">
+    <![CDATA[
+  <XAL _Prune="none">
+    <XALAction Type="replace" Pivot="$subject/UserProfile">
+      <Blocked Date="{ $date }" ByPersonRef="{ $uid }"/>
+    </XALAction>
+    <XALAction Type="replace" Pivot="$object">
+      <AdmissionStatusRef Date="{ $date }">3</AdmissionStatusRef>
+    </XALAction>  </XAL>
+]]>
+  </Template>
+ <!--
+      UnBlock an investor and Unreject Admission
+  -->
+  <Template Name="unblock-investor" Mode="update" Subject="Member" Object="Admission">
+    <![CDATA[
+  <XAL _Prune="none">
+    <XALAction Type="delete" Pivot="$subject/UserProfile/Blocked"/>
+    <XALAction Type="replace" Pivot="$object">
+      <AdmissionStatusRef Date="{ $date }">1</AdmissionStatusRef>
+    </XALAction>  </XAL>
+]]>
+  </Template>
+</Templates>

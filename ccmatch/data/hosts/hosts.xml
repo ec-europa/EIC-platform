@@ -1,0 +1,17 @@
+<Hosts>
+  <Host>
+    <Id>0</Id>
+    <Description>Coach Match</Description>
+  </Host>
+  <Host>
+    <Id>1</Id>
+    <Logo>images/to-be-added</Logo>
+    <Description>SME instrument description</Description>
+    <Country>Belgium</Country>
+    <AcceptanceSystem>content to clarify</AcceptanceSystem>
+    <Link>http://ec.europa.eu/easme/en/horizons-2020-sme-instrument</Link>
+    <Email>EASME-SME-COACHING@ec.europa.eu</Email>
+    <Phone>to be define</Phone>
+    <Contacts/>
+  </Host>
+</Hosts>

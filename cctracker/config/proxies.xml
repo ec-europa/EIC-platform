@@ -1,0 +1,13 @@
+<Proxies>
+  <Proxy Root="KAMReportNAProxy">
+    <Destination Target="Activity" Parent="FinalReportApproval">
+      <DataField>Recognition</DataField>
+      <DataField>Tools</DataField>
+    </Destination>
+  </Proxy>
+  <Proxy Root="KAMReportCAProxy">
+    <Destination Target="Activity" Parent="FinalReportApproval">
+      <DataField>Profiles</DataField>
+    </Destination>
+  </Proxy>
+</Proxies>

@@ -1,0 +1,99 @@
+<!-- ======================================================================
+                          Coach Match modules
+     ======================================================================= -->
+<modules>
+  <!-- ************ -->
+  <!-- ** Tunnel ** -->
+  <!-- ************ -->
+  <module id="tunnel">
+    <item name="fit" method="POST">
+      <access>
+        <rule action="GET POST" role="all"/>
+      </access>
+      <action name="POST">
+        <model src="modules/suggest/search-by-fit.xql"/>
+      </action>
+      <item name="analytics">
+        <model src="oppidum:models/forbidden.xql"/>
+        <item method="POST">
+          <access>
+            <rule action="POST" role="all"/>
+            <!-- guest access required inside tunnel -->
+          </access>
+          <action name="POST">
+            <model src="excm:modules/analytics/record.xql"/>
+          </action>
+        </item>
+      </item>
+    </item>
+    <item name="criteria" method="POST">
+      <access>
+        <rule action="GET POST" role="all"/>
+      </access>
+      <action name="POST">
+        <model src="modules/suggest/search-by-criteria.xql"/>
+      </action>
+    </item>
+    <item name="evaluation">
+      <item method="POST">
+        <access>
+          <rule action="POST" role="all"/>
+        </access>
+        <action name="POST">
+          <model src="modules/suggest/evaluation.xql"/>
+        </action>
+      </item>
+    </item>
+    <item name="inspect" method="POST">
+      <access>
+        <rule action="POST" role="all"/>
+      </access>
+      <action name="POST">
+        <model src="modules/suggest/inspect.xql"/>
+        <view src="modules/suggest/inspect.xsl"/>
+      </action>
+      <item method="POST">
+        <access>
+          <rule action="POST" role="all"/>
+        </access>
+        <action name="POST">
+          <model src="modules/suggest/inspect.xql"/>
+          <view src="modules/suggest/inspect.xsl"/>
+        </action>
+      </item>
+    </item>
+    <item name="summary" method="POST">
+      <access>
+        <rule action="POST" role="all"/>
+      </access>
+      <action name="POST">
+        <model src="modules/suggest/summary.xql"/>
+        <view src="modules/suggest/summary.xsl"/>
+      </action>
+      <item>
+        <access>
+          <rule action="GET" role="all"/>
+        </access>
+        <model src="modules/suggest/summary.xql"/>
+        <view src="modules/suggest/summary.xsl"/>
+      </item>
+    </item>
+    <item name="handout" method="POST">
+      <access>
+        <rule action="POST" role="all"/>
+      </access>
+      <action name="POST">
+        <model src="modules/suggest/handout.xql"/>
+        <view src="modules/suggest/handout.xsl"/>
+      </action>
+    </item>
+    <item name="coaches" method="POST">
+      <access>
+        <rule action="POST" role="all"/>
+      </access>
+      <action name="POST">
+        <model src="modules/suggest/form.xql"/>
+      </action>
+    </item>
+  </module>
+</modules>

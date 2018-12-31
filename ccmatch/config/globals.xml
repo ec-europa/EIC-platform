@@ -1,0 +1,25 @@
+<Globals>
+  <!-- Variables -->
+  <Global>
+    <Eval>$globals:app-name</Eval>
+    <Key>app-name</Key>
+  </Global>
+  <Global>
+    <Eval>$globals:app-folder</Eval>
+    <Key>app-folder</Key>
+  </Global>
+  <Global>
+    <Eval>$globals:app-collection</Eval>
+    <Key>app-collection</Key>
+  </Global>
+  <!-- Paths -->
+  <Global>
+    <Key>persons</Key>
+  </Global>
+  <Global>
+    <Key>analytics</Key>
+  </Global>
+  <Global>
+    <Key>settings</Key>
+  </Global>
+</Globals>

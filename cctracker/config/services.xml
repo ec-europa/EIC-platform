@@ -1,0 +1,140 @@
+<Services>
+  <Providers>
+    <Service>
+      <Id>cctracker</Id>
+      <Name Lang="en">Case Tracker</Name>
+      <AuthorizationToken>A7DS7GAZ75AZG8</AuthorizationToken>
+      <EndPoint>
+        <Id>cctracker.coaches</Id>
+        <Name Lang="en">Coaches</Name>
+      </EndPoint>
+      <EndPoint>
+        <Id>cctracker.feeds</Id>
+        <Name Lang="en">Feeds</Name>
+      </EndPoint>
+      <EndPoint>
+        <Id>cctracker.enterprises</Id>
+        <Name Lang="en">Enterprises</Name>
+      </EndPoint>
+      <!-- Can be REMOVED : testing purpose -->
+      <EndPoint>
+        <Id>cctracker.loopback</Id>
+        <Name Lang="en">Loopback</Name>
+      </EndPoint>
+    </Service>
+  </Providers>
+  <Consumers>
+    <Service>
+      <Id>poll</Id>
+      <Name>Poll</Name>
+      <AuthorizationToken>A7DS7GAZ75AZG8</AuthorizationToken>
+      <EndPoint>
+        <Id>poll.questionnaires</Id>
+        <Name>Questionnaires</Name>
+        <URL>http://localhost:9090/exist/projects/poll/questionnaires</URL>
+        <Deploy>
+          <POST Expected="200,201">
+            <Resource>
+              <File>formulars/sme-feedback.xml</File>
+              <Append>
+                <Hook Name="Case Tracker" Service="cctracker.questionnaires" EndPoint="cctracker.sme-feedback.submit"/>
+              </Append>
+            </Resource>
+            <Description>SME feedback questionnaire</Description>
+          </POST>
+          <POST Expected="200,201">
+            <Resource>
+              <File>formulars/kam-feedback.xml</File>
+              <Append>
+                <Hook Name="Case Tracker" Service="cctracker.questionnaires" EndPoint="cctracker.kam-feedback.submit"/>
+              </Append>
+            </Resource>
+            <Description>KAM feedback questionnaire</Description>
+          </POST>
+        </Deploy>
+      </EndPoint>
+      <EndPoint>
+        <Id>poll.orders</Id>
+        <Name>Orders</Name>
+        <URL>http://localhost:9090/exist/projects/poll/orders</URL>
+      </EndPoint>
+      <!-- Can be REMOVED : testing purpose -->
+      <EndPoint>
+        <Id>poll.loopback</Id>
+        <Name>Loopback</Name>
+        <URL>http://localhost:9090/exist/projects/poll/loopback</URL>
+      </EndPoint>
+    </Service>
+    <Service>
+      <Id>ccmatch-public</Id>
+      <Name>Coach Match public API</Name>
+      <AuthorizationToken>REPLACE-WITH-YOUR-TOKEN</AuthorizationToken>
+      <EndPoint>
+        <Id>ccmatch.suggest</Id>
+        <Name>Coach Match suggestion tunnel</Name>
+        <URL>http://localhost:7070/exist/projets/ccmatch/suggest</URL>
+        <Key>SME-Instrument</Key>
+      </EndPoint>
+      <EndPoint>
+        <Id>ccmatch.search</Id>
+        <Name>Coach Match search by criteria</Name>
+        <URL>http://localhost:7070/exist/projets/ccmatch/suggest/criteria</URL>
+        <Key>SME-Instrument</Key>
+      </EndPoint>
+      <EndPoint>
+        <Id>ccmatch.summary</Id>
+        <Name>Coach Match coach summary</Name>
+        <URL>http://localhost:7070/exist/projets/ccmatch/suggest/summary</URL>
+        <Key>SME-Instrument</Key>
+      </EndPoint>
+      <EndPoint>
+        <Id>ccmatch.inspect</Id>
+        <Name>Coach Match coach inspect</Name>
+        <URL>http://localhost:7070/exist/projets/ccmatch/suggest/inspect</URL>
+        <Key>SME-Instrument</Key>
+      </EndPoint>
+      <EndPoint>
+        <Id>ccmatch.coaches</Id>
+        <Name>Coach Match coach inspect</Name>
+        <URL>http://localhost:7070/exist/projets/ccmatch/suggest/coaches</URL>
+        <Key>SME-Instrument</Key>
+      </EndPoint>
+      <EndPoint>
+        <Id>ccmatch.export</Id>
+        <Name>Coach Match coach export</Name>
+        <URL>http://localhost:7070/exist/projets/ccmatch/export</URL>
+        <Key>SME-Instrument</Key>
+      </EndPoint>
+    </Service>
+  </Consumers>
+  <Hooks>
+    <Service>
+      <Id>cctracker.questionnaires</Id>
+      <Name>Questionnaires</Name>
+      <EndPoint>
+        <Id>cctracker.sme-feedback.submit</Id>
+        <Name>SME feedback form submission</Name>
+        <URL>http://localhost:8080/exist/projects/cctracker/sme-feedback</URL>
+      </EndPoint>
+      <EndPoint>
+        <Id>cctracker.kam-feedback.submit</Id>
+        <Name>KAM feedback form submission</Name>
+        <URL>http://localhost:8080/exist/projects/cctracker/kam-feedback</URL>
+      </EndPoint>
+      <EndPoint>
+        <Id>poll.form.link</Id>
+        <Name>SME feedback form online</Name>
+        <URL>http://localhost:9090/exist/projects/poll/forms/</URL>
+      </EndPoint>
+    </Service>
+    <Service>
+      <Id>ccmatch.links</Id>
+      <Name>CoachMatch links</Name>
+      <EndPoint>
+        <Id>ccmatch.coaches</Id>
+        <Name>Landing page for coaches</Name>
+        <URL>http://localhost:7070/exist/projets/ccmatch</URL>
+      </EndPoint>
+    </Service>
+  </Hooks>
+</Services>

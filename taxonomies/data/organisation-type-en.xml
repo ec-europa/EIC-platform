@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalInformation>
+	<Description Lang="en">
+		<Selector Name="OrganisationTypes">
+			<Version>20180829-0</Version>
+			<Title>Organisation types I</Title>
+			<Note>Classification of the organisation types from a legal point of view.</Note>
+			<Option>
+				<Value>10</Value>
+				<Name>Private company</Name>
+			</Option>
+			<Option>
+				<Value>11</Value>
+				<Name>Governemental institution / Public organisation</Name>
+			</Option>
+			<Option>
+				<Value>12</Value>
+				<Name>European Institution</Name>
+			</Option>
+			<Option>
+				<Value>13</Value>
+				<Name>NGOs / NPOs</Name>
+			</Option>
+			<Option>
+				<Value>14</Value>
+				<Name>Academia</Name>
+			</Option>
+		</Selector>
+	</Description>
+</GlobalInformation>

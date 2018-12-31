@@ -1,0 +1,26 @@
+<Event>
+  <Id>1</Id>
+  <Programme WorkflowId="OTF">Overseas Trade Fairs</Programme>
+  <Template>otf/fidae</Template>
+  <Information>
+    <Name>FIDAE International</Name>
+    <Topic>Aerospace, defense &amp; security</Topic>
+    <WebSite>https://www.fidae.cl/?lang=en</WebSite>
+    <Location>
+       <Town>Santiago</Town>
+       <Country>Chile</Country>
+    </Location>
+    <Date>
+      <From>2018-04-03</From>
+      <To>2018-04-08</To>
+    </Date>
+    <Application>
+      <From>2017-05-15</From>
+      <To>2017-12-01</To>
+    </Application>
+  </Information>
+  <Applicants>
+  </Applicants>
+  <Accepted>
+  </Accepted>
+</Event>

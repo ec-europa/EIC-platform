@@ -1,0 +1,1119 @@
+<GlobalInformation>
+  <Description Lang="en">
+    <WorkflowStatus Name="Project" W="10">
+      <Status>
+        <Id>1</Id>
+        <Name>Project Information</Name>
+      </Status>
+    </WorkflowStatus>
+    <WorkflowStatus Name="Case" W="10">
+      <Status>
+        <Id>1</Id>
+        <Name>EEN assignment</Name>
+      </Status>
+      <Status>
+        <Id>2</Id>
+        <Name>KAM assignment</Name>
+      </Status>
+      <Status>
+        <Id>3</Id>
+        <Name>Needs analysis</Name>
+      </Status>
+      <Status Type="final">
+        <Id>9</Id>
+        <Name>On hold</Name>
+      </Status>
+      <Status Type="final">
+        <Id>10</Id>
+        <Name>No coaching</Name>
+      </Status>
+    </WorkflowStatus>
+    <WorkflowStatus Name="Activity" W="10">
+      <Status>
+        <Id>1</Id>
+        <Name>Coach assignment</Name>
+      </Status>
+      <Status>
+        <Id>2</Id>
+        <Name>Coaching plan</Name>
+      </Status>
+      <Status>
+        <Id>3</Id>
+        <Name>Consultation</Name>
+      </Status>
+      <Status>
+        <Id>4</Id>
+        <Name>Coach contracting</Name>
+      </Status>
+      <Status>
+        <Id>5</Id>
+        <Name>Coaching report</Name>
+      </Status>
+      <Status Deprecated="pi-4">
+        <Id>6</Id>
+        <Name>KAM report</Name>
+      </Status>
+      <Status>
+        <Id>7</Id>
+        <Name>Report approval</Name>
+      </Status>
+      <Status>
+        <Id>8</Id>
+        <Name>Feedbacks (SME,KAM)</Name>
+      </Status>
+      <Status Type="final">
+        <Id>9</Id>
+        <Name>Rejected</Name>
+      </Status>
+      <Status Type="final">
+        <Id>10</Id>
+        <Name>Closed</Name>
+      </Status>
+      <Status Type="final">
+        <Id>11</Id>
+        <Name>Evaluated</Name>
+      </Status>
+    </WorkflowStatus>
+    <Functions>
+      <Function Group="unit-head" Role="unit-head" Sight="omni">
+        <Id>11</Id>
+        <Name>EASME Head of Unit SME</Name>
+        <Brief>HoU</Brief>
+      </Function>
+      <Function Group="business-intelligence" Role="business-intelligence" Sight="omni">
+        <Id>13</Id>
+        <Name>EASME Business Intelligence</Name>
+        <Brief>BI</Brief>
+      </Function>
+      <Function Group="sector-head" Role="sector-head" Sight="omni">
+        <Id>8</Id>
+        <Name>EASME Head of Sector Coaching &amp; Support</Name>
+        <Brief>HoS Coaching</Brief>
+      </Function>
+      <Function Group="coaching-manager" Role="coaching-manager" Sight="omni" Mail="EASME-SME-COACHING@ec.europa.eu">
+        <Id>7</Id>
+        <Name>EASME Coaching Manager</Name>
+        <Brief>CM</Brief>
+      </Function>
+      <Function Group="coaching-assistant" Role="coaching-assistant" Sight="omni" Mail="EASME-SME-COACHING@ec.europa.eu">
+        <Id>9</Id>
+        <Name>EASME Coaching Assistant</Name>
+        <Brief>CA</Brief>
+      </Function>
+      <Function Role="project-officer">
+        <Id>12</Id>
+        <Name>EASME Project Officer</Name>
+        <Brief>PO</Brief>
+      </Function>
+      <Function Role="service-head" Sight="omni">
+        <Id>2</Id>
+        <Name>EASME Head of coaching service</Name>
+        <Brief>HoCS</Brief>
+      </Function>
+      <Function Group="easme-kam-coordinator" Role="easme-kam-coordinator" Sight="omni" Mail="EASME-EEN-KAM-COORD@ec.europa.eu">
+        <Id>10</Id>
+        <Name>EASME KAM Coordinator</Name>
+        <Brief>EASME KAMCo</Brief>
+      </Function>
+      <Function Role="region-manager" Subsume="kam">
+        <Id>3</Id>
+        <Name>EEN KAM Coordinator</Name>
+        <Brief>EEN KAMCo</Brief>
+      </Function>
+      <Function Role="ncp">
+        <Id>14</Id>
+        <Name>National Contact Point</Name>
+        <Brief>NCP</Brief>
+      </Function>
+      <Function Role="kam">
+        <Id>5</Id>
+        <Name>KAM</Name>
+        <Brief>KAM</Brief>
+      </Function>
+      <Function Role="coach">
+        <Id>4</Id>
+        <Name>Coach</Name>
+        <Brief>Coach</Brief>
+      </Function>
+      <!-- <Function>
+        <Id>6</Id>
+        <Name>SME beneficiary</Name>
+      </Function> -->
+      <Function Group="admin-system" Role="admin-system" Sight="omni">
+        <Id>1</Id>
+        <Name>System Administrator</Name>
+        <Brief>SysAdmin</Brief>
+      </Function>
+    </Functions>
+    <CaseImpact>
+      <Sections>
+        <Section>
+          <Id>1</Id>
+          <SectionName>Business innovation vectors</SectionName>
+          <SectionRoot>Vectors</SectionRoot>
+          <SubSections>
+            <SubSection>
+              <Id>1</Id>
+              <SubSectionName>Offering</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>2</Id>
+              <SubSectionName>Process</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>4</Id>
+              <SubSectionName>Distribution</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>3</Id>
+              <SubSectionName>Customer</SubSectionName>
+            </SubSection>
+          </SubSections>
+        </Section>
+        <Section>
+          <Id>2</Id>
+          <SectionName>Sources of business innovation ideas</SectionName>
+          <SectionRoot>Ideas</SectionRoot>
+          <SubSections>
+            <SubSection>
+              <Id>1</Id>
+              <SubSectionName>Internal</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>10</Id>
+              <SubSectionName>Distributors</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>5</Id>
+              <SubSectionName>Customers</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>6</Id>
+              <SubSectionName>Suppliers</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>7</Id>
+              <SubSectionName>Education and research</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>9</Id>
+              <SubSectionName>Others</SubSectionName>
+            </SubSection>
+            <!-- <SubSection>
+              <Id>2</Id>
+              <SubSectionName>Competitors</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>3</Id>
+              <SubSectionName>Meetings, Exhibitions</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>4</Id>
+              <SubSectionName>Support organisation</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>8</Id>
+              <SubSectionName>Newspaper, Internet</SubSectionName>
+            </SubSection> -->
+          </SubSections>
+        </Section>
+        <Section>
+          <Id>3</Id>
+          <SectionName>Internal Resources</SectionName>
+          <SectionRoot>Resources</SectionRoot>
+          <SubSections>
+            <SubSection>
+              <Id>1</Id>
+              <SubSectionName>Strategy</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>2</Id>
+              <SubSectionName>Organisation</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>5</Id>
+              <SubSectionName>Qualification</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>6</Id>
+              <SubSectionName>Market</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>3</Id>
+              <SubSectionName>Innovation process</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>4</Id>
+              <SubSectionName>Intellectual property</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>7</Id>
+              <SubSectionName>Finances</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>10</Id>
+              <SubSectionName>Culture</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>9</Id>
+              <SubSectionName>Leadership</SubSectionName>
+            </SubSection>
+            <!-- <SubSection>
+              <Id>8</Id>
+              <SubSectionName>Other</SubSectionName>
+            </SubSection> -->
+          </SubSections>
+        </Section>
+        <Section>
+          <Id>4</Id>
+          <SectionName>Partnerships</SectionName>
+          <SectionRoot>Partners</SectionRoot>
+          <SubSections>
+            <SubSection>
+              <Id>2</Id>
+              <SubSectionName>Customer</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>9</Id>
+              <SubSectionName>Distributor</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>5</Id>
+              <SubSectionName>Supplier</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>4</Id>
+              <SubSectionName>Manufacturer</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>7</Id>
+              <SubSectionName>Education and research</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>6</Id>
+              <SubSectionName>Private investor</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>10</Id>
+              <SubSectionName>Public support</SubSectionName>
+            </SubSection>
+            <SubSection>
+              <Id>1</Id>
+              <SubSectionName>Others</SubSectionName>
+            </SubSection>
+          </SubSections>
+        </Section>
+      </Sections>
+    </CaseImpact>
+    <!-- <ActivityTypes>
+          <ActivityType>
+            <Id>21</Id>
+            <Name>Business I</Name>
+          </ActivityType>
+          <ActivityType>
+            <Id>22</Id>
+            <Name>Business II</Name>
+          </ActivityType>      <ActivityType>
+            <Id>11</Id>
+            <Name>Organisation I</Name>
+          </ActivityType>
+          <ActivityType>
+            <Id>12</Id>
+            <Name>Organisation II</Name>
+          </ActivityType>
+          <ActivityType>
+            <Id>41</Id>
+            <Name>Cooperation I</Name>
+          </ActivityType>
+          <ActivityType>
+            <Id>42</Id>
+            <Name>Cooperation II</Name>
+          </ActivityType>
+        </ActivityTypes> -->
+    <ContactSources>
+      <ContactSource>
+        <Id>1</Id>
+        <Name>Cantonal antenna</Name>
+      </ContactSource>
+      <ContactSource>
+        <Id>2</Id>
+        <Name>Direct</Name>
+      </ContactSource>
+      <ContactSource>
+        <Id>3</Id>
+        <Name>Personal contacts</Name>
+      </ContactSource>
+      <ContactSource>
+        <Id>4</Id>
+        <Name>Other coachs</Name>
+      </ContactSource>
+      <ContactSource>
+        <Id>5</Id>
+        <Name>High schools</Name>
+      </ContactSource>
+      <ContactSource>
+        <Id>6</Id>
+        <Name>Recommandation of other customers</Name>
+      </ContactSource>
+      <ContactSource>
+        <Id>7</Id>
+        <Name>Events</Name>
+      </ContactSource>
+      <ContactSource>
+        <Id>8</Id>
+        <Name>Publications</Name>
+      </ContactSource>
+    </ContactSources>
+    <ProjectEffects>
+      <ProjectEffect>
+        <Id>1</Id>
+        <Name>Increase of turnover</Name>
+      </ProjectEffect>
+      <ProjectEffect>
+        <Id>2</Id>
+        <Name>Increase of competitiveness</Name>
+      </ProjectEffect>
+      <ProjectEffect>
+        <Id>3</Id>
+        <Name>Increase of productivity</Name>
+      </ProjectEffect>
+      <ProjectEffect>
+        <Id>4</Id>
+        <Name>Extension of exports</Name>
+      </ProjectEffect>
+      <ProjectEffect>
+        <Id>5</Id>
+        <Name>Expansion or stabilization of employment</Name>
+      </ProjectEffect>
+      <ProjectEffect>
+        <Id>6</Id>
+        <Name>Fundraising</Name>
+      </ProjectEffect>
+      <ProjectEffect>
+        <Id>7</Id>
+        <Name>Other (please specify) :</Name>
+      </ProjectEffect>
+    </ProjectEffects>
+    <Selector Name="Topics" Value="Id" Label="Name" Test="Topics">
+      <Option>
+        <Id>1</Id>
+        <ShortName>Biotech</ShortName>
+        <Name>SME Boosting biotechnology-based industrial processes (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <ShortName>BG</ShortName>
+        <Name>Supporting SMEs efforts for the development-deployment and market replication of innovative solutions for blue growth (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <ShortName>DRS</ShortName>
+        <Name>Protection of urban soft targets and urban critical infrastructures (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <ShortName>ICT</ShortName>
+        <Name>Information and Communication technologies - open disruptive innovation scheme (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>5</Id>
+        <ShortName>IT</ShortName>
+        <Name>Small business innovation research for transport (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>6</Id>
+        <ShortName>NMP</ShortName>
+        <Name>Accelerating the uptake of nanotechnologies, advances materials, biotechnology and advance manufacturing and processing (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>7</Id>
+        <ShortName>PHC</ShortName>
+        <Name>Clinical research for the validation of biomarkers and/or diagnostic medical devices (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>8</Id>
+        <ShortName>SC5</ShortName>
+        <Name>Boosting the potential of small business for eco-innovation and a sustainable supply of raw material (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>9</Id>
+        <ShortName>SFS</ShortName>
+        <Name>Resource-efficient eco-innovative food production and processing (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>10</Id>
+        <ShortName>SIE</ShortName>
+        <Name>Stimulating the innovation potential of SMEs for a low carbon and efficient energy system (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>11</Id>
+        <ShortName>Space</ShortName>
+        <Name>SME Instrument Space (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>12</Id>
+        <ShortName>INSO-9</ShortName>
+        <Name>Innovative mobile e-government applications by SMEs (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>13</Id>
+        <ShortName>INSO-10</ShortName>
+        <Name>SME Business model innovation (2014/15)</Name>
+      </Option>
+      <Option>
+        <Id>14</Id>
+        <Name>Open Disruptive Innovation Scheme (2016/17)</Name>
+        <ShortName>SMEInst-01-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>15</Id>
+        <Name>Accelerating the uptake of nanotechnologies advanced materials or advanced manufacturing and processing technologies by SMEs (2016/17)</Name>
+        <ShortName>SMEInst-02-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>16</Id>
+        <Name>Dedicated support to biotechnology SMEs closing the gap from lab to market (2016/17)</Name>
+        <ShortName>SMEInst-03-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>17</Id>
+        <Name>Engaging SMEs in space research and development (2016/17)</Name>
+        <ShortName>SMEInst-04-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>18</Id>
+        <Name>Supporting innovative SMEs in the healthcare biotechnology sector (2016/17)</Name>
+        <ShortName>SMEInst-05-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>19</Id>
+        <Name>Accelerating market introduction of ICT solutions for Health, Well-Being and Ageing Well (2016/17)</Name>
+        <ShortName>SMEInst-06-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>20</Id>
+        <Name>Stimulating the innovation potential of SMEs for sustainable and competitive agriculture, forestry, agri-food and bio-based sectors (2016/17)</Name>
+        <ShortName>SMEInst-07-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>21</Id>
+        <Name>Supporting SMEs efforts for the development - deployment and market replication of innovative solutions for blue growth (2016/17)</Name>
+        <ShortName>SMEInst-08-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>22</Id>
+        <Name>Stimulating the innovation potential of SMEs for a low carbon and efficient energy system (2016/17)</Name>
+        <ShortName>SMEInst-09-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>23</Id>
+        <Name>Small business innovation research for Transport and Smart Cities Mobility (2016/17)</Name>
+        <ShortName>SMEInst-10-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>24</Id>
+        <Name>Boosting the potential of small businesses in the areas of climate action, environment, resource efficiency and raw materials (2016/17)</Name>
+        <ShortName>SMEInst-11-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>25</Id>
+        <Name>New business models for inclusive, innovative and reflective societies (2016/17)</Name>
+        <ShortName>SMEInst-12-2016-2017</ShortName>
+      </Option>
+      <Option>
+        <Id>26</Id>
+        <Name>Engaging SMEs in security research and development (2016/17)</Name>
+        <ShortName>SMEInst-13-2016-2017</ShortName>
+      </Option>
+    </Selector>
+    <Selector Name="SupportScales" Value="Id" Label="Name" Test="Further support">
+      <Option>
+        <Id>1</Id>
+        <Name>Yes</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>No</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Unknown</Name>
+      </Option>
+    </Selector>
+    <Selector Name="ExpectationScales" Value="Id" Label="Name" Test="Expectations">
+      <Option>
+        <Id>1</Id>
+        <Name>Beyond expectations</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Met expectations</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Below expectations</Name>
+      </Option>
+    </Selector>
+    <Selector Name="FitScales" Value="Id" Label="Name" Test="Appropriateness">
+      <Option>
+        <Id>1</Id>
+        <Name>Yes</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Partly</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>No</Name>
+      </Option>
+    </Selector>
+    <Selector Name="YesNoScales" Value="Id" Label="Name" Test="Yes or no">
+      <Option>
+        <Id>1</Id>
+        <Name>Yes</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>No</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Phases" Value="Id" Label="Name" Test="Phases">
+      <Option>
+        <Id>1</Id>
+        <Name>I</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>II</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Positions" Value="Id" Label="Name" Test="Opinions">
+      <Option>
+        <Id>1</Id>
+        <Name>In favour</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Against</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Decisions" Value="Id" Label="Name" Test="Decisions">
+      <Option>
+        <Id>1</Id>
+        <Name>Approved</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Refused</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Services" Value="Id" Label="Name" Test="Services">
+      <Option>
+        <Id>2</Id>
+        <Name>Business</Name>
+      </Option>
+      <Option>
+        <Id>1</Id>
+        <Name>Organisation</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Finance</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Cooperation</Name>
+      </Option>
+    </Selector>
+    <Selector Name="CommunicationAdvices" Value="Id" Label="Name" Test="Communication advices">
+      <Option>
+        <Id>1</Id>
+        <Name>Yes</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>No</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Later</Name>
+      </Option>
+    </Selector>
+    <Selector Name="PartnerTypes" Value="Id" Label="Name" Test="Partner types">
+      <Option>
+        <Id>1</Id>
+        <Name>Business partner</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Academic partner</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Other partner</Name>
+      </Option>
+    </Selector>
+    <Selector Name="PartnerRoles" Value="Id" Label="Name" Test="Partner roles">
+      <Option>
+        <Id>2</Id>
+        <Name>Customer</Name>
+      </Option>
+      <Option>
+        <Id>9</Id>
+        <Name>Distributor</Name>
+      </Option>
+      <Option>
+        <Id>5</Id>
+        <Name>Supplier</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Manufacturer</Name>
+      </Option>
+      <Option>
+        <Id>7</Id>
+        <Name>Education and research</Name>
+      </Option>
+      <Option>
+        <Id>6</Id>
+        <Name>Private investor</Name>
+      </Option>
+      <Option>
+        <Id>10</Id>
+        <Name>Public support</Name>
+      </Option>
+      <Option>
+        <Id>1</Id>
+        <Name>Others</Name>
+      </Option>
+      <!-- <Option>
+        <Id>3</Id>
+        <Name>Pilote Customer</Name>
+      </Option>
+      <Option>
+        <Id>8</Id>
+        <Name>Specialist</Name>
+      </Option> -->
+    </Selector>
+    <Selector Name="InitialContexts" Value="Id" Label="Name" Test="Initial case contexts">
+      <Option>
+        <Id>1</Id>
+        <Name>Seed stage</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Project-to-project stage</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Upscaling stage</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Expansion stage</Name>
+      </Option>
+      <Option>
+        <Id>6</Id>
+        <Name>Renewal stage</Name>
+      </Option>
+      <Option>
+        <Id>5</Id>
+        <Name>Consolidation stage</Name>
+      </Option>
+    </Selector>
+    <Selector Name="TargetedContexts" Value="Id" Label="Name" Test="Targeted case contexts">
+      <Option>
+        <Id>1</Id>
+        <Name>Seed stage</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Project-to-project stage</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Upscaling stage</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Expansion stage</Name>
+      </Option>
+      <Option>
+        <Id>6</Id>
+        <Name>Renewal stage</Name>
+      </Option>
+      <Option>
+        <Id>5</Id>
+        <Name>Consolidation stage</Name>
+      </Option>
+    </Selector>
+    <Selector Name="Sizes" Value="Id" Label="Name" Test="Enterprise size">
+      <Option>
+        <Id>1</Id>
+        <Name>Micro (1-9 employees)</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Small (10-49 employees)</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Medium (50-249 employees)</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Large (250 employees and more)</Name>
+      </Option>
+      <Option>
+        <Id>5</Id>
+        <Name>Other</Name>
+      </Option>
+    </Selector>
+    <Selector Name="CutOffDates" Value="Date" Label="Name" Test="Cut-off dates">
+      <Option>
+        <Name>18 Jun 2014</Name>
+        <Date>2014-06-18</Date>
+      </Option>
+      <Option>
+        <Name>24 Sep 2014</Name>
+        <Date>2014-09-24</Date>
+      </Option>
+      <Option>
+        <Name>09 Oct 2014</Name>
+        <Date>2014-10-09</Date>
+      </Option>
+      <Option>
+        <Name>17 Dec 2014</Name>
+        <Date>2014-12-17</Date>
+      </Option>
+      <Option>
+        <Name>18 Mar 2015</Name>
+        <Date>2015-03-18</Date>
+      </Option>
+      <Option>
+        <Name>17 Jun 2015</Name>
+        <Date>2015-06-17</Date>
+      </Option>
+      <Option>
+        <Name>17 Sep 2015</Name>
+        <Date>2015-09-17</Date>
+      </Option>
+      <Option>
+        <Name>25 Nov 2015</Name>
+        <Date>2015-11-25</Date>
+      </Option>
+      <Option>
+        <Name>03 Feb 2016</Name>
+        <Date>2016-02-03</Date>
+      </Option>
+      <Option>
+        <Name>24 Feb 2016</Name>
+        <Date>2016-02-24</Date>
+      </Option>
+      <Option>
+        <Name>14 Apr 2016</Name>
+        <Date>2016-04-14</Date>
+      </Option>
+      <Option>
+        <Name>03 May 2016</Name>
+        <Date>2016-05-03</Date>
+      </Option>
+      <Option>
+        <Name>15 June 2016</Name>
+        <Date>2016-06-15</Date>
+      </Option>
+      <Option>
+        <Name>07 Sep 2016</Name>
+        <Date>2016-09-07</Date>
+      </Option>
+      <Option>
+        <Name>13 Oct 2016</Name>
+        <Date>2016-10-13</Date>
+      </Option>
+      <Option>
+        <Name>09 Nov 2016</Name>
+        <Date>2016-11-09</Date>
+      </Option>
+    </Selector>
+    <Selector Name="SectorGroups" Value="Id" Label="Name" Test="Sector groups">
+      <Option>
+        <Id>1</Id>
+        <Name>Aeronautics and Space</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Agrofood</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Automotive, Transport and Logistics</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>BioChemTech Pharma</Name>
+      </Option>
+      <Option>
+        <Id>5</Id>
+        <Name>Creative industries</Name>
+      </Option>
+      <Option>
+        <Id>6</Id>
+        <Name>Environment</Name>
+      </Option>
+      <Option>
+        <Id>7</Id>
+        <Name>Healthcare</Name>
+      </Option>
+      <Option>
+        <Id>8</Id>
+        <Name>ICT Industry and Services</Name>
+      </Option>
+      <Option>
+        <Id>9</Id>
+        <Name>Intelligent Energy</Name>
+      </Option>
+      <Option>
+        <Id>10</Id>
+        <Name>Maritime Industry and Services</Name>
+      </Option>
+      <Option>
+        <Id>11</Id>
+        <Name>Materials</Name>
+      </Option>
+      <Option>
+        <Id>12</Id>
+        <Name>Nano- and Microtechnologies</Name>
+      </Option>
+      <Option>
+        <Id>13</Id>
+        <Name>Services and Retail</Name>
+      </Option>
+      <Option>
+        <Id>14</Id>
+        <Name>Sustainable Construction</Name>
+      </Option>
+      <Option>
+        <Id>15</Id>
+        <Name>Textile &amp; Fashion</Name>
+      </Option>
+      <Option>
+        <Id>16</Id>
+        <Name>Tourism and Cultural Heritage</Name>
+      </Option>
+      <Option>
+        <Id>17</Id>
+        <Name>Woman Entrepreneurship</Name>
+      </Option>
+    </Selector>
+    <Selector Name="RatingScales" Value="Id" Label="Name" Test="Rating scale">
+      <Option>
+        <Id>5</Id>
+        <Name>Strongly disagree</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Disagree</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Neutral</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Agree</Name>
+      </Option>
+      <Option>
+        <Id>1</Id>
+        <Name>Strongly agree</Name>
+      </Option>
+    </Selector>
+    <Selector Name="KnownTools" Value="Id" Label="Name" Test="Known Tools">
+      <Option>
+        <Id>1</Id>
+        <Name>ATI GoInno</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Check'innov</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>GrowthMapper</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>InnDrive</Name>
+      </Option>
+      <Option>
+        <Id>5</Id>
+        <Name>InnoKenn</Name>
+      </Option>
+      <Option>
+        <Id>6</Id>
+        <Name>Innovation Health Check</Name>
+      </Option>
+      <Option>
+        <Id>7</Id>
+        <Name>NBank Innovation Audit</Name>
+      </Option>
+      <Option>
+        <Id>8</Id>
+        <Name>NRW.Europa Innovationsaudit</Name>
+      </Option>
+      <Option>
+        <Id>9</Id>
+        <Name>smE-MPOWER</Name>
+      </Option>
+      <Option>
+        <Id>10</Id>
+        <Name>Steinbeis Innovationsaudit</Name>
+      </Option>
+    </Selector>
+    <Selector Name="CallRollOuts" Value="Date" Label="Name" Test="Call Data Roll Outs">
+      <Option>
+        <Name>18 Jun 2014 (phase 1)</Name>
+        <Date>2014-06-18</Date>
+        <PhaseRef>1</PhaseRef>
+      </Option>
+      <Option>
+        <Name>24 Sep 2014 (phase 1)</Name>
+        <Date>2014-09-24</Date>
+        <PhaseRef>1</PhaseRef>
+      </Option>
+      <Option>
+        <Name>09 Oct 2014 (phase 2)</Name>
+        <Date>2014-10-09</Date>
+        <PhaseRef>2</PhaseRef>
+      </Option>
+      <Option>
+        <Name>17 Dec 2014 (phase 1)</Name>
+        <Date>2014-12-17</Date>
+        <PhaseRef>1</PhaseRef>
+      </Option>
+      <Option>
+        <Name>17 Dec 2014 (phase 2)</Name>
+        <Date>2014-12-17</Date>
+        <PhaseRef>2</PhaseRef>
+      </Option>
+      <Option>
+        <Name>18 Mar 2015 (phase 1)</Name>
+        <Date>2015-03-18</Date>
+        <PhaseRef>1</PhaseRef>
+      </Option>
+      <Option>
+        <Name>18 Mar 2015 (phase 2)</Name>
+        <Date>2015-03-18</Date>
+        <PhaseRef>2</PhaseRef>
+      </Option>
+      <Option>
+        <Name>17 Jun 2015 (phase 1)</Name>
+        <Date>2015-06-17</Date>
+        <PhaseRef>1</PhaseRef>
+      </Option>
+      <Option>
+        <Name>17 Jun 2015 (phase 2)</Name>
+        <Date>2015-06-17</Date>
+        <PhaseRef>2</PhaseRef>
+      </Option>
+      <Option>
+        <Name>17 Sep 2015 (phase 1)</Name>
+        <Date>2015-09-17</Date>
+        <PhaseRef>1</PhaseRef>
+      </Option>
+      <Option>
+        <Name>17 Sep 2015 (phase 2)</Name>
+        <Date>2015-09-17</Date>
+        <PhaseRef>2</PhaseRef>
+      </Option>
+      <Option>
+        <Name>25 Nov 2015 (phase 1)</Name>
+        <Date>2015-11-25</Date>
+        <PhaseRef>1</PhaseRef>
+      </Option>
+      <Option>
+        <Name>25 Nov 2015 (phase 2)</Name>
+        <Date>2015-11-25</Date>
+        <PhaseRef>2</PhaseRef>
+      </Option>
+      <Option>
+        <Name>03 Feb 2016 (phase 2)</Name>
+        <Date>2016-02-03</Date>
+        <PhaseRef>2</PhaseRef>
+      </Option>
+      <Option>
+        <Name>24 Feb 2016 (phase 1)</Name>
+        <Date>2016-02-24</Date>
+        <PhaseRef>1</PhaseRef>
+      </Option>
+      <Option>
+        <Name>14 Apr 2016 (phase 2)</Name>
+        <Date>2016-04-14</Date>
+        <PhaseRef>2</PhaseRef>
+      </Option>
+      <Option>
+        <Name>03 May 2016 (phase 1)</Name>
+        <Date>2016-05-03</Date>
+        <PhaseRef>1</PhaseRef>
+      </Option>
+      <Option>
+        <Name>15 June 2016 (phase 2)</Name>
+        <Date>2016-06-15</Date>
+        <PhaseRef>2</PhaseRef>
+      </Option>
+      <Option>
+        <Name>07 Sep 2016 (phase 1)</Name>
+        <PhaseRef>1</PhaseRef>
+        <Date>2016-09-07</Date>
+      </Option>
+      <Option>
+        <Name>13 Oct 2016 (phase 2)</Name>
+        <PhaseRef>2</PhaseRef>
+        <Date>2016-10-13</Date>
+      </Option>
+      <Option>
+        <Name>09 Nov 2016 (phase 1)</Name>
+        <PhaseRef>1</PhaseRef>
+        <Date>2016-11-09</Date>
+      </Option>
+    </Selector>
+    <Selector Name="AcceptancesCCMatch" Value="Id" Label="Name">
+      <Option>
+        <Id>1</Id>
+        <Name>Submitted</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Rejected</Name>
+      </Option>
+      <Option>
+        <Id>3</Id>
+        <Name>Removed</Name>
+      </Option>
+      <Option>
+        <Id>4</Id>
+        <Name>Accepted</Name>
+      </Option>
+    </Selector>
+    <Selector Name="WorkingRanksCCMatch" Value="Id" Label="Name">
+      <Option>
+        <Id>1</Id>
+        <Name>Activated</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>Deactivated</Name>
+      </Option>
+    </Selector>
+    <Selector Name="YesNoAvailsCCMatch" Value="Id" Label="Name" Test="Yes or no">
+      <Option>
+        <Id>1</Id>
+        <Name>Yes, I am available</Name>
+      </Option>
+      <Option>
+        <Id>2</Id>
+        <Name>No, I am not available</Name>
+      </Option>
+    </Selector>    
+  </Description>
+</GlobalInformation>

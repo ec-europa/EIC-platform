@@ -1,0 +1,113 @@
+<!-- CCTRACKER - EIC Case Tracker Application
+
+     Author: Stéphane Sire <s.sire@opppidoc.fr>
+
+     (c) Copyright may be reserved
+  -->
+<Form Tag="Case" Layout="fluid" StartLevel="1"
+  xmlns:site="http://oppidoc.com/oppidum/site">
+
+  <Title>Création d'un nouveau cas</Title>
+  <Row>
+    <Cell W="12" Gap="2">
+      <Title loc="case.legend.intervention">Coaching cas</Title>
+      <Field Key="title" Tag="Title" loc="term.title" Gap="1">Title</Field>
+      <Field Key="service" Tag="ServiceRef" W="5" Gap="1" L="0" loc="term.service" Placeholder-loc="content.choose">Service</Field>
+      <Field Key="coach" Tag="ResponsibleCoachRef" W="7" Gap="2" loc="term.coach">Coach</Field>
+      <Field Key="number" Tag="No" W="3" L="0" Gap="1" loc="term.case.nb">No</Field>
+      <Field Key="date" Tag="CreationDate" Offset="2" W="7" Gap="2" loc="term.creationDate">Date de création</Field>
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row Class="x-ClientEnterprise">
+    <Cell W="12" Gap="2" Tag="ClientEnterprise">
+      <Title loc="case.legend.enterprise">Entreprise</Title>
+        <Row>
+          <site:conditional avoid="create" force="true">
+            <div class="c-transcluded">
+              <site:conditional meet="update" force="true">
+                <Field Class="x-EnterpriseRef" Key="enterprise" Tag="EnterpriseRef" W="6" Gap="1" loc="term.name" Placeholder-loc="content.choose">Nom</Field>
+                <Button Key="btn.update" Class="btn-small btn-primary" W="6" loc="action.edit.enterprise">Modifier les données de l'entreprise</Button>
+              </site:conditional>
+              <Cell W="5" L="0" TypeName="enterprise_data">
+                <site:conditional meet="read" force="true">
+                  <Field Class="x-EnterpriseRef" Key="enterprise" Tag="EnterpriseRef" Gap="1" loc="term.name" Placeholder-loc="content.choose">Nom</Field>
+                </site:conditional>
+                <Field Key="abbrev" Tag="ShortName" Gap="1" loc="term.abbrev">Abrégé</Field>
+                <Field Key="creation" Tag="CreationYear" Gap="1" loc="term.creationYear">Année de création</Field>
+                <Field Key="size" Tag="SizeRef" Gap="1" loc="term.enterpriseSize">Taille d'entreprise</Field>
+                <Field Key="noga" Tag="NOGA-Code" Gap="1" loc="term.noga">Code NOGA</Field>
+                <Field Key="website" Tag="WebSite" Gap="1" loc="term.webSite">Site web</Field>
+                <Field Key="activities" Tag="MainActivities" Gap="1" loc="term.activityDesc">Activités principales</Field>
+                <Field Key="targeted-markets" Tag="TargetedMarkets" Gap="1" loc="term.targetedMarkets">Marchés ciblés</Field>
+              </Cell>
+              <Cell W="7" Gap="1.1" Tag="Address">
+                <Title loc="form.legend.address">Adresse</Title>
+                <Field Key="street" Tag="StreetNameAndNo" W="12" Gap="1" loc="term.streetNameAndNo">Rue et nº</Field>
+                <Field Key="box" Tag="PO-Box" Gap="1" loc="term.box">Case postale</Field>
+                <Field Key="careof" Tag="Co" Gap="1" loc="term.co">c/o</Field>
+                <Field Key="npa" Tag="PostalCode" Gap="1" loc="term.postalCode">NPA</Field>
+                <Field Key="town" Tag="Town" Gap="1" loc="term.town">Localité</Field>
+                <Field Key="state" Tag="State" Gap="1" loc="term.state">Canton</Field>
+                <Field Key="country" Tag="Country" Gap="1" loc="term.country">Pays</Field>
+              </Cell>
+            </div>
+          </site:conditional>
+          <site:conditional meet="create" force="true">
+            <Field Class="x-EnterpriseRef" Key="enterprise" Tag="EnterpriseRef" W="6" Gap="1" loc="term.name" Placeholder-loc="content.choose">Nom</Field>
+            <Button Key="btn.update" Class="btn-small btn-primary" W="3" loc="action.edit.enterprise">Modifier les données de l'entreprise</Button>
+            <Button Meet="create" Key="btn.create" W="3" Class="btn-small btn-primary" loc="action.create.enterprise">Créer une nouvelle entreprise</Button>
+            <div class="c-transcluded">
+              <Use Type="enterprise_data"/>
+              <Use Tag="Address" Type="Address"/>
+            </div>
+          </site:conditional>
+        </Row>
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row>
+    <Cell W="12" Gap="2" Tag="Context">
+      <Title loc="form.legend.enterpriseContext">Contexte de l'entreprise</Title>
+      <Field Key="ctx-initial" Tag="InitialContext" W="6" Gap="2" loc="term.initialPosition"
+             Placeholder-loc="content.choose">Positionnement initial</Field>
+      <Field Key="ctx-target" Tag="TargetedContext" W="6" Gap="2" loc="term.targetPosition"
+             Placeholder-loc="content.choose">Positionnement visé</Field>
+      <Field Key="ctx-description" Tag="ContextDescription" Gap="0" loc="term.description">Description</Field>
+    </Cell>
+  </Row>
+  <Separator/>
+  <Row>
+    <Cell W="12" Gap="2" Tag="Impact">
+        <Title loc="case.legend.intentionalImpact">Innovation d'affaires : Impact Intentionnel</Title>
+        <Box Key="vectors" Tag="Vectors" W="3">
+          <Title loc="term.innovationVectors">Vecteurs d'innovation</Title>
+        </Box>
+        <Box Key="ideas" Tag="Ideas" W="3">
+          <Title loc="term.ideaSources">Sources d'idées</Title>
+        </Box>
+        <Box Key="resources" Tag="Resources" W="3">
+          <Title loc="term.resources">Ressources</Title>
+        </Box>
+        <Box Key="partners" Tag="Partners" W="3">
+          <Title loc="term.partners">Partenaires</Title>
+        </Box>
+    </Cell>
+  </Row>
+  <Modals>
+    <Modal Id="c-enterprise-case" Width="620px" Template="^/templates/enterprise">
+      <Title Mode="create" loc="enterprise.create.title">Création d'une entreprise</Title>
+      <Title Mode="update" loc="enterprise.update.title">Modification d'une entreprise</Title>
+    </Modal>
+  </Modals>
+  <Commands>
+    <Augment Key="btn.create" Mode="create" TargetEditor="c-enterprise-case" Controller="enterprises/add" TargetField=".x-EnterpriseRef" TargetRoot=".x-ClientEnterprise"/>
+    <Augment Key="btn.update" Mode="update" TargetEditor="c-enterprise-case" Controller="enterprises/$_.xml?goal=update" TargetField=".x-EnterpriseRef" TargetRoot=".x-ClientEnterprise" loc="augment.noClientEnterprise"/>
+  </Commands>
+  <Bindings>
+    <Require Keys="service enterprise"/>
+  </Bindings>
+  <Plugins>
+    <RichText Keys="ctx-description" Menu="static"/>
+  </Plugins>
+</Form>

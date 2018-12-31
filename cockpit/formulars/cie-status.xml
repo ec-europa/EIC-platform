@@ -1,0 +1,54 @@
+<Form xmlns:site="http://oppidoc.com/oppidum/site"
+  Tag="Enterprise" Layout="fluid"  Orientation="horizontal">
+  <Row>
+    <Field Key="conform-sme" Tag="YesNoScaleRef" Gap="2">Conform SME</Field>
+    <Field Key="status-flag" Tag="StatusFlagRef" Gap="2">Status flag</Field>
+  </Row>
+  <site:conditional noflag="invest" force="true">
+    <Row>
+      <Repeat Min="0" Tag="Projects">
+        <Cell Tag="Project">
+          <Row Gap="1">
+          <Title>Project</Title>
+          <Row>
+            <Field Key="acronym" Tag="Acronym" Gap="1.5" W="6">Acronym</Field>
+            <Field Key="project-id" Tag="ProjectId" Gap="1.5" W="4" >Project ID</Field>
+          </Row>
+          <Row>
+            <Field Key="po" Tag="ProjectOfficerByRef" Gap="1.5" W="6">Project Officer</Field>
+            <Field Key="bpo" Tag="BackupProjectOfficerByRef" Gap="1.5" W="6" >Backup</Field>
+          </Row>
+          <Separator/>
+          <Row>
+            <Cell Tag="Call">
+              <Field Key="fdprog" Tag="FundingProgramRef" Gap="1.5" W="12">Funding Program</Field>
+              <Field Key="fdscheme" Tag="Funding" Gap="1.5" W="6" L="0">Type</Field>
+              <Field Key="cutoff" Tag="CutOff" Gap="1.5" W="6">Call</Field>
+            </Cell>
+          </Row>
+          <Separator/>
+          <Row>
+            <Field Key="start" Tag="ProjectStartDate" Gap="1.5" W="6">Start Date</Field>
+            <Field Key="end" Tag="ProjectEndDate" Gap="1.5" W="6">End Date</Field>
+          </Row>
+          <Row>
+            <Field Key="signature" Tag="Date" Gap="1.5" W="6">Signing date</Field>
+            <Field Key="termination-flag" Tag="TerminationFlagRef" Gap="1.5" W="6">Termination flag</Field>
+          </Row>
+          <Row>
+            <Field Key="comments" Tag="Comments" Gap="1.5" W="12" >Comment</Field>
+          </Row>
+          </Row>
+        </Cell>
+        <div xmlns="http://www.w3.org/1999/xhtml" style="display:none"><Menu/></div>
+      </Repeat>
+    </Row>
+  </site:conditional>
+  <Bindings>
+  </Bindings>
+  <Plugins>
+    <Date Keys="signature"/>
+    <Constant Keys="acronym"/>
+    <MultiText Keys="comments"/>
+  </Plugins>
+</Form>

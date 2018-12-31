@@ -1,0 +1,149 @@
+<messages>
+  <info type="INFO" timeout="-1">
+    <message>%s</message>
+  </info>
+  <info type="ANNOUNCEMENT" timeout="-1" at="!login">
+    <!-- remove ! prefix to enable login message -->
+    <message>Announcement</message>
+  </info>
+  <info type="ASK-LOGOUT" timeout="-1">
+    <message lang="en">The case tracker will be put into maintenance. You are kindly requested to finish your operations and to log out from the application as soon as possible. In any case you will be logged out in %s from now.</message>
+  </info>
+  <info type="ACTION-LOGIN-SUCCESS">
+    <message lang="fr">Vous avez été identifié en tant que "%s"</message>
+    <message lang="de">Sie wurden identifiziert als "%s"</message>
+    <message lang="en">Welcome, you are logged in as "%s"</message>
+  </info>
+  <info type="ACTION-LOGIN-SUCCESS-INFO" timeout="-1">
+    <message lang="en">Welcome, you are logged in as "%s"; The database currently holds %s coaches available for coaching and a total of %s uploaded CV files.</message>
+  </info>
+  <info type="ACTION-LOGIN-SUCCESS-MERGE" timeout="-1">
+    <message lang="en">Congratulations! Your 'EU Login' account was successfully merged with your Coach Match account. From now on, you will be asked to connect to the Coach Match platform with your 'EU Login' only.</message>
+  </info>
+  <info type="ACTION-LOGIN-HINT">
+    <message lang="en">When updating your Contact, Experiences or Competences records do not forget to click the corresponding SAVE button in the upper-right corner of the screen.</message>
+  </info>
+  <info type="ACTION-LOGOUT-SUCCESS">
+    <message lang="fr">Vous avez été déconnecté avec succès</message>
+    <message lang="de">Sie wurden erfolgreich ausgeloggt</message>
+    <message lang="en">You have been logged out successfully</message>
+  </info>
+  <info type="ACTION-UPDATE-SUCCESS">
+    <message lang="fr">La ressource vient d'être mise à jour avec succès</message>
+    <message lang="de">Die Daten wurden erfolgreich aktualisiert</message>
+    <message lang="en">The resource has just been updated</message>
+  </info>
+  <info type="ACTION-CREATE-SUCCESS">
+    <message lang="fr">La ressource vient d'être créée avec succès</message>
+    <message lang="en">The resource has just been created</message>
+  </info>
+  <info type="ACTION-DELETE-SUCCESS">
+    <message lang="en">The resource has been deleted</message>
+  </info>
+  <info type="DELETE-PERSON-CONFIRM" code="202">
+    <message lang="en">You can remove the person "%s" because s/he has no access login. Are you sure you want to delete her? This action is irreversible.</message>
+  </info>
+  <info type="DELETE-PERSON-SUCCESS">
+    <message lang="fr">La personne "%s" a été effacée avec succès</message>
+    <message lang="de">Die Person "%s" wurde erfolgreich gelöscht</message>
+    <message lang="en">The person "%s" has been removed successfully</message>
+  </info>
+  <info type="SELF-DELETE-PERSON-CONFIRM" code="202">
+    <message lang="en">Are you sure you want to delete your profile? If you confirm you will be logged out from the application, your login will be removed and all your profile data will be lost. This action is irreversible.</message>
+  </info>
+  <info type="SELF-DELETE-ACCOUNT-CONFIRM" code="202">
+    <message lang="en">Are you sure you want to cancel your registration ? If you confirm your login will not be created and all your account information will be lost.</message>
+  </info>
+  <info type="ACTION-PROFILE-UPDATE-SUCCESS">
+    <message lang="en">The %s resource has just been updated</message>
+  </info>
+  <info type="ACTION-PREFERENCES-SUCCESS">
+    <message lang="en">Your profile has been updated as %s for %s</message>
+  </info>
+  <info type="ACTION-APPLICATION-SUCCESS">
+    <message lang="en">Your application for %s host has been successfully submitted</message>
+  </info>
+  <info type="MODE-WARNING-TEST">
+    <message lang="en">This is a TEST SERVER only ! If your intent is to use the real Coach Match application, then check the URL you are using. Information on this platform may not be accurate and can be lost at any time...</message>
+  </info>
+  <info type="MODE-WARNING-DEV">
+    <message lang="en">This is a DEVELOPMENT SERVER only ! If your intent is to use the real Coach Match application, then check the URL you are using. Information on this platform may not be accurate and can be lost at any time...</message>
+  </info>
+  <!-- ******************************************** -->
+  <!-- *************  Account Messages ************ -->
+  <!-- ******************************************** -->
+  <info type="ACTION-REGISTER-ACCOUNT-SUCCESS">
+    <message lang="en">Your account information has been saved, you can now sign in using your EU login credentials.</message>
+  </info>
+  <info type="ACCOUNT-LOGIN-CREATED" code="201">
+    <message lang="fr">Le compte a été créé et un message a été envoyé à %s</message>
+    <message lang="en">The account has been created and a message has been sent to %s</message>
+  </info>
+  <info type="ACCOUNT-LOGIN-UPDATED">
+    <message lang="fr">Le nouveau compte a été créé et un message a été envoyé à %s</message>
+    <message lang="en">The new account has been created and a message has been sent to %s</message>
+  </info>
+  <info type="ACCOUNT-LOGIN-DELETED">
+    <message lang="fr">L'identifiant "%s" a été supprimé et n'a donc plus accès à la base de données</message>
+    <message lang="en">The login "%s" has been removed and therefore the user has no longer access to the data base</message>
+  </info>
+  <info type="ACCOUNT-PWD-CHANGED-MAIL">
+    <message lang="fr">Le mot de passe a été modifié et un message de notification envoyé à %s</message>
+    <message lang="en">The password has been changed and a notification message has been sent to %s</message>
+  </info>
+  <info type="ACCOUNT-PWD-CHANGED-NOMAIL">
+    <message lang="fr">Le mot de passe a été modifié par contre le message de notification n'a pas pu ête envoyé à %s. Prévenez-le par un autre canal !</message>
+    <message lang="en">The password has been changed but the notification message couldn't be sent to %s. Try to get it through another canal</message>
+  </info>
+  <info type="PROFILE-UPDATED-WOACCESS">
+    <message lang="fr">Le profil de "%s" a été mis à jour, n'oubliez pas de lui créer un login ou de lui générer un mot de passe si vous souhaitez lui donner accès à l'application</message>
+    <message lang="en">The profil of "%s" has been updated, do not forget to create him a login or to generate a password if you want him to have an access to the application</message>
+  </info>
+  <info type="PROFILE-UPDATED">
+    <message lang="fr">Le profil de l'utilisateur "%s" a été mis à jour</message>
+    <message lang="en">The profile of the user "%s" has been updated</message>
+  </info>
+  <info type="PROFILE-DELETED">
+    <message lang="fr">Le profil de l'utilisateur "%s" a été supprimé</message>
+    <message lang="en">The profile of the user "%s" has been deleted</message>
+  </info>
+  <!-- ******************************************** -->
+  <!-- *************  Login Suggestion ************ -->
+  <!-- ******************************************** -->
+  <info type="LOGIN-CASE-TRACKER-FAILED">
+    <message lang="en">the system generated a new login proposal however it could not check if it already exists in Case Tracker because %s Please check Case Tracker is correctly configured and running !</message>
+  </info>
+  <info type="LOGIN-CASE-TRACKER-FAILED-PUBLIC">
+    <message lang="en">The system generated a new login suggestion for you. If you already have an access login for the SME Instrument Case Tracker, which could not be contacted at this time, you may prefer to use the same login. In that case edit the access login before creating it.</message>
+  </info>
+  <info type="LOGIN-SUGGEST-FIRST">
+    <message lang="en">the system generated a new login proposal for %s because there is no coach registered with "%s" in the Case Tracker</message>
+  </info>
+  <info type="LOGIN-SUGGEST-FIRST-PUBLIC">
+    <message lang="en">The system generated a login proposal for you. You can edit it, then click on Create access login to create it.</message>
+  </info>
+  <info type="LOGIN-FOUND-NOLOGIN-CASE-TRACKER">
+    <message lang="en">the system generated a new login proposal because there is a coach %s corresponding to "%s" in the Case Tracker but s/he has not yet an access login to connect to the Case Tracker</message>
+  </info>
+  <info type="LOGIN-FOUND-NOLOGIN-CASE-TRACKER-PUBLIC">
+    <message lang="en">The system generated a login proposal for you. Note that there is a user registered in the SME Instrument case tracker with your e-mail address. If this is you be aware that you do not yet have access to the case tracker, you must be selected to coach a case first. If this is not you please contact us to let us known.</message>
+  </info>
+  <info type="LOGIN-FOUND-CASE-TRACKER">
+    <message lang="en">the login name field as been prefilled with the Case Tracker login of %s who is the only coach registered with "%s" in the Case Tracker; you can reuse the same login if this is the same person as %s in Coach Match</message>
+  </info>
+  <info type="LOGIN-FOUND-CASE-TRACKER-PUBLIC">
+    <message lang="en">The system generated a login proposal for you. It is based on the fact that you have entered the same e-mail address than %s who is the only coach registered with "%s" in the SME Instrument case tracker. If this is you you are encouraged to keep the same login name for the Coach Match platform. If this is not you please change the login name before creating it and contact us to let us know.</message>
+  </info>
+  <info type="LOGIN-TAKEN-CASE-TRACKER">
+    <message lang="en">%s (%s) is registered inside Case Tracker with login %s; however you cannot use that login for %s in Coach Match because it is already taken by %s (%s)</message>
+  </info>
+  <info type="LOGIN-TAKEN-CASE-TRACKER-PUBLIC">
+    <message lang="en">The system generated a login proposal. There is actually a user with your e-mail address registered into the SME Instrument case tracker, however the system could not propose you the same login name because it is already in use by someone else in the Coach Match platform. If you think you are not the user the user already registered in the SME Instrument case tracker with your e-mail address, please contact us to let us know.</message>
+  </info>
+  <info type="LOGIN-TOO-MUCH-MATCH">
+    <message lang="en">could not suggest a login because several several coach users correspond to "%s" in the Case Tracker; you should check their profiles !</message>
+  </info>
+  <info type="LOGIN-TOO-MUCH-MATCH-PUBLIC">
+    <message lang="en">The system generated a login proposal for you. It found several users with the same e-mail address registered in the SME Instrument Case Traker, hence it didn't know which one to pick up for reusing.</message>
+  </info>
+</messages>

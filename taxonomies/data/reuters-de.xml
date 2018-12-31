@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalInformation>
+  <Description Lang="de">
+    <Selector Name="TargetedMarkets" Label="V+Name">
+      <Version>20180618-0</Version>
+      <Title>Targeted Markets (Thomson Reuters)</Title>
+      <Group>
+        <Value>5010</Value>
+        <Name>Energieversorgung</Name>
+        <Selector>
+          <Option>
+            <Value>501010</Value>
+            <Name>Kohle</Name>
+          </Option>
+          <Option>
+            <Value>501020</Value>
+            <Name>Oel und Gas</Name>
+          </Option>
+          <Option>
+            <Value>501030</Value>
+            <Name>Equipement und Dienstleistungen im Oel un Gas Bereich</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5020</Value>
+        <Name>Erneuerbare Energien</Name>
+        <Selector>
+          <Option>
+            <Value>502010</Value>
+            <Name>Erneuerbare Energien</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5030</Value>
+        <Name>Uran</Name>
+        <Selector>
+          <Option>
+            <Value>503010</Value>
+            <Name>Uran</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5110</Value>
+        <Name>Chemi</Name>
+        <Selector>
+          <Option>
+            <Value>511010</Value>
+            <Name>Chemie</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5120</Value>
+        <Name>Mineralische Stoffe</Name>
+        <Selector>
+          <Option>
+            <Value>512010</Value>
+            <Name>Metalle une Mienen</Name>
+          </Option>
+          <Option>
+            <Value>512020</Value>
+            <Name>Baumaterialen</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5130</Value>
+        <Name>Verbrauchsstoffe</Name>
+        <Selector>
+          <Option>
+            <Value>513010</Value>
+            <Name>Papier &amp; Waldprodukte</Name>
+          </Option>
+          <Option>
+            <Value>513020</Value>
+            <Name>Container &amp; Verpackung</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5210</Value>
+        <Name>Industrielle Güter</Name>
+        <Selector>
+          <Option>
+            <Value>521010</Value>
+            <Name>Luftfahrt und Vertreidigung</Name>
+          </Option>
+          <Option>
+            <Value>521020</Value>
+            <Name>Maschinen, Equipment und Komponenten</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5220</Value>
+        <Name>Industrielle Dienstleistungen</Name>
+        <Selector>
+          <Option>
+            <Value>522010</Value>
+            <Name>Konstruktion und Engineering</Name>
+          </Option>
+          <Option>
+            <Value>522020</Value>
+            <Name>Diversifizierter Handel und Vertrieb</Name>
+          </Option>
+          <Option>
+            <Value>522030</Value>
+            <Name>Professionnelle &amp; kommerzielle Dienstleistungen</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5230</Value>
+        <Name>Industrikonzerne</Name>
+        <Selector>
+          <Option>
+            <Value>523010</Value>
+            <Name>Industrikonzerne</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5240</Value>
+        <Name>Transport</Name>
+        <Selector>
+          <Option>
+            <Value>524050</Value>
+            <Name>Fracht &amp; Logistikdienstleistungen</Name>
+          </Option>
+          <Option>
+            <Value>524060</Value>
+            <Name>Personentransportleistungen</Name>
+          </Option>
+          <Option>
+            <Value>524070</Value>
+            <Name>Infrastrukturtransport</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5310</Value>
+        <Name>Personenwagen &amp; Autoteile</Name>
+        <Selector>
+          <Option>
+            <Value>531010</Value>
+            <Name>Personenwagen &amp; Autoteile</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5320</Value>
+        <Name>Zyklische Konsumgüter</Name>
+        <Selector>
+          <Option>
+            <Value>532020</Value>
+            <Name>Textile &amp; Bekleidung</Name>
+          </Option>
+          <Option>
+            <Value>532030</Value>
+            <Name>Hasubau &amp; Materiallieferung</Name>
+          </Option>
+          <Option>
+            <Value>532040</Value>
+            <Name>Haushaltgüter</Name>
+          </Option>
+          <Option>
+            <Value>532050</Value>
+            <Name>Freizeitgüter</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5330</Value>
+        <Name>Zyklische Konsumdienstleistungen</Name>
+        <Selector>
+          <Option>
+            <Value>533010</Value>
+            <Name>Hotel &amp; Unterhaltungsleistungen</Name>
+          </Option>
+          <Option>
+            <Value>533020</Value>
+            <Name>Medien &amp; Verlagswesen</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5340</Value>
+        <Name>Händler</Name>
+        <Selector>
+          <Option>
+            <Value>534020</Value>
+            <Name>Vielfältiger Einzelhandler</Name>
+          </Option>
+          <Option>
+            <Value>534030</Value>
+            <Name>Uebriger spezialisierter Einzelhandel</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5410</Value>
+        <Name>Nahrung &amp; Getränke</Name>
+        <Selector>
+          <Option>
+            <Value>541010</Value>
+            <Name>Getränke</Name>
+          </Option>
+          <Option>
+            <Value>541020</Value>
+            <Name>Nahrungsmittel &amp; Tabak</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5420</Value>
+        <Name>Persönliche &amp; Haushaltsprodukte &amp; Dienstleistungen</Name>
+        <Selector>
+          <Option>
+            <Value>542010</Value>
+            <Name>Persönliche &amp; Haushaltsprodukte &amp; Dienstleistungen</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5430</Value>
+        <Name>Nahrungsmittel &amp; Pharma Einzelhandel</Name>
+        <Selector>
+          <Option>
+            <Value>543010</Value>
+            <Name>Nahrungsmittel &amp; Pharma Einzelhandel</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5510</Value>
+        <Name>Banken &amp; Investitionsdienstleistungen</Name>
+        <Selector>
+          <Option>
+            <Value>551010</Value>
+            <Name>Bankdienstleistungen</Name>
+          </Option>
+          <Option>
+            <Value>551020</Value>
+            <Name>Investment banking &amp; Investitionsdienleistungen</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5560</Value>
+        <Name>Holding Companies</Name>
+        <Selector>
+          <Option>
+            <Value>556010</Value>
+            <Name>Holding Companies</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5530</Value>
+        <Name>Versicherung</Name>
+        <Selector>
+          <Option>
+            <Value>553010</Value>
+            <Name>Versicherung</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5540</Value>
+        <Name>Immobilien</Name>
+        <Selector>
+          <Option>
+            <Value>554020</Value>
+            <Name>Immobilien</Name>
+          </Option>
+          <Option>
+            <Value>554030</Value>
+            <Name>Wohn- &amp; kommerzielles Immobilieninvestment</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5550</Value>
+        <Name>Investitionsfonds</Name>
+        <Selector>
+          <Option>
+            <Value>555010</Value>
+            <Name>Kollektivinvestment</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5610</Value>
+        <Name>Dienstleistungen Gesundheitwesen</Name>
+        <Selector>
+          <Option>
+            <Value>561010</Value>
+            <Name>Equipment und Betriebstoff für Gesundheitswesen</Name>
+          </Option>
+          <Option>
+            <Value>561020</Value>
+            <Name>Anbieter und Dienstleister im Gesundheitsbereich</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5620</Value>
+        <Name>Pharmazeutische &amp; medizinische Forschung</Name>
+        <Selector>
+          <Option>
+            <Value>562010</Value>
+            <Name>Arzeimittel</Name>
+          </Option>
+          <Option>
+            <Value>562020</Value>
+            <Name>Biotechnologie &amp; medizinische Forschung</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5710</Value>
+        <Name>Technologisches Equipment</Name>
+        <Selector>
+          <Option>
+            <Value>571010</Value>
+            <Name>Halbleiter &amp; Halbleiterequipment</Name>
+          </Option>
+          <Option>
+            <Value>571020</Value>
+            <Name>Kommunikation &amp; Netwerke</Name>
+          </Option>
+          <Option>
+            <Value>571050</Value>
+            <Name>Büroausrüstung</Name>
+          </Option>
+          <Option>
+            <Value>571040</Value>
+            <Name>Elektronikgeräte &amp; -teile</Name>
+          </Option>
+          <Option>
+            <Value>571060</Value>
+            <Name>Compute, Telefone &amp; Haushaltselektronik</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5720</Value>
+        <Name>Software &amp; Informatikdienste</Name>
+        <Selector>
+          <Option>
+            <Value>572010</Value>
+            <Name>Software &amp; Informatikdienstleistungen</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5810</Value>
+        <Name>Telecommunikationsdienste</Name>
+        <Selector>
+          <Option>
+            <Value>581010</Value>
+            <Name>Telecommunikationsdienste</Name>
+          </Option>
+        </Selector>
+      </Group>
+      <Group>
+        <Value>5910</Value>
+        <Name>Versorgungseinrichtungen</Name>
+        <Selector>
+          <Option>
+            <Value>591010</Value>
+            <Name>Elektrische Versorgung &amp; Netzwekerdienste</Name>
+          </Option>
+          <Option>
+            <Value>591020</Value>
+            <Name>Gasversorgung</Name>
+          </Option>
+          <Option>
+            <Value>591030</Value>
+            <Name>Wasserversorgung</Name>
+          </Option>
+          <Option>
+            <Value>591040</Value>
+            <Name>Integrale Versorgung</Name>
+          </Option>
+        </Selector>
+      </Group>
+    </Selector>
+  </Description>
+</GlobalInformation>
